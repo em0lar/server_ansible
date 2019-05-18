@@ -1,0 +1,5 @@
+---
+- name: download labcode.de from GitHub
+  git:
+    repo: 'https://github.com/labcode-de/labcode.de.git'
+    dest: /var/www/labcode.de/labcode.de

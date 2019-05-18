@@ -1,0 +1,10 @@
+---
+# file: site.yml
+- hosts: all
+  roles:
+#    - lbcd.packages
+    - general.users
+    - general.authentication
+    - general.packages
+- name: webserver
+  import_playbook: webserver.yaml

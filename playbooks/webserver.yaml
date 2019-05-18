@@ -1,0 +1,4 @@
+- hosts: test01
+  roles:
+  - webserver/nginx
+  - webserver/services/labcodede
