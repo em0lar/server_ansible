@@ -1,14 +1,14 @@
 server {
-    server_name labcodede.labcode.party;
-    root /var/www/labcode.de/labcode.de;
+    server_name bechillide.labcode.party;
+    root /var/www/bechilli.de/bechilli.de;
     index index.php index.html index.htm;
     {% include './templates/helpers/ssl_redirect.conf.j2' %}
 }
 
 server {
     listen 443 ssl;
-    server_name labcodede.labcode.party;
+    server_name bechillide.labcode.party;
 
-    root /var/www/labcode.de/labcode.de;
+    root /var/www/bechilli.de/bechilli.de;
     {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
 }
