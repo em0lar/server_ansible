@@ -19,7 +19,7 @@
 
 - name: Install vhosts
   block:
-    - template: src=vhosts/labcodede.labcode.party.j2 dest=/etc/nginx/vhosts/01_example.com
+    - template: src=vhosts/labcodede.labcode.party.j2 dest=/etc/nginx/vhosts/labcodede.labcode.party
       notify:
       - restart nginx
 #

@@ -2,5 +2,14 @@ server {
     server_name labcodede.labcode.party;
     root /var/www/labcode.de/labcode.de;
     index index.php index.html index.htm;
-    {% include './templates/acme.conf.j2' %}
+}
+
+server {
+    listen 443 ssl default_server;
+    server_name labcodede.labcode.party;
+
+    root /var/www/labcode.de/labcode.de;
+
+    ssl_certificate /etc/letsencrypt/live/labcode.party/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/labcode.party/privkey.pem;
 }
