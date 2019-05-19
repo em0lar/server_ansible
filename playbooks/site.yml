@@ -6,5 +6,5 @@
     - general.users
     - general.authentication
     - general.packages
-- name: webserver
-  import_playbook: webserver.yaml
+- name: web
+  import_playbook: web.yaml

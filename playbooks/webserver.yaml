@@ -1,5 +1,0 @@
-- hosts: test01
-  roles:
-  - webserver/nginx
-  - webserver/letsencrypt
-  - webserver/services/labcode.de

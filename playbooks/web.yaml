@@ -1,0 +1,6 @@
+- hosts: web
+  roles:
+  - web/nginx
+  - web/letsencrypt
+  - web/services/labcode.de
+  - web/services/bechilli.de
