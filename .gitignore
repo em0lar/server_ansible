@@ -1,3 +1,3 @@
 .idea
-roles/webserver/letsencrypt/vars/main.yml
+vars
 *.retry

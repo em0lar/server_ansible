@@ -1,12 +1,12 @@
-- name: Install certbot, python3 pip
+- name: Install certbot, python3 pip, python2/3 setuptools
   apt:
-    pkg: ['certbot', 'python3-pip']
+    pkg: ['certbot', 'python3-pip', 'python-setuptools', 'python3-setuptools']
     update_cache: true
     state: present
 
 - name: Install certbot-dns-cloudflare
   pip:
-    name: ['setuptools', 'wheel', 'certbot-dns-cloudflare']
+    name: ['wheel', 'certbot-dns-cloudflare']
     executable: pip3
 
 - name: Create Cloudflare API key file
@@ -15,7 +15,7 @@
     mode: 0600
     content: |
       dns_cloudflare_api_key = {{ cloudflare_api_key }}
-      dns_cloudflare_email = webmaster@labcode.de
+      dns_cloudflare_email = {{ cloudflare_email }}
 
 - name: Change Let's Encrypt API to v2
   lineinfile:
@@ -24,6 +24,7 @@
 
 - name: Generate Certificate for Domains
   shell: certbot certonly -d *.labcode.party --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
+  notify: restart nginx
 #  shell: ./certbot-auto --authenticator standalone --installer nginx -d '{{ domain_example }}' -d '{{ domain_wiki }}' -d '{{ domain_nagios }}' --email example@gmail.com --agree-tos -n --no-verify-ssl --pre-hook "sudo systemctl stop nginx" --post-hook "sudo systemctl start nginx" --redirect
 #
 #- name: Restart Nginx
