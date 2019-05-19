@@ -2,3 +2,4 @@
   roles:
   - webserver/nginx
   - webserver/services/labcodede
+  - webserver/letsencrypt

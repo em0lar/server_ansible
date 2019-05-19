@@ -22,6 +22,9 @@
     - template: src=vhosts/labcodede.labcode.party.j2 dest=/etc/nginx/vhosts/01_example.com
       notify:
       - restart nginx
+#
+#- name: Install Let's Encrypt ACME conf
+#  template: src=acme.conf.j2 dest=/etc/nginx/conf.d/acme.conf
 
 - name: Install config
   template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf

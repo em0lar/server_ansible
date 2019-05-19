@@ -1,0 +1,32 @@
+- name: Install certbot, python3 pip
+  apt:
+    pkg: ['certbot', 'python3-pip']
+    update_cache: true
+    state: present
+
+- name: Install certbot-dns-cloudflare
+  pip:
+    name: ['setuptools', 'wheel', 'certbot-dns-cloudflare']
+    executable: pip3
+
+- name: Create Cloudflare API key file
+  copy:
+    dest: "/etc/letsencrypt/dnscloudflare.ini"
+    mode: 0600
+    content: |
+      dns_cloudflare_api_key = {{ cloudflare_api_key }}
+      dns_cloudflare_email = webmaster@labcode.de
+
+#- git:
+#    repo: 'https://github.com/certbot/certbot'
+#    dest: /opt/letsencrypt
+#    update: yes
+#
+#- name: Generate Certificate for Domains
+#  shell: certbot certonly --webroot -w /var/www/example -d example.com -d www.example.com -w /var/www/thing -d thing.is -d m.thing.is
+##  shell: ./certbot-auto --authenticator standalone --installer nginx -d '{{ domain_example }}' -d '{{ domain_wiki }}' -d '{{ domain_nagios }}' --email example@gmail.com --agree-tos -n --no-verify-ssl --pre-hook "sudo systemctl stop nginx" --post-hook "sudo systemctl start nginx" --redirect
+#  args:
+#    chdir: /opt/letsencrypt
+#
+#- name: Restart Nginx
+#systemd: name=nginx.service state=restarted

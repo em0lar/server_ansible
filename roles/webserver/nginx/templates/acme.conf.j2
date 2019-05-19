@@ -1,0 +1,6 @@
+location /.well-known/acme-challenge {
+    alias /var/www/letsencrypt/.well-known/acme-challenge;
+    location ~ /.well-known/acme-challenge/(.*) {
+        default_type text/plain;
+    }
+}
