@@ -1,8 +1,23 @@
 ---
+- name: add nginx gpg key for apt repository
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: ABF5BD827BD9BF62
+
+- name: enable nginx apt repository (deb)
+  apt_repository:
+    repo: deb http://nginx.org/packages/debian/ stretch nginx
+    state: present
+
+- name: enable nginx apt repository (deb-src)
+  apt_repository:
+    repo: deb-src http://nginx.org/packages/debian/ stretch nginx
+    state: present
+
 - name: install nginx
   apt:
     pkg: ['nginx']
-    state: present
+    state: latest
 
 - name: Create vhosts directory
   file:
