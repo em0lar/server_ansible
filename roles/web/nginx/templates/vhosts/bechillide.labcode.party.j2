@@ -10,5 +10,6 @@ server {
     server_name bechillide.labcode.party;
 
     root /var/www/bechilli.de/bechilli.de;
+    {% include './templates/helpers/ssl_hsts.conf.j2' %}
     {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
 }
