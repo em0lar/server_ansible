@@ -1,15 +1,16 @@
-server {
-    server_name bechillide.labcode.party;
-    root /var/www/bechilli.de/bechilli.de;
-    index index.php index.html index.htm;
-    {% include './templates/helpers/ssl_redirect.conf.j2' %}
-}
+    server {
+        server_name bechillide.labcode.party;
+        root /var/www/bechilli.de/bechilli.de;
+        index index.php index.html index.htm;
+        {% include './templates/helpers/ssl_redirect.conf.j2' %}
+    }
 
-server {
-    listen 443 ssl http2;
-    server_name bechillide.labcode.party;
+    server {
+        listen 443 ssl http2;
+        server_name bechillide.labcode.party;
 
-    root /var/www/bechilli.de/bechilli.de;
-    {% include './templates/helpers/ssl_hsts.conf.j2' %}
-    {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
-}
+        root /var/www/bechilli.de/bechilli.de;
+        {% include './templates/helpers/security.conf.j2' %}
+        {% include './templates/helpers/ssl_hsts.conf.j2' %}
+        {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
+    }
