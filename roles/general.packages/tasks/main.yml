@@ -3,3 +3,8 @@
   apt:
     pkg: ['git']
     state: present
+
+- name: install policykit1
+  apt:
+    pkg: ['policykit-1']
+    state: present

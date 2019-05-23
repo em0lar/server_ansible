@@ -3,3 +3,4 @@ ssl_certificate_key /etc/letsencrypt/live/labcode.party/privkey.pem;
 ssl_protocols TLSv1.2 TLSv1.3;
 ssl_prefer_server_ciphers   on;
 ssl_ciphers "ECDH+AESGCM:ECDH+AES256:!aNULL:!MD5:!DSS:!DH:!AES128";
+ssl_ecdh_curve secp384r1;
