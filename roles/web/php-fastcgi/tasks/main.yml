@@ -1,0 +1,13 @@
+- name: download GPG Key from php repository (sury)
+  get_url:
+    url: https://packages.sury.org/php/apt.gpg
+    dest: /etc/apt/trusted.gpg.d/php.gpg
+
+- name: enable php repository (sury)
+  apt_repository:
+    repo: deb https://packages.sury.org/php/ stretch main
+    state: present
+
+- name: install php 7.3 fpm
+  apt:
+    pkg: ['php7.3-fpm']
