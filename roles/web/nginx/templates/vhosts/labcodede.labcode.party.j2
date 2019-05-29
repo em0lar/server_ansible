@@ -9,7 +9,7 @@ server {
     server_name labcodede.labcode.party;
 
     root /var/www/labcode.de/labcode.de;
-    {% include './templates/helpers/security.conf.j2' %}
+    {% include './templates/helpers/general.conf.j2' %}
     {% include './templates/helpers/ssl_hsts.conf.j2' %}
     {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
 }
