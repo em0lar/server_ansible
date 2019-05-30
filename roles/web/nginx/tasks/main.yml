@@ -6,12 +6,12 @@
 
 - name: enable nginx apt repository (deb)
   apt_repository:
-    repo: deb http://nginx.org/packages/debian/ stretch nginx
+    repo: deb http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx
     state: present
 
 - name: enable nginx apt repository (deb-src)
   apt_repository:
-    repo: deb-src http://nginx.org/packages/debian/ stretch nginx
+    repo: deb-src http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx
     state: present
 
 - name: install nginx

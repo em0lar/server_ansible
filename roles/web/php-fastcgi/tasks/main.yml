@@ -5,7 +5,7 @@
 
 - name: enable php repository (sury)
   apt_repository:
-    repo: deb https://packages.sury.org/php/ stretch main
+    repo: deb https://packages.sury.org/php/ {{ ansible_distribution_release }} main
     state: present
 
 - name: install php 7.3 fpm
