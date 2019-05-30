@@ -1,0 +1,15 @@
+server {
+   listen 80 default_server;
+   server_name _;
+
+   root /var/www/labcode.de/labcode.de;
+
+}
+server {
+    listen 443 ssl http2 default_server;
+    server_name _;
+
+    root /var/www/labcode.de/labcode.de;
+    {% include './templates/helpers/general.conf.j2' %}
+    {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
+}
