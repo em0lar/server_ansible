@@ -7,4 +7,44 @@
 - name: install policykit1
   apt:
     pkg: ['policykit-1']
+
+- name: Install python3 pip, python2/3 setuptools
+  apt:
+    pkg: ['python3-pip', 'python-pip', 'python-setuptools', 'python3-setuptools']
+    update_cache: true
     state: present
+
+- name: Add Docker apt key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    state: present
+
+- name: Add Docker repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/{{ ansible_distribution|lower }} {{ ansible_distribution_release }} stable"
+    state: present
+
+- name: Install docker-py
+  pip:
+    name: ['docker-py']
+    version: 1.10.6
+    executable: pip2
+
+
+- name: Install docker-comose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-{{ ansible_system }}-{{ ansible_machine }}
+    dest: /usr/local/bin/docker-compose
+    mode: +x
+
+- name: Install docker
+  package:
+    name: "docker-ce"
+    state: present
+
+- name: Ensure docker service is started and enabled at boot
+  service:
+    name: "docker"
+    state: started
+    enabled: true

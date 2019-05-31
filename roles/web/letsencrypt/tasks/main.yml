@@ -1,6 +1,6 @@
 - name: Install certbot, python3 pip, python2/3 setuptools
   apt:
-    pkg: ['certbot', 'python3-pip', 'python-setuptools', 'python3-setuptools']
+    pkg: ['certbot']
     update_cache: true
     state: present
 
