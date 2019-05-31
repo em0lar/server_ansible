@@ -34,10 +34,10 @@
 
 - name: Install vhosts
   block:
-    - template: src=vhosts/labcodede.labcode.party.j2 dest=/etc/nginx/vhosts/labcodede.labcode.party
+    - template: src=vhosts/labcode.de.j2 dest=/etc/nginx/vhosts/labcode.de
       notify:
       - reload nginx
-    - template: src=vhosts/bechillide.labcode.party.j2 dest=/etc/nginx/vhosts/bechillide.labcode.party
+    - template: src=vhosts/bechilli.de.j2 dest=/etc/nginx/vhosts/bechilli.de
       notify:
       - reload nginx
     - template: src=vhosts/cloud.leomaroni.de.j2 dest=/etc/nginx/vhosts/cloud.leomaroni.de

@@ -1,4 +1,3 @@
 .idea
-roles/web/letsencrypt/vars
 *.retry
 .vault_pass
