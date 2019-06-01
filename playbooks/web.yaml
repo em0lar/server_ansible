@@ -3,6 +3,4 @@
   - web/php-fastcgi
   - web/nginx
   - web/letsencrypt
-  - web/services/leomaroni.de/cloud.leomaroni.de
-  - web/services/labcode.de/labcode.de
-  - web/services/bechilli.de/bechilli.de
+  - web/services
