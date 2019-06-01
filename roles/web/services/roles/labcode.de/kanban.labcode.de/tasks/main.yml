@@ -1,0 +1,30 @@
+---
+- name: Create /docker/labcode.de/kanban.labcode.de directory
+  file:
+    path: '/docker/labcode.de/kanban.labcode.de'
+    state: directory
+    recurse: yes
+
+- name: Create/Launch docker container kanban.labcode.de-db
+  docker_container:
+    image: mongo:4
+    name: kanban.labcode.de-db
+    command: mongod --smallfiles --oplogSize 128
+    volumes:
+      - /docker/labcode.de/kanban.labcode.de/data:/data/db
+      - /docker/labcode.de/kanban.labcode.de/dump:/dump
+
+- name: Create/launch docker container kanban.labcode.de-app
+  docker_container:
+    image: quay.io/wekan/wekan
+    name: kanban.labcode.de-app
+    links:
+      - kanban.labcode.de-db:db
+    ports:
+      - 40002:8080
+    env:
+      MONGO_URL: mongodb://db:27017/wekan
+      ROOT_URL: https://kanban.labcode.de
+      MAIL_URL: 'smtps://{{ smtp_user }}:{{ smtp_password }}@mail.labcode.de:465'
+      MAIL_FROM: 'LabCode Wekan <no-reply@labcode.de>'
+
