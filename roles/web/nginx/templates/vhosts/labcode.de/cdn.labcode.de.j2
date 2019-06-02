@@ -1,0 +1,15 @@
+server {
+    server_name cdn-labcode-de.labcode.party;
+    root /var/www/labcode.de/cdn.labcode.de;
+    {% include './templates/helpers/ssl_redirect.conf.j2' %}
+}
+
+server {
+    listen 443 ssl http2;
+    server_name cdn-labcode-de.labcode.party;
+
+    root /var/www/labcode.de/cdn.labcode.de;
+    {% include './templates/helpers/general.conf.j2' %}
+    {% include './templates/helpers/ssl_hsts.conf.j2' %}
+    {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
+}
