@@ -10,7 +10,7 @@
     image: mariadb
     name: cloud.leomaroni.de-db
     volumes:
-      - db:/var/lib/mysql
+      - /docker/leomaroni.de/cloud.leomaroni.de/db-data:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
     env:
       MYSQL_ROOT_PASSWORD: "{{ nextcloud_db_root_password }}"
@@ -25,7 +25,6 @@
     links:
       - cloud.leomaroni.de-db:db
     volumes:
-      - nextcloud:/var/www/html
       - /docker/leomaroni.de/cloud.leomaroni.de/config:/var/www/html/config
       - /docker/leomaroni.de/cloud.leomaroni.de/custom_apps:/var/www/html/custom_apps
       - /docker/leomaroni.de/cloud.leomaroni.de/data:/var/www/html/data

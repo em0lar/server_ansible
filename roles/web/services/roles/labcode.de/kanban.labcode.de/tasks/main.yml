@@ -11,8 +11,8 @@
     name: kanban.labcode.de-db
     command: mongod --smallfiles --oplogSize 128
     volumes:
-      - /docker/labcode.de/kanban.labcode.de/data:/data/db
-      - /docker/labcode.de/kanban.labcode.de/dump:/dump
+      - /docker/labcode.de/kanban.labcode.de/db-data:/data/db
+      - /docker/labcode.de/kanban.labcode.de/db-dump:/dump
 
 - name: Create/launch docker container kanban.labcode.de-app
   docker_container:
