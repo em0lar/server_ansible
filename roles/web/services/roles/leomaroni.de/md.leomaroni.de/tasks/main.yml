@@ -1,0 +1,30 @@
+---
+- name: Create /docker/leomaroni.de/cloud.leomaroni.de directory
+  file:
+    path: '/docker/leomaroni.de/cloud.leomaroni.de'
+    state: directory
+    recurse: yes
+
+- name: Create/Launch docker container md.leomaroni.de-db
+  docker_container:
+    image: mariadb:10
+    name: md.leomaroni.de-db
+    env:
+      MYSQL_USER: "{{ hackmd_db_user }}"
+      MYSQL_PASSWORD: "{{ hackmd_db_password }}"
+      MYSQL_DATABASE: "{{ hackmd_db_database }}"
+      MYSQL_ROOT_PASSWORD: "{{ hackmd_db_root_password }}"
+    volumes:
+      - /docker/leomaroni.de/md.leomaroni.de/db-data:/var/lib/mysql
+      - ./resources/utf8.cnf:/etc/mysql/conf.d/utf8.cnf
+
+- name: Create/launch docker container md.leomaroni.de-app
+  docker_container:
+    image: hackmdio/hackmd:1.2.0
+    name: md.leomaroni.de-app
+    links:
+      - md.leomaroni.de-db:db
+    ports:
+      127.0.0.1:40003:3000
+    env:
+      HMD_DB_URL: "mysql://{{ hackmd_db_user }}:{{ hackmd_db_password }}@db:3306/{{ hackmd_db_database }}"
