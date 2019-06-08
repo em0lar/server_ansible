@@ -1,5 +1,5 @@
 ---
 - name: download bechilli.de from GitLab
   git:
-    repo: 'https://labcode-de:{{ vault_gitlab_password }}@gitlab.com/labcode_dev/bechilli/bechilli.de.git'
+    repo: 'https://labcode-de:{{ vault_web_gitlab_password }}@gitlab.com/labcode_dev/bechilli/bechilli.de.git'
     dest: /var/www/bechilli.de/bechilli.de
