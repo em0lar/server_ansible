@@ -1,0 +1,24 @@
+---
+- name: install ufw
+  apt:
+    pkg: ufw
+    state: present
+
+- name: default deny everything
+  ufw:
+    default: deny
+
+- name: allow openssh
+  ufw:
+    rule: allow
+    proto: tcp
+    port: "{{ vault_general_ssh_port }}"
+
+- name: allow www
+  ufw:
+    rule: allow
+    name: WWW Full
+
+- name: enable ufw
+  ufw:
+    state: enabled

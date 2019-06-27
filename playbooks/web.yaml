@@ -1,5 +1,6 @@
 - hosts: web
   roles:
+  - web/ufw
   - web/php-fastcgi
   - web/nginx
   - web/letsencrypt
