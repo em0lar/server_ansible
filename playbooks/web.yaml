@@ -2,6 +2,6 @@
   roles:
   - web/ufw
   - web/php-fastcgi
-  - web/nginx
   - web/letsencrypt
+  - web/nginx
   - web/services
