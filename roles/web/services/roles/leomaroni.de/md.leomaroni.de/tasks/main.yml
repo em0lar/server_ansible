@@ -1,7 +1,7 @@
 ---
-- name: Create /docker/leomaroni.de/cloud.leomaroni.de directory
+- name: Create /docker/leomaroni.de/md.leomaroni.de directory
   file:
-    path: '/docker/leomaroni.de/cloud.leomaroni.de'
+    path: '/docker/leomaroni.de/md.leomaroni.de'
     state: directory
     recurse: yes
 
