@@ -1,0 +1,20 @@
+---
+- name: download opendatamap.net from GitHub
+  git:
+    repo: 'https://github.com/OpenDataMap/opendatamap.net.git'
+    dest: /var/www/opendatamap.net/opendatamap.net
+
+- name: Change opendatamap.net ownership
+  file:
+    path: /var/www/opendatamap.net/opendatamap.net
+    owner: leo
+    group: users
+    recurse: yes
+
+- name: build jekyll
+  docker_container:
+    image: jekyll/builder:3.8.5
+    name: opendatamap.net-builder
+    volumes:
+      - /var/www/opendatamap.net/opendatamap.net:/srv/jekyll
+    command: jekyll build
