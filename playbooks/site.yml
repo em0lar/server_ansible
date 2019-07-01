@@ -2,10 +2,9 @@
 # file: site.yml
 - hosts: all
   roles:
-#    - lbcd.packages
+    - general.packages
     - general.users
     - general.authentication
-    - general.packages
     - general.unattended-upgrades
 - name: web
   import_playbook: web.yaml
