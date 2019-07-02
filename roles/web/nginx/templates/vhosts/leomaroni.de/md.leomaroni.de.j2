@@ -1,15 +1,15 @@
 server {
-    server_name md-leomaroni-de.labcode.party;
+    server_name md.leomaroni.de;
     {% include './templates/helpers/ssl_redirect.conf.j2' %}
 }
 
 server {
     listen 443 ssl http2;
-    server_name md-leomaroni-de.labcode.party;
+    server_name md.leomaroni.de;
 
     {% set proxypass_url="http://localhost:40003" %}
     {% include './templates/helpers/proxypass.conf.j2' %}
     {% include './templates/helpers/general.conf.j2' %}
     {% include './templates/helpers/ssl_hsts.conf.j2' %}
-    {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
+    {% include './templates/helpers/ssl_domains_leomaroni_de.conf.j2' %}
 }

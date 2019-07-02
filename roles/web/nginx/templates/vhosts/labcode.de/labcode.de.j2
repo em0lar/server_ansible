@@ -1,15 +1,15 @@
 server {
-    server_name labcode-de.labcode.party www.labcode-de.labcode.party;
+    server_name labcode.de www.labcode.de;
     root /var/www/labcode.de/labcode.de;
     {% include './templates/helpers/ssl_redirect.conf.j2' %}
 }
 
 server {
     listen 443 ssl http2;
-    server_name labcode-de.labcode.party www.labcode-de.labcode.party;
+    server_name labcode.de www.labcode.de;
 
     root /var/www/labcode.de/labcode.de;
     {% include './templates/helpers/general.conf.j2' %}
     {% include './templates/helpers/ssl_hsts.conf.j2' %}
-    {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
+    {% include './templates/helpers/ssl_domains_labcode_de.conf.j2' %}
 }

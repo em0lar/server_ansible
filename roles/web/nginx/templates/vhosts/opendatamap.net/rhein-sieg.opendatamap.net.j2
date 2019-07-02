@@ -1,15 +1,15 @@
 server {
-    server_name rhein-sieg-opendatamap-net.labcode.party;
+    server_name rhein.sieg.opendatamap.net;
     {% include './templates/helpers/ssl_redirect.conf.j2' %}
 }
 
 server {
     listen 443 ssl http2;
-    server_name rhein-sieg-opendatamap-net.labcode.party;
+    server_name rhein.sieg.opendatamap.net;
 
     {% set proxypass_url="http://51.15.20.74:3005" %}
     {% include './templates/helpers/proxypass.conf.j2' %}
     {% include './templates/helpers/general.conf.j2' %}
     {% include './templates/helpers/ssl_hsts.conf.j2' %}
-    {% include './templates/helpers/ssl_labcode_party.conf.j2' %}
+    {% include './templates/helpers/ssl_domains_opendatamap.net.conf.j2' %}
 }

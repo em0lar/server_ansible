@@ -22,10 +22,21 @@
     path: /etc/letsencrypt/cli.ini
     line: 'server = https://acme-staging-v02.api.letsencrypt.org/directory'
 
-- name: Generate Certificate for Domains
-  shell: certbot certonly -d *.labcode.party -d labcode.party --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
+- name: Generate Certificate for bechilli.de
+  shell: certbot certonly -d *.bechilli.de -d bechilli.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
   notify: reload nginx
 
+- name: Generate Certificate for labcode.de
+  shell: certbot certonly -d *.labcode.de -d labcode.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
+  notify: reload nginx
+
+- name: Generate Certificate for leomaroni.de
+  shell: certbot certonly -d *.leomaroni.de -d leomaroni.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
+  notify: reload nginx
+
+- name: Generate Certificate for opendatamap.net
+  shell: certbot certonly -d *.opendatamap.net -d opendatamap.net --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
+  notify: reload nginx
 
 - name: remove certbot standard cronjob
   file:
