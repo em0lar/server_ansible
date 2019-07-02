@@ -38,3 +38,9 @@
     special_time: monthly
     job: "/usr/bin/env certbot renew --post-hook 'systemctl restart nginx'"
     user: root
+
+
+- name: Add dhparam key by mozilla
+  get_url:
+    url: https://ssl-config.mozilla.org/ffdhe2048.txt
+    dest: /etc/ssl/private/dhparam.pem
