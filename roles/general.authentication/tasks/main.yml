@@ -24,7 +24,7 @@
   - key: PrintLastLog
     value: 'no'
   - key: Port
-    value: {{ vault_general_ssh_port }}
+    value: "{{ vault_general_ssh_port }}"
 
   notify:
   - reload ssh
