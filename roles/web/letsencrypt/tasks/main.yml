@@ -20,7 +20,7 @@
 - name: Change Let's Encrypt API to v2
   lineinfile:
     path: /etc/letsencrypt/cli.ini
-    line: 'server = https://acme-staging-v02.api.letsencrypt.org/directory'
+    line: 'server = https://acme-v02.api.letsencrypt.org/directory'
 
 - name: Generate Certificate for bechilli.de
   shell: certbot certonly -d *.bechilli.de -d bechilli.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
