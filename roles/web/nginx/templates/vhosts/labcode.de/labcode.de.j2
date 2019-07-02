@@ -1,4 +1,6 @@
 server {
+    listen 80;
+    listen [::]:80;
     server_name labcode.de www.labcode.de;
     root /var/www/labcode.de/labcode.de;
     {% include './templates/helpers/ssl_redirect.conf.j2' %}
@@ -6,6 +8,7 @@ server {
 
 server {
     listen 443 ssl http2;
+    listen [::]:443 ssl http2;
     server_name labcode.de www.labcode.de;
 
     root /var/www/labcode.de/labcode.de;
