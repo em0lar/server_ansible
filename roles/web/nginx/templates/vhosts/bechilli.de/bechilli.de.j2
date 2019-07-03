@@ -10,8 +10,9 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
     server_name bechilli.de www.bechilli.de;
-    try_files $uri $uri/ @rewrites;
-
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
     root /var/www/bechilli.de/bechilli.de;
     {% include './templates/helpers/php.conf.j2' %}
     {% include './templates/helpers/general.conf.j2' %}
