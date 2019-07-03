@@ -12,6 +12,7 @@ server {
     server_name cdn.labcode.de;
 
     root /var/www/labcode.de/cdn.labcode.de;
+    add_header 'Access-Control-Allow-Origin' '*';
     {% include './templates/helpers/general.conf.j2' %}
     {% include './templates/helpers/ssl_hsts.conf.j2' %}
     {% include './templates/helpers/ssl_domains_labcode_de.conf.j2' %}
