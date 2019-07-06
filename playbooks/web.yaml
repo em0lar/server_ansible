@@ -5,3 +5,4 @@
   - web/letsencrypt
   - web/nginx
   - web/services
+  - web/directory-permissions

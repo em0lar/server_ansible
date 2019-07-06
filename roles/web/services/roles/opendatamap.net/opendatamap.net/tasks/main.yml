@@ -18,3 +18,6 @@
     volumes:
       - /var/www/opendatamap.net/opendatamap.net:/srv/jekyll
     command: jekyll build
+    env:
+      JEKYLL_UID: "1001"
+      JEKYLL_GID: "1001"
