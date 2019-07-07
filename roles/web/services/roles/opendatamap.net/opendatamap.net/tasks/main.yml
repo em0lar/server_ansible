@@ -15,6 +15,7 @@
   docker_container:
     image: jekyll/builder:3.8.5
     name: opendatamap.net-builder
+    auto_remove: yes
     volumes:
       - /var/www/opendatamap.net/opendatamap.net:/srv/jekyll
     command: jekyll build
