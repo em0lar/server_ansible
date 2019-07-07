@@ -1,0 +1,13 @@
+---
+- name: download docs.opendatamap.net from GitHub
+  git:
+    repo: 'https://github.com/OpenDataMap/docs.git'
+    dest: /var/www/opendatamap.net/docs.opendatamap.net
+
+- name: build mkdocs
+  docker_container:
+    image: squidfunk/mkdocs-material
+    name: docs.opendatamap.net-builder
+    volumes:
+      - /var/www/opendatamap.net/docs.opendatamap.net:/docs
+    command: build
