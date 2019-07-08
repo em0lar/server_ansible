@@ -7,7 +7,7 @@
 
 - name: Create/Launch docker container cloud.leomaroni.de-mariadb
   docker_container:
-    image: mariadb
+    image: mariadb:10
     name: cloud.leomaroni.de-db
     volumes:
       - /docker/leomaroni.de/cloud.leomaroni.de/db-data:/var/lib/mysql

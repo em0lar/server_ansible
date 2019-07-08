@@ -16,7 +16,7 @@
 
 - name: Create/launch docker container kanban.labcode.de-app
   docker_container:
-    image: quay.io/wekan/wekan
+    image: quay.io/wekan/wekan:master
     name: kanban.labcode.de-app
     links:
       - kanban.labcode.de-db:db

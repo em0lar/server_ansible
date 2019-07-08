@@ -20,7 +20,7 @@
 
 - name: Create/launch docker container md.leomaroni.de-app
   docker_container:
-    image: hackmdio/hackmd:1.2.0
+    image: hackmdio/hackmd:alpine
     name: md.leomaroni.de-app
     links:
       - md.leomaroni.de-db:db
