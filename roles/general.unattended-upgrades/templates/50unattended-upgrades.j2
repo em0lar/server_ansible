@@ -1,9 +1,6 @@
 Unattended-Upgrade::Mail "webmaster@labcode.de";
 Unattended-Upgrade::Origins-Pattern {
-        "o=Debian,a=stable";
-        "o=Debian,a=stable-updates";
-        "o=Debian,a=proposed-updates";
-        "origin=Debian,codename=${distro_codename},label=Debian-Security";
+    "origin=*";
 };
 
 // List of packages to not update (regexp are supported)
