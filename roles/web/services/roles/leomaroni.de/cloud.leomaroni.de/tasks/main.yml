@@ -9,6 +9,7 @@
   docker_container:
     image: mariadb:10
     name: cloud.leomaroni.de-db
+    restart_policy: always
     volumes:
       - /docker/leomaroni.de/cloud.leomaroni.de/db-data:/var/lib/mysql
       - /etc/localtime:/etc/localtime:ro
@@ -22,6 +23,7 @@
   docker_container:
     image: nextcloud:latest
     name: cloud.leomaroni.de-app
+    restart_policy: always
     links:
       - cloud.leomaroni.de-db:db
     volumes:

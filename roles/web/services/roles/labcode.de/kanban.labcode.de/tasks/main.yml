@@ -10,6 +10,7 @@
     image: mongo:4
     name: kanban.labcode.de-db
     command: mongod --smallfiles --oplogSize 128
+    restart_policy: always 
     volumes:
       - /docker/labcode.de/kanban.labcode.de/db-data:/data/db
       - /docker/labcode.de/kanban.labcode.de/db-dump:/dump
@@ -22,6 +23,7 @@
       - kanban.labcode.de-db:db
     ports:
       - 40002:8080
+    restart_policy: always
     env:
       MONGO_URL: mongodb://db:27017/wekan
       ROOT_URL: https://kanban.labcode.de

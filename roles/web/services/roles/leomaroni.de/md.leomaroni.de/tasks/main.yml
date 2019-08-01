@@ -9,6 +9,7 @@
   docker_container:
     image: mariadb:10
     name: md.leomaroni.de-db
+    restart_policy: always
     env:
       MYSQL_USER: "{{ hackmd_db_user }}"
       MYSQL_PASSWORD: "{{ hackmd_db_password }}"
@@ -22,6 +23,7 @@
   docker_container:
     image: hackmdio/hackmd:alpine
     name: md.leomaroni.de-app
+    restart_policy: always
     links:
       - md.leomaroni.de-db:db
     ports:
