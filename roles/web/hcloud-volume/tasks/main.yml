@@ -1,7 +1,0 @@
-- name: Mount volume-nbg1-web_docker hcloud volume
-  mount:
-    path: /docker
-    src: /dev/disk/by-id/scsi-0HC_Volume_2887694
-    opts: discard,defaults
-    fstype: ext4
-    state: mounted
