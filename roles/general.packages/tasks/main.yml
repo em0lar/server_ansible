@@ -32,7 +32,7 @@
     executable: pip2
 
 
-- name: Install docker-comose
+- name: Install docker-compose
   get_url:
     url: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-{{ ansible_system }}-{{ ansible_machine }}
     dest: /usr/local/bin/docker-compose
@@ -48,3 +48,7 @@
     name: "docker"
     state: started
     enabled: true
+
+- name: Install mosh
+  apt:
+    pkg: ["mosh"]
