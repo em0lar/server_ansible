@@ -1,0 +1,32 @@
+---
+- name: Create /docker/labcode.dev/kanabn-iot.labcode.dev directory
+  file:
+    path: '/docker/labcode.dev/kanabn-iot.labcode.dev'
+    state: directory
+    recurse: yes
+
+- name: Create/Launch docker container kanabn-iot.labcode.dev-db
+  docker_container:
+    image: mongo:4
+    name: kanabn-iot.labcode.dev-db
+    command: mongod --smallfiles --oplogSize 128
+    restart_policy: always 
+    volumes:
+      - /docker/labcode.dev/kanabn-iot.labcode.dev/db-data:/data/db
+      - /docker/labcode.dev/kanabn-iot.labcode.dev/db-dump:/dump
+
+- name: Create/launch docker container kanabn-iot.labcode.dev-app
+  docker_container:
+    image: quay.io/wekan/wekan:master
+    name: kanabn-iot.labcode.dev-app
+    links:
+      - kanabn-iot.labcode.dev-db:db
+    ports:
+      - 127.0.0.1:40004:8080
+    restart_policy: always
+    env:
+      MONGO_URL: mongodb://db:27017/wekan
+      ROOT_URL: https://kanabn-iot.labcode.dev
+      MAIL_URL: 'smtps://{{ smtp_user }}:{{ smtp_password }}@mail.opendatamap.net:587'
+      MAIL_FROM: 'LoRaWAN Kanban <no-reply@opendatamap.net>'
+

@@ -30,6 +30,10 @@
   shell: certbot certonly -d *.labcode.de -d labcode.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
   notify: reload nginx
 
+- name: Generate Certificate for labcode.dev
+    shell: certbot certonly -d *.labcode.dev -d labcode.dev --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
+  notify: reload nginx
+
 - name: Generate Certificate for leomaroni.de
   shell: certbot certonly -d *.leomaroni.de -d leomaroni.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
   notify: reload nginx
