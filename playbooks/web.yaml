@@ -1,7 +1,6 @@
 - hosts: web
   roles:
   - web/ufw
-  - web/docker-watchtower
   - web/php-fastcgi
   - web/letsencrypt
   - web/nginx
