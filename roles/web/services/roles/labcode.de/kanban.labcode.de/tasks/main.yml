@@ -9,8 +9,7 @@
   docker_container:
     image: mongo:4
     name: kanban.labcode.de-db
-    command: mongod --smallfiles --oplogSize 128
-    restart_policy: always 
+    restart_policy: always
     volumes:
       - /docker/labcode.de/kanban.labcode.de/db-data:/data/db
       - /docker/labcode.de/kanban.labcode.de/db-dump:/dump
