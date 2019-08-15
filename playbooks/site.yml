@@ -3,8 +3,6 @@
 - hosts: all
   roles:
     - general.packages
-    - general.users
     - general.authentication
-    - general.unattended-upgrades
 - name: web
-  import_playbook: web.yaml
+  import_playbook: web.yml

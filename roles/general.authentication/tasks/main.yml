@@ -1,30 +1,9 @@
 ---
-# tasks file for lbcd.authentication
+- name: Add users
+  include_tasks: users.yml
 
-- name: Disable password based sudo for users in group sudo and enable password less sudo
-  lineinfile:
-    dest: "/etc/sudoers"
-    regexp: '^%sudo'
-    line: "%sudo ALL=(ALL) NOPASSWD: ALL"
-    validate: 'visudo -cf %s'
+- name: Change sudo configuration
+  include_tasks: sudo.yml
 
-- name: Update SSH configuration
-  replace: >
-    dest=/etc/ssh/sshd_config
-    regexp="^([\#\s]*)?{{item.key}}\s+([\w_-]+)"
-    replace="{{item.key}} {{item.value}}"
-    backup=yes
-  with_items:
-  - key: PermitRootLogin
-    value: 'no'
-  - key: PasswordAuthentication
-    value: 'no'
-  - key: ChallengeResponseAuthentication
-    value: 'no'
-  - key: PrintLastLog
-    value: 'no'
-  - key: Port
-    value: "{{ vault_general_ssh_port }}"
-
-  notify:
-  - reload ssh
+- name: Change SSH configuration
+  include_tasks: ssh.yml

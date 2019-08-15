@@ -1,6 +1,3 @@
----
-# tasks file for lbcd.users
-
 - name: Add user leo
   user:
     name: leo
