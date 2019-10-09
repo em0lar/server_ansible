@@ -1,0 +1,19 @@
+version: "2.1"
+volumes:
+  # Storage for email files
+  vmail-vol-1:
+    driver_opts:
+      type: none
+      device: /volume/docker/data/mailcow/vmail
+      o: bind
+  # Storage for attachments (deduplicated)
+  vmail-attachments-vol-1:
+    driver_opts:
+      type: none
+      device: /volume/docker/data/mailcow/vmail_attachments
+      o: bind
+  mysql-vol-1:
+    driver_opts:
+      type: none
+      device: /volume/docker/data/mailcow/mysql
+      o: bind

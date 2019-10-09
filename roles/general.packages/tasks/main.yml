@@ -28,3 +28,6 @@
 
 - name: Install mosh
   include_tasks: mosh.yml
+
+- name: Install hcloud python libary
+  include_tasks: hcloud.yml

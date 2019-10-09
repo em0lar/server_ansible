@@ -1,8 +1,15 @@
 ---
 # file: site.yml
 - hosts: all
+  tags: general
   roles:
     - general.packages
     - general.authentication
+
 - name: web
+  tags: web
   import_playbook: web.yml
+
+- name: mail
+  tags: mail
+  import_playbook: mail.yml
