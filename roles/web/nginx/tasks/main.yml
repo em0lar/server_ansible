@@ -1,47 +1,29 @@
 ---
-- name: add nginx gpg key for apt repository
+- name: remove nginx gpg key for apt repository
   apt_key:
     keyserver: keyserver.ubuntu.com
     id: ABF5BD827BD9BF62
+    state: absent
 
-- name: enable nginx apt repository (deb)
-  apt_repository:
-    repo: deb http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx
-    state: present
+- name: remove nginx apt repository
+  file:
+    path: /etc/apt/sources.list.d/nginx_org_packages_debian.list
+    state: absent
 
-- name: enable nginx apt repository (deb-src)
-  apt_repository:
-    repo: deb-src http://nginx.org/packages/{{ ansible_distribution|lower }}/ {{ ansible_distribution_release }} nginx
-    state: present
-
-- name: install nginx
+- name: remove nginx
   apt:
     pkg: ['nginx']
-    state: latest
+    state: absent
 
-- name: Create vhosts directory
+- name: Delete vhosts directory
   file:
     path: '/etc/nginx/vhosts'
     mode: 0755
-    state: directory
+    state: absent
     owner: root
     group: root
 
-- name: Disable default site configuration
+- name: Remove nginx config
   file:
-    dest: /etc/nginx/sites-enabled/default
+    path: '/etc/nginx/nginx.conf'
     state: absent
-
-- name: Install vhosts
-  block:
-    - template:
-        src: '{{ item.src }}'
-        dest: '/etc/nginx/vhosts/{{ item.path.split("/")[1] | replace(".j2","") }}'
-      with_filetree: 'templates/vhosts/'
-      when: item.state == 'file'
-      notify:
-      - reload nginx
-- name: Install config
-  template: src=nginx.conf.j2 dest=/etc/nginx/nginx.conf
-  notify:
-  - reload nginx

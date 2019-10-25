@@ -4,5 +4,6 @@
   - web/php-fastcgi
   - web/letsencrypt
   - web/nginx
+  - web/traefik
   - web/services
   - web/directory-permissions

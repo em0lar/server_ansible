@@ -28,4 +28,11 @@
       ROOT_URL: https://kanban.labcode.de
       MAIL_URL: 'smtps://{{ smtp_user }}:{{ smtp_password }}@mail.labcode.de:465'
       MAIL_FROM: 'LabCode Wekan <no-reply@labcode.de>'
-
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.kanban-labcode-de_http.rule: "Host(`kanban.labcode.de`)"
+      traefik.http.routers.kanban-labcode-de_http.entryPoints: "http"
+      traefik.http.routers.kanban-labcode-de_http.middlewares: "https_redirect@file"
+      traefik.http.routers.kanban-labcode-de_https.rule: "Host(`kanban.labcode.de`)"
+      traefik.http.routers.kanban-labcode-de_https.entryPoints: "https"
+      traefik.http.routers.kanban-labcode-de_https.tls.certresolver: "le_tls"

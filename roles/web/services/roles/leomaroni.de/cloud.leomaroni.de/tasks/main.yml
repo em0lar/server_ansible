@@ -41,3 +41,11 @@
       MYSQL_PASSWORD: "{{ nextcloud_db_password }}"
       NEXTCLOUD_ADMIN_USER: "{{ nextcloud_admin_user }}"
       NEXTCLOUD_ADMIN_PASSWORD: "{{ nextcloud_admin_password }}"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.cloud-leomaroni-de_http.rule: "Host(`cloud.leomaroni.de`)"
+      traefik.http.routers.cloud-leomaroni-de_http.entryPoints: "http"
+      traefik.http.routers.cloud-leomaroni-de_http.middlewares: "https_redirect@file"
+      traefik.http.routers.cloud-leomaroni-de_https.rule: "Host(`cloud.leomaroni.de`)"
+      traefik.http.routers.cloud-leomaroni-de_https.entryPoints: "https"
+      traefik.http.routers.cloud-leomaroni-de_https.tls.certresolver: "le_tls"

@@ -1,13 +1,14 @@
-- name: download GPG Key from php repository (sury)
-  get_url:
-    url: https://packages.sury.org/php/apt.gpg
-    dest: /etc/apt/trusted.gpg.d/php.gpg
+- name: remove GPG Key from php repository (sury)
+  file:
+    path: /etc/apt/trusted.gpg.d/php.gpg
+    state: absent
 
-- name: enable php repository (sury)
+- name: disable php repository (sury)
   apt_repository:
     repo: deb https://packages.sury.org/php/ {{ ansible_distribution_release }} main
-    state: present
+    state: absent
 
-- name: install php 7.3 fpm
+- name: remove php 7.3 fpm
   apt:
     pkg: ['php7.3-fpm']
+    state: absent

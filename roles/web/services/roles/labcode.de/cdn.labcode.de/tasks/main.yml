@@ -3,3 +3,19 @@
   git:
     repo: 'https://labcode-de:{{ vault_web_gitlab_password }}@gitlab.com/labcode_dev/server/cdn.labcode.de.git'
     dest: /var/www/labcode.de/cdn.labcode.de
+
+- name: Create/launch docker container cdn.labcode.de-web
+  docker_container:
+    image: nginx:latest
+    name: cdn.labcode.de-web
+    volumes:
+      - /var/www/labcode.de/cdn.labcode.de:/usr/share/nginx/html
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.cdn-labcode-de_http.rule: "Host(`cdn.labcode.de`)"
+      traefik.http.routers.cdn-labcode-de_http.entryPoints: "http"
+      traefik.http.routers.cdn-labcode-de_http.middlewares: "https_redirect@file"
+      traefik.http.routers.cdn-labcode-de_https.rule: "Host(`cdn.labcode.de`)"
+      traefik.http.routers.cdn-labcode-de_https.entryPoints: "https"
+      traefik.http.routers.cdn-labcode-de_https.tls.certresolver: "le_tls"
+      traefik.http.routers.cdn-labcode-de_https.middlewares: "cors@file"

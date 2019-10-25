@@ -1,61 +1,35 @@
-- name: Install certbot
+- name: remove certbot
   apt:
     pkg: ['certbot']
     update_cache: true
-    state: present
+    state: absent
 
-- name: Install certbot-dns-cloudflare
+- name: remove certbot-dns-cloudflare
   pip:
     name: ['wheel', 'certbot-dns-cloudflare']
     executable: pip3
-
-- name: Create Cloudflare API key file
-  copy:
-    dest: "/etc/letsencrypt/dnscloudflare.ini"
-    mode: 0600
-    content: |
-      dns_cloudflare_api_key = {{ cloudflare_api_key }}
-      dns_cloudflare_email = {{ cloudflare_email }}
-
-- name: Change Let's Encrypt API to v2
-  lineinfile:
-    path: /etc/letsencrypt/cli.ini
-    line: 'server = https://acme-v02.api.letsencrypt.org/directory'
-
-- name: Generate Certificate for bechilli.de
-  shell: certbot certonly -d *.bechilli.de -d bechilli.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
-  notify: reload nginx
-
-- name: Generate Certificate for labcode.de
-  shell: certbot certonly -d *.labcode.de -d labcode.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
-  notify: reload nginx
-
-- name: Generate Certificate for labcode.dev
-  shell: certbot certonly -d *.labcode.dev -d labcode.dev --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
-  notify: reload nginx
-
-- name: Generate Certificate for leomaroni.de
-  shell: certbot certonly -d *.leomaroni.de -d leomaroni.de --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
-  notify: reload nginx
-
-- name: Generate Certificate for opendatamap.net
-  shell: certbot certonly -d *.opendatamap.net -d opendatamap.net --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini
-  notify: reload nginx
-
-- name: remove certbot standard cronjob
-  file:
-    path: /etc/cron.d/certbot
     state: absent
 
-- name: Add Cronjob doe renewing certificates every month
+- name: Remove Cloudflare API key file
+  file:
+    path: "/etc/letsencrypt/dnscloudflare.ini"
+    state: absent
+
+- name: remove rule for Let's Encrypt API to v2
+  file:
+    path: /etc/letsencrypt/cli.ini
+    state: absent
+
+- name: Remove Cronjob doe renewing certificates every month
   cron:
     name: renew letsencrypt certs
     special_time: monthly
     job: "/usr/bin/env certbot renew --post-hook 'systemctl restart nginx'"
     user: root
+    state: absent
 
 
-- name: Add dhparam key by mozilla
-  get_url:
-    url: https://ssl-config.mozilla.org/ffdhe2048.txt
-    dest: /etc/ssl/private/dhparam.pem
+- name: remove dhparam key by mozilla
+  file:
+    path: /etc/ssl/private/dhparam.pem
+    state: absent

@@ -35,3 +35,11 @@
       WORDPRESS_DB_USER: "{{ wordpress_db_user }}"
       WORDPRESS_DB_NAME: "{{ wordpress_db_database }}"
       WORDPRESS_DB_PASSWORD: "{{ wordpress_db_password }}"
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.bsvrs-web-labcode-dev_http.rule: "Host(`bsvrs-web.labcode.dev`)"
+      traefik.http.routers.bsvrs-web-labcode-dev_http.entryPoints: "http"
+      traefik.http.routers.bsvrs-web-labcode-dev_http.middlewares: "https_redirect@file"
+      traefik.http.routers.bsvrs-web-labcode-dev_https.rule: "Host(`bsvrs-web.labcode.dev`)"
+      traefik.http.routers.bsvrs-web-labcode-dev_https.entryPoints: "https"
+      traefik.http.routers.bsvrs-web-labcode-dev_https.tls.certresolver: "le_tls"
