@@ -9,6 +9,7 @@
   docker_container:
     image: php:7-apache
     name: bechillli.de-web
+    restart_policy: always
     volumes:
       - /var/www/bechilli.de/bechilli.de:/var/www/html
     labels:

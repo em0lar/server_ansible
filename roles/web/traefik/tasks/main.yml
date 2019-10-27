@@ -18,6 +18,7 @@
     name: traefik
     image: traefik:v2.0
     command: --api.insecure=true --providers.docker
+    restart_policy: always
     ports:
       - "80:80"
       - "443:443"

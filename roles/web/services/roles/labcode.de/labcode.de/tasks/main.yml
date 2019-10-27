@@ -11,6 +11,7 @@
     name: labcode.de-web
     volumes:
       - /var/www/labcode.de/labcode.de:/usr/share/nginx/html
+    restart_policy: always
     labels:
       traefik.enable: "true"
       traefik.http.routers.labcode-de_http.rule: "Host(`labcode.de`)"
