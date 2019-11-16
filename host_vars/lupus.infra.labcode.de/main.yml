@@ -1,0 +1,5 @@
+host:
+  hoster: hetzner_cloud
+  server_location: nbg1
+  server_name: lupus.infra.labcode.de
+  server_short_name: lupus

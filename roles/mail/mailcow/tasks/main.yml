@@ -1,0 +1,46 @@
+---
+- name: Clone mailcow-dockerized from GitHub
+  git:
+    repo: https://github.com/mailcow/mailcow-dockerized
+    version: master
+    dest: /docker/mailcow
+    update: no
+
+- name: Create mailcow.conf from template
+  template:
+    src: mailcow.conf.j2
+    dest: "/docker/mailcow/mailcow.conf"
+
+- name: Add docker-compose.override.yml from template
+  template:
+    src: docker-compose.override.yml.j2
+    dest: "/docker/mailcow/docker-compose.override.yml"
+
+- name: Create folders for docker volumes part 1
+  file:
+    path: /volume/docker/data/mailcow/vmail
+    recurse: true
+    state: directory
+
+- name: Create folders for docker volumes part 2
+  file:
+    path: /volume/docker/data/mailcow/vmail_attachments
+    recurse: true
+    state: directory
+
+- name: Create folders for docker volumes part 3
+  file:
+    path: /volume/docker/data/mailcow/mysql
+    recurse: true
+    state: directory
+
+- name: Pull mailcow docker containers
+  docker_compose:
+    project_src: "/docker/mailcow"
+    pull: yes
+    state: present
+
+- name: Start mailcow docker containers
+  docker_compose:
+    project_src: "/docker/mailcow"
+    state: present

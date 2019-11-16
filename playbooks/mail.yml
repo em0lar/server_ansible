@@ -1,0 +1,6 @@
+- hosts: mail
+  roles:
+    - mail/hcloud-volume
+    - mail/hcloud-interface-fix
+    - mail/mailcow
+    - mail/nextcloud

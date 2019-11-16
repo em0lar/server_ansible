@@ -1,5 +1,8 @@
 [web]
 lupus.infra.labcode.de
 
+[mail]
+test01-mail.infra.labcode.de
+
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3

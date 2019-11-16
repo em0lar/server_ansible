@@ -1,0 +1,8 @@
+---
+- name: Fixing Hetzner Cloud Interface
+  replace:
+    path: "/etc/network/interfaces.d/50-cloud-init.cfg"
+    regexp: "(eth0:0)"
+    replace: "eth0"
+  notify: reboot
+  when: host.hoster == "hetzner_cloud"

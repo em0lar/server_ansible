@@ -1,0 +1,21 @@
+- name: Create a Hetzner Cloud volume for data
+  hcloud_volume:
+    name: "volume-{{ host.server_location }}-{{ host.server_short_name }}-data"
+    api_token: heiVKixG62mLtGWYAqxQAgKYD58G2IvAS2QlKv5NSLsfiy7VOQJO2YQ5VBmQUZo4
+    location: "{{ host.server_location }}"
+    size: 10
+    format: ext4
+    automount: no
+  register: volume_data
+  when: host.hoster == "hetzner_cloud"
+
+- name: Mount Hetzner Cloud volume
+  mount:
+    dump: "0"
+    fstype: ext4
+    opts: discard,nofail,defaults
+    passno: "0"
+    path: /volume
+    src: /dev/disk/by-id/scsi-0HC_Volume_{{ volume_data.hcloud_volume.id }}
+    state: mounted
+  when: host.hoster == "hetzner_cloud"
