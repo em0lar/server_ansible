@@ -6,6 +6,29 @@
     dest: /docker/mailcow
     update: no
 
+- name: Create directory for certificates in mailcow
+  file:
+    path: "/docker/mailcow/data/assets/ssl/"
+    state: directory
+
+- name: Copy SSL example dhparams file in mailcow
+  copy:
+    src: "/docker/mailcow/data/assets/ssl-example/dhparams.pem"
+    dest: "/docker/mailcow/data/assets/ssl/dhparams.pem"
+    remote_src: yes
+
+- name: Put LE certificate in mailcow
+  copy:
+    src: "/etc/letsencrypt/live/{{ ansible_fqdn }}/fullchain.pem"
+    dest: "/docker/mailcow/data/assets/ssl/cert.pem"
+    remote_src: yes
+
+- name: Put LE certificate key in mailcow
+  copy:
+    src: "/etc/letsencrypt/live/{{ ansible_fqdn }}/privkey.pem"
+    dest: "/docker/mailcow/data/assets/ssl/key.pem"
+    remote_src: yes
+
 - name: Create mailcow.conf from template
   template:
     src: mailcow.conf.j2
@@ -34,13 +57,8 @@
     recurse: true
     state: directory
 
-- name: Pull mailcow docker containers
+- name: Pull and start mailcow docker containers
   docker_compose:
     project_src: "/docker/mailcow"
     pull: yes
-    state: present
-
-- name: Start mailcow docker containers
-  docker_compose:
-    project_src: "/docker/mailcow"
     state: present

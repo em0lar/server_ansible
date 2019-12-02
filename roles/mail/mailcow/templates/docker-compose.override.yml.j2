@@ -1,4 +1,16 @@
 version: "2.1"
+services:
+  nginx-mailcow:
+    labels:
+      traefik.enable: "true"
+      traefik.http.services.nginx-mailcow-mailcow_https.loadbalancer.server.port: 50001
+      traefik.http.services.nginx-mailcow-mailcow_https.loadbalancer.server.scheme: http
+      traefik.http.routers.mailcow_http.rule: "Host(`mail.labcode.party`) || Host(`mail.lbcd.tk`)"
+      traefik.http.routers.mailcow_http.entryPoints: "http"
+      traefik.http.routers.mailcow_http.middlewares: "https_redirect@file"
+      traefik.http.routers.mailcow_https.entryPoints: "https"
+      traefik.http.routers.mailcow_https.rule: "Host(`mail.labcode.party`) || Host(`mail.lbcd.tk`)"
+      traefik.http.routers.mailcow_https.tls.certresolver: "le_tls"
 volumes:
   # Storage for email files
   vmail-vol-1:

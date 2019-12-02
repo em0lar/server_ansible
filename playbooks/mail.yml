@@ -1,6 +1,7 @@
 - hosts: mail
   roles:
-    - mail/hcloud-volume
     - mail/hcloud-interface-fix
+    - mail/hcloud-volume
+    - mail/mailcow-letsencrypt
     - mail/mailcow
-    - mail/nextcloud
+    - mail/traefik

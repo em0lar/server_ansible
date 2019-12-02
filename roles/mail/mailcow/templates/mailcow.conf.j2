@@ -18,11 +18,11 @@ DBROOT={{ mailcow_db_root_pass }}
 # HTTP/S Bindings
 # ------------------------------
 
-HTTP_PORT=80
-HTTP_BIND=0.0.0.0
+HTTP_PORT=50001
+HTTP_BIND=127.0.0.1
 
-HTTPS_PORT=443
-HTTPS_BIND=0.0.0.0
+HTTPS_PORT=50002
+HTTPS_BIND=127.0.0.1
 
 # ------------------------------
 # Other bindings
@@ -41,6 +41,7 @@ POPS_PORT=995
 SIEVE_PORT=4190
 DOVEADM_PORT=127.0.0.1:19991
 SQL_PORT=127.0.0.1:13306
+SOLR_PORT=127.0.0.1:18983
 
 # Your timezone
 
@@ -66,10 +67,15 @@ MAILDIR_GC_TIME=1440
 
 # Additional SAN for the certificate
 
-ADDITIONAL_SAN=mail.labcode.party,mail.lbcd.tk,cloud.labcode.party
+ADDITIONAL_SAN=
 
 # Skip running ACME (acme-mailcow, Let's Encrypt certs) - y/n
-SKIP_LETS_ENCRYPT=n
+SKIP_LETS_ENCRYPT=y
+
+# Create seperate certificates for all domains - y/n
+# this will allow adding more than 100 domains, but some email clients will not be able to connect with alternative hostnames
+# see https://wiki.dovecot.org/SSL/SNIClientSupport
+ENABLE_SSL_SNI=n
 
 # Skip IPv4 check in ACME container - y/n
 SKIP_IP_CHECK=n
@@ -85,19 +91,19 @@ SKIP_SOLR=y
 
 # Solr heap size in MB, there is no recommendation, please see Solr docs.
 # Solr is a prone to run OOM and should be monitored. Unmonitored Solr setups are not recommended.
-SOLR_HEAP=1024
+#SOLR_HEAP=1024
 
 # Enable watchdog (watchdog-mailcow) to restart unhealthy containers (experimental)
-USE_WATCHDOG=y
+USE_WATCHDOG=n
 
 # Allow admins to log into SOGo as email user (without any password)
 ALLOW_ADMIN_EMAIL_LOGIN=n
 
 # Send notifications by mail (no DKIM signature, sent from watchdog@MAILCOW_HOSTNAME)
 # Can by multiple rcpts, NO quotation marks
-WATCHDOG_NOTIFY_EMAIL={{ mailcow_watchdog_notify_email }}
-# Notify about banned IP (includes whois lookup)
+#WATCHDOG_NOTIFY_EMAIL={{ mailcow_watchdog_notify_email }}
 
+# Notify about banned IP (includes whois lookup)
 WATCHDOG_NOTIFY_BAN=y
 
 # Max log lines per service to keep in Redis logs
