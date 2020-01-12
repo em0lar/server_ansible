@@ -43,7 +43,7 @@ http:
       entryPoints:
         - "https"
       tls:
-        certResolver: "le_tls"    
+        certResolver: "le_tls"
     kanban-opendatamap-net_http:
       rule: "Host(`kanban.opendatamap.net`)"
       service: "kanban-opendatamap-net@file"
@@ -103,3 +103,15 @@ http:
       loadBalancer:
         servers:
           - url: "http://51.15.20.74:3005"
+tls:
+  options:
+    default:
+      minVersion: "VersionTLS12"
+      cipherSuites: [
+        "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+        "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+        "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+        "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+        "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305",
+        "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305"
+      ]
