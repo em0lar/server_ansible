@@ -1,16 +1,16 @@
 - name: Create traefik config directory
   file:
-    path: "/docker/traefik/config"
+    path: "/volume/docker/traefik/config"
     state: directory
 
 - name: Add traefik static config to host
   template:
-    dest: "/docker/traefik/config/traefik.yml"
+    dest: "/volume/docker/traefik/config/traefik.yml"
     src: "traefik_static.yml.j2"
 
 - name: Add traefik dynamic config to host
   template:
-    dest: "/docker/traefik/config/dynamic.yml"
+    dest: "/volume/docker/traefik/config/dynamic.yml"
     src: "traefik_dynamic.yml.j2"
 
 - name: Run Traefik Docker container
@@ -26,8 +26,8 @@
       - "127.0.0.1:8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /docker/traefik/config:/etc/traefik/
-      - /docker/traefik/letsencrypt:/letsencrypt
+      - /volume/docker/traefik/config:/etc/traefik/
+      - /volume/docker/traefik/letsencrypt:/letsencrypt
     networks:
       - name: bridge
       - name: mailcow_mailcow-network

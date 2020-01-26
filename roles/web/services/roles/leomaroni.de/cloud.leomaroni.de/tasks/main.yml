@@ -21,7 +21,7 @@
 
 - name: Create/launch docker container cloud.leomaroni.de-app
   docker_container:
-    image: nextcloud:latest
+    image: nextcloud:18
     name: cloud.leomaroni.de-app
     restart_policy: always
     links:

@@ -1,7 +1,7 @@
 - name: Install certbot and certbot-dns-cloudflare
   pip:
     name: ['certbot', 'wheel', 'certbot-dns-cloudflare']
-    virtualenv: /docker/letsencrypt/.venv
+    virtualenv: /volume/docker/letsencrypt/.venv
     virtualenv_command: /usr/bin/python3 -m venv
 
 - name: Create Let's Encrypt directory
