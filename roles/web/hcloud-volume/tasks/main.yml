@@ -1,0 +1,10 @@
+- name: Mount Hetzner Cloud volume
+  mount:
+    dump: "0"
+    fstype: ext4
+    opts: discard,nofail,defaults
+    passno: "0"
+    path: /volume
+    src: /dev/disk/by-id/scsi-0HC_Volume_{{ host.web.volume_id }}
+    state: mounted
+  when: host.hoster == "hetzner_cloud"

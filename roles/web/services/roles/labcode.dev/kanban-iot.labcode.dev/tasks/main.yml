@@ -1,7 +1,7 @@
 ---
-- name: Create /docker/labcode.dev/kanban-iot.labcode.dev directory
+- name: Create /volume/docker/labcode.dev/kanban-iot.labcode.dev directory
   file:
-    path: '/docker/labcode.dev/kanban-iot.labcode.dev'
+    path: '/volume/docker/labcode.dev/kanban-iot.labcode.dev'
     state: directory
     recurse: yes
 
@@ -11,8 +11,8 @@
     name: kanban-iot.labcode.dev-db
     restart_policy: always
     volumes:
-      - /docker/labcode.dev/kanban-iot.labcode.dev/db-data:/data/db
-      - /docker/labcode.dev/kanban-iot.labcode.dev/db-dump:/dump
+      - /volume/docker/labcode.dev/kanban-iot.labcode.dev/db-data:/data/db
+      - /volume/docker/labcode.dev/kanban-iot.labcode.dev/db-dump:/dump
 
 - name: Create/launch docker container kanban-iot.labcode.dev-app
   docker_container:

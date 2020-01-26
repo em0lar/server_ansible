@@ -1,5 +1,6 @@
 - hosts: web
   roles:
+  - web/hcloud-volume
   - web/ufw
   - web/traefik
   - web/services

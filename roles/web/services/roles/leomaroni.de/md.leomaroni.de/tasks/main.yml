@@ -1,7 +1,7 @@
 ---
-- name: Create /docker/leomaroni.de/md.leomaroni.de directory
+- name: Create /volume/docker/leomaroni.de/md.leomaroni.de directory
   file:
-    path: '/docker/leomaroni.de/md.leomaroni.de'
+    path: '/volume/docker/leomaroni.de/md.leomaroni.de'
     state: directory
     recurse: yes
 
@@ -16,7 +16,7 @@
       MYSQL_DATABASE: "{{ hackmd_db_database }}"
       MYSQL_ROOT_PASSWORD: "{{ hackmd_db_root_password }}"
     volumes:
-      - /docker/leomaroni.de/md.leomaroni.de/db-data:/var/lib/mysql
+      - /volume/docker/leomaroni.de/md.leomaroni.de/db-data:/var/lib/mysql
       - ./resources/utf8.cnf:/etc/mysql/conf.d/utf8.cnf
 
 - name: Create/launch docker container md.leomaroni.de-app

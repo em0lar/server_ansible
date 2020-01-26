@@ -31,3 +31,8 @@
   pip:
     name: "docker"
     state: present
+
+- name: Create docker daemon configuration from template
+  template:
+    dest: "/etc/docker/daemon.json"
+    src: "docker/daemon.json.j2"

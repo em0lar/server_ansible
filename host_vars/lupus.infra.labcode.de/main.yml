@@ -3,3 +3,5 @@ host:
   server_location: nbg1
   server_name: lupus.infra.labcode.de
   server_short_name: lupus
+  web:
+    volume_id: 4107790

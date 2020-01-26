@@ -1,7 +1,7 @@
 ---
-- name: Create /docker/labcode.de/kanban.labcode.de directory
+- name: Create /volume/docker/labcode.de/kanban.labcode.de directory
   file:
-    path: '/docker/labcode.de/kanban.labcode.de'
+    path: '/volume/docker/labcode.de/kanban.labcode.de'
     state: directory
     recurse: yes
 
@@ -11,8 +11,8 @@
     name: kanban.labcode.de-db
     restart_policy: always
     volumes:
-      - /docker/labcode.de/kanban.labcode.de/db-data:/data/db
-      - /docker/labcode.de/kanban.labcode.de/db-dump:/dump
+      - /volume/docker/labcode.de/kanban.labcode.de/db-data:/data/db
+      - /volume/docker/labcode.de/kanban.labcode.de/db-dump:/dump
 
 - name: Create/launch docker container kanban.labcode.de-app
   docker_container:
