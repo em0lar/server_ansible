@@ -8,6 +8,11 @@
     rule: allow
     name: WWW Full
 
+- name: allow gitea's ssh
+  ufw:
+    rule: allow
+    port: "22"
+
 - name: enable ufw
   ufw:
     state: enabled

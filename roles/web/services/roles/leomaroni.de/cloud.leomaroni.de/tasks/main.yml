@@ -32,8 +32,6 @@
       - /volume/docker/leomaroni.de/cloud.leomaroni.de/data:/var/www/html/data
       - /volume/docker/leomaroni.de/cloud.leomaroni.de/themes:/var/www/html/themes
       - /etc/localtime:/etc/localtime:ro
-    ports:
-      127.0.0.1:40001:80
     env:
       MYSQL_HOST: "db"
       MYSQL_USER: "{{ nextcloud_db_user }}"

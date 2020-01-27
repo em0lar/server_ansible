@@ -1,0 +1,7 @@
+docker stop git.labcode.dev-app
+
+tar cfz /volume/backup/labcode.dev/git.labcode.dev/data.tar.gz /volume/docker/labcode.dev/git.labcode.dev/*
+
+chown backup:backup /volume/backup/labcode.dev/git.labcode.dev/*
+
+docker start git.labcode.dev-app

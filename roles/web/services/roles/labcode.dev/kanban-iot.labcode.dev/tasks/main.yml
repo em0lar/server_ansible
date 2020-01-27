@@ -20,8 +20,6 @@
     name: kanban-iot.labcode.dev-app
     links:
       - kanban-iot.labcode.dev-db:db
-    ports:
-      - 127.0.0.1:40004:8080
     restart_policy: always
     env:
       MONGO_URL: mongodb://db:27017/wekan
