@@ -36,3 +36,6 @@
       traefik.http.routers.kanban-iot-labcode-dev_https.rule: "Host(`kanban-iot.labcode.dev`)"
       traefik.http.routers.kanban-iot-labcode-dev_https.entryPoints: "https"
       traefik.http.routers.kanban-iot-labcode-dev_https.tls.certresolver: "le_tls"
+
+- name: Import kanban-iot.labcode.dev backup
+  include_tasks: backup.yml

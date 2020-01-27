@@ -1,0 +1,20 @@
+---
+- name: Create backup directory
+  file:
+    path: "/volume/backup/labcode.de/kanban.labcode.de/"
+    state: directory
+    owner: backup
+    group: backup
+
+- name: Upload kanban.labcode.de-backup script
+  template:
+    src: "backup.sh.j2"
+    dest: "/volume/docker/labcode.de/kanban.labcode.de/backup.sh"
+    mode: "+x"
+
+- name: Ensure the kanban.labcode.de-backup script runs every day at 1am
+  cron:
+    name: "backup: kanban.labcode.de"
+    hour: "1"
+    minute: "0"
+    job: "/volume/docker/labcode.de/kanban.labcode.de/backup.sh > /dev/null"

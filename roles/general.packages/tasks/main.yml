@@ -25,6 +25,11 @@
     name: "ufw"
     state: present
 
+- name: install rsync
+  apt:
+    name: "rsync"
+    state: present
+
 - name: Install docker
   include_tasks: docker.yml
 

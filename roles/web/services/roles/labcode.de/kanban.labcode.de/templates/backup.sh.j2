@@ -1,0 +1,11 @@
+docker stop kanban.labcode.de-app
+
+docker exec kanban.labcode.de-db mongodump -o /dump/
+
+tar cfz /volume/backup/labcode.de/kanban.labcode.de/db-data.tar.gz /volume/docker/labcode.de/kanban.labcode.de/db-dump
+
+rm -r /volume/docker/labcode.de/kanban.labcode.de/db-dump/*
+
+chown backup:backup /volume/backup/labcode.de/kanban.labcode.de/*
+
+docker start kanban.labcode.de-app

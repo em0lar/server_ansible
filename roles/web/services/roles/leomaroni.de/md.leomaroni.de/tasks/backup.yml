@@ -1,0 +1,20 @@
+---
+- name: Create backup directory
+  file:
+    path: "/volume/backup/leomaroni.de/md.leomaroni.de/"
+    state: directory
+    owner: backup
+    group: backup
+
+- name: Upload md.leomaroni.de-backup script
+  template:
+    src: "backup.sh.j2"
+    dest: "/volume/docker/leomaroni.de/md.leomaroni.de/backup.sh"
+    mode: "+x"
+
+- name: Ensure the md.leomaroni.de-backup script runs every day at 1am
+  cron:
+    name: "backup: md.leomaroni.de"
+    hour: "1"
+    minute: "0"
+    job: "/volume/docker/leomaroni.de/md.leomaroni.de/backup.sh > /dev/null"

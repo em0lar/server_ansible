@@ -49,3 +49,6 @@
       traefik.http.routers.cloud-leomaroni-de_https.rule: "Host(`cloud.leomaroni.de`)"
       traefik.http.routers.cloud-leomaroni-de_https.entryPoints: "https"
       traefik.http.routers.cloud-leomaroni-de_https.tls.certresolver: "le_tls"
+
+- name: Import cloud.leomaroni.de backup
+  include_tasks: backup.yml
