@@ -1,7 +1,7 @@
 ---
 - name: Create /volume/docker/labcode.dev/git.labcode.dev/gitea/conf directory
   file:
-    path: '/volume/docker/labcode.dev/git.labcode.dev/gitea/conf'
+    path: '/volume/docker/labcode.dev/git.labcode.dev/data/gitea/conf'
     state: directory
     recurse: yes
     owner: "1000"
@@ -10,9 +10,17 @@
 - name: Add Gitea configuration file
   template:
     src: conf_app.ini.j2
-    dest: /volume/docker/labcode.dev/git.labcode.dev/gitea/conf/app.ini
+    dest: /volume/docker/labcode.dev/git.labcode.dev/data/gitea/conf/app.ini
     owner: "1000"
     group: "1000"
+
+- name: Upload SSH key
+  copy:
+    content: "{{ ssh_deploy_key }}"
+    dest: /volume/docker/labcode.dev/git.labcode.dev/gitea_ssh_deploy_key
+    owner: "1000"
+    group: "1000"
+    mode: "400"
 
 - name: Create/launch docker container git.labcode.dev-app
   docker_container:
@@ -20,7 +28,8 @@
     name: git.labcode.dev-app
     restart_policy: always
     volumes:
-      - /volume/docker/labcode.dev/git.labcode.dev:/data
+      - /volume/docker/labcode.dev/git.labcode.dev/data:/data
+      - /volume/docker/labcode.dev/git.labcode.dev/gitea_ssh_deploy_key:/gitea_ssh_deploy_key
     ports:
       - "22:22"
     labels:
