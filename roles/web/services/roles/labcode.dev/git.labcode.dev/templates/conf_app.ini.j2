@@ -1,37 +1,41 @@
 APP_NAME = LabCode Git
-RUN_MODE = prod
 RUN_USER = git
+RUN_MODE = prod
+
+[oauth2]
+JWT_SECRET = v7GBXhApD8UNSNnnut3hDqSQTL5sohliAELNxO0eFF4
+
+[security]
+INTERNAL_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1ODAyMjE1MTJ9.Vet1_pJbd73Z3ISylFcSpYg4fPLlqWExKLCAe_wLpN4
+INSTALL_LOCK   = true
+SECRET_KEY     = jwjXe5tvVTWtgm0bNjn8fpvgJq76hz42UB7VBbh11PHKlcyWh4CXAM28PCWBQU0H
+
+[database]
+DB_TYPE  = sqlite3
+HOST     = 127.0.0.1:3306
+NAME     = gitea
+USER     = gitea
+PASSWD   =
+SSL_MODE = disable
+CHARSET  = utf8
+PATH     = /data/gitea/data/gitea.db
 
 [repository]
-ROOT = /data/git/repositories
-
-[repository.local]
-LOCAL_COPY_PATH = /data/gitea/tmp/local-repo
+ROOT = /data/git/gitea-repositories
 
 [repository.upload]
 TEMP_PATH = /data/gitea/uploads
 
 [server]
-APP_DATA_PATH    = /data/gitea
+SSH_DOMAIN       = git.labcode.dev
 DOMAIN           = git.labcode.dev
 HTTP_PORT        = 3000
 ROOT_URL         = https://git.labcode.dev/
 DISABLE_SSH      = false
-SSH_DOMAIN       = git.labcode.dev
-SSH_LISTEN_PORT  = 22
-LFS_START_SERVER = false
-LFS_CONTENT_PATH = /data/git/lfs
-START_SSH_SERVER = true
-
-[database]
-PATH     = /data/gitea/gitea.db
-DB_TYPE  = sqlite3
-NAME     = gitea
-USER     = root
-SSL_MODE = disable
-
-[indexer]
-ISSUE_INDEXER_PATH = /data/gitea/indexers/issues.bleve
+SSH_PORT         = 22
+LFS_START_SERVER = true
+LFS_CONTENT_PATH = /data/gitea/data/lfs
+LFS_JWT_SECRET   = JRBn77RwwWGW103gE3agk8LkzRRHpuZ9P6vaO9q4BCw
 
 [session]
 PROVIDER_CONFIG = /data/gitea/sessions
@@ -47,31 +51,24 @@ ENABLE_FEDERATED_AVATAR = true
 PATH = /data/gitea/attachments
 
 [log]
-ROOT_PATH = /data/gitea/log
+ROOT_PATH = /app/gitea/log
 MODE      = file
 LEVEL     = info
 
-[security]
-INSTALL_LOCK   = true
-SECRET_KEY     = gq7M1TkIEubbV5x5YEYJz0egjOOV7KQX3kUfXYU2lI4vsydBzwC2gJUzgwUsHRtL
-INTERNAL_TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1ODAxNTk2MTR9.deO_VyzjVpPiVK3xtUVLujgvkfffgnGFHUWgLpXr2qo
-
 [service]
-DISABLE_REGISTRATION              = true
-REQUIRE_SIGNIN_VIEW               = false
 REGISTER_EMAIL_CONFIRM            = false
 ENABLE_NOTIFY_MAIL                = false
+DISABLE_REGISTRATION              = true
 ALLOW_ONLY_EXTERNAL_REGISTRATION  = false
 ENABLE_CAPTCHA                    = false
-DEFAULT_KEEP_EMAIL_PRIVATE        = true
+REQUIRE_SIGNIN_VIEW               = false
+DEFAULT_KEEP_EMAIL_PRIVATE        = false
 DEFAULT_ALLOW_CREATE_ORGANIZATION = true
 DEFAULT_ENABLE_TIMETRACKING       = true
-
-[oauth2]
-JWT_SECRET = dU0Umfu3r7XulRbpNUP1mDqfCkHrJkBYgtu-TV9sULU
+NO_REPLY_ADDRESS                  = noreply.example.org
 
 [mailer]
-ENABLED = false
+ENABLED = true
 HOST    = {{ smtp_host }}
 FROM    = {{ smtp_from }}
 USER    = {{ smtp_user }}

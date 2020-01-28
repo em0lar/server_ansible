@@ -11,7 +11,6 @@
     src: "backup.sh.j2"
     dest: "/volume/docker/labcode.dev/git.labcode.dev/backup.sh"
     mode: "+x"
-    backup: yes
 
 - name: Ensure the git.labcode.dev-backup script runs every day at 1am
   cron:
