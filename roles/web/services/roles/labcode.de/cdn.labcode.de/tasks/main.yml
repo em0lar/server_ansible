@@ -1,7 +1,7 @@
 ---
-- name: download bechilli.de from GitLab
+- name: download cdn.labcode.de from GitLab
   git:
-    repo: 'https://labcode-de:{{ vault_web_gitlab_password }}@gitlab.com/labcode_dev/server/cdn.labcode.de.git'
+    repo: 'https://labcode-de:{{ vault_web_gitlab_password }}@gitlab.com/labcode_dev/cdn.labcode.de.git'
     dest: /var/www/labcode.de/cdn.labcode.de
 
 - name: Create/launch docker container cdn.labcode.de-web
