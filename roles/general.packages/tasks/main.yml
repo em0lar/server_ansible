@@ -30,9 +30,6 @@
     name: "rsync"
     state: present
 
-- name: Install docker
-  include_tasks: docker.yml
-
 - name: Install unattended-upgrades
   include_tasks: unattended-upgrades.yml
 

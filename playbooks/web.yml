@@ -1,7 +1,8 @@
 - hosts: web
   roles:
-  - web/hcloud-volume
-  - web/ufw
-  - web/traefik
-  - web/services
-  - web/directory-permissions
+    - general.docker
+    - web/hcloud-volume
+    - web/ufw
+    - web/traefik
+    - web/services
+    - web/directory-permissions

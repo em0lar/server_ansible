@@ -5,6 +5,7 @@
   roles:
     - general.packages
     - general.authentication
+    - general.ohmyzsh
     - general.openvpn
 
 - name: web
