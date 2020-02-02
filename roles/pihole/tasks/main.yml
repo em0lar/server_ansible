@@ -1,0 +1,24 @@
+- name: Create pihole configuration directory
+  file:
+    path: /docker/pihole
+    state: directory
+
+- name: Ensure pihole docker container is running
+  docker_container:
+    name: pihole
+    image: pihole/pihole:latest
+    network_mode: host
+    restart_policy: "unless-stopped"
+    volumes:
+      - /docker/pihole/etc-pihole/:/etc/pihole/
+      - /docker/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+    dns_servers:
+      - 127.0.0.1
+      - 1.1.1.1
+    env:
+      DNS1: '2606:4700:4700::1111'
+      DNS2: '1.1.1.1'
+      WEBPASSWORD: "{{ pihole_webpassword }}"
+      ServerIP: "{{ host.ipv4 }}"
+      ServerIPv6: "{{ host.ipv6 }}"
+      TZ: "Europe/Berlin"

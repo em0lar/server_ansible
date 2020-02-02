@@ -1,4 +1,8 @@
 ---
+- name: Ensure docker group exists
+  group:
+    name: docker
+
 - name: Add users
   include_tasks: users.yml
 

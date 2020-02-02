@@ -15,3 +15,7 @@
 - name: mail
   tags: mail
   import_playbook: mail.yml
+
+- name: pihole
+  tags: pihole
+  import_playbook: pihole.yml

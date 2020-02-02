@@ -1,7 +1,8 @@
 [web]
 lupus.infra.labcode.de
 
-[mail]
+[pihole]
+andromeda.infra.labcode.de
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3

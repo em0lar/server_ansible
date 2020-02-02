@@ -3,7 +3,6 @@
     name: leo
     comment: Leo Maroni
     groups: sudo,docker
-    shell: /bin/bash
 
 - name: Add leos ssh key (me@leomaroni.de)
   authorized_key:
@@ -20,7 +19,6 @@
     name: ci
     comment: Continuous Integration
     groups: www-data,docker
-    shell: /bin/bash
 
 - name: Add ssh key of ci
   authorized_key:
@@ -42,7 +40,6 @@
     name: backup
     group: backup
     comment: Backup (rsync)
-    shell: /bin/bash
 
 - name: Add ssh key of backup
   authorized_key:
