@@ -1,6 +1,6 @@
 - hosts: web
   roles:
-    - general.docker
+    - docker
     - web/hcloud-volume
     - web/ufw
     - web/traefik

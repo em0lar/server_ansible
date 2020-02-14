@@ -1,4 +1,4 @@
 - hosts: pihole
   roles:
-    - general.docker
+    - docker
     - pihole

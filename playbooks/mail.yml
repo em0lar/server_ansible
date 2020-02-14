@@ -1,6 +1,6 @@
 - hosts: mail
   roles:
-    - general.docker
+    - docker
     - mail/hcloud-interface-fix
     - mail/hcloud-volume
     - mail/mailcow-letsencrypt
