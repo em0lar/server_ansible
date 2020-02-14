@@ -7,3 +7,6 @@
 [submodule "roles/unattended-upgrades"]
 	path = roles/unattended-upgrades
 	url = https://github.com/jnv/ansible-role-unattended-upgrades
+[submodule "roles/traefik"]
+	path = roles/traefik
+	url = https://git.lbcd.dev/ansible_roles/traefik

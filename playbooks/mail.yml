@@ -5,4 +5,4 @@
     - mail/hcloud-volume
     - mail/mailcow-letsencrypt
     - mail/mailcow
-    - mail/traefik
+    - traefik

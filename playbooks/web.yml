@@ -2,6 +2,6 @@
   roles:
     - docker
     - web/hcloud-volume
-    - web/traefik
+    - traefik
     - web/services
     - web/directory-permissions
