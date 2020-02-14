@@ -1,0 +1,21 @@
+---
+- name: Ensure docker group exists
+  group:
+    name: docker
+
+- name: adding message of the day
+  template:
+    dest: /etc/motd
+    src: motd.j2
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Add users
+  include_tasks: users.yml
+
+- name: Change sudo configuration
+  include_tasks: sudo.yml
+
+- name: Change SSH configuration
+  include_tasks: ssh.yml

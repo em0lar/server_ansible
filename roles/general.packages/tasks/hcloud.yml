@@ -1,4 +1,0 @@
-- name: Install Hetzner Cloud python libary
-  pip:
-    name: hcloud
-  when: host.hoster == "hetzner_cloud"

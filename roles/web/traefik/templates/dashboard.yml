@@ -1,0 +1,18 @@
+http:
+  routers:
+    api_http:
+      rule: "Host(`traefik.{{inventory_hostname}}`)"
+      service: "api@internal"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    api_https:
+      rule: "Host(`traefik.{{inventory_hostname}}`)"
+      tls:
+        certResolver: "le_tls"
+      service: "api@internal"
+      entryPoints:
+        - "https"
+      middlewares:
+        - "api_auth"

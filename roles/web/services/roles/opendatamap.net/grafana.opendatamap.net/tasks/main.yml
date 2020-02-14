@@ -1,0 +1,5 @@
+---
+- name: Add traefik config for grafana.opendatamap.net
+  copy:
+    src: grafana_opendatamap_net.yml
+    dest: /volume/docker/traefik/config/dynamic/grafana_opendatamap_net.yml

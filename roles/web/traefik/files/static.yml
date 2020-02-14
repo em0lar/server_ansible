@@ -2,11 +2,10 @@ providers:
   docker:
     exposedByDefault: false
   file:
-    filename: "/etc/traefik/dynamic.yml"
+    directory: "/etc/traefik/dynamic"
     watch: true
 
 api:
-  insecure: true
   dashboard: true
 
 entryPoints:

@@ -1,0 +1,5 @@
+---
+- name: Add traefik config for node-red.opendatamap.net
+  copy:
+    src: node-red_opendatamap_net.yml
+    dest: /volume/docker/traefik/config/dynamic/node_red_opendatamap_net.yml
