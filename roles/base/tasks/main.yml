@@ -11,6 +11,9 @@
     group: root
     mode: 0644
 
+- name: Add packages
+  include_tasks: packages.yml
+
 - name: Add users
   include_tasks: users.yml
 
@@ -19,3 +22,19 @@
 
 - name: Change SSH configuration
   include_tasks: ssh.yml
+
+- name: Import oh-my-zsh role
+  import_role:
+    name: oh-my-zsh
+  vars:
+    users:
+      - username: leo
+        oh_my_zsh:
+          theme: agnoster
+          plugins:
+            - git
+      - username: root
+        oh_my_zsh:
+          theme: agnoster
+          plugins:
+            - git

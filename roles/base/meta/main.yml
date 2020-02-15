@@ -4,15 +4,3 @@ dependencies:
     unattended_automatic_reboot: yes
     unattended_automatic_reboot_time: 00:00
     unattended_update_days: {"Sun"}
-  - role: oh-my-zsh
-    users:
-      - username: leo
-        oh_my_zsh:
-          theme: agnoster
-          plugins:
-            - git
-      - username: root
-        oh_my_zsh:
-          theme: agnoster
-          plugins:
-            - git
