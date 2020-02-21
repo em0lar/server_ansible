@@ -20,16 +20,22 @@
 - name: Generate Certificate
   shell:
     executable: /bin/bash
-    cmd: source /docker/letsencrypt/.venv/bin/activate && certbot certonly -d {{ ansible_fqdn }} -d mail.labcode.party -d mail.lbcd.tk --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini --server https://acme-v02.api.letsencrypt.org/directory
+    cmd: source /volume/docker/letsencrypt/.venv/bin/activate && certbot certonly -d {{ ansible_fqdn }} -d mail.bechilli.de -d mail.hicologne.com -d mail.labcode.de -d mail.labcode.dev -d mail.lbcd.dev -d mail.leomaroni.de -d mail.opendatamap.net --dns-cloudflare --agree-tos --email webmaster@labcode.de -n --dns-cloudflare-credentials /etc/letsencrypt/dnscloudflare.ini --server https://acme-v02.api.letsencrypt.org/directory
 
 - name: remove certbot standard cronjob
   file:
     path: /etc/cron.d/certbot
     state: absent
 
-#- name: Add Cronjob doe renewing certificates every month
-#  cron:
-#    name: renew letsencrypt certs
-#    special_time: monthly
-#    job: "/usr/bin/env certbot renew"
-#    user: root
+- name: Add renew script to server
+  template:
+    src: "renew.sh"
+    dest: "/etc/letsencrypt/renew.sh"
+    mode: "+x"
+
+- name: Add Cronjob doe renewing certificates every month
+  cron:
+    name: renew letsencrypt certs
+    special_time: monthly
+    job: "/etc/letsencrypt/renew.sh > /dev/null"
+    user: root

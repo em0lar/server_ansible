@@ -1,8 +1,7 @@
 - hosts: mail
   roles:
     - docker
-    - mail/hcloud-interface-fix
+    - traefik
     - mail/hcloud-volume
     - mail/mailcow-letsencrypt
     - mail/mailcow
-    - traefik

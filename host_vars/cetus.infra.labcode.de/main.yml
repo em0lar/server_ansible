@@ -1,0 +1,4 @@
+host:
+  hoster: hetzner_cloud
+  mail:
+    volume_id: 4382081

@@ -7,4 +7,4 @@
     path: /volume
     src: /dev/disk/by-id/scsi-0HC_Volume_{{ host.mail.volume_id }}
     state: mounted
-  when: host.hoster == "hetzner_cloud"
+  when: ansible_system_vendor == "Hetzner"

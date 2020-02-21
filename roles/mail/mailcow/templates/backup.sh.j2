@@ -1,0 +1,6 @@
+# {{ ansible_managed }}
+cd "{{ mailcow_root_path }}/repo" || exit
+
+MAILCOW_BACKUP_LOCATION=/volume/backup/mailcow ./helper-scripts/backup_and_restore.sh backup all --delete-days 1
+
+chown -R backup:backup /volume/backup/mailcow
