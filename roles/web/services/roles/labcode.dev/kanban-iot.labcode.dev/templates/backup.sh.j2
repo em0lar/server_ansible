@@ -6,6 +6,6 @@ tar cfz /volume/backup/labcode.dev/kanban-iot.labcode.dev/db-data.tar.gz /volume
 
 rm -r /volume/docker/labcode.dev/kanban-iot.labcode.dev/db-dump/*
 
-chown backup:backup /volume/backup/labcode.dev/kanban-iot.labcode.dev/*
+chown rsync-backup:rsync-backup /volume/backup/labcode.dev/kanban-iot.labcode.dev/*
 
 docker start kanban-iot.labcode.dev-app

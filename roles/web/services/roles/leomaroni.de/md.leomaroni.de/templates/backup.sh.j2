@@ -4,6 +4,6 @@ docker exec md.leomaroni.de-db /usr/bin/mysqldump \
   -u "{{ hackmd_db_user }}" --password="{{ hackmd_db_password }}" \
   "{{ hackmd_db_database }}" > /volume/backup/leomaroni.de/md.leomaroni.de/db_data.sql
 
-chown backup:backup /volume/backup/leomaroni.de/md.leomaroni.de/*
+chown rsync-backup:rsync-backup /volume/backup/leomaroni.de/md.leomaroni.de/*
 
 docker start md.leomaroni.de-app

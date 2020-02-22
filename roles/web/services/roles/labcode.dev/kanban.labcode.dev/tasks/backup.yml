@@ -3,8 +3,8 @@
   file:
     path: "/volume/backup/labcode.dev/kanban.labcode.dev/"
     state: directory
-    owner: backup
-    group: backup
+    owner: rsync-backup
+    group: rsync-backup
 
 - name: Upload kanban.labcode.dev-backup script
   template:

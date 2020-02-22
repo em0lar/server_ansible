@@ -35,13 +35,17 @@
     user: ci
     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDvUrs1ly5WplOMwZONxazvgfG+7uyPDRYPAdipg0qg7a8JU9Zj29hUIYhUJXzRDXQDH8cNHVfa8EMy7GwOA3wDpm7vWk9ty89XjsNTqmGtmFOhwhaAe/XG2ltEUe+BP8D+JIld5w/Gdb+ZDAsGvFNcLn+nCzT5D8W5pR6wY25gG36Vm3YsVaWy38qC9OqgbJGWZM5x7d6LpKP3oBthKqw33r1XBMcrvDBKlemxnKP4D6OfqqrbloHUqJpzoBzMr2QjPWqBsphXliXE43I4NINCVg7hjwt7F8mzBRSa7rOBQWhEQ5z058jMWsO1yu0HfO+2swfk6mldrxlRqZhB9EWc41h11pmVRW3LLVR+6Q5+bEEZIWeqA1mm88J25oovc225fxeKeeSha/A7sCdiLDReuZXj3CpYdWESmJaLlTrrKC0Qmt/sd5TL4pfIhccWqqnh+iNdDI9F2bASm7A95TOnf0inVZe8NpKsF3xHqFbJ96sK0xjtx4of3Fu61O9l0Mj/gaLtNO9HAe5+97bX9iTev9EIcoUKbNtU+UDxA0xbN4PRBygLWDPCfkhdDL8t2MBIAc2eBqbgK7NSvLoVrTrYy5W3tyCjZUO6M6ZipAJiaDbWCVTs2GJKMtf37N5Rmz4IiomjYZ3QGRR/Xpf82m6ufBQ6aZX7Ntx9kHc3p1Eebw== openpgp:0x150A6198"
 
-- name: Add user backup
+- name: Ensure rsync-backup group exists
+  group:
+    name: rsync-backup
+
+- name: Add user rsync-backup
   user:
-    name: backup
-    group: backup
+    name: rsync-backup
+    group: rsync-backup
     comment: Backup (rsync)
 
-- name: Add ssh key of backup
+- name: Add ssh key of rsync-backup
   authorized_key:
-    user: backup
+    user: rsync-backup
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2rzuD73Ae8y5MTi5QQF3ifGeffp6P2YRCDa/8KpUrS leo@apodis"
