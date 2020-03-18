@@ -1,0 +1,5 @@
+- hosts: jitsi
+  roles:
+    - docker
+    - traefik
+    - jitsi

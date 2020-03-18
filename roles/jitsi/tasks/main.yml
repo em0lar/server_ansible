@@ -1,0 +1,45 @@
+- name: Create Jitsi config directory
+  file:
+    path: /docker/jitsi/config
+    recurse: yes
+    state: directory
+
+- name: Clone docker-jitsi-meet git repository
+  git:
+    repo: 'https://github.com/jitsi/docker-jitsi-meet.git'
+    dest: /docker/jitsi/repo
+
+- name: Create jitsi configuration
+  template:
+    src: .env.j2
+    dest: /docker/jitsi/repo/.env
+
+- name: Create docker-compose ovierride configuration
+  template:
+    src: docker-compose.override.yml.j2
+    dest: /docker/jitsi/repo/docker-compose.override.yml
+
+- name: Pull and start jitsi docker containers
+  docker_compose:
+    project_src: "/docker/jitsi/repo"
+    pull: yes
+    project_name: "jitsi"
+    state: present
+
+- name: Add traefik to jitsi network
+  docker_container:
+    name: traefik
+    networks_cli_compatible: yes
+    networks:
+      - name: bridge
+      - name: jitsi_meet.jitsi
+
+- name: Set up jitsi jvb_auth user
+  shell:
+    cmd: "docker-compose -p jitsi exec -T prosody prosodyctl --config /config/prosody.cfg.lua register {{ item.0 }} meet.jitsi {{ item.1 }}"
+  args:
+    chdir: /docker/jitsi/repo/
+  loop:
+    - ["jvb", "{{ jitsi.jvb_auth_password }}"]
+    - ["focus", "{{ jitsi.jicofo_auth_password }}"]
+    - ["admin", "{{ jitsi.admin_password }}"]

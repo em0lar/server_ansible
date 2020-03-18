@@ -17,3 +17,7 @@
 - name: pihole
   tags: pihole
   import_playbook: pihole.yml
+
+- name: jitsi
+  tags: jitsi
+  import_playbook: jitsi.yml
