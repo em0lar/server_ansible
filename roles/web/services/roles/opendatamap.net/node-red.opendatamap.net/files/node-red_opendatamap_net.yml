@@ -18,4 +18,4 @@ http:
    node-red-opendatamap-net:
       loadBalancer:
         servers:
-          - url: "http://51.15.20.74:1880"
+          - url: "http://51.15.21.208:1880"

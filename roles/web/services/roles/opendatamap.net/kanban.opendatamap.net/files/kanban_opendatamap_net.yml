@@ -18,4 +18,4 @@ http:
     kanban-opendatamap-net:
       loadBalancer:
         servers:
-          - url: "http://51.15.20.74:3010"
+          - url: "http://51.15.21.208:3010"

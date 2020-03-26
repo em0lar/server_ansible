@@ -18,4 +18,4 @@ http:
     rhein-sieg-opendatamap-net:
       loadBalancer:
         servers:
-          - url: "http://51.15.20.74:3005"
+          - url: "http://51.15.21.208:3005"
