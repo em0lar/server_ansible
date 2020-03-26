@@ -10,7 +10,7 @@ services:
       traefik.http.routers.jitsi-web_http.middlewares: "https_redirect@file"
       traefik.http.routers.jitsi-web_https.entryPoints: "https"
       traefik.http.routers.jitsi-web_https.rule: "Host(`{{ ansible_fqdn }}`) || Host(`{{ jitsi.public_url }}`) || Host(`meet.labcode.de`)"
-      traefik.http.routers.jitsi-web_https.tls.certresolver: "le_tls"
+      traefik.http.routers.jitsi-web_https.tls.certresolver: "le_http"
     restart: always
 
   prosody:

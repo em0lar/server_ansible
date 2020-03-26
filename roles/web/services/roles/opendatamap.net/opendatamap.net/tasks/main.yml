@@ -37,4 +37,4 @@
       traefik.http.routers.opendatamap-net_http.middlewares: "https_redirect@file"
       traefik.http.routers.opendatamap-net_https.rule: "Host(`opendatamap.net`)"
       traefik.http.routers.opendatamap-net_https.entryPoints: "https"
-      traefik.http.routers.opendatamap-net_https.tls.certresolver: "le_tls"
+      traefik.http.routers.opendatamap-net_https.tls.certresolver: "le_http"

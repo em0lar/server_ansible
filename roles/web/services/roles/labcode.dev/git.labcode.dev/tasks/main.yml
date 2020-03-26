@@ -39,7 +39,7 @@
       traefik.http.routers.git-labcode-dev_http.middlewares: "https_redirect@file"
       traefik.http.routers.git-labcode-dev_https.rule: "Host(`git.labcode.dev`) || Host(`git.lbcd.dev`) || Host(`git.labcode.de`)"
       traefik.http.routers.git-labcode-dev_https.entryPoints: "https"
-      traefik.http.routers.git-labcode-dev_https.tls.certresolver: "le_tls"
+      traefik.http.routers.git-labcode-dev_https.tls.certresolver: "le_http"
       traefik.http.services.git-labcode-dev-app.loadbalancer.server.port: "3000"
 
 - name: Import git.labcode.dev backup

@@ -10,4 +10,4 @@ services:
       traefik.http.routers.mailcow_http.middlewares: "https_redirect@file"
       traefik.http.routers.mailcow_https.entryPoints: "https"
       traefik.http.routers.mailcow_https.rule: "Host(`{{ ansible_fqdn }}`) || Host(`mail.bechilli.de`) || Host(`mail.hicologne.com`) || Host(`mail.labcode.de`) || Host(`mail.labcode.dev`) || Host(`mail.leomaroni.de`) || Host(`mail.lbcd.dev`) || Host(`mail.opendatamap.net`)"
-      traefik.http.routers.mailcow_https.tls.certresolver: "le_tls"
+      traefik.http.routers.mailcow_https.tls.certresolver: "le_http"

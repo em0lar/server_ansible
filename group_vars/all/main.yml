@@ -31,3 +31,5 @@ users:
     theme: agnoster
     plugins:
       - git
+
+letsencrypt_email: webmaster@labcode.de

@@ -33,7 +33,7 @@
       traefik.http.routers.kanban-labcode-de_http.middlewares: "https_redirect@file"
       traefik.http.routers.kanban-labcode-de_https.rule: "Host(`kanban.labcode.dev`) || Host(`kanban.lbcd.dev`) || Host(`kanban.labcode.de`)"
       traefik.http.routers.kanban-labcode-de_https.entryPoints: "https"
-      traefik.http.routers.kanban-labcode-de_https.tls.certresolver: "le_tls"
+      traefik.http.routers.kanban-labcode-de_https.tls.certresolver: "le_http"
 
 - name: Import kanban.labcode.dev backup
   include_tasks: backup.yml
