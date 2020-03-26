@@ -5,18 +5,14 @@
     dest: /var/www/labcode.de/labcode.de
     force: yes
 
-- name: Create/launch docker container labcode.de-web
-  docker_container:
-    image: nginx:latest
-    name: labcode.de-web
-    volumes:
-      - /var/www/labcode.de/labcode.de:/usr/share/nginx/html
-    restart_policy: always
-    labels:
-      traefik.enable: "true"
-      traefik.http.routers.labcode-de_http.rule: "Host(`labcode.de`)"
-      traefik.http.routers.labcode-de_http.entryPoints: "http"
-      traefik.http.routers.labcode-de_http.middlewares: "https_redirect@file"
-      traefik.http.routers.labcode-de_https.rule: "Host(`labcode.de`)"
-      traefik.http.routers.labcode-de_https.entryPoints: "https"
-      traefik.http.routers.labcode-de_https.tls.certresolver: "le_tls"
+- name: Add nginx config for labcode.de
+  copy:
+    src: nginx_vhost.conf
+    dest: /etc/nginx/vhosts/labcode_de.conf
+  notify:
+    - reload nginx
+
+- name: Add traefik config for labcode.de
+  template:
+    src: traefik.yml
+    dest: /volume/docker/traefik/config/dynamic/labcode_de.yml

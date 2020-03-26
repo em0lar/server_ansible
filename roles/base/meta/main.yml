@@ -1,6 +1,0 @@
----
-dependencies:
-  - role: unattended-upgrades
-    unattended_automatic_reboot: yes
-    unattended_automatic_reboot_time: 00:00
-    unattended_update_days: {"Sun"}

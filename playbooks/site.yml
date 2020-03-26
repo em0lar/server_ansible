@@ -5,6 +5,7 @@
   roles:
     - base
     - openvpn
+    - oh-my-zsh
 
 - name: web
   tags: web

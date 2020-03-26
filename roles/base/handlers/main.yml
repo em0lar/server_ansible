@@ -1,5 +1,0 @@
----
-# handlers file for lbcd.base
-
-- name: reload ssh
-  service: name=ssh state=reloaded

@@ -3,5 +3,6 @@
     - docker
     - web/hcloud-volume
     - traefik
+    - web/nginx
     - web/services
     - web/directory-permissions
