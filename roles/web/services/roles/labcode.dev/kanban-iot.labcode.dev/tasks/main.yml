@@ -1,4 +1,14 @@
 ---
+- name: Add/Modify DNS record for kanban-iot.labcode.dev
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "kanban-iot"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "labcode.dev"
+    state: present
+
 - name: Create /volume/docker/labcode.dev/kanban-iot.labcode.dev directory
   file:
     path: '/volume/docker/labcode.dev/kanban-iot.labcode.dev'

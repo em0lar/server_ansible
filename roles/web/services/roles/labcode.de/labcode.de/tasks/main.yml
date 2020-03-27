@@ -1,4 +1,24 @@
 ---
+- name: Add/Modify DNS record for labcode.de
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "@"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "labcode.de"
+    state: present
+
+- name: Add/Modify DNS record for www.labcode.de
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "www"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "labcode.de"
+    state: present
+
 - name: download labcode.de from GitHub
   git:
     repo: 'https://github.com/labcode-de/labcode.de.git'

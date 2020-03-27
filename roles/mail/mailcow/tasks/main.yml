@@ -1,4 +1,6 @@
 ---
+- import_tasks: dns.yml
+
 - name: Clone mailcow-dockerized from GitHub
   git:
     repo: https://github.com/mailcow/mailcow-dockerized
@@ -55,5 +57,4 @@
       - name: bridge
       - name: mailcow_mailcow-network
 
-- name: Import mailcow backup tasks
-  import_tasks: backup.yml
+- import_tasks: backup.yml

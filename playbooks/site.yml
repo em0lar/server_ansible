@@ -3,6 +3,7 @@
 - hosts: all
   tags: base
   roles:
+    - base-dns
     - base
     - openvpn
     - oh-my-zsh

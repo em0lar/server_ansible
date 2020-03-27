@@ -1,4 +1,24 @@
 ---
+- name: Add/Modify DNS record for bechilli.de
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "@"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "bechilli.de"
+    state: present
+
+- name: Add/Modify DNS record for www.bechilli.de
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "www"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "bechilli.de"
+    state: present
+
 - name: download bechilli.de from GitLab
   git:
     repo: 'https://labcode-de:{{ vault_web_gitlab_password }}@gitlab.com/labcode_dev/bechilli/bechilli.de.git'
@@ -14,9 +34,9 @@
       - /var/www/bechilli.de/bechilli.de:/var/www/html
     labels:
       traefik.enable: "true"
-      traefik.http.routers.bechilli-de_http.rule: "Host(`bechilli.de`)"
+      traefik.http.routers.bechilli-de_http.rule: "Host(`bechilli.de`) || Host(`bechilli.de`)"
       traefik.http.routers.bechilli-de_http.entryPoints: "http"
       traefik.http.routers.bechilli-de_http.middlewares: "https_redirect@file"
-      traefik.http.routers.bechilli-de_https.rule: "Host(`bechilli.de`)"
+      traefik.http.routers.bechilli-de_https.rule: "Host(`bechilli.de`) || Host(`bechilli.de`)"
       traefik.http.routers.bechilli-de_https.entryPoints: "https"
       traefik.http.routers.bechilli-de_https.tls.certresolver: "le_http"

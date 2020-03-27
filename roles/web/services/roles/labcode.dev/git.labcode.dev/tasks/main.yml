@@ -1,4 +1,14 @@
 ---
+- name: Add/Modify DNS record for git.labcode.dev
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "git"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "labcode.dev"
+    state: present
+
 - name: Create /volume/docker/labcode.dev/git.labcode.dev/gitea/conf directory
   file:
     path: '/volume/docker/labcode.dev/git.labcode.dev/data/gitea/conf'
@@ -31,7 +41,7 @@
       - /volume/docker/labcode.dev/git.labcode.dev/data:/data
       - /volume/docker/labcode.dev/git.labcode.dev/gitea_ssh_deploy_key:/gitea_ssh_deploy_key
     ports:
-      - "22:22"
+      - "222:22"
     labels:
       traefik.enable: "true"
       traefik.http.routers.git-labcode-dev_http.rule: "Host(`git.labcode.dev`) || Host(`git.lbcd.dev`) || Host(`git.labcode.de`)"

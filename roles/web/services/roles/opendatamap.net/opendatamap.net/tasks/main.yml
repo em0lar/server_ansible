@@ -1,4 +1,24 @@
 ---
+- name: Add/Modify DNS record for opendatamap.net
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "@"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "opendatamap.net"
+    state: present
+
+- name: Add/Modify DNS record for www.opendatamap.net
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "www"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "opendatamap.net"
+    state: present
+
 - name: download opendatamap.net from GitHub
   git:
     repo: 'https://github.com/OpenDataMap/opendatamap.net.git'
@@ -32,9 +52,9 @@
       - /var/www/opendatamap.net/opendatamap.net/_site:/usr/share/nginx/html
     labels:
       traefik.enable: "true"
-      traefik.http.routers.opendatamap-net_http.rule: "Host(`opendatamap.net`)"
+      traefik.http.routers.opendatamap-net_http.rule: "Host(`opendatamap.net`) | Host(`www.opendatamap.net`)"
       traefik.http.routers.opendatamap-net_http.entryPoints: "http"
       traefik.http.routers.opendatamap-net_http.middlewares: "https_redirect@file"
-      traefik.http.routers.opendatamap-net_https.rule: "Host(`opendatamap.net`)"
+      traefik.http.routers.opendatamap-net_https.rule: "Host(`opendatamap.net`) | Host(`www.opendatamap.net`)"
       traefik.http.routers.opendatamap-net_https.entryPoints: "https"
       traefik.http.routers.opendatamap-net_https.tls.certresolver: "le_http"

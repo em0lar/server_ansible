@@ -1,11 +1,13 @@
 [web]
 lupus.infra.labcode.de
+#116.203.108.159
 
 [pihole]
 andromeda.infra.labcode.de
 
 [mail]
 cetus.infra.labcode.de
+#95.216.160.224
 
 [jitsi]
 meet01.infra.labcode.de

@@ -1,14 +1,14 @@
 http:
   routers:
     labcode-de_http:
-      rule: "Host(`labcode.de`)"
+      rule: "Host(`labcode.de`) || Host(`www.labcode.de`)"
       service: "labcode-de@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
     labcode-de_https:
-      rule: "Host(`labcode.de`)"
+      rule: "Host(`labcode.de`) || Host(`www.labcode.de`)"
       service: "labcode-de@file"
       entryPoints:
         - "https"
