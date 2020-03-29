@@ -1,8 +1,6 @@
 docker stop md.leomaroni.de-app
 
-docker exec md.leomaroni.de-db /usr/bin/mysqldump \
-  -u "{{ hackmd_db_user }}" --password="{{ hackmd_db_password }}" \
-  "{{ hackmd_db_database }}" > /volume/backup/leomaroni.de/md.leomaroni.de/db_data.sql
+docker exec md.leomaroni.de-db pg_dumpall -c -U codimd > /volume/backup/leomaroni.de/md.leomaroni.de/db_data.sql
 
 chown rsync-backup:rsync-backup /volume/backup/leomaroni.de/md.leomaroni.de/*
 

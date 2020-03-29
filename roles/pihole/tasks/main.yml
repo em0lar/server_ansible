@@ -19,6 +19,6 @@
       DNS1: '2606:4700:4700::1111'
       DNS2: '1.1.1.1'
       WEBPASSWORD: "{{ pihole_webpassword }}"
-      ServerIP: "{{ host.ipv4 }}"
-      ServerIPv6: "{{ host.ipv6 }}"
+      ServerIP: "{{ ansible_default_ipv4.address }}"
+      ServerIPv6: "{{ ansible_default_ipv6.address }}"
       TZ: "Europe/Berlin"

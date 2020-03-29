@@ -5,7 +5,6 @@
   roles:
     - base-dns
     - base
-    - openvpn
     - oh-my-zsh
 
 - name: web

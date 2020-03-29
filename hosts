@@ -1,16 +1,18 @@
 [web]
-lupus.infra.labcode.de
+lupus.het.nbg.de.labcode.de
 #116.203.108.159
 
 [pihole]
-andromeda.infra.labcode.de
+andromeda.int.sgb.de.labcode.de
+#10.151.11.2
 
 [mail]
-cetus.infra.labcode.de
+cetus.het.hel.fi.labcode.de
 #95.216.160.224
 
 [jitsi]
-meet01.infra.labcode.de
+meet01.het.nbg.de.labcode.de
+#2a01:4f8:c0c:ac5f::1
 
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3

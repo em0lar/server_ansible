@@ -17,27 +17,32 @@
 
 - name: Create/Launch docker container md.leomaroni.de-db
   docker_container:
-    image: mariadb:10
+    image: postgres:11
     name: md.leomaroni.de-db
     restart_policy: always
     env:
-      MYSQL_USER: "{{ hackmd_db_user }}"
-      MYSQL_PASSWORD: "{{ hackmd_db_password }}"
-      MYSQL_DATABASE: "{{ hackmd_db_database }}"
-      MYSQL_ROOT_PASSWORD: "{{ hackmd_db_root_password }}"
+      POSTGRES_PASSWORD: "{{ codimd_db_password }}"
+      POSTGRES_USER: "codimd"
+      POSTGRES_DB: "codimd"
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --lc-collate=C --lc-ctype=C"
     volumes:
       - /volume/docker/leomaroni.de/md.leomaroni.de/db-data:/var/lib/mysql
       - ./resources/utf8.cnf:/etc/mysql/conf.d/utf8.cnf
 
 - name: Create/launch docker container md.leomaroni.de-app
   docker_container:
-    image: hackmdio/hackmd:1.4.1
+    image: quay.io/codimd/server:1.6.0
     name: md.leomaroni.de-app
     restart_policy: always
     links:
       - md.leomaroni.de-db:db
     env:
-      CMD_DB_URL: "mysql://{{ hackmd_db_user }}:{{ hackmd_db_password }}@db:3306/{{ hackmd_db_database }}"
+      CMD_DB_URL: "postgres://codimd:{{ codimd_db_password }}@db:5432/codimd"
+      CMD_ALLOW_FREEURL: "true"
+      CMD_DOMAIN: "md.leomaroni.de"
+      CMD_PROTOCOL_USESSL: "true"
+      CMD_USECDN: "false"
+      CMD_URL_ADDPORT: "false"
     labels:
       traefik.enable: "true"
       traefik.http.routers.md-leomaroni-de_http.rule: "Host(`md.leomaroni.de`)"
