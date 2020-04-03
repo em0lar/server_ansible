@@ -1,5 +1,5 @@
 ---
-- name: Add IP address of all hosts to all hosts
+- name: Add IPv4 address of all hosts to all hosts
   lineinfile:
     dest: /etc/hosts
     regexp: '.*{{ item }}$'

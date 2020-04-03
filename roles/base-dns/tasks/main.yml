@@ -19,7 +19,7 @@
     type: AAAA
     zone: "{{ ansible_fqdn.split('.')[-2] }}.{{ ansible_fqdn.split('.')[-1] }}"
     state: present
-  when: host.hoster != "home" or host.dns_cname is not defined
+  when: host.hoster != "home" and host.dns_cname is not defined
 
 - name: Add/Modify CNAME DNS record for hostname
   cloudflare_dns:

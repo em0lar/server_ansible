@@ -10,16 +10,16 @@
   tags: web
   import_playbook: web.yml
 
-#- name: mail
-#  tags: mail
-#  import_playbook: mail.yml
-#
+- name: mail
+  tags: mail
+  import_playbook: mail.yml
+
 - name: pihole
   tags: pihole
   hosts: pihole
   roles:
     - pihole
-#
-#- name: jitsi
-#  tags: jitsi
-#  import_playbook: jitsi.yml
+
+- name: jitsi
+  tags: jitsi
+  import_playbook: jitsi.yml

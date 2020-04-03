@@ -1,7 +1,7 @@
 - hosts: mail
   roles:
     - docker
-    - traefik
+    - docker-traefik-reverseproxy
     - mail/hcloud-volume
     - mail/mailcow-letsencrypt
     - mail/mailcow
