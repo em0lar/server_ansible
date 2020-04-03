@@ -1,0 +1,8 @@
+- name: Create traefik user
+  user:
+    name: "traefik"
+    create_home: no
+    state: present
+
+- import_tasks: "config.yml"
+- import_tasks: "install.yml"

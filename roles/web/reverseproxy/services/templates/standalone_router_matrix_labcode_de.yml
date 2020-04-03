@@ -1,0 +1,16 @@
+http:
+  routers:
+    matrix_labcode_de_http:
+      rule: "Host(`matrix.labcode.de`)"
+      service: "standalone_matrix@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    matrix_labcode_de_https:
+      rule: "Host(`matrix.labcode.de`)"
+      service: "standalone_matrix@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"

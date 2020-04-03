@@ -1,0 +1,21 @@
+http:
+  routers:
+    kanban_opendatamap_net_http:
+      rule: "Host(`kanban.opendatamap.net`)"
+      service: "kanban-opendatamap-net@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    kanban_opendatamap_net_https:
+      rule: "Host(`kanban.opendatamap.net`)"
+      service: "kanban-opendatamap-net@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
+  services:
+    kanban-opendatamap-net:
+      loadBalancer:
+        servers:
+          - url: "http://51.15.21.208:3010"

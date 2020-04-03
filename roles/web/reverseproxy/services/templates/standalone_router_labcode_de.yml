@@ -1,0 +1,16 @@
+http:
+  routers:
+    labcode_de_http:
+      rule: "Host(`labcode.de`) || Host(`www.labcode.de`)"
+      service: "standalone_nginx@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    labcode_de_https:
+      rule: "Host(`labcode.de`) || Host(`www.labcode.de`)"
+      service: "standalone_nginx@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"

@@ -1,0 +1,3 @@
+#web_standalone_hostname: titan.int.sgb.de.labcode.de
+#web_docker_hostname: hyperion.int.sgb.de.labcode.de
+#web_reverse_proxy_hostname: dione.int.sgb.de.labcode.de

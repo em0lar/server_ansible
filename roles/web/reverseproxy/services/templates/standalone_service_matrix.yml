@@ -1,0 +1,6 @@
+http:
+  services:
+    standalone_matrix:
+      loadBalancer:
+        servers:
+          - url: "http://{{ web_standalone_hostname }}:8008"

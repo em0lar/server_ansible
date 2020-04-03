@@ -1,0 +1,88 @@
+---
+- name: Install bzip2 and postgresql-client and php-module apt packages
+  apt:
+    name:
+      - bzip2
+      - postgresql-client
+      - libpq-dev
+      - php7.4-zip
+      - php7.4-xml
+      - php7.4-curl
+      - php7.4-gd
+      - php7.4-mbstring
+    state: present
+
+- name: Add psycopg2 python library
+  pip:
+    name: psycopg2
+    state: present
+
+- stat:
+    path: /var/www/leomaroni.de/cloud.leomaroni.de
+  register: nextcloud_directory
+
+- set_fact:
+    nextcloud_installed: "{{ nextcloud_directory.stat.exists | default(false) }}"
+
+- name: Create /var/www/leomaroni.de/cloud.leomaroni.de directory
+  file:
+    path: "/var/www/leomaroni.de/cloud.leomaroni.de"
+    state: directory
+    recurse: yes
+  when: not nextcloud_installed
+
+- name: Download nextcloud installation package
+  get_url:
+    url: "https://download.nextcloud.com/server/releases/nextcloud-18.0.3.zip"
+    dest: "/tmp/nextcloud.zip"
+    checksum: "sha256:https://download.nextcloud.com/server/releases/nextcloud-18.0.3.zip.sha256"
+  when: not nextcloud_installed
+
+- name: Create /tmp/nextcloud directory
+  file:
+    path: "/var/www/leomaroni.de/cloud.leomaroni.de"
+    state: directory
+    recurse: yes
+  when: not nextcloud_installed
+
+- name: Extract nextcloud installation package
+  unarchive:
+    src: "/tmp/nextcloud.zip"
+    remote_src: yes
+    dest: "/var/www/leomaroni.de/cloud.leomaroni.de"
+    owner: www-data
+    group: www-data
+  when: not nextcloud_installed
+
+- name: Delete nextcloud installation package
+  file:
+    path: "/tmp/nextcloud.zip"
+    state: absent
+  when: not nextcloud_installed
+
+- name: Create PostgreSQL nextcloud user
+  postgresql_user:
+    name: "nextcloud"
+    password: "{{ nextcloud_db_password }}"
+    login_host: "{{ web_db_postgres_host }}"
+    login_user: "web-admin"
+    login_password: "{{ web_db_postgres_password }}"
+
+- name: Create PostgreSQL synapse db
+  postgresql_db:
+    name: "nextcloud"
+    owner: "nextcloud"
+    encoding: "UTF-8"
+    lc_collate: "C"
+    lc_ctype: "C"
+    login_host: "{{ web_db_postgres_host }}"
+    login_user: "web-admin"
+    login_password: "{{ web_db_postgres_password }}"
+    template: "template0"
+
+- name: Add nginx config for cloud.leomaroni.de
+  copy:
+    src: "nginx_vhost.conf"
+    dest: "/etc/nginx/vhosts/cloud_leomaroni_de.conf"
+  notify:
+      - reload nginx

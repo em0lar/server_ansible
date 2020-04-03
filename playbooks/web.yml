@@ -1,8 +1,21 @@
-- hosts: web
+#- hosts: web-docker-services
+#  roles:
+#    - docker
+#    - web/services
+#    - web/directory-permissions
+
+- hosts: web_database
   roles:
-    - docker
-    - web/hcloud-volume
-    - traefik
-    - web/nginx
-    - web/services
-    - web/directory-permissions
+    - web/database/postgres
+
+- hosts: web_standalone_services
+  roles:
+    - web/standalone/php-fastcgi
+    - web/standalone/nginx
+    - web/standalone/services
+
+- hosts: web_reverseproxy
+  tags: web_reverseproxy
+  roles:
+    - web/reverseproxy/traefik
+    - web/reverseproxy/services

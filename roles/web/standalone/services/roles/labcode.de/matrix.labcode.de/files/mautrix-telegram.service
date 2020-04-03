@@ -1,0 +1,12 @@
+[Unit]
+Description=Matrix Synapse service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/matrix-synapse/
+ExecStart=/opt/matrix-synapse/.venv/bin/python -m mautrix_telegram -c /opt/matrix-synapse/appservices/telegram/config.yaml -r /opt/matrix-synapse/appservices/telegram/registration.yaml
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

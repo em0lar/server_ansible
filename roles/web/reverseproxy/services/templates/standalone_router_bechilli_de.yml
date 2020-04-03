@@ -1,0 +1,16 @@
+http:
+  routers:
+    bechilli_de_http:
+      rule: "Host(`bechilli.de`) || Host(`www.bechilli.de`)"
+      service: "standalone_nginx@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    bechilli_de_https:
+      rule: "Host(`bechilli.de`) || Host(`www.bechilli.de`)"
+      service: "standalone_nginx@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"

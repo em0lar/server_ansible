@@ -1,0 +1,38 @@
+---
+- name: Create .well-known/matrix directory in labcode.de
+  file:
+    path: "/var/www/labcode.de/labcode.de/.well-known/matrix"
+    state: directory
+
+- name: Create .well-known/matrix/server in labcode.de
+  copy:
+    src: "well_known.json"
+    dest: /var/www/labcode.de/labcode.de/.well-known/matrix/server/index.json
+
+- name: Create synapse config directory
+  file:
+    path: "/opt/matrix-synapse/config/"
+    state: directory
+    owner: "synapse"
+    group: "synapse"
+
+- name: Add synapse homeserver config
+  template:
+    src: "homeserver.yaml"
+    dest: "/opt/matrix-synapse/config/homeserver.yaml"
+    owner: "synapse"
+    group: "synapse"
+
+- name: Add synapse signing key
+  copy:
+    src: "matrix.labcode.de.signing.key"
+    dest: "/opt/matrix-synapse/config/matrix.labcode.de.signing.key"
+    owner: "synapse"
+    group: "synapse"
+
+- name: Add synapse log config
+  copy:
+    src: "matrix.labcode.de.log.config"
+    dest: "/opt/matrix-synapse/config/matrix.labcode.de.log.config"
+    owner: "synapse"
+    group: "synapse"

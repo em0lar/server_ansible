@@ -1,0 +1,12 @@
+---
+- name: download cdn.labcode.de from GitLab
+  git:
+    repo: "https://labcode-de:{{ vault_web_gitlab_password }}@gitlab.com/labcode_dev/cdn.labcode.de.git"
+    dest: "/var/www/labcode.de/cdn.labcode.de"
+
+- name: Add nginx config for cdn.labcode.de
+  copy:
+    src: "nginx_vhost.conf"
+    dest: "/etc/nginx/vhosts/cdn+labcode_de.conf"
+  notify:
+    - reload nginx

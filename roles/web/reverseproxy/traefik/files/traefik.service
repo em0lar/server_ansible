@@ -1,0 +1,15 @@
+[Unit]
+Description=traefik proxy
+After=network-online.target
+
+[Service]
+Restart=always
+
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+User=traefik
+Group=traefik
+
+ExecStart=/opt/traefik/traefik --configfile=/opt/traefik/config/traefik.yml
+
+[Install]
+WantedBy=multi-user.target

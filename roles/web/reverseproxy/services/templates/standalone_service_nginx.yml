@@ -1,0 +1,6 @@
+http:
+  services:
+    standalone_nginx:
+      loadBalancer:
+        servers:
+          - url: "http://{{ web_standalone_hostname }}:80"

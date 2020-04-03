@@ -1,0 +1,14 @@
+---
+- name: download labcode.de from GitHub
+  git:
+    repo: "https://github.com/labcode-de/labcode.de.git"
+    dest: "/var/www/labcode.de/labcode.de"
+    force: yes
+    clone: yes
+
+- name: Add nginx config for labcode.de
+  copy:
+    src: "nginx_vhost.conf"
+    dest: "/etc/nginx/vhosts/labcode_de.conf"
+  notify:
+    - reload nginx

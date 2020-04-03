@@ -1,5 +1,0 @@
----
-- include_role:
-    name: 'web/services/roles/{{ item.path }}'
-  with_filetree: 'roles/'
-  when: (item.state == 'directory') and (item.path.split('/') | length == 2)

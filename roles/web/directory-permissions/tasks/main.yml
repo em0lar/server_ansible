@@ -1,7 +1,0 @@
----
-- name: Change directory permissions for /var/www
-  file:
-    dest: /var/www
-    owner: ci
-    group: www-data
-    recurse: yes

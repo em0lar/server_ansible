@@ -1,0 +1,16 @@
+http:
+  routers:
+    opendatamap_net_http:
+      rule: "Host(`opendatamap.net`) || Host(`www.opendatamap.net`)"
+      service: "standalone_nginx@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    opendatamap_net_https:
+      rule: "Host(`opendatamap.net`) || Host(`www.opendatamap.net`)"
+      service: "standalone_nginx@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
