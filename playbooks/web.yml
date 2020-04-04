@@ -1,21 +1,25 @@
-#- hosts: web-docker-services
-#  roles:
-#    - docker
-#    - web/services
-#    - web/directory-permissions
-
 - hosts: web_database
   roles:
-    - web/database/postgres
+    - postgresql
 
-- hosts: web_standalone_services
+- hosts: web_services
   roles:
-    - web/standalone/php-fastcgi
-    - web/standalone/nginx
-    - web/standalone/services
+    - gitea
+    - matrix
+
+- hosts: web_nginx
+  roles:
+    - php-fastcgi
+    - nginx
+    - nextcloud
+    - cdn.labcode.de
+    - labcode.de
+    - docs.opendatamap.net
+    - bechilli.de
+    - matrix-well-known
 
 - hosts: web_reverseproxy
   tags: web_reverseproxy
   roles:
-    - web/reverseproxy/traefik
-    - web/reverseproxy/services
+    - traefik
+    - traefik-services

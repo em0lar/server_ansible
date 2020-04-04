@@ -1,0 +1,62 @@
+---
+- name: Create git user
+  user:
+    name: "gitea"
+    create_home: yes
+    home: "/opt/gitea"
+    shell: "/bin/bash"
+
+- name: Download gitea binary
+  get_url:
+    url: "https://dl.gitea.io/gitea/1.11.4/gitea-1.11.4-linux-amd64"
+    dest: "/opt/gitea/gitea"
+    checksum: "sha256:https://dl.gitea.io/gitea/1.11.4/gitea-1.11.4-linux-amd64.sha256"
+    mode: "+x"
+
+- name: Create symbolic link for gitea binary
+  file:
+    path: "/usr/local/bin/gitea"
+    src: "/opt/gitea/gitea"
+    state: link
+
+- name: Create gitea directories (part 1)
+  file:
+    name: "/opt/gitea/{{ item }}"
+    state: directory
+    owner: gitea
+    group: gitea
+    mode: 0750
+  with_items:
+    - "config"
+    - "custom"
+    - "data"
+    - "log"
+
+- name: Add Gitea configuration file
+  template:
+    src: conf_app.ini.j2
+    dest: /opt/gitea/config/app.ini
+    owner: "gitea"
+    group: "gitea"
+    mode: 0400
+  notify: restart gitea service
+
+- name: Upload SSH key
+  copy:
+    content: "{{ ssh_deploy_key }}"
+    dest: /opt/gitea/ssh_deploy_key
+    owner: "gitea"
+    group: "gitea"
+    mode: "0400"
+
+- name: Copy gitea.service file to host
+  copy:
+    src: "gitea.service"
+    dest: "/etc/systemd/system/gitea.service"
+
+- name: Enable/Start gitea service
+  systemd:
+    name: "gitea.service"
+    daemon_reload: yes
+    enabled: yes
+    state: started

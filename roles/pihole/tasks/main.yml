@@ -4,11 +4,11 @@
 
 - name: Create pihole directory
   file:
-    path: /etc/pihole
+    path: "/etc/pihole"
     state: directory
 
 - stat:
-    path: /usr/local/bin/pihole
+    path: "/usr/local/bin/pihole"
   register: pihole_binary
 
 - set_fact:
@@ -16,13 +16,13 @@
 
 - name: Copy pihole setup conf
   template:
-    src: setupVars.conf
-    dest: /etc/pihole/setupVars.conf
+    src: "setupVars.conf"
+    dest: "/etc/pihole/setupVars.conf"
 
 - name: Download pihole install script
   get_url:
-    url: https://raw.githubusercontent.com/pi-hole/pi-hole/master/automated%20install/basic-install.sh
-    dest: /etc/pihole/pihole-install.sh
+    url: "https://raw.githubusercontent.com/pi-hole/pi-hole/master/automated%20install/basic-install.sh"
+    dest: "/etc/pihole/pihole-install.sh"
     mode: u+rwx
   when: not pihole_installed
 
@@ -32,5 +32,5 @@
 
 - name: Delete pihole install script
   file:
-    path: /etc/pihole/pihole-install.sh
+    path: "/etc/pihole/pihole-install.sh"
     state: absent

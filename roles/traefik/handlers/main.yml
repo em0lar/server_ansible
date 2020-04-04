@@ -1,0 +1,6 @@
+---
+# Reload is not possible
+- name: restart traefik service
+  systemd:
+    name: traefik
+    state: restarted

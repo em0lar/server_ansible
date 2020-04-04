@@ -1,0 +1,59 @@
+---
+- name: Install PostgreSQL
+  apt:
+    name: postgresql=11*
+
+- name: Install PostgreSQL pip helper
+  pip:
+    name: psycopg2-binary==2.8.4
+    state: present
+
+- name: Expose PostgreSQL to all hosts
+  lineinfile:
+    path: /etc/postgresql/11/main/postgresql.conf
+    regexp: "^#listen_addresses = 'localhost'"
+    line: "listen_addresses = '*'"
+
+- name: Expose PostgreSQL to all hosts
+  blockinfile:
+    path: /etc/postgresql/11/main/pg_hba.conf
+    block: |
+      host all all 0.0.0.0/0 md5
+      host all all ::/0 md5
+
+- name: Ensure postgresql service is enabled and started
+  systemd:
+    name: postgresql
+    enabled: yes
+    state: started
+
+- name: add postgresql dbs
+  postgresql_db:
+    name: "{{ item.key }}"
+    owner: "{{ item.value }}"
+    encoding: "UTF-8"
+    lc_collate: "C"
+    lc_ctype: "C"
+  become_user: postgres
+  become: true
+  with_dict: "{{ postgresql.dbs }}"
+
+- name: add postgresql user(s)
+  postgresql_user:
+    name: "{{ item.key }}"
+    password: "{{ item.value }}"
+  no_log: true
+  become_user: postgres
+  become: true
+  with_dict: "{{ postgresql.users }}"
+
+- name: add vacuum cronjob
+  cron:
+    name: "db maintenance"
+    job: "/usr/bin/vacuumdb --all --analyze > /dev/null"
+    user: postgres
+    hour: "23"
+    minute: "30"
+
+- name: flush handlers so postgres is ready before other roles try to use it
+  meta: flush_handlers

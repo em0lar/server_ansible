@@ -6,12 +6,12 @@ rhea.int.sgb.de.labcode.de
 dione.int.sgb.de.labcode.de
 #10.151.10.3
 
-[web_standalone_services]
+[web_nginx]
 titan.int.sgb.de.labcode.de
 #10.151.10.4
 
-[web_docker_services]
-#lupus.het.nbg.de.labcode.de
+[web_services]
+hyperion.int.sgb.de.labcode.de
 
 [pihole]
 dns.int.sgb.de.labcode.de

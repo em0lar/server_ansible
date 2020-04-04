@@ -1,0 +1,48 @@
+---
+- name: Get hostname of web-nginx-server
+  set_fact:
+    web_nginx_hostname: "{{ item }}"
+  when: hostvars[item].host.hoster == host.hoster
+  with_items: "{{ groups.web_nginx }}"
+
+- name: Get hostname of web-services-server
+  set_fact:
+    web_services_hostname: "{{ item }}"
+  when: hostvars[item].host.hoster == host.hoster
+  with_items: "{{ groups.web_services }}"
+
+- name: Add dynamic traefik configs to server
+  template:
+    dest: "/opt/traefik/config/dynamic/{{ item.path }}"
+    src: "{{ item.path }}"
+    owner: traefik
+    group: traefik
+  with_filetree: 'templates/'
+
+- name: Add/Modify CNAME DNS records
+  cloudflare_dns:
+    account_email: "{{ cloudflare_api_email }}"
+    account_api_token: "{{ cloudflare_api_token }}"
+    record: "{{ item }}"
+    value: "{{ ansible_fqdn }}"
+    type: CNAME
+    zone: "{{ item.split('.')[-2] }}.{{ item.split('.')[-1] }}"
+    state: present
+  with_items:
+    - "grafana.opendatamap.net"
+    - "kanban.opendatamap.net"
+    - "node-red.opendatamap.net"
+    - "rhein-sieg.opendatamap.net"
+    - "bechilli.de"
+    - "www.bechilli.de"
+    - "cdn.labcode.de"
+    - "cloud.leomaroni.de"
+    - "docs.opendatamap.net"
+    - "git.labcode.de"
+    - "git.labcode.dev"
+    - "git.lbcd.dev"
+    - "labcode.de"
+    - "www.labcode.de"
+    - "matrix.labcode.de"
+    - "opendatamap.net"
+    - "www.opendatamap.net"

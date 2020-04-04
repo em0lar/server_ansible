@@ -1,0 +1,36 @@
+providers:
+  file:
+    directory: "/opt/traefik/config/dynamic"
+    watch: true
+
+api:
+  dashboard: true
+
+entryPoints:
+  http:
+    address: ":80"
+
+  https:
+    address: ":443"
+    forwardedHeaders:
+      insecure: true
+
+  ssh_gitea:
+    address: ":222"
+
+certificatesResolvers:
+  le_http:
+    acme:
+      httpChallenge:
+        entryPoint: http
+      email: {{ letsencrypt_email }}
+      storage: /opt/traefik/acme_http.json
+  le_tls:
+    acme:
+      tlsChallenge: {}
+      email: {{ letsencrypt_email }}
+      storage: /opt/traefik/acme_tls.json
+
+log:
+  format: json
+  level: INFO
