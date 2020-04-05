@@ -10,6 +10,13 @@
   tags: web
   import_playbook: web.yml
 
+- name: drone_ci
+  tags: drone_ci
+  hosts: drone_ci
+  roles:
+    - docker
+    - drone-ci
+
 - name: mail
   tags: mail
   import_playbook: mail.yml

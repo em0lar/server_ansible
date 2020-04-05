@@ -27,17 +27,6 @@
     enabled: yes
     state: started
 
-- name: add postgresql dbs
-  postgresql_db:
-    name: "{{ item.key }}"
-    owner: "{{ item.value }}"
-    encoding: "UTF-8"
-    lc_collate: "C"
-    lc_ctype: "C"
-  become_user: postgres
-  become: true
-  with_dict: "{{ postgresql.dbs }}"
-
 - name: add postgresql user(s)
   postgresql_user:
     name: "{{ item.key }}"
@@ -46,6 +35,18 @@
   become_user: postgres
   become: true
   with_dict: "{{ postgresql.users }}"
+
+- name: add postgresql dbs
+  postgresql_db:
+    name: "{{ item.key }}"
+    owner: "{{ item.value }}"
+    encoding: "UTF-8"
+    lc_collate: "C"
+    lc_ctype: "C"
+    template: "template0"
+  become_user: postgres
+  become: true
+  with_dict: "{{ postgresql.dbs }}"
 
 - name: add vacuum cronjob
   cron:

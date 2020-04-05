@@ -1,17 +1,17 @@
 [web_database]
 rhea.int.sgb.de.labcode.de
-#10.151.10.5
 
 [web_reverseproxy]
 dione.int.sgb.de.labcode.de
-#10.151.10.3
 
 [web_nginx]
 titan.int.sgb.de.labcode.de
-#10.151.10.4
 
 [web_services]
 hyperion.int.sgb.de.labcode.de
+
+[drone_ci]
+iapetus.int.sgb.de.labcode.de
 
 [pihole]
 dns.int.sgb.de.labcode.de

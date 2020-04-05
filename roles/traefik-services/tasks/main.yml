@@ -11,6 +11,12 @@
   when: hostvars[item].host.hoster == host.hoster
   with_items: "{{ groups.web_services }}"
 
+- name: Get hostname of web-drone-ci-server
+  set_fact:
+    drone_ci_hostname: "{{ item }}"
+  when: hostvars[item].host.hoster == host.hoster
+  with_items: "{{ groups.drone_ci }}"
+
 - name: Add dynamic traefik configs to server
   template:
     dest: "/opt/traefik/config/dynamic/{{ item.path }}"
@@ -37,6 +43,8 @@
     - "www.bechilli.de"
     - "cdn.labcode.de"
     - "cloud.leomaroni.de"
+    - "ci.labcode.dev"
+    - "runner01.ci.labcode.dev"
     - "docs.opendatamap.net"
     - "git.labcode.de"
     - "git.labcode.dev"

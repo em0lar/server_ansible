@@ -7,6 +7,13 @@
     owner: "synapse"
     group: "synapse"
 
+- name: Add mautrix-telegram example config to host
+  copy:
+    src: "mautrix-telegram-example-config.yml"
+    dest: "/opt/matrix-synapse/appservices/telegram/example-config.yaml"
+    owner: "synapse"
+    group: "synapse"
+
 - name: Add mautrix-telegram config to host
   template:
     src: "mautrix-telegram/config.yaml"
@@ -23,7 +30,7 @@
 
 - name: Install mautrix-telegram pip package
   pip:
-    name: "mautrix-telegram==0.7.1"
+    name: "mautrix-telegram==0.7.2"
     virtualenv: "/opt/matrix-synapse/.venv"
     virtualenv_command: "/usr/bin/python3 -m venv"
     state: present

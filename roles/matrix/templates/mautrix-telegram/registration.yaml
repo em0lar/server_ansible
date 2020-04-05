@@ -8,6 +8,6 @@ namespaces:
     aliases:
     - exclusive: true
       regex: '#telegram_.+:labcode.de'
-url: http://{{ ansible_fqdn }}:29317
+url: http://localhost:29317
 sender_localpart: telegrambot
 rate_limited: false
