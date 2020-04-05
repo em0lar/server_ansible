@@ -4,6 +4,13 @@
     repo: "https://labcode-de:{{ vault_web_gitlab_password }}@gitlab.com/labcode_dev/cdn.labcode.de.git"
     dest: "/var/www/labcode.de/static.labcode.de"
 
+- name: Allow user ci to write into build directory
+  file:
+    path: "/var/www/labcode.de/static.labcode.de/build"
+    owner: ci
+    recurse: yes
+  when: ci_user_enable
+
 - name: Add nginx config for static.labcode.de
   copy:
     src: "nginx_vhost.conf"
