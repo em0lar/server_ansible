@@ -12,7 +12,7 @@
     - php-fastcgi
     - nginx
     - nextcloud
-    - cdn.labcode.de
+    - static.labcode.de
     - labcode.de
     - docs.opendatamap.net
     - bechilli.de

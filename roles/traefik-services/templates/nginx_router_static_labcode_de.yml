@@ -1,14 +1,14 @@
 http:
   routers:
-    nginx-cdn_labcode_de-http:
-      rule: "Host(`cdn.labcode.de`)"
+    nginx-static_labcode_de-http:
+      rule: "Host(`static.labcode.de`) || Host(`cdn.labcode.de`)"
       service: "nginx@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    nginx-cdn_labcode_de-https:
-      rule: "Host(`cdn.labcode.de`)"
+    nginx-static_labcode_de-https:
+      rule: "Host(`static.labcode.de`) || Host(`cdn.labcode.de`)"
       service: "nginx@file"
       entryPoints:
         - "https"
