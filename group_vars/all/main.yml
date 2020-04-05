@@ -36,3 +36,4 @@ cloudflare_api_token: !vault |
   6262636637356631343532316661393061643863333932376333
 
 ansible_python_interpreter: /usr/bin/python3
+ci_user_enable: no

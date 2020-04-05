@@ -4,11 +4,57 @@
   roles:
     - base-dns
     - base
+    - unattended-upgrades
     - oh-my-zsh
+  tasks:
+    - name: create ci user
+      user:
+        name: "ci"
+        shell: "/bin/bash"
+        state: present
+      when: ci_user_enable
 
-- name: web
-  tags: web
-  import_playbook: web.yml
+    - name: add authorized key of ci user
+      authorized_key:
+        user: "ci"
+        manage_dir: yes
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGfB6HQy8CnGNlcZn1cpM25eZPTXNnYePeyQlSogieo8 droneci"
+        state: present
+        exclusive: yes
+      when: ci_user_enable
+
+# Web
+
+- hosts: web_database
+  tags: web,web_database
+  roles:
+    - postgresql
+
+- hosts: web_services
+  tags: web,web_services
+  roles:
+    - gitea
+    - matrix
+
+- hosts: web_nginx
+  tags: web,web_nginx
+  roles:
+    - php-fastcgi
+    - nginx
+    - nextcloud
+    - static.labcode.de
+    - labcode.de
+    - docs.opendatamap.net
+    - bechilli.de
+    - matrix-well-known
+
+- hosts: web_reverseproxy
+  tags: web,web_reverseproxy
+  roles:
+    - traefik
+    - traefik-services
+
+# CI
 
 - name: drone_ci
   tags: drone_ci
@@ -17,9 +63,19 @@
     - docker
     - drone-ci
 
+# Mail
+
 - name: mail
   tags: mail
-  import_playbook: mail.yml
+  hosts: mail
+  roles:
+    - docker
+    - docker-traefik-reverseproxy
+    - mail/hcloud-volume
+    - mail/mailcow-letsencrypt
+    - mail/mailcow
+
+# Pihole
 
 - name: pihole
   tags: pihole
@@ -27,6 +83,12 @@
   roles:
     - pihole
 
+# Jitsi
+
 - name: jitsi
   tags: jitsi
-  import_playbook: jitsi.yml
+  hosts: jitsi
+  roles:
+    - docker
+    - docker-traefik-reverseproxy
+    - jitsi

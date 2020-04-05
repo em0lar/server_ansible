@@ -1,5 +1,0 @@
-- hosts: jitsi
-  roles:
-    - docker
-    - docker-traefik-reverseproxy
-    - jitsi
