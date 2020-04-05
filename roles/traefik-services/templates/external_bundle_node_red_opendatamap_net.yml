@@ -1,21 +1,21 @@
 http:
   routers:
-    node-red_opendatamap_net_http:
+    external-node_red_opendatamap_net-http:
       rule: "Host(`node-red.opendatamap.net`)"
-      service: "node-red-opendatamap-net@file"
+      service: "external-node_red_opendatamap_net@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    node-red_opendatamap_net_https:
+    external-node_red_opendatamap_net-https:
       rule: "Host(`node-red.opendatamap.net`)"
-      service: "node-red-opendatamap-net@file"
+      service: "external-node_red_opendatamap_net@file"
       entryPoints:
         - "https"
       tls:
         certResolver: "le_tls"
   services:
-    node-red-opendatamap-net:
+    external-node_red_opendatamap_net:
       loadBalancer:
         servers:
           - url: "http://51.15.21.208:1880"

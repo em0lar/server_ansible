@@ -1,13 +1,13 @@
 http:
   routers:
-    api_http:
+    internal-api-http:
       rule: "Host(`traefik.{{ ansible_fqdn }}`)"
       service: "api@internal"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    api_https:
+    internal-api-https:
       rule: "Host(`traefik.{{ ansible_fqdn }}`)"
       tls:
         certResolver: "le_http"

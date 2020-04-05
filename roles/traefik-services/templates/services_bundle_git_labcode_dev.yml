@@ -1,34 +1,34 @@
 http:
   routers:
-    git_labcode_dev_http:
+    services-git_labcode_dev-http:
       rule: "Host(`git.labcode.dev`) || Host(`git.lbcd.dev`) || Host(`git.labcode.de`)"
-      service: "services_gitea@file"
+      service: "services-gitea@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    git_labcode_dev_https:
+    services-git_labcode_dev-https:
       rule: "Host(`git.labcode.dev`) || Host(`git.lbcd.dev`) || Host(`git.labcode.de`)"
-      service: "services_gitea@file"
+      service: "services-gitea@file"
       entryPoints:
         - "https"
       tls:
         certResolver: "le_tls"
   services:
-    services_gitea:
+    services-gitea:
       loadBalancer:
         servers:
           - url: "http://{{ web_services_hostname }}:40000"
 
 tcp:
   routers:
-    git_labcode_dev_ssh:
+    services-git_labcode_dev-ssh:
       entryPoints:
         - "ssh_gitea"
       rule: "HostSNI(`*`)"
-      service: "services_gitea_ssh@file"
+      service: "services-gitea-ssh@file"
   services:
-    services_gitea_ssh:
+    services-gitea-ssh:
       loadBalancer:
         servers:
         - address: "{{ web_services_hostname }}:222"

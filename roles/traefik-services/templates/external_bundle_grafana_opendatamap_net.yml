@@ -1,21 +1,21 @@
 http:
   routers:
-    grafana_opendatamap_net_http:
+    external-grafana_opendatamap_net-http:
       rule: "Host(`grafana.opendatamap.net`)"
-      service: "grafana-opendatamap-net@file"
+      service: "external-grafana_opendatamap_net@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    grafana_opendatamap_net_https:
+    external-grafana_opendatamap_net-https:
       rule: "Host(`grafana.opendatamap.net`)"
-      service: "grafana-opendatamap-net@file"
+      service: "external-grafana_opendatamap_net@file"
       entryPoints:
         - "https"
       tls:
         certResolver: "le_tls"
   services:
-    grafana-opendatamap-net:
+    external-grafana_opendatamap_net:
       loadBalancer:
         servers:
           - url: "http://51.15.21.208:3000"

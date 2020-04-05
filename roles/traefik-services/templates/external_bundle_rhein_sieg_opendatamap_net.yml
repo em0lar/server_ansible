@@ -1,21 +1,21 @@
 http:
   routers:
-    rhein-sieg-opendatamap-net_http:
+    external-rhein_sieg_opendatamap_net-http:
       rule: "Host(`rhein-sieg.opendatamap.net`)"
-      service: "rhein-sieg-opendatamap-net@file"
+      service: "external-rhein_sieg_opendatamap_net@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    rhein-sieg-opendatamap-net_https:
+    external-rhein_sieg_opendatamap_net-https:
       rule: "Host(`rhein-sieg.opendatamap.net`)"
-      service: "rhein-sieg-opendatamap-net@file"
+      service: "external-rhein_sieg_opendatamap_net@file"
       entryPoints:
         - "https"
       tls:
         certResolver: "le_tls"
   services:
-    rhein-sieg-opendatamap-net:
+    external-rhein_sieg_opendatamap_net:
       loadBalancer:
         servers:
           - url: "http://51.15.21.208:3005"

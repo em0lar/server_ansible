@@ -1,15 +1,15 @@
 http:
   routers:
-    cloud_leomaroni_de_http:
+    nginx-cloud_leomaroni_de-http:
       rule: "Host(`cloud.leomaroni.de`)"
-      service: "standalone_nginx@file"
+      service: "nginx@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    cloud_leomaroni_de_https:
+    nginx-cloud_leomaroni_de-https:
       rule: "Host(`cloud.leomaroni.de`)"
-      service: "standalone_nginx@file"
+      service: "nginx@file"
       entryPoints:
         - "https"
       tls:

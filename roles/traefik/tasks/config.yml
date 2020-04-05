@@ -33,10 +33,3 @@
     dest: "/opt/traefik/config/dynamic/tls.yml"
     owner: traefik
     group: traefik
-
-- name: Add traefik dashboard config to host
-  template:
-    src: "dashboard.yml"
-    dest: "/opt/traefik/config/dynamic/dashboard.yml"
-    owner: traefik
-    group: traefik

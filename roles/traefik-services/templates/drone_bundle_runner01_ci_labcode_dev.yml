@@ -1,21 +1,21 @@
 http:
   routers:
-    runner01_cilabcode_dev_http:
+    drone-runner01_ci_labcode_dev-http:
       rule: "Host(`runner01.ci.labcode.dev`)"
-      service: "drone_ci_runner01@file"
+      service: "drone_ci-runner01@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    runner01_ci_labcode_dev_https:
+    drone-runner01_ci_labcode_dev-https:
       rule: "Host(`runner01.ci.labcode.dev`)"
-      service: "drone_ci_runner01@file"
+      service: "drone_ci-runner01@file"
       entryPoints:
         - "https"
       tls:
         certResolver: "le_tls"
   services:
-    drone_ci_runner01:
+    drone_ci-runner01:
       loadBalancer:
         servers:
           - url: "http://{{ drone_ci_hostname }}:40001"

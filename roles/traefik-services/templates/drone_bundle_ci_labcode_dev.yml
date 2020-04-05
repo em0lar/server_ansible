@@ -1,13 +1,13 @@
 http:
   routers:
-    ci_labcode_dev_http:
+    drone-ci_labcode_dev-http:
       rule: "Host(`ci.labcode.dev`)"
       service: "drone_ci@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
-    ci_labcode_dev_https:
+    drone-ci_labcode_dev-https:
       rule: "Host(`ci.labcode.dev`)"
       service: "drone_ci@file"
       entryPoints:
