@@ -1,0 +1,21 @@
+http:
+  routers:
+    services-md_labcode_de-http:
+      rule: "Host(`md.labcode.de`) || Host(`md.leomaroni.de`)"
+      service: "services-codimd@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    services-md_labcode_de-https:
+      rule: "Host(`md.labcode.de`) || Host(`md.leomaroni.de`)"
+      service: "services-codimd@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
+  services:
+    services-codimd:
+      loadBalancer:
+        servers:
+          - url: "http://{{ web_services_hostname }}:40001"

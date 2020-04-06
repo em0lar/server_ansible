@@ -4,15 +4,15 @@
 [submodule "roles/oh-my-zsh"]
 	path = roles/oh-my-zsh
 	url = https://git.labcode.dev/ansible_roles/oh-my-zsh.git
-[submodule "roles/unattended-upgrades"]
-	path = roles/unattended-upgrades
-	url = https://github.com/jnv/ansible-role-unattended-upgrades
-[submodule "roles/jnv.unattended-upgrades"]
-	path = roles/jnv.unattended-upgrades
-	url = https://github.com/jnv/ansible-role-unattended-upgrades
-[submodule "roles/base"]
-	path = roles/base
-	url = https://github.com/n0emis/ansible-role-base.git
 [submodule "roles/docker-traefik-reverseproxy"]
 	path = roles/docker-traefik-reverseproxy
 	url = https://git.labcode.dev/ansible_roles/traefik.git
+[submodule "roles/geerlingguy.nodejs"]
+	path = roles/geerlingguy.nodejs
+	url = https://github.com/geerlingguy/ansible-role-nodejs.git
+[submodule "roles/n0emis.base"]
+	path = roles/n0emis.base
+	url = https://github.com/n0emis/ansible-role-base.git
+[submodule "roles/jnv.unattended-upgrades"]
+	path = roles/jnv.unattended-upgrades
+	url = https://github.com/jnv/ansible-role-unattended-upgrades

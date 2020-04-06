@@ -3,8 +3,8 @@
   tags: base
   roles:
     - base-dns
-    - base
-    - unattended-upgrades
+    - n0emis.base
+    - jnv.unattended-upgrades
     - oh-my-zsh
   tasks:
     - name: create ci user
@@ -35,6 +35,8 @@
   roles:
     - gitea
     - matrix
+    - geerlingguy.nodejs
+    - codimd
 
 - hosts: web_nginx
   tags: web,web_nginx

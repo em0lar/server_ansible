@@ -1,7 +1,0 @@
-docker stop md.leomaroni.de-app
-
-docker exec md.leomaroni.de-db pg_dumpall -c -U codimd > /volume/backup/leomaroni.de/md.leomaroni.de/db_data.sql
-
-chown rsync-backup:rsync-backup /volume/backup/leomaroni.de/md.leomaroni.de/*
-
-docker start md.leomaroni.de-app
