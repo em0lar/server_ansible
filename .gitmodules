@@ -16,3 +16,6 @@
 [submodule "roles/jnv.unattended-upgrades"]
 	path = roles/jnv.unattended-upgrades
 	url = https://github.com/jnv/ansible-role-unattended-upgrades
+[submodule "roles/codimd"]
+	path = roles/codimd
+	url = https://git.labcode.dev/ansible_roles/codimd.git
