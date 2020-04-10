@@ -6,7 +6,7 @@
 	url = https://git.labcode.dev/ansible_roles/oh-my-zsh.git
 [submodule "roles/docker-traefik-reverseproxy"]
 	path = roles/docker-traefik-reverseproxy
-	url = https://git.labcode.dev/ansible_roles/traefik.git
+	url = https://git.labcode.dev/ansible_roles/traefik-docker.git
 [submodule "roles/geerlingguy.nodejs"]
 	path = roles/geerlingguy.nodejs
 	url = https://github.com/geerlingguy/ansible-role-nodejs.git
@@ -28,3 +28,6 @@
 [submodule "roles/wekan"]
 	path = roles/wekan
 	url = https://git.labcode.dev/ansible_roles/wekan.git
+[submodule "roles/traefik"]
+	path = roles/traefik
+	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
