@@ -19,6 +19,10 @@
     - leomaroni.de
     - opendatamap.net
     - services.leomaroni.de
+    - em0lar.de
+    - ca.em0lar.de
+    - emolar.de
+    - ca.emolar.de
 
 - name: Add/Modify MX DNS records
   cloudflare_dns:
@@ -40,6 +44,10 @@
     - leomaroni.de
     - opendatamap.net
     - services.leomaroni.de
+    - em0lar.de
+    - ca.em0lar.de
+    - emolar.de
+    - ca.emolar.de
 
 - name: Add/Modify autoconfig/autodiscover DNS records
   cloudflare_dns:
@@ -61,6 +69,10 @@
     - autoconfig.leomaroni.de
     - autoconfig.opendatamap.net
     - autoconfig.services.leomaroni.de
+    - autoconfig.em0lar.de
+    - autoconfig.ca.em0lar.de
+    - autoconfig.emolar.de
+    - autoconfig.ca.emolar.de
     - autodiscover.bechilli.de
     - autodiscover.fahrplandatengarten.de
     - autodiscover.hicologne.com
@@ -71,6 +83,10 @@
     - autodiscover.leomaroni.de
     - autodiscover.opendatamap.net
     - autodiscover.services.leomaroni.de
+    - autodiscover.em0lar.de
+    - autodiscover.ca.em0lar.de
+    - autodiscover.emolar.de
+    - autodiscover.ca.emolar.de
 
 - name: Add/Modify autodiscover SRV DNS record
   cloudflare_dns:
@@ -96,6 +112,10 @@
     - leomaroni.de
     - opendatamap.net
     - services.leomaroni.de
+    - em0lar.de
+    - ca.em0lar.de
+    - emolar.de
+    - ca.emolar.de
 
 - name: Add/Modify SPF DNS record
   cloudflare_dns:
@@ -117,3 +137,7 @@
     - leomaroni.de
     - opendatamap.net
     - services.leomaroni.de
+    - em0lar.de
+    - ca.em0lar.de
+    - emolar.de
+    - ca.emolar.de
