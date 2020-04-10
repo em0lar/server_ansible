@@ -1,0 +1,21 @@
+http:
+  routers:
+    services-kanban_labcode_de-http:
+      rule: "Host(`kanban.labcode.de`) || Host(`kanban.labcode.dev`) || Host(`kanban.lbcd.dev`)"
+      service: "services-kanban@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    services-kanban_labcode_de-https:
+      rule: "Host(`kanban.labcode.de`) || Host(`kanban.labcode.dev`) || Host(`kanban.lbcd.dev`)"
+      service: "services-kanban@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
+  services:
+    services-kanban:
+      loadBalancer:
+        servers:
+          - url: "http://{{ web_services_hostname }}:40002"
