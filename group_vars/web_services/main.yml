@@ -1,5 +1,6 @@
 web_db_postgres_host: rhea.int.sgb.de.labcode.de
 nodejs_version: "12.x"
+
 codimd_db_host: rhea.int.sgb.de.labcode.de
 codimd_db_password: !vault |
   $ANSIBLE_VAULT;1.1;AES256
@@ -28,3 +29,10 @@ codimd_allowed_origins: [
 codimd_allow_email_register: false
 codimd_domain: "md.labcode.de"
 codimd_port: 40001
+
+wekan_base_path: "/opt/wekan-labcode"
+wekan_user: "wekan-labcode"
+wekan_group: "wekan-labcode"
+wekan_version: "3.93"
+wekan_port: 40002
+wekan_root_url: "https://kanban.labcode.dev"

@@ -1,0 +1,15 @@
+mongodb_package: "mongodb-org"
+mongodb_version: "4.2"
+mongodb_pymongo_from_pip: true
+mongodb_pymongo_pip_version: "3.10.1"
+mongodb_use_numa: false
+mongodb_user: "mongodb"
+mongodb_net_bindip: "::,0.0.0.0"
+mongodb_net_ipv6: true
+mongodb_net_maxconns: 65536
+mongodb_net_port: 27017
+mongodb_security_authorization: "enabled"
+mongodb_systemlog_destination: "file"
+mongodb_systemlog_logappend: true
+mongodb_systemlog_path: "/var/log/mongodb.log"
+mongodb_systemlog_logrotate: rename

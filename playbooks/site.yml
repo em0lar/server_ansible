@@ -29,6 +29,7 @@
   tags: web,web_database
   roles:
     - postgresql
+    - undergreen.mongodb
 
 - hosts: web_services
   tags: web,web_services
@@ -37,6 +38,7 @@
     - matrix
     - geerlingguy.nodejs
     - codimd
+    - wekan
 
 - hosts: web_nginx
   tags: web,web_nginx

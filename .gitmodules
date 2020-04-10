@@ -19,3 +19,9 @@
 [submodule "roles/codimd"]
 	path = roles/codimd
 	url = https://git.labcode.dev/ansible_roles/codimd.git
+[submodule "roles/undergreen.mongodb"]
+	path = roles/undergreen.mongodb
+	url = https://github.com/UnderGreen/ansible-role-mongodb.git
+[submodule "roles/postgresql"]
+	path = roles/postgresql
+	url = https://git.labcode.dev/ansible_roles/postgresql.git
