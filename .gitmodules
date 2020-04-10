@@ -25,3 +25,6 @@
 [submodule "roles/postgresql"]
 	path = roles/postgresql
 	url = https://git.labcode.dev/ansible_roles/postgresql.git
+[submodule "roles/wekan"]
+	path = roles/wekan
+	url = https://git.labcode.dev/ansible_roles/wekan.git
