@@ -24,38 +24,3 @@
     owner: traefik
     group: traefik
   with_filetree: 'templates/'
-
-- name: Add/Modify CNAME DNS records
-  cloudflare_dns:
-    account_email: "{{ cloudflare_api_email }}"
-    account_api_token: "{{ cloudflare_api_token }}"
-    record: "{{ item }}"
-    value: "{{ ansible_fqdn }}"
-    type: CNAME
-    zone: "{{ item.split('.')[-2] }}.{{ item.split('.')[-1] }}"
-    state: present
-  with_items:
-    - "grafana.opendatamap.net"
-    - "kanban.opendatamap.net"
-    - "node-red.opendatamap.net"
-    - "rhein-sieg.opendatamap.net"
-    - "bechilli.de"
-    - "www.bechilli.de"
-    - "static.labcode.de"
-    - "cloud.leomaroni.de"
-    - "ci.labcode.dev"
-    - "runner01.ci.labcode.dev"
-    - "docs.opendatamap.net"
-    - "git.labcode.de"
-    - "git.labcode.dev"
-    - "git.lbcd.dev"
-    - "kanban.labcode.de"
-    - "kanban.labcode.dev"
-    - "kanban.lbcd.dev"
-    - "labcode.de"
-    - "www.labcode.de"
-    - "matrix.labcode.de"
-    - "md.labcode.de"
-    - "md.leomaroni.de"
-    - "opendatamap.net"
-    - "www.opendatamap.net"

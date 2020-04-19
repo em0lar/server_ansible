@@ -1,6 +1,4 @@
 ---
-- import_tasks: dns.yml
-
 - name: Clone mailcow-dockerized from GitHub
   git:
     repo: https://github.com/mailcow/mailcow-dockerized
