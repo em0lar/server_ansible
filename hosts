@@ -16,6 +16,9 @@ iapetus.int.sgb.de.labcode.de
 [pihole]
 dns.int.sgb.de.labcode.de
 
+[dns]
+cetus.het.hel.fi.labcode.de
+
 [mail]
 cetus.het.hel.fi.labcode.de
 

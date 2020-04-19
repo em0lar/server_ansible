@@ -21,23 +21,34 @@
     state: present
   when: host.hoster != "home" and host.dns_cname is not defined
 
-- name: Add/Modify CNAME DNS record for hostname
-  cloudflare_dns:
-    account_email: "{{ cloudflare_api_email }}"
-    account_api_token: "{{ cloudflare_api_token }}"
-    record: "{{ ansible_fqdn }}"
-    value: "{{ host.dns_cname }}"
-    type: CNAME
-    zone: "{{ ansible_fqdn.split('.')[-2] }}.{{ ansible_fqdn.split('.')[-1] }}"
-    state: present
-  when: host.dns_cname is defined
-
-- name: Add/Modify CNAME DNS record for *.hostname
-  cloudflare_dns:
-    account_email: "{{ cloudflare_api_email }}"
-    account_api_token: "{{ cloudflare_api_token }}"
-    record: "*.{{ ansible_fqdn }}"
-    value: "{{ ansible_fqdn }}"
-    type: CNAME
-    zone: "{{ ansible_fqdn.split('.')[-2] }}.{{ ansible_fqdn.split('.')[-1] }}"
-    state: present
+#- name: Add/Modify AAAA DNS record for hostname
+#  cloudflare_dns:
+#    account_email: "{{ cloudflare_api_email }}"
+#    account_api_token: "{{ cloudflare_api_token }}"
+#    record: "{{ ansible_fqdn }}"
+#    value: "{{ ansible_default_ipv6.address }}"
+#    type: AAAA
+#    zone: "{{ ansible_fqdn.split('.')[-2] }}.{{ ansible_fqdn.split('.')[-1] }}"
+#    state: present
+#  when: host.hoster != "home" and host.dns_cname is not defined
+#
+#- name: Add/Modify CNAME DNS record for hostname
+#  cloudflare_dns:
+#    account_email: "{{ cloudflare_api_email }}"
+#    account_api_token: "{{ cloudflare_api_token }}"
+#    record: "{{ ansible_fqdn }}"
+#    value: "{{ host.dns_cname }}"
+#    type: CNAME
+#    zone: "{{ ansible_fqdn.split('.')[-2] }}.{{ ansible_fqdn.split('.')[-1] }}"
+#    state: present
+#  when: host.dns_cname is defined
+#
+#- name: Add/Modify CNAME DNS record for *.hostname
+#  cloudflare_dns:
+#    account_email: "{{ cloudflare_api_email }}"
+#    account_api_token: "{{ cloudflare_api_token }}"
+#    record: "*.{{ ansible_fqdn }}"
+#    value: "{{ ansible_fqdn }}"
+#    type: CNAME
+#    zone: "{{ ansible_fqdn.split('.')[-2] }}.{{ ansible_fqdn.split('.')[-1] }}"
+#    state: present

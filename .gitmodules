@@ -31,3 +31,6 @@
 [submodule "roles/traefik"]
 	path = roles/traefik
 	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
+[submodule "roles/cloudalchemy.coredns"]
+	path = roles/cloudalchemy.coredns
+	url = https://github.com/cloudalchemy/ansible-coredns.git

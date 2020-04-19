@@ -20,11 +20,11 @@ DBROOT={{ mailcow_db_root_pass }}
 # HTTP/S Bindings
 # ------------------------------
 
-HTTP_PORT=50001
-HTTP_BIND=127.0.0.1
+HTTP_PORT=80
+HTTP_BIND=0.0.0.0
 
-HTTPS_PORT=50002
-HTTPS_BIND=127.0.0.1
+HTTPS_PORT=443
+HTTPS_BIND=0.0.0.0
 
 # ------------------------------
 # Other bindings
@@ -69,10 +69,10 @@ MAILDIR_GC_TIME=1440
 
 # Additional SAN for the certificate
 
-ADDITIONAL_SAN=
+ADDITIONAL_SAN=mail.bechilli.de,mail.hicologne.com,mail.labcode.de,mail.labcode.dev,mail.lbcd.dev,mail.leomaroni.de,mail.opendatamap.net,mail.em0lar.de,mail.emolar.de
 
 # Skip running ACME (acme-mailcow, Let's Encrypt certs) - y/n
-SKIP_LETS_ENCRYPT=y
+SKIP_LETS_ENCRYPT=n
 
 # Create seperate certificates for all domains - y/n
 # this will allow adding more than 100 domains, but some email clients will not be able to connect with alternative hostnames

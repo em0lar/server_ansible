@@ -55,6 +55,7 @@
 - hosts: web_reverseproxy
   tags: web,web_reverseproxy
   roles:
+    - dynamicdns
     - traefik
     - traefik-services
 
@@ -74,10 +75,17 @@
   hosts: mail
   roles:
     - docker
-    - docker-traefik-reverseproxy
     - mail/hcloud-volume
-    - mail/mailcow-letsencrypt
     - mail/mailcow
+
+# DNS
+- name: DNS Server
+  hosts: dns
+  tags: dns
+  vars:
+    coredns_config_file: files/coredns/Corefile.j2
+  roles:
+    - cloudalchemy.coredns
 
 # Pihole
 

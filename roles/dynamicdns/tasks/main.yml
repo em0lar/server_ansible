@@ -1,0 +1,36 @@
+---
+- name: Create user
+  user:
+    name: "cloudflare-ddns"
+    create_home: yes
+    home: "/opt/cloudflare-ddns-client"
+    shell: "/bin/bash"
+
+- name: Download cloudflare-ddns-client
+  git:
+    repo: "https://github.com/LINKIWI/cloudflare-ddns-client.git"
+    dest: "/opt/cloudflare-ddns-client/repo"
+    force: yes
+  ignore_errors: yes
+
+- name: Install python requirements
+  pip:
+    requirements: "/opt/cloudflare-ddns-client/repo/requirements.txt"
+    virtualenv: "/opt/cloudflare-ddns-client/.venv"
+    virtualenv_command: "/usr/bin/python3 -m venv"
+  become_user: "cloudflare-ddns"
+
+- name: Upload config
+  template:
+    src: "config.j2"
+    dest: "/opt/cloudflare-ddns-client/.cloudflare-ddns"
+    owner: "cloudflare-ddns"
+    group: "cloudflare-ddns"
+
+- name: Create cronjob
+  cron:
+    name: "update dynamic dns"
+    minute: "*/2"
+    hour: "*"
+    user: "cloudflare-ddns"
+    job: "/opt/cloudflare-ddns-client/.venv/bin/python /opt/cloudflare-ddns-client/repo/cloudflare-ddns --update-now > /dev/null"

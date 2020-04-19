@@ -8,39 +8,10 @@
     dest: "{{ mailcow_root_path }}/repo"
     update: no
 
-- name: Create directory for certificates in mailcow
-  file:
-    path: "/{{ mailcow_root_path }}/repo/data/assets/ssl/"
-    state: directory
-
-- name: Copy SSL example dhparams file in mailcow
-  copy:
-    src: "/{{ mailcow_root_path }}/repo/data/assets/ssl-example/dhparams.pem"
-    dest: "/{{ mailcow_root_path }}/repo/data/assets/ssl/dhparams.pem"
-    remote_src: yes
-
-- name: Put LE certificate in mailcow
-  copy:
-    src: "/etc/letsencrypt/live/{{ ansible_fqdn }}/fullchain.pem"
-    dest: "{{ mailcow_root_path }}/repo/data/assets/ssl/cert.pem"
-    remote_src: yes
-
-- name: Put LE certificate key in mailcow
-  copy:
-    src: "/etc/letsencrypt/live/{{ ansible_fqdn }}/privkey.pem"
-    dest: "{{ mailcow_root_path }}/repo/data/assets/ssl/key.pem"
-    remote_src: yes
-
 - name: Create mailcow.conf from template
   template:
     src: mailcow.conf.j2
     dest: "{{ mailcow_root_path }}/repo/mailcow.conf"
-    backup: yes
-
-- name: Add docker-compose.override.yml from template
-  template:
-    src: docker-compose.override.yml.j2
-    dest: "{{ mailcow_root_path }}/repo/docker-compose.override.yml"
     backup: yes
 
 - name: Pull and start mailcow docker containers
@@ -48,13 +19,5 @@
     project_src: "/{{ mailcow_root_path }}/repo"
     pull: yes
     state: present
-
-- name: Add traefik to mailcow network
-  docker_container:
-    name: traefik
-    networks_cli_compatible: yes
-    networks:
-      - name: bridge
-      - name: mailcow_mailcow-network
 
 - import_tasks: backup.yml

@@ -9,7 +9,7 @@
     zone: "{{ item.split('.')[-2] }}.{{ item.split('.')[-1] }}"
     state: present
   with_items:
-    - bechilli.de
+#    - bechilli.de
     - fahrplandatengarten.de
     - hicologne.com
     - infra.labcode.de
@@ -34,7 +34,7 @@
     zone: "{{ item.split('.')[-2] }}.{{ item.split('.')[-1] }}"
     state: present
   with_items:
-    - bechilli.de
+#    - bechilli.de
     - fahrplandatengarten.de
     - hicologne.com
     - infra.labcode.de
@@ -59,7 +59,7 @@
     zone: "{{ item.split('.')[-2] }}.{{ item.split('.')[-1] }}"
     state: present
   with_items:
-    - autoconfig.bechilli.de
+#    - autoconfig.bechilli.de
     - autoconfig.fahrplandatengarten.de
     - autoconfig.hicologne.com
     - autoconfig.infra.labcode.de
@@ -73,7 +73,7 @@
     - autoconfig.ca.em0lar.de
     - autoconfig.emolar.de
     - autoconfig.ca.emolar.de
-    - autodiscover.bechilli.de
+#    - autodiscover.bechilli.de
     - autodiscover.fahrplandatengarten.de
     - autodiscover.hicologne.com
     - autodiscover.infra.labcode.de
@@ -102,7 +102,7 @@
     zone: "{{ item.split('.')[-2] }}.{{ item.split('.')[-1] }}"
     state: present
   with_items:
-    - bechilli.de
+#    - bechilli.de
     - fahrplandatengarten.de
     - hicologne.com
     - infra.labcode.de
@@ -127,7 +127,7 @@
     zone: "{{ item.split('.')[-2] }}.{{ item.split('.')[-1] }}"
     state: present
   with_items:
-    - bechilli.de
+#    - bechilli.de
     - fahrplandatengarten.de
     - hicologne.com
     - infra.labcode.de
