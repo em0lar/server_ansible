@@ -1,0 +1,42 @@
+$ORIGIN bechilli.de.
+@ 3600 IN SOA ns.bechilli.de. noc.bechilli.de. (
+    2020041923 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    1800       ; refresh (30 min)
+    1800       ; retry (30 min)
+    86400      ; expire (1 day)
+    3600       ; minimum (1 hour)
+    )
+
+@ 3600 IN NS hydrogen.ns.hetzner.com.
+@ 3600 IN NS oxygen.ns.hetzner.com.
+@ 3600 IN NS helium.ns.hetzner.de.
+;;@ 3600 IN NS ns
+
+ns IN A {{ ansible_default_ipv4.address }}
+ns IN AAAA {{ ansible_default_ipv6.address }}
+
+;; MAIL
+;;;; MX
+@ 3600 IN MX 1 cetus.het.hel.fi.labcode.de.
+
+;;;; SRV
+_autodiscover._tcp 3600 IN SRV 1 10 443 cetus.het.hel.fi.labcode.de.
+
+;;;; SPF
+@ 3600 IN TXT "v=spf1 a mx ~all"
+
+;;;; DKIM
+dkim._domainkey 3600 IN TXT "v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuISn/WfY8hxks4zcwPXi+mzyTLe5PP4bRS/uTx3ldsjOWWqMyBD5l6UCXoFWedG1rpaUasjh96lglK+GvJdBDd+9pOksMezT/1xhhjO2QT2ughQ1yXFbA4CSraeZOROyWm0KMFLg6Cl9Q4GKsJiLioG/rj6zi6Qq1B7qv/ZgF45BQGYM7tr+mypTWsOpl1JN9ynHrhfp+YrpPbHFIj+Hjs18T6JVLGQw81RQYUi30CrnUYYwYOxCpESdIXdcv4RshdjJmyEP/dwr1GeW6reWkeO0GFV+szAFSzDH0CPMfoS7z8wCMuMk1j2qiRnqgFFpIWbVlgp2Om/bN6fK/tyAeQIDAQAB"
+
+;;;; CNAME
+autoconfig 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+autodiscover 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+mail 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+
+;; CAA
+*	3600	IN	CAA	0 issue "letsencrypt.org"
+@	3600	IN	CAA	0 issue "letsencrypt.org"
+
+;; Pages
+@ 3600 IN CNAME dione.int.sgb.de.labcode.de.
+www 3600 IN CNAME dione.int.sgb.de.labcode.de.

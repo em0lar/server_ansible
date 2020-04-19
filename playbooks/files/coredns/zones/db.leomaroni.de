@@ -1,0 +1,51 @@
+$ORIGIN leomaroni.de.
+@ 3600 IN SOA ns.leomaroni.de. noc.leomaroni.de. (
+    2020041923 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    1800       ; refresh (30 min)
+    1800       ; retry (30 min)
+    86400      ; expire (1 day)
+    3600       ; minimum (1 hour)
+    )
+
+@ 3600 IN NS hydrogen.ns.hetzner.com.
+@ 3600 IN NS oxygen.ns.hetzner.com.
+@ 3600 IN NS helium.ns.hetzner.de.
+;;@ 3600 IN NS ns
+
+ns IN A {{ ansible_default_ipv4.address }}
+ns IN AAAA {{ ansible_default_ipv6.address }}
+
+;; MAIL
+;;;; MX
+services 3600 IN MX 1 cetus.het.hel.fi.labcode.de.
+@ 3600 IN MX 1 cetus.het.hel.fi.labcode.de.
+
+;;;; SRV
+_autodiscover._tcp.services 3600 IN SRV 1 10 443 cetus.het.hel.fi.labcode.de.
+_autodiscover._tcp 3600 IN SRV 1 10 443 cetus.het.hel.fi.labcode.de.
+
+;;;; SPF
+services 3600 IN TXT "v=spf1 a mx ~all"
+@ 3600 IN TXT "v=spf1 a mx ~all"
+
+;;;; DKIM
+dkim._domainkey.services 3600 IN TXT "v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3B7IXz4nSFvw3pS/7GZwgHiMtAeIwzjWhZXiYsh9ZdUmHwlaW510Hjv+K2ET1H6w8Fv++OITvXbzEWEVRpXFWsvuaGYrzWD7l30V05V+o0HQDtyKN6TigX6Z+v0G7ucljY06h9u0LXYArPkXya1WpFvrIk06M8hqtk7eT19TqqVSZ7SVOba6bBV46Lm3iwIM9BXPBvclCwEvR1/tXGxRfp74Wor3wvWNjvsWwaXMRep352WOjuZyj05GfV2XVZ9A7tcpjhcKD27pzZ0Tv+npou9InFgM4yRW/1QazbCpQ0qrT8kuT0mo5Y9Oh6+T0HaR/Bpx4w6jx0z1AlJ6zqKchwIDAQAB"
+dkim._domainkey 3600 IN TXT "v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo0hycCrpWmzBIvErNUk10dgm/u6x+755HDRgqce/EB8CutPTgN+zUB17I3mPTGBcEqfn4HkIE21NXhdefbaJ9c2RM9xgC+uyDnz6pyjjEwNAdoGs5rIjCGt7ZfxiWkN85b4OPZa34xa120FmB9y2ZFaWd+4f0VFx3qOGAocceh6uvVZGO9QTjkqck1DgzXl/BLvLt+7vAt4jSGR/IeChy5te4e/p8G7slKVmEWgNkwS/tmwa88lEayK6w1zTW0cmLoaefQPJnuYZi9OedF8jYiFVFBDd5p81l2/qombtX6+5EZ9JCn9d0kmMQDQl+vzuaRSO70dSOEzQkEAXvDeqaQIDAQAB"
+
+;;;; CNAME
+autoconfig.services 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+autodiscover.services 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+mail.services 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+autoconfig 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+autodiscover 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+mail 3600 IN CNAME cetus.het.hel.fi.labcode.de.
+
+;; CAA
+*	3600	IN	CAA	0 issue "letsencrypt.org"
+@	3600	IN	CAA	0 issue "letsencrypt.org"
+
+;; Pages
+@ 3600 IN CNAME dione.int.sgb.de.labcode.de.
+www 3600 IN CNAME dione.int.sgb.de.labcode.de.
+cloud 3600 IN CNAME dione.int.sgb.de.labcode.de.
+md 3600 IN CNAME dione.int.sgb.de.labcode.de.
