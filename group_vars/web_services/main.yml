@@ -24,10 +24,12 @@ codimd_session_secret: !vault |
   62323530343631653132
 codimd_allowed_origins: [
   "md.labcode.de",
-  "md.leomaroni.de"
+  "md.leomaroni.de",
+  "md.em0lar.de",
+  "md.emolar.de"
 ]
 codimd_allow_email_register: false
-codimd_domain: "md.labcode.de"
+codimd_domain: "md.em0lar.de"
 codimd_port: 40001
 
 wekan_base_path: "/opt/wekan-labcode"
