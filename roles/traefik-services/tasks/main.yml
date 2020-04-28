@@ -17,6 +17,12 @@
   when: hostvars[item].host.hoster == host.hoster
   with_items: "{{ groups.drone_ci }}"
 
+- name: Get hostname of web-drone-ci-server
+  set_fact:
+    iam_hostname: "{{ item }}"
+  when: hostvars[item].host.hoster == host.hoster
+  with_items: "{{ groups.iam }}"
+
 - name: Add dynamic traefik configs to server
   template:
     dest: "/opt/traefik/config/dynamic/{{ item.path }}"
