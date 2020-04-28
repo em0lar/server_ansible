@@ -23,8 +23,8 @@
   file:
     name: "/opt/gitea/{{ item }}"
     state: directory
-    owner: gitea
-    group: gitea
+    owner: "gitea"
+    group: "gitea"
     mode: 0750
   with_items:
     - "config"
@@ -34,8 +34,8 @@
 
 - name: Add Gitea configuration file
   template:
-    src: conf_app.ini.j2
-    dest: /opt/gitea/config/app.ini
+    src: "conf_app.ini.j2"
+    dest: "/opt/gitea/config/app.ini"
     owner: "gitea"
     group: "gitea"
     mode: 0400
@@ -44,7 +44,7 @@
 - name: Upload SSH key
   copy:
     content: "{{ ssh_deploy_key }}"
-    dest: /opt/gitea/ssh_deploy_key
+    dest: "/opt/gitea/ssh_deploy_key"
     owner: "gitea"
     group: "gitea"
     mode: "0400"
@@ -53,6 +53,24 @@
   copy:
     src: "gitea.service"
     dest: "/etc/systemd/system/gitea.service"
+
+- name: Create custom theme repository
+  file:
+    path: "/opt/gitea/custom/public/css"
+    state: directory
+    owner: "gitea"
+    group: "gitea"
+
+- name: Download arc-blue theme
+  get_url:
+    url: "https://gitea.artixlinux.org/artix/gitea-dark-blue/raw/branch/master/theme-arc-blue.css"
+    dest: "/opt/gitea/custom/public/css/theme-arc-blue.css"
+
+- name: Change logo size in arc-blue theme
+  lineinfile:
+    path: "/opt/gitea/custom/public/css/theme-arc-blue.css"
+    insertafter: ".following.bar .brand .ui.mini.image {"
+    line: "width: 30px !important;"
 
 - name: Enable/Start gitea service
   systemd:
