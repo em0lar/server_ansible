@@ -34,3 +34,6 @@
 [submodule "roles/cloudalchemy.coredns"]
 	path = roles/cloudalchemy.coredns
 	url = https://github.com/cloudalchemy/ansible-coredns.git
+[submodule "roles/keycloak-postgres"]
+	path = roles/keycloak-postgres
+	url = https://git.labcode.dev/ansible_roles/keycloak-postgres.git

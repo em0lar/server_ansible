@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020042023 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020042822 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -81,3 +81,5 @@ md 3600 IN CNAME dione.int.sgb.de
 meet 3600 IN CNAME meet01.het.nbg.de
 static 3600 IN CNAME dione.int.sgb.de
 www 3600 IN CNAME dione.int.sgb.de
+auth 3600 IN CNAME dione.int.sgb.de
+keycloak 3600 IN CNAME dione.int.sgb.de
