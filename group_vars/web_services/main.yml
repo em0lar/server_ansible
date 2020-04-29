@@ -28,9 +28,17 @@ codimd_allowed_origins: [
   "md.em0lar.de",
   "md.emolar.de"
 ]
+codimd_allow_email_login: false
 codimd_allow_email_register: false
 codimd_domain: "md.em0lar.de"
 codimd_port: 40001
+codimd_saml:
+  issuer: "codimd"
+  idpSSOUrl: "https://auth.labcode.de/auth/realms/labcode/protocol/saml"
+  idpCert: "MIICnTCCAYUCBgFxuLvjhDANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdsYWJjb2RlMB4XDTIwMDQyNjIzMDIzM1oXDTMwMDQyNjIzMDQxM1owEjEQMA4GA1UEAwwHbGFiY29kZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN76XfSKcU9FWCyJo2rH+WOQtvphfujwaXRGab9o8tsjNbSymlEQntJa+QdF0pQOL9iBayJZheedIkUDUI2rKGHLgtdgOCYntTqnIYxVlTVVtgoJcfw5pngpFJFb/kHaMLxiB+uOjaorY1wIvmv59GCH3ptJ/vSveldD3/32VutfHH7l1NTjEC+5ANq2d87Ejor6QUlG7igtsTTRbbl0NRUslpZTje112YpUaPktG8ii7GPUqxPDyS+32mPi9i+M95mV0Mlnsb/cLeBLeztGsBOAUUIlkqtoMdqy5VsRNJpGm1sz7Zr1OJRoHA6fAXLC8D26LOcPPLHWqvJkcs5KK9UCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAUx8GXMj9TntoYaM/SbmNq1StIHJKS3jP+iPt/AlOrt5QFMFFEBuebzz7Qfg2LIQPQxlP7UZdDX3+p8ycc5Ijj1yo5DdlIkK3cMQK91myzpAY8LGzkjUiEf22v3/J8Zu0Ltck+ajxJY4jOZGshFgQuwqAS/Sa51bgGKNLeS1PcEp4SFQqmc7LonxGwHf5vdaQtYc3RsRc2lgPw6X1HDODlls1FbBs/uZW7tII1xOWaWKdyfWNuSaqsOi7vt6DrI6tIBJTLJokz5iEq41n3DuM8JmoHPN918O41GE9aebBzoE8j3n0H+bRx1Txwn8cnFOEMO0c9q4O5mrD0i3CleqLcw=="
+  attributes:
+      email: "email"
+      username: "username"
 
 wekan_base_path: "/opt/wekan-labcode"
 wekan_user: "wekan-labcode"
