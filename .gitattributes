@@ -1,1 +1,3 @@
-*.* linguist-language=YAML
+* linguist-vendored
+*.yaml linguist-vendored=false
+*.yml linguist-vendored=false
