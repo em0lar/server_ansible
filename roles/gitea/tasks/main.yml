@@ -72,6 +72,15 @@
     insertafter: ".following.bar .brand .ui.mini.image {"
     line: "width: 30px !important;"
 
+- name: Change background-color of openid-login logo in arc-blue theme
+  blockinfile:
+    path: "/opt/gitea/custom/public/css/theme-arc-blue.css"
+    marker: "/* {mark} */"
+    block: |
+      img.openidConnect {
+        background-color: #ffffff;
+      }
+
 - name: Enable/Start gitea service
   systemd:
     name: "gitea.service"
