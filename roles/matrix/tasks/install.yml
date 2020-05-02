@@ -8,7 +8,7 @@
 
 - name: Install synapse pip package
   pip:
-    name: "matrix-synapse==1.12.3"
+    name: "matrix-synapse==1.12.4"
     virtualenv: "/opt/matrix-synapse/.venv"
     virtualenv_command: "/usr/bin/python3 -m venv"
     state: present
