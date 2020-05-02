@@ -33,7 +33,7 @@
 	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
 [submodule "roles/cloudalchemy.coredns"]
 	path = roles/cloudalchemy.coredns
-	url = https://github.com/cloudalchemy/ansible-coredns.git
+	url = https://github.com/em0lar/ansible-coredns.git 
 [submodule "roles/keycloak-postgres"]
 	path = roles/keycloak-postgres
 	url = https://git.labcode.dev/ansible_roles/keycloak-postgres.git

@@ -81,8 +81,6 @@
 - name: DNS Server
   hosts: dns
   tags: dns
-  vars:
-    coredns_config_file: files/coredns/Corefile.j2
   roles:
     - cloudalchemy.coredns
 
