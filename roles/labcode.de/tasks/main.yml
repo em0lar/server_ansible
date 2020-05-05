@@ -1,7 +1,7 @@
 ---
 - name: download labcode.de from GitHub
   git:
-    repo: "https://github.com/labcode-de/labcode.de.git"
+    repo: "https://github.com/em0lar/labcode.de.git"
     dest: "/var/www/labcode.de/labcode.de"
     force: yes
     clone: yes
