@@ -50,3 +50,4 @@ www 3600 IN CNAME dione.int.sgb.de.labcode.de.
 md 3600 IN CNAME dione.int.sgb.de.labcode.de.
 auth 3600 IN CNAME dione.int.sgb.de.labcode.de.
 keycloak 3600 IN CNAME dione.int.sgb.de.labcode.de.
+git 3600 IN CNAME dione.int.sgb.de.labcode.de.

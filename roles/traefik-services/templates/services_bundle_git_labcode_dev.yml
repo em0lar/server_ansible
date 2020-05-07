@@ -1,14 +1,14 @@
 http:
   routers:
     services-git_labcode_dev-http:
-      rule: "Host(`git.labcode.dev`) || Host(`git.lbcd.dev`) || Host(`git.labcode.de`)"
+      rule: "Host(`git.labcode.dev`) || Host(`git.em0lar.de`) || Host(`git.emolar.de`) || Host(`git.lbcd.dev`) || Host(`git.labcode.de`)"
       service: "services-gitea@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
     services-git_labcode_dev-https:
-      rule: "Host(`git.labcode.dev`) || Host(`git.lbcd.dev`) || Host(`git.labcode.de`)"
+      rule: "Host(`git.labcode.dev`) || Host(`git.em0lar.de`) || Host(`git.emolar.de`) || Host(`git.lbcd.dev`) || Host(`git.labcode.de`)"
       service: "services-gitea@file"
       entryPoints:
         - "https"

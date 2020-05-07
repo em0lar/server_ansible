@@ -60,26 +60,15 @@
     state: directory
     owner: "gitea"
     group: "gitea"
-
-- name: Download arc-blue theme
-  get_url:
-    url: "https://gitea.artixlinux.org/artix/gitea-dark-blue/raw/branch/master/theme-arc-blue.css"
-    dest: "/opt/gitea/custom/public/css/theme-arc-blue.css"
-
-- name: Change logo size in arc-blue theme
-  lineinfile:
-    path: "/opt/gitea/custom/public/css/theme-arc-blue.css"
-    insertafter: ".following.bar .brand .ui.mini.image {"
-    line: "width: 30px !important;"
-
-- name: Change background-color of openid-login logo in arc-blue theme
-  blockinfile:
-    path: "/opt/gitea/custom/public/css/theme-arc-blue.css"
-    marker: "/* {mark} */"
-    block: |
-      img.openidConnect {
-        background-color: #ffffff;
-      }
+#
+#- name: Change background-color of openid-login logo in arc-blue theme
+#  blockinfile:
+#    path: "/opt/gitea/custom/public/css/theme-arc-blue.css"
+#    marker: "/* {mark} */"
+#    block: |
+#      img.openidConnect {
+#        background-color: #ffffff;
+#      }
 
 - name: Enable/Start gitea service
   systemd:
