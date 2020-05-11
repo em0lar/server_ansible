@@ -1,0 +1,66 @@
+---
+- name: Install FreeRADIUS
+  apt:
+    name: "freeradius"
+
+- name: Create link for current radius
+  file:
+    src: "/etc/freeradius/3.0"
+    dest: "/etc/freeradius/current"
+    state: link
+
+- name: Add client to freeradius
+  blockinfile:
+    path: "/etc/freeradius/current/clients.conf"
+    block: |
+      client ap {
+        secret = {{ freeradius_client_ap_secret }}
+        ipaddr = 10.151.1.0/24
+      }
+  notify: restart freeradius systemd service
+
+- name: Add certificate-transfer to freerad group
+  user:
+    name: certificate-transfer
+    groups:
+      - freerad
+
+- name: Allow certificate-transfer user to write to certs directory
+  file:
+    path: "/etc/freeradius/current/certs"
+    owner: "certificate-transfer"
+    state: directory
+
+- name: Comment private key path
+  lineinfile:
+    path: "/etc/freeradius/current/mods-available/eap"
+    regexp: ^\s*private_key_password
+    line: "#private_key_word = supersecure"
+  notify: restart freeradius systemd service
+
+- name: Change private key path
+  lineinfile:
+    path: "/etc/freeradius/current/mods-available/eap"
+    regexp: ^\s*private_key_file
+    line: "private_key_file = ${certdir}/wifi.em0lar.de.key"
+  notify: restart freeradius systemd service
+
+- name: Change certificate path
+  lineinfile:
+    path: "/etc/freeradius/current/mods-available/eap"
+    regexp: ^\s*certificate_file
+    line: "certificate_file = ${certdir}/wifi.em0lar.de.crt"
+  notify: restart freeradius systemd service
+
+- name: Change CA certificate path
+  lineinfile:
+    path: "/etc/freeradius/current/mods-available/eap"
+    regexp: ^\s*ca_file
+    line: "ca_file = /etc/ssl/certs/DST_Root_CA_X3.pem"
+  notify: restart freeradius systemd service
+
+- name: Change permissions on private key
+  file:
+    path: "/etc/freeradius/current/certs/wifi.em0lar.de.key"
+    group: "freerad"
+    mode: "0640"

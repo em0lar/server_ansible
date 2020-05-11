@@ -1,0 +1,19 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+PIDFile=/run/wifi_radius_manager_gunicorn/pid
+User=freerad
+Group=freerad
+EnvironmentFile=/opt/wifi_radius_manager/.env
+RuntimeDirectory=gunicorn
+WorkingDirectory=/opt/wifi_radius_manager
+ExecStart=/opt/wifi_radius_manager/.venv/bin/gunicorn --pid /run/wifi_radius_manager_gunicorn/pid   \
+          -b 0.0.0.0:40000 -w 4 wifi_radius_manager:app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+http:
+  routers:
+    iam-wifi-http:
+      rule: "Host(`wifi.em0lar.de`) || Host(`wifi.emolar.de`) || Host(`wifi.labcode.de`)"
+      service: "iam-wifi@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    iam-wifi-https:
+      rule: "Host(`wifi.em0lar.de`) || Host(`wifi.emolar.de`) || Host(`wifi.labcode.de`)"
+      service: "iam-wifi@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
+  services:
+    iam-wifi:
+      loadBalancer:
+        servers:
+          - url: "http://{{ iam_hostname }}:40000"

@@ -1,0 +1,6 @@
+- name: Restart gunicorn service
+  systemd:
+    name: wifi_radius_manager_gunicorn.service
+    daemon_reload: yes
+    enabled: yes
+    state: restarted

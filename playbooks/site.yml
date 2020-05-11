@@ -22,6 +22,21 @@
         exclusive: yes
       when: ci_user_enable
 
+    - name: create certificate-transfer user
+      user:
+        name: "certificate-transfer"
+        shell: "/bin/bash"
+        state: present
+      when: certificate_transfer_user_enable
+
+    - name: add authorized key of certificate-transfer user
+      authorized_key:
+        user: "certificate-transfer"
+        manage_dir: yes
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOs9IzvFrr/sg4K/Vtr6eZ9RrkWx2ybO5JzSwg6dRzVQ certificate-transfer"
+        state: present
+        exclusive: yes
+      when: certificate_transfer_user_enable
 # Web
 
 - hosts: web_database
@@ -58,6 +73,7 @@
     - dynamicdns
     - traefik
     - traefik-services
+    - traefik-certificate-exporter
 
 # CI
 
@@ -108,6 +124,8 @@
   tags: iam
   roles:
     - keycloak-postgres
+    - freeradius
+    - wifi_radius_manager
   tasks:
     - name: Change HTTP-Listener for proxy-usage
       replace:
@@ -120,6 +138,7 @@
       lineinfile:
         path: "{{ keycloak_config_dir }}/standalone.xml"
         insertafter: '<socket-binding name="https" port="\${jboss.https.port:8443}"\/>'
+        regexp: '<socket-binding name="proxy-https" port="443"/>'
         line: '<socket-binding name="proxy-https" port="443"/>'
       notify: restart keycloak
 

@@ -1,6 +1,6 @@
 $ORIGIN em0lar.de.
 @ 3600 IN SOA ns.em0lar.de. noc.em0lar.de. (
-    2020050800 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020051002 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -51,3 +51,4 @@ md 3600 IN CNAME dione.int.sgb.de.labcode.de.
 auth 3600 IN CNAME dione.int.sgb.de.labcode.de.
 keycloak 3600 IN CNAME dione.int.sgb.de.labcode.de.
 git 3600 IN CNAME dione.int.sgb.de.labcode.de.
+wifi 3600 IN CNAME dione.int.sgb.de.labcode.de.
