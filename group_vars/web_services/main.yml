@@ -39,6 +39,7 @@ codimd_saml:
   attributes:
       email: "email"
       username: "username"
+codimd_allow_anonymous: false
 
 wekan_base_path: "/opt/wekan-labcode"
 wekan_user: "wekan-labcode"
