@@ -37,3 +37,5 @@ cloudflare_api_token: !vault |
 ansible_python_interpreter: /usr/bin/python3
 ci_user_enable: no
 certificate_transfer_user_enable: no
+dyndns_host: "ns.labcode.de"
+dyndns_pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE0ttM6K7X8jp93/iM4FAu6pWSCqEDObb7xQVI9MVgzf dyndns"

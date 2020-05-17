@@ -70,7 +70,7 @@
 - hosts: web_reverseproxy
   tags: web,web_reverseproxy
   roles:
-    - dynamicdns
+    - coredns-dynamicdns
     - traefik
     - traefik-services
     - traefik-certificate-exporter
