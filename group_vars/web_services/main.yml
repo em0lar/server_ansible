@@ -47,3 +47,29 @@ wekan_group: "wekan-labcode"
 wekan_version: "4.01"
 wekan_port: 40002
 wekan_root_url: "https://kanban.labcode.dev"
+
+gitea_app_name: "Gitea"
+gitea_user: "gitea"
+gitea_db_type: "postgres"
+gitea_db_host: "rhea.int.sgb.de.labcode.de:5432"
+gitea_db_name: "gitea"
+gitea_db_user: "gitea"
+gitea_db_password: "Fe6JvY27bvTEdPua6U9SrATt9txh4YySTeGpsFQCbJ7awtcrYU4QzLRskjetDBkg"
+gitea_http_domain: "git.labcode.dev"
+gitea_ssh_domain: "{{ gitea_http_domain }}"
+gitea_root_url: "https://git.labcode.dev/"
+gitea_http_listen: "0.0.0.0"
+gitea_http_port: 40000
+gitea_start_ssh: true
+gitea_ssh_port: 222
+gitea_require_signin: false
+gitea_enable_captcha: false
+gitea_disable_registration: false
+gitea_allow_only_external_registration: true
+gitea_show_registration_button: false
+gitea_version: "1.12.0-rc1"
+gitea_mailer_enabled: true
+gitea_mailer_host: "mail.labcode.de:587"
+gitea_mailer_from: "LabCode Git <no-reply@labcode.de>"
+gitea_mailer_user: "no-reply@labcode.de"
+gitea_repository_root: "{{ gitea_home }}/data/repositories"

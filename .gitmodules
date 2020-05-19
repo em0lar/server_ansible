@@ -43,3 +43,6 @@
 [submodule "roles/coredns-dynamicdns"]
 	path = roles/coredns-dynamicdns
 	url = https://git.labcode.dev/ansible_roles/coredns-dynamicdns.git
+[submodule "roles/thomas-maurice.gitea"]
+	path = roles/thomas-maurice.gitea
+	url = https://github.com/thomas-maurice/ansible-role-gitea

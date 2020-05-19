@@ -48,7 +48,7 @@
 - hosts: web_services
   tags: web,web_services
   roles:
-    - gitea
+    - thomas-maurice.gitea
     - matrix
     - geerlingguy.nodejs
     - codimd

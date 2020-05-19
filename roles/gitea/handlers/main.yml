@@ -1,6 +1,0 @@
----
-# reload is not available on gitea service
-- name: restart gitea service
-  systemd:
-    name: gitea
-    state: restarted
