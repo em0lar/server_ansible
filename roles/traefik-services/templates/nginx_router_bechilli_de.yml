@@ -1,14 +1,14 @@
 http:
   routers:
     nginx-bechilli_de-http:
-      rule: "Host(`bechilli.de`) || Host(`www.bechilli.de`)"
+      rule: "Host(`bechilli.de`) || Host(`www.bechilli.de`) || Host(`bechili.de`) || Host(`www.bechili.de`) || Host(`bechilli.com`) || Host(`www.bechilli.com`)"
       service: "nginx@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
     nginx-bechilli_de-https:
-      rule: "Host(`bechilli.de`) || Host(`www.bechilli.de`)"
+      rule: "Host(`bechilli.de`) || Host(`www.bechilli.de`) || Host(`bechili.de`) || Host(`www.bechili.de`) || Host(`bechilli.com`) || Host(`www.bechilli.com`)"
       service: "nginx@file"
       entryPoints:
         - "https"

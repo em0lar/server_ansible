@@ -16,6 +16,26 @@
     transfer to 216.218.130.2 # ns1.he.net
 }
 
+bechili.de {
+    bind {{ ansible_default_ipv4.address }}
+    bind {{ ansible_default_ipv6.address }}
+
+    root /etc/coredns/zones
+    file db.bechili.de {
+        import hetzner
+    }
+}
+
+bechilli.com {
+    bind {{ ansible_default_ipv4.address }}
+    bind {{ ansible_default_ipv6.address }}
+
+    root /etc/coredns/zones
+    file db.bechilli.com {
+        import hetzner
+    }
+}
+
 bechilli.de {
     bind {{ ansible_default_ipv4.address }}
     bind {{ ansible_default_ipv6.address }}
