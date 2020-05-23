@@ -50,6 +50,8 @@ wekan_root_url: "https://kanban.labcode.dev"
 
 gitea_app_name: "Gitea"
 gitea_user: "gitea"
+gitea_systemd_cap_net_bind_service: true
+gitea_theme_default: "arc-green"
 gitea_db_type: "postgres"
 gitea_db_host: "rhea.int.sgb.de.labcode.de:5432"
 gitea_db_name: "gitea"

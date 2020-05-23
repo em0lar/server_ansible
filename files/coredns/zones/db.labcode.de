@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020051911 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020052215 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -28,6 +28,8 @@ meet01.het.nbg.de 3600 IN AAAA 2a01:4f8:c0c:ac5f::1
 *.meet01.het.nbg.de 3600 IN CNAME meet01.het.nbg.de
 cetus.het.hel.fi 3600 IN A 95.216.160.224
 cetus.het.hel.fi 3600 IN AAAA 2a01:4f9:c010:1dcf::1
+janus.ion.rhr.de 3600 IN A 93.90.205.65
+janus.ion.rhr.de 3600 IN AAAA 2001:8d8:1800:30a::1
 
 ;;;; Home
 home 3600 IN CNAME e4zflsmfb8shzk7c.myfritz.net.
