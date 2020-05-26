@@ -1,7 +1,7 @@
-web_db_postgres_host: rhea.int.sgb.de.labcode.de
+web_db_postgres_host: rhea.int.sig.de.labcode.de
 nodejs_version: "12.x"
 
-codimd_db_host: rhea.int.sgb.de.labcode.de
+codimd_db_host: rhea.int.sig.de.labcode.de
 codimd_db_password: !vault |
   $ANSIBLE_VAULT;1.1;AES256
   35366231343235333534343361373365383932343835306439323430346565633861346233356564
@@ -53,7 +53,7 @@ gitea_user: "gitea"
 gitea_systemd_cap_net_bind_service: true
 gitea_theme_default: "arc-green"
 gitea_db_type: "postgres"
-gitea_db_host: "rhea.int.sgb.de.labcode.de:5432"
+gitea_db_host: "rhea.int.sig.de.labcode.de:5432"
 gitea_db_name: "gitea"
 gitea_db_user: "gitea"
 gitea_db_password: "Fe6JvY27bvTEdPua6U9SrATt9txh4YySTeGpsFQCbJ7awtcrYU4QzLRskjetDBkg"

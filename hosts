@@ -1,20 +1,20 @@
 [web_database]
-rhea.int.sgb.de.labcode.de
+rhea.int.sig.de.labcode.de
 
 [web_reverseproxy]
-dione.int.sgb.de.labcode.de
+dione.int.sig.de.labcode.de
 
 [web_nginx]
-titan.int.sgb.de.labcode.de
+titan.int.sig.de.labcode.de
 
 [web_services]
-hyperion.int.sgb.de.labcode.de
+hyperion.int.sig.de.labcode.de
 
 [drone_ci]
-iapetus.int.sgb.de.labcode.de
+iapetus.int.sig.de.labcode.de
 
 [pihole]
-dns.int.sgb.de.labcode.de
+dns.int.sig.de.labcode.de
 
 [dns]
 cetus.het.hel.fi.labcode.de
@@ -26,4 +26,7 @@ cetus.het.hel.fi.labcode.de
 meet01.het.nbg.de.labcode.de
 
 [iam]
-phoebe.int.sgb.de.labcode.de
+phoebe.int.sig.de.labcode.de
+
+[wireguard]
+janus.ion.rhr.de.labcode.de

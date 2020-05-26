@@ -1,4 +1,4 @@
-keycloak_postgresql_host: rhea.int.sgb.de.labcode.de
+keycloak_postgresql_host: rhea.int.sig.de.labcode.de
 keycloak_admin_password: !vault |
   $ANSIBLE_VAULT;1.1;AES256
   36303036333339343463333166326539626631306536366237363135326532613733653330373166

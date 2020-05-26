@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020052215 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020052623 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -33,9 +33,9 @@ janus.ion.rhr.de 3600 IN AAAA 2001:8d8:1800:30a::1
 
 ;;;; Home
 home 3600 IN CNAME e4zflsmfb8shzk7c.myfritz.net.
-dione.int.sgb.de 60 IN CNAME dione.int.sgb.de.dyn
-*.dione.int.sgb.de 3600 IN CNAME dione.int.sgb.de
-vpn.int.sgb.de 3600 IN CNAME home
+dione.int.sig.de 60 IN CNAME dione.int.sig.de.dyn
+*.dione.int.sig.de 3600 IN CNAME dione.int.sig.de
+vpn.int.sig.de 3600 IN CNAME home
 
 ;; MAIL
 ;;;; MX
@@ -80,15 +80,15 @@ _995._tcp.cetus.het.hel.fi 3600 IN TLSA 3 1 1 f6555cd8bc628329d0dfc1c9070bd8df9f
 _token._dnswl 3600 IN TXT "gsu43vu129t6z89sn1ohdchk9pspmm94"
 
 ;; Pages
-cdn 3600 IN CNAME dione.int.sgb.de
-git 3600 IN CNAME dione.int.sgb.de
-kanban 3600 IN CNAME dione.int.sgb.de
-@ 3600 IN CNAME dione.int.sgb.de
-matrix 3600 IN CNAME dione.int.sgb.de
-md 3600 IN CNAME dione.int.sgb.de
+cdn 3600 IN CNAME dione.int.sig.de
+git 3600 IN CNAME dione.int.sig.de
+kanban 3600 IN CNAME dione.int.sig.de
+@ 3600 IN CNAME dione.int.sig.de
+matrix 3600 IN CNAME dione.int.sig.de
+md 3600 IN CNAME dione.int.sig.de
 meet 3600 IN CNAME meet01.het.nbg.de
-static 3600 IN CNAME dione.int.sgb.de
-www 3600 IN CNAME dione.int.sgb.de
-auth 3600 IN CNAME dione.int.sgb.de
-keycloak 3600 IN CNAME dione.int.sgb.de
-wifi 3600 IN CNAME dione.int.sgb.de
+static 3600 IN CNAME dione.int.sig.de
+www 3600 IN CNAME dione.int.sig.de
+auth 3600 IN CNAME dione.int.sig.de
+keycloak 3600 IN CNAME dione.int.sig.de
+wifi 3600 IN CNAME dione.int.sig.de

@@ -168,6 +168,6 @@ done
 
 
 # Copy needed certificates to radius-host
-scp -i "{{ traefik_base_path }}/certificate-exporter-ssh-key" -o StrictHostKeyChecking=no /etc/ssl/certs/wifi.em0lar.de.crt certificate-transfer@phoebe.int.sgb.de.labcode.de:/etc/freeradius/current/certs/
-scp -i "{{ traefik_base_path }}/certificate-exporter-ssh-key" -o StrictHostKeyChecking=no /etc/ssl/private/wifi.em0lar.de.key certificate-transfer@phoebe.int.sgb.de.labcode.de:/etc/freeradius/current/certs/
+scp -i "{{ traefik_base_path }}/certificate-exporter-ssh-key" -o StrictHostKeyChecking=no /etc/ssl/certs/wifi.em0lar.de.crt certificate-transfer@phoebe.int.sig.de.labcode.de:/etc/freeradius/current/certs/
+scp -i "{{ traefik_base_path }}/certificate-exporter-ssh-key" -o StrictHostKeyChecking=no /etc/ssl/private/wifi.em0lar.de.key certificate-transfer@phoebe.int.sig.de.labcode.de:/etc/freeradius/current/certs/
 

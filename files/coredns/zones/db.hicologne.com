@@ -1,6 +1,6 @@
 $ORIGIN hicologne.com.
 @ 3600 IN SOA ns.hicologne.com. noc.hicologne.com. (
-    2020041923 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020052623 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -38,5 +38,5 @@ mail 3600 IN CNAME cetus.het.hel.fi.labcode.de.
 @	3600	IN	CAA	0 issue "letsencrypt.org"
 
 ;; Pages
-@ 3600 IN CNAME dione.int.sgb.de.labcode.de.
-www 3600 IN CNAME dione.int.sgb.de.labcode.de.
+@ 3600 IN CNAME dione.int.sig.de.labcode.de.
+www 3600 IN CNAME dione.int.sig.de.labcode.de.

@@ -22,4 +22,4 @@ traefik_additional_entrypoints: |
   ssh_gitea:
       address: ":222"
 traefik_loglevel: INFO
-dyndns_zone: "dione.int.sgb.de"
+dyndns_zone: "dione.int.sig.de"
