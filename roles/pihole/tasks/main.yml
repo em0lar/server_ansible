@@ -1,6 +1,6 @@
 ---
-- import_tasks: home_hosts.yml
-  when: host.hoster == "home"
+#- import_tasks: home_hosts.yml
+#  when: host.hoster == "home"
 
 - name: Create pihole directory
   file:
