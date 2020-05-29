@@ -4,7 +4,7 @@ host:
   server_name: meet01.infra.labcode.de
   server_short_name: meet01
 jitsi:
-  public_url: meet.lbcd.dev
+  public_url: meet.labcode.de
   jvb_auth_password: !vault |
     $ANSIBLE_VAULT;1.1;AES256
     66353163616564363461376339613262396566626138316235636666326139386363663437643331
