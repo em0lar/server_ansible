@@ -15,7 +15,7 @@
     block: |
       client ap {
         secret = {{ freeradius_client_ap_secret }}
-        ipaddr = 10.151.1.0/24
+        ipaddr = 10.151.0.128/25
       }
   notify: restart freeradius systemd service
 
