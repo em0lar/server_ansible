@@ -1,9 +1,20 @@
 ---
-- name: Add IPv4 address of all hosts to all hosts
+- name: Set fact for local ipv6 address of {{ host }}
+  set_fact:
+    local_ipv6_address: "{{ item }}"
+  when: item.startswith("fd")
+  loop: "{{ hostvars[host].ansible_all_ipv6_addresses }}"
+
+- name: Add IPv4 address of {{ host }} to custom list
   lineinfile:
-    dest: /etc/hosts
-    regexp: '.*{{ item }}$'
-    line: "{{ hostvars[item].ansible_facts.default_ipv4.address }} {{ hostvars[item].inventory_hostname }} {{ hostvars[item].inventory_hostname_short }}"
+    dest: /etc/pihole/custom.list
+    regexp: '.*{{ hostvars[host].ansible_default_ipv4.address }}$'
+    line: "{{ hostvars[host].ansible_default_ipv4.address }} {{ hostvars[host].inventory_hostname }}"
     state: present
-  when: hostvars[item].host.hoster == host.hoster and inventory_hostname != hostvars[item].inventory_hostname and hostvars[item].ansible_facts != {}
-  with_items: "{{ groups.all }}"
+
+- name: Add local IPv6 address of {{ host }} to custom list
+  lineinfile:
+    dest: /etc/pihole/custom.list
+    regexp: '.*{{ local_ipv6_address }}$'
+    line: "{{ local_ipv6_address }} {{ hostvars[host].inventory_hostname }}"
+    state: present

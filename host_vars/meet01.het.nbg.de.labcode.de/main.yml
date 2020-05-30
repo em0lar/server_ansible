@@ -1,8 +1,3 @@
-host:
-  hoster: hetzner_cloud
-  server_location: nbg1
-  server_name: meet01.infra.labcode.de
-  server_short_name: meet01
 jitsi:
   public_url: meet.labcode.de
   jvb_auth_password: !vault |

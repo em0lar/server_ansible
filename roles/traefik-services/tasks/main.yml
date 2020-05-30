@@ -2,25 +2,25 @@
 - name: Get hostname of web-nginx-server
   set_fact:
     web_nginx_hostname: "{{ item }}"
-  when: hostvars[item].host.hoster == host.hoster
+  when: hostvars[item].ansible_domain == ansible_domain
   with_items: "{{ groups.web_nginx }}"
 
 - name: Get hostname of web-services-server
   set_fact:
     web_services_hostname: "{{ item }}"
-  when: hostvars[item].host.hoster == host.hoster
+  when: hostvars[item].ansible_domain == ansible_domain
   with_items: "{{ groups.web_services }}"
 
 - name: Get hostname of web-drone-ci-server
   set_fact:
     drone_ci_hostname: "{{ item }}"
-  when: hostvars[item].host.hoster == host.hoster
+  when: hostvars[item].ansible_domain == ansible_domain
   with_items: "{{ groups.drone_ci }}"
 
 - name: Get hostname of web-drone-ci-server
   set_fact:
     iam_hostname: "{{ item }}"
-  when: hostvars[item].host.hoster == host.hoster
+  when: hostvars[item].ansible_domain == ansible_domain
   with_items: "{{ groups.iam }}"
 
 - name: Add dynamic traefik configs to server

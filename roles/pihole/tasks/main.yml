@@ -1,6 +1,9 @@
 ---
-#- import_tasks: home_hosts.yml
-#  when: host.hoster == "home"
+- include_tasks: home_hosts.yml
+  when: hostvars[host].ansible_domain == ansible_domain and inventory_hostname != hostvars[host].inventory_hostname
+  loop: "{{ groups.all|flatten(levels=1) }}"
+  loop_control:
+    loop_var: host
 
 - name: Create pihole directory
   file:

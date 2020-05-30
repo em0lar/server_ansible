@@ -1,3 +1,2 @@
-host:
-  hoster: home
-  local_ipv6_address: fd00::5dfb:f0bd:66ce:a328
+pihole:
+  local_ipv6_address: fd00::c482:21ff:fe0d:b08d
