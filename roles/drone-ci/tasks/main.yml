@@ -15,7 +15,7 @@
       DRONE_SERVER_HOST: "ci.labcode.dev"
       DRONE_SERVER_PROTO: "https"
       DRONE_DATABASE_DRIVER: "postgres"
-      DRONE_DATABASE_DATASOURCE: "postgres://drone:{{ drone_db_password }}@10.151.10.5:5432/drone?sslmode=disable"
+      DRONE_DATABASE_DATASOURCE: "postgres://drone:{{ drone_db_password }}@10.151.4.5:5432/drone?sslmode=disable"
       DRONE_DATABASE_SECRET: "{{ drone_db_secret }}"
       DRONE_USER_CREATE: "username:em0lar,admin:true"
 
