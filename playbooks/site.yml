@@ -5,6 +5,11 @@
     - n0emis.base
     - jnv.unattended-upgrades
     - oh-my-zsh
+  handlers:
+    - name: restart systemd-journald
+      systemd:
+        name: systemd-journald.service
+        state: restarted
   tasks:
     - name: create ci user
       user:
@@ -37,8 +42,15 @@
         state: present
         exclusive: yes
       when: certificate_transfer_user_enable
-# Web
 
+    - name: Change SystemMaxUse in systemd-journald
+      replace:
+        path: "/etc/systemd/journald.conf"
+        regexp: "^#SystemMaxUse="
+        replace: "SystemMaxUse=50M"
+      notify: restart systemd-journald
+
+# Web
 - hosts: web_database
   tags: web,web_database
   roles:
