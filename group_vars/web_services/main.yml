@@ -69,7 +69,7 @@ gitea_enable_captcha: false
 gitea_disable_registration: false
 gitea_allow_only_external_registration: true
 gitea_show_registration_button: false
-gitea_version: "1.12.0-rc1"
+gitea_version: "1.12.0-rc2"
 gitea_mailer_enabled: true
 gitea_mailer_host: "mail.labcode.de:465"
 gitea_mailer_from: "LabCode Git <no-reply@labcode.de>"
