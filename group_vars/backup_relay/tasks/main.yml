@@ -1,0 +1,23 @@
+backup_cifs_mount_password: "{{ lookup('passwordstore', 'infra/host/encladus.int.sig.de/backup_user') }}"
+backup_pool_path: "/mnt/backup/repos"
+backup_auth_users:
+  - host: rhea.int.sig.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/rhea.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: dione.int.sig.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/dione.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: titan.int.sig.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/titan.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: hyperion.int.sig.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/hyperion.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: iapetus.int.sig.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/iapetus.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: dns.int.sig.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/dns.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: cetus.het.hel.fi.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/cetus.het.hel.fi.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: meet01.het.nue.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/meet01.het.nue.de.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: phoebe.int.sig.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/phoebe.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
+  - host: janus.ion.rhr.de.labcode.de
+    key: "{{ lookup('passwordstore', 'infra/host/janus.ion.rhr.de.labcode.de/backup_ssh_key subkey=public') }}"

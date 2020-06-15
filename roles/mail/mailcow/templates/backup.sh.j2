@@ -1,7 +1,0 @@
-# {{ ansible_managed }}
-rm -r /volume/backup/mailcow/*
-cd "{{ mailcow_root_path }}/repo" || exit
-
-MAILCOW_BACKUP_LOCATION=/volume/backup/mailcow ./helper-scripts/backup_and_restore.sh backup all
-
-chown -R rsync-backup:rsync-backup /volume/backup/mailcow

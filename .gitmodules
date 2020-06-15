@@ -46,3 +46,6 @@
 [submodule "roles/thomas-maurice.gitea"]
 	path = roles/thomas-maurice.gitea
 	url = https://github.com/thomas-maurice/ansible-role-gitea
+[submodule "roles/borgbase.borgbackup"]
+	path = roles/borgbase.borgbackup
+	url = https://github.com/borgbase/ansible-role-borgbackup.git

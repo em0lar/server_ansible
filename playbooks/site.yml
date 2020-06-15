@@ -10,7 +10,16 @@
       systemd:
         name: systemd-journald.service
         state: restarted
+    - name: restart cron
+      systemd:
+        name: cron
+        state: restarted
   tasks:
+    - name: Set timezone to Europe/Berlin
+      timezone:
+        name: Europe/Berlin
+      notify: restart cron
+
     - name: create ci user
       user:
         name: "ci"
@@ -160,3 +169,37 @@
         content: |
           profile=preview
       notify: restart keycloak
+
+# Backup-Relay
+
+- hosts: backup_relay
+  tags: backup_relay
+  roles:
+    - coredns-dynamicdns
+    - borg-server
+  handlers:
+    - name: reload sshd service
+      systemd:
+        name: sshd.service
+        state: reloaded
+  tasks:
+    - name: Change SSH-Port
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#Port 22'
+        line: 'Port 1880'
+      notify: reload sshd service
+
+# Backup
+- hosts: all
+  tags: backup
+  pre_tasks:
+    - name: Upload private backup ssh keys
+      copy:
+        content: "{{ lookup('passwordstore', 'infra/host/{{ ansible_host }}/backup_ssh_key subkey=private') | b64decode }}\nWm"
+        dest: "/root/.ssh/backup_ssh_key"
+        mode: 0600
+  roles:
+    - borgbase.borgbackup
+#  tasks:
+#    - command: "borgmatic init --encryption repokey"

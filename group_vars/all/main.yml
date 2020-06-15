@@ -12,10 +12,6 @@ users:
     plugins:
       - git
 
-- username: rsync-backup
-  state: present
-  public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO2rzuD73Ae8y5MTi5QQF3ifGeffp6P2YRCDa/8KpUrS leo@apodis
-
 - username: root
   state: present
   shell: /bin/zsh
@@ -39,3 +35,27 @@ ci_user_enable: no
 certificate_transfer_user_enable: no
 dyndns_host: "ns.labcode.de"
 dyndns_pubkey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE0ttM6K7X8jp93/iM4FAu6pWSCqEDObb7xQVI9MVgzf dyndns"
+
+borg_encryption_passphrase: "{{ lookup('passwordstore', 'infra/host/{{ ansible_host }}/backup_encryption') }}"
+borg_repository: "backup@helene.int.sig.de.labcode.de:/mnt/backup/repos/{{ ansible_host }}"
+borg_ssh_command: "ssh -o StrictHostKeyChecking=no -p 1880 -i /root/.ssh/backup_ssh_key "
+borgmatic_large_repo: false
+borg_source_directories:
+  - /home
+  - /var
+  - /opt
+  - /etc
+  - /root
+  - /volume
+borg_exclude_patterns:
+  - /var/cache
+  - /var/lock
+  - /var/spool
+  - /var/log
+  - /var/lib/docker/image
+  - node_modules
+  - .venv
+borg_retention_policy:
+  keep_daily: 7
+  keep_weekly: 4
+  keep_monthly: 3

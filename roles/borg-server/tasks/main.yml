@@ -1,0 +1,41 @@
+---
+- name: Create backup user
+  user:
+    name: "backup"
+    shell: "/bin/bash"
+    state: present
+  register: backup_user
+
+- name: Install cifs-utils apt package
+  apt:
+    name: "cifs-utils"
+    state: present
+
+- name: Mount cifs backup
+  mount:
+    path: "/mnt/backup"
+    src: "//encladus.int.sig.de.labcode.de/backup/borg"
+    fstype: "cifs"
+    opts: "username=backup,password={{ backup_cifs_mount_password }},uid={{ backup_user.uid }},gid={{ backup_user.group }}"
+    state: mounted
+
+- name: Install borgbackup apt package
+  apt:
+    name: "borgbackup"
+    state: present
+
+- name: Create backup paths for hosts
+  file:
+    path: "{{ backup_pool_path }}/{{ item.host }}"
+    owner: "{{ backup_user.name }}"
+    group: "{{ backup_user.group }}"
+    mode: 0700
+    state: directory
+  with_items: "{{ backup_auth_users }}"
+
+- name: Add authorized keys for hosts
+  authorized_key:
+    user: "{{ backup_user.name }}"
+    key: "{{ item.key }}"
+    key_options: 'command="cd {{ backup_pool_path }}/{{ item.host }};borg serve --restrict-to-path {{ backup_pool_path }}/{{ item.host }}",restrict'
+  with_items: "{{ backup_auth_users }}"

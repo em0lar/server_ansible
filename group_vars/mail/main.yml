@@ -1,0 +1,6 @@
+---
+borgmatic_before_backup_command:
+  - "cd /volume/docker/mailcow/repo && MAILCOW_BACKUP_LOCATION=/volume/backup/mailcow ./helper-scripts/backup_and_restore.sh backup all"
+
+borgmatic_after_backup_command:
+  - "rm -r /volume/backup/mailcow/*"

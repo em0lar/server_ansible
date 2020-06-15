@@ -22,5 +22,3 @@
     project_src: "/{{ mailcow_root_path }}/repo"
     pull: yes
     state: present
-
-- import_tasks: backup.yml

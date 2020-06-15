@@ -13,3 +13,11 @@ mongodb_systemlog_destination: "file"
 mongodb_systemlog_logappend: true
 mongodb_systemlog_path: "/var/log/mongodb.log"
 mongodb_systemlog_logrotate: rename
+
+borgmatic_before_backup_command:
+  - "mongodump -u backup -p {{ mongodb_root_backup_password }} -o /root/mongodb_dump"
+  - "sudo -u postgres pg_dumpall > /root/postgresql_dump.sql"
+
+borgmatic_after_backup_command:
+  - "rm -r /root/mongodb_dump"
+  - "rm /root/postgresql_dump.sql"
