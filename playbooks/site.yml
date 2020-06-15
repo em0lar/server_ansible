@@ -191,7 +191,7 @@
       notify: reload sshd service
 
 # Backup
-- hosts: all
+- hosts: all,!backup_relay
   tags: backup
   pre_tasks:
     - name: Upload private backup ssh keys
@@ -201,5 +201,12 @@
         mode: 0600
   roles:
     - borgbase.borgbackup
-#  tasks:
-#    - command: "borgmatic init --encryption repokey"
+  tasks:
+    - name: Check if repo is initialized
+      command: "borgmatic list"
+      register: borgmatic_list
+      ignore_errors: yes
+
+    - name: Initialize repo
+      command: "borgmatic init --encryption repokey"
+      when: "'FileNotFoundError' in borgmatic_list.stdout"
