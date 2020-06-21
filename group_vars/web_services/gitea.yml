@@ -1,0 +1,45 @@
+---
+gitea_version: "1.12.0"
+
+gitea_app_name: "Gitea"
+gitea_user: "gitea"
+gitea_systemd_cap_net_bind_service: true
+
+gitea_theme_default: "arc-green"
+
+gitea_db_type: "postgres"
+gitea_db_host: "rhea.int.sig.de.labcode.de:5432"
+gitea_db_name: "gitea"
+gitea_db_user: "{{ lookup('passwordstore', 'infra/db/gitea subkey=user') }}"
+gitea_db_password: "{{ lookup('passwordstore', 'infra/db/gitea') }}"
+
+gitea_http_domain: "git.labcode.dev"
+gitea_ssh_domain: "{{ gitea_http_domain }}"
+gitea_root_url: "https://git.labcode.dev/"
+
+gitea_http_listen: "0.0.0.0"
+gitea_http_port: 40000
+gitea_start_ssh: true
+gitea_ssh_port: 222
+
+gitea_require_signin: false
+gitea_enable_captcha: false
+gitea_disable_registration: false
+gitea_allow_only_external_registration: true
+gitea_show_registration_button: false
+
+gitea_mailer_enabled: true
+gitea_mailer_host: "mail.labcode.de:465"
+gitea_mailer_from: "LabCode Git <no-reply@labcode.de>"
+gitea_mailer_user: "no-reply@labcode.de"
+gitea_mailer_password: "{{ lookup('passwordstore', 'labcode/mails/no-reply@labcode.de') }}"
+
+
+gitea_repository_root: "{{ gitea_home }}/data/repositories"
+
+gitea_repo_indexer_enabled: true
+gitea_repo_indexer_exclude: "**.gpg,**.svg"
+
+gitea_oauth2_jwt_secret: "{{ lookup('passwordstore', 'infra/service/gitea/oauth2_jwt_secret') }}"
+gitea_secret_key: "{{ lookup('passwordstore', 'infra/service/gitea/secret_key') }}"
+gitea_internal_token: "{{ lookup('passwordstore', 'infra/service/gitea/internal_token') }}"

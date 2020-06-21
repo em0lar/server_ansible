@@ -49,3 +49,6 @@
 [submodule "roles/borgbase.borgbackup"]
 	path = roles/borgbase.borgbackup
 	url = https://github.com/borgbase/ansible-role-borgbackup.git
+[submodule "roles/geerlingguy.postgresql"]
+	path = roles/geerlingguy.postgresql
+	url = https://github.com/geerlingguy/ansible-role-postgresql.git

@@ -1,0 +1,30 @@
+---
+mongodb_package: "mongodb-org"
+mongodb_version: "4.2"
+mongodb_pymongo_from_pip: true
+mongodb_pymongo_pip_version: "3.10.1"
+mongodb_use_numa: false
+mongodb_user: "mongodb"
+mongodb_net_bindip: "::,0.0.0.0"
+mongodb_net_ipv6: true
+mongodb_net_maxconns: 65536
+mongodb_net_port: 27017
+mongodb_security_authorization: "enabled"
+mongodb_systemlog_destination: "file"
+mongodb_systemlog_logappend: true
+mongodb_systemlog_path: "/var/log/mongodb.log"
+mongodb_systemlog_logrotate: rename
+
+mongodb_user_admin_name: "{{ lookup('passwordstore', 'infra/db/mongodb/user_admin subkey=user') }}"
+mongodb_user_admin_password: "{{ lookup('passwordstore', 'infra/db/mongodb/user_admin') }}"
+mongodb_root_admin_name: "{{ lookup('passwordstore', 'infra/db/mongodb/root_admin subkey=user') }}"
+mongodb_root_admin_password: "{{ lookup('passwordstore', 'infra/db/mongodb/root_admin') }}"
+mongodb_root_backup_name: "{{ lookup('passwordstore', 'infra/db/mongodb/backup subkey=user') }}"
+mongodb_root_backup_password: "{{ lookup('passwordstore', 'infra/db/mongodb/backup') }}"
+mongodb_users:
+  - {
+    name: "{{ lookup('passwordstore', 'infra/db/wekan subkey=user') }}",
+    password: "{{ lookup('passwordstore', 'infra/db/wekan') }}",
+    roles: "readWrite",
+    database: "kanban_labcode"
+  }

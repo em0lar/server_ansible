@@ -1,0 +1,6 @@
+---
+drone_ci_client_id: "{{ lookup('passwordstore', 'infra/service/drone/oauth_client subkey=id') }}"
+drone_ci_client_secret: "{{ lookup('passwordstore', 'infra/service/drone/oauth_client') }}"
+drone_rpc_secret: "{{ lookup('passwordstore', 'infra/service/drone/rpc_secret') }}"
+drone_db_password: "{{ lookup('passwordstore', 'infra/db/drone') }}"
+drone_db_secret: "{{ lookup('passwordstore', 'infra/service/drone/db_secret') }}"

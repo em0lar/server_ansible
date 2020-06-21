@@ -1,0 +1,2 @@
+---
+wifi_radius_manager_secret: "{{ lookup('passwordstore', 'infra/service/wifi_radius_manager/secret') }}"

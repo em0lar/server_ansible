@@ -5,7 +5,7 @@ services:
       traefik.enable: "true"
       traefik.http.services.jitsi-web.loadbalancer.server.port: 80
       traefik.http.services.jitsi-web.loadbalancer.server.scheme: http
-      traefik.http.routers.jitsi-web_http.rule: "Host(`{{ ansible_fqdn }}`) || Host(`{{ jitsi.l }}`)"
+      traefik.http.routers.jitsi-web_http.rule: "Host(`{{ ansible_fqdn }}`) || Host(`{{ jitsi.public_url }}`)"
       traefik.http.routers.jitsi-web_http.entryPoints: "http"
       traefik.http.routers.jitsi-web_http.middlewares: "https_redirect@file"
       traefik.http.routers.jitsi-web_https.entryPoints: "https"

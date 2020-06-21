@@ -1,3 +1,4 @@
+---
 traefik_version: "v2.2.1"
 traefik_tls_letsencrypt_challenges_tls:
   enable: yes
@@ -22,4 +23,3 @@ traefik_additional_entrypoints: |
   ssh_gitea:
       address: ":222"
 traefik_loglevel: INFO
-dyndns_zone: "dione.int.sig.de"

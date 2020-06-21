@@ -1,0 +1,36 @@
+---
+postgresql_python_library: python3-psycopg2
+
+postgresql_users:
+  - name: "{{ lookup('passwordstore', 'infra/db/nextcloud subkey=user') }}"
+    password: "{{ lookup('passwordstore', 'infra/db/nextcloud') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/gitea subkey=user') }}"
+    password: "{{ lookup('passwordstore', 'infra/db/gitea') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/synapse subkey=user') }}"
+    password: "{{ lookup('passwordstore', 'infra/db/synapse') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/drone subkey=user') }}"
+    password: "{{ lookup('passwordstore', 'infra/db/drone') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/codimd subkey=user') }}"
+    password: "{{ lookup('passwordstore', 'infra/db/codimd') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/keycloak subkey=user') }}"
+    password: "{{ lookup('passwordstore', 'infra/db/keycloak') }}"
+postgresql_databases:
+  - name: "{{ lookup('passwordstore', 'infra/db/nextcloud subkey=name') }}"
+    owner: "{{ lookup('passwordstore', 'infra/db/nextcloud subkey=user') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/gitea subkey=name') }}"
+    owner: "{{ lookup('passwordstore', 'infra/db/gitea subkey=user') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/synapse subkey=name') }}"
+    owner: "{{ lookup('passwordstore', 'infra/db/synapse subkey=user') }}"
+    lc_collate: 'C'
+    lc_ctype: 'C'
+  - name: "{{ lookup('passwordstore', 'infra/db/drone subkey=name') }}"
+    owner: "{{ lookup('passwordstore', 'infra/db/drone subkey=user') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/codimd subkey=name') }}"
+    owner: "{{ lookup('passwordstore', 'infra/db/codimd subkey=user') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/keycloak subkey=name') }}"
+    owner: "{{ lookup('passwordstore', 'infra/db/keycloak subkey=user') }}"
+
+postgresql_hba_entries:
+  - { type: local, database: all, user: postgres, auth_method: peer }
+  - { type: host, database: all, user: all, address: '10.151.0.0/16', auth_method: md5 }
+  - { type: host, database: all, user: all, address: '::0/0', auth_method: md5 }

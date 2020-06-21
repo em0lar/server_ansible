@@ -1,0 +1,4 @@
+---
+dyndns_host: "ns.labcode.de"
+dyndns_pubkey: "{{ lookup('passwordstore', 'infra/service/dyndns/ssh_key subkey=public') }}"
+dyndns_privkey: "{{ lookup('passwordstore', 'infra/service/dyndns/ssh_key') | b64decode }}"

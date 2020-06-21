@@ -1,3 +1,5 @@
+letsencrypt_email: webmaster@labcode.de
+
 jitsi:
   public_url: meet.labcode.de
   jvb_auth_password: !vault |

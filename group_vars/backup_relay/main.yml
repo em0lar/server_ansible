@@ -1,3 +1,4 @@
+---
 backup_cifs_mount_password: "{{ lookup('passwordstore', 'infra/host/encladus.int.sig.de/backup_user') }}"
 backup_pool_path: "/mnt/backup/repos"
 backup_auth_users:
