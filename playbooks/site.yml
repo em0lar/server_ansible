@@ -170,6 +170,19 @@
           profile=preview
       notify: restart keycloak
 
+# Wireguard
+- hosts: wireguard
+  tags: wireguard
+  roles:
+    - adamruzicka.wireguard
+
+# DN42
+- hosts: dn42
+  roles:
+    - n0emis.dn42
+  tags: dn42
+
+
 # Backup-Relay
 
 - hosts: backup_relay

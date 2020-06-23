@@ -1,0 +1,26 @@
+---
+dn42_wg_private_key: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/default') }}"
+
+dn42_local_subnet_v4: "172.20.209.0/27"
+dn42_local_subnet_v6: "fdf3:bd28:d90b::/48"
+dn42_local_v4: "172.20.209.1"
+dn42_local_v6: "fdf3:bd28:d90b::1"
+dn42_local_as: "4242420215"
+
+dn42_enable_roa: yes
+
+dn42_pingfinder_enable: yes
+dn42_pingfinder_uuid: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/pingfinder') }}"
+
+dn42_peers:
+  - name: "n0emis"
+    as: "4242420197"
+    v6: "fe80::42:42:1"
+    if:
+      v6: "fe80::42:1"
+    wg:
+      port: "50197"
+      endpoint: "himalia.dn42.n0emis.eu:50215"
+      pubkey: "L4+/5r6LhlLQbEX0FgVmeZCciLRratsUbakVV0GTLCg="
+      privkey: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/n0emis') }}"
+    multiprotocol: yes

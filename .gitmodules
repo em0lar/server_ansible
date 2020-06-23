@@ -52,3 +52,9 @@
 [submodule "roles/geerlingguy.postgresql"]
 	path = roles/geerlingguy.postgresql
 	url = https://github.com/geerlingguy/ansible-role-postgresql.git
+[submodule "roles/adamruzicka.wireguard"]
+	path = roles/adamruzicka.wireguard
+	url = https://github.com/n0emis/ansible-wireguard
+[submodule "roles/n0emis.dn42"]
+	path = roles/n0emis.dn42
+	url = https://git.n0emis.eu/ansible_roles/dn42.git

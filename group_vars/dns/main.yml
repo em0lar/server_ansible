@@ -1,4 +1,4 @@
 ---
 coredns_config_file: "../files/coredns/Corefile.j2"
-coredns_zone_files_path:
+coredns_zone_files_paths:
   - "../files/coredns/zones/*"

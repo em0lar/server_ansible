@@ -1,0 +1,12 @@
+---
+wireguard_networks:
+  - wg-clients
+
+wireguard_wg-clients_interface:
+  address: fd8f:d15b:9f40:0900::1/48, 10.151.9.1/16
+  private_key: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/wireguard-clients') }}"
+  listen_port: 40000
+wireguard_wg-clients_peers:
+  mimas:
+    public_key: "{{ lookup('passwordstore', 'infra/host/mimas/wireguard-clients subkey=public') }}"
+    allowed_ips: "fd8f:d15b:9f40:0900::2/128, 10.151.9.2/32"
