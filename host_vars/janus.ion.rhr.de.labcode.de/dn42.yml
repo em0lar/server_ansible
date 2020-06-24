@@ -7,6 +7,8 @@ dn42_local_v4: "172.20.209.1"
 dn42_local_v6: "fdf3:bd28:d90b::1"
 dn42_local_as: "4242420215"
 
+dn42_configure_linux_network_table: yes
+
 dn42_enable_roa: yes
 
 dn42_pingfinder_enable: yes
@@ -15,12 +17,27 @@ dn42_pingfinder_uuid: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn +
 dn42_peers:
   - name: "n0emis"
     as: "4242420197"
+    v4: "172.20.190.96"  # We are doing multiprotocol
     v6: "fe80::42:42:1"
     if:
+      v4: "172.20.209.1"
       v6: "fe80::42:1"
     wg:
       port: "50197"
       endpoint: "himalia.dn42.n0emis.eu:50215"
       pubkey: "L4+/5r6LhlLQbEX0FgVmeZCciLRratsUbakVV0GTLCg="
       privkey: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/n0emis') }}"
+    multiprotocol: yes
+  - name: "margau"
+    as: "4242421280"
+    v4: "172.22.161.106"
+    v6: "fde3:4c0d:2836:ff00::16"
+    if:
+      v4: "172.20.209.1"
+      v6: "fde3:4c0d:2836:ff00::17"
+    wg:
+      port: "51280"
+      endpoint: "wg1.margau.ipv6.church:51828"
+      pubkey: "x0ZbO99FI4GCmqiCdQbCG26z0ecj4n1UrdKIR4M1jDQ="
+      privkey: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/margau') }}"
     multiprotocol: yes
