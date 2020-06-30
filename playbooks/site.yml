@@ -197,7 +197,7 @@
         ip_version: ipv4
         chain: FORWARD
         in_interface: "dn42_+"
-        out_interface: "wg-+"
+        destination: "10.151.0.0/16"
         jump: REJECT
       notify: save iptables
 
@@ -206,7 +206,7 @@
         ip_version: ipv6
         chain: FORWARD
         in_interface: "dn42_+"
-        out_interface: "wg-+"
+        destination: "fd8f:d15b:9f40::/48"
         jump: REJECT
       notify: save ip6tables
   tags: dn42

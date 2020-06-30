@@ -1,0 +1,21 @@
+http:
+  routers:
+    services-kopftausch-http:
+      rule: "Host(`kopftausch.paulchenpanther.de`)"
+      service: "services-kopftausch@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    services-kopftausch-https:
+      rule: "Host(`kopftausch.paulchenpanther.de`)"
+      service: "services-kopftausch@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
+  services:
+    services-kopftausch:
+      loadBalancer:
+        servers:
+          - url: "http://10.151.4.14:8000"

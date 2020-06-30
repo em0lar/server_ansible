@@ -28,3 +28,9 @@ mongodb_users:
     roles: "readWrite",
     database: "kanban_labcode"
   }
+  - {
+    name: "{{ lookup('passwordstore', 'infra/db/kopftausch subkey=user') }}",
+    password: "{{ lookup('passwordstore', 'infra/db/kopftausch') }}",
+    roles: "readWrite",
+    database: "paul_kopftausch"
+  }
