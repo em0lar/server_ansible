@@ -9,7 +9,6 @@ borg_source_directories:
   - /opt
   - /etc
   - /root
-  - /volume
 borg_exclude_patterns:
   - /var/cache
   - /var/lock

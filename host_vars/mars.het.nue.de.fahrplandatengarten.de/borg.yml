@@ -1,0 +1,6 @@
+---
+borgmatic_before_backup_command:
+  - "sudo -u postgres pg_dumpall > /root/postgresql_dump.sql"
+
+borgmatic_after_backup_command:
+  - "rm /root/postgresql_dump.sql"
