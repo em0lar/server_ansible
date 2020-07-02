@@ -1,17 +1,4 @@
 ---
-- name: Install bzip2 and postgresql-client and php-module apt packages
-  apt:
-    name:
-      - bzip2
-      - postgresql-client
-      - libpq-dev
-      - php7.4-zip
-      - php7.4-xml
-      - php7.4-curl
-      - php7.4-gd
-      - php7.4-mbstring
-    state: present
-
 - stat:
     path: /var/www/leomaroni.de/cloud.leomaroni.de
   register: nextcloud_directory
@@ -55,9 +42,9 @@
     state: absent
   when: not nextcloud_installed
 
-- name: Add nginx config for cloud.leomaroni.de
-  copy:
-    src: "nginx_vhost.conf"
-    dest: "/etc/nginx/vhosts/cloud_leomaroni_de.conf"
-  notify:
-      - reload nginx
+- name: Add nextcloud cron job
+  cron:
+    name: "Nextcloud background jobs"
+    minute: "*/5"
+    job: "php -f /var/www/leomaroni.de/cloud.leomaroni.de/nextcloud/cron.php"
+    user: "www-data"

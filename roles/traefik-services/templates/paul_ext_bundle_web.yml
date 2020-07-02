@@ -1,0 +1,21 @@
+http:
+  routers:
+    services-paulreisenberg_de_web-http:
+      rule: "Host(`paulreisenberg.de`) || Host(`www.paulreisenberg.de`)"
+      service: "services-paulreisenberg_de_web@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    services-paulreisenberg_de_web-https:
+      rule: "Host(`paulreisenberg.de`) || Host(`www.paulreisenberg.de`)"
+      service: "services-paulreisenberg_de_web@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
+  services:
+    services-paulreisenberg_de_web:
+      loadBalancer:
+        servers:
+          - url: "http://10.151.4.14:80"

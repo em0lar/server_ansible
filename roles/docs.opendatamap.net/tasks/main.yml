@@ -19,10 +19,3 @@
   shell: "/var/www/opendatamap.net/docs.opendatamap.net/.venv/bin/mkdocs build"
   args:
     chdir: "/var/www/opendatamap.net/docs.opendatamap.net"
-
-- name: Add nginx config for docs.opendatamap.net
-  copy:
-    src: "nginx_vhost.conf"
-    dest: "/etc/nginx/vhosts/docs_opendatamap_net.conf"
-  notify:
-      - reload nginx

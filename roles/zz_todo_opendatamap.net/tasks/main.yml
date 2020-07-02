@@ -6,10 +6,3 @@
     force: yes
 
 # TODO: Build OpenDataMap
-
-- name: Add nginx config for opendatamap.net
-  copy:
-    src: "nginx_vhost.conf"
-    dest: "/etc/nginx/vhosts/opendatamap_net.conf"
-  notify:
-    - reload nginx
