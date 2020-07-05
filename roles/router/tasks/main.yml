@@ -14,6 +14,7 @@
     - rsync
     - curl
     - ip-full
+    - python3
   tags: packages
 
 
@@ -22,3 +23,6 @@
 
 - import_tasks: config.yml
   tags: config
+
+- import_tasks: ip6neigh.yml
+  tags: ip6neigh
