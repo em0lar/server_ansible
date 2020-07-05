@@ -16,7 +16,7 @@
     path: "/mnt/backup"
     src: "//encladus.int.sig.de.labcode.de/backup/borg"
     fstype: "cifs"
-    opts: "username=backup,password={{ backup_cifs_mount_password }},uid={{ backup_user.uid }},gid={{ backup_user.group }}"
+    opts: "_netdev,username=backup,password={{ backup_cifs_mount_password }},uid={{ backup_user.uid }},gid={{ backup_user.group }}"
     state: mounted
 
 - name: Install borgbackup apt package

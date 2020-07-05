@@ -1,0 +1,2 @@
+openwrt_install_recommended_packages: no
+ansible_ssh_transfer_method: scp

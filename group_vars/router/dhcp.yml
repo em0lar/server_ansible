@@ -1,0 +1,98 @@
+router_static_hosts:
+  - name: coreswitch
+    v4: 10.151.0.4
+    mac: a4:2b:8c:12:5b:96
+
+  - name: ap-openwrt-1
+    v4: 10.151.0.128
+    mac: 14:59:c0:c7:02:b9
+
+  - name: ap-unifi-1
+    v4: 10.151.0.129
+    mac: 80:2a:a8:93:df:57
+
+  - name: hue
+    v4: 10.151.1.2
+    mac: 00:17:88:21:71:71
+
+  - name: sonos-kueche-l
+    v4: 10.151.1.128
+    mac: 00:0e:58:54:e3:54
+
+  - name: sonos-kueche-r
+    v4: 10.151.1.129
+    mac: 00:0e:58:54:e3:60
+
+  - name: sonos-naehzimmer
+    v4: 10.151.1.130
+    mac: 00:0e:58:5e:b5:9a
+
+  - name: sonos-em0lar
+    v4: 10.151.1.131
+    mac: 00:0e:58:cd:70:3c
+
+  - name: sonos-em0lar-attic
+    v4: 10.151.1.132
+    mac: 94:9f:3e:19:c1:62
+
+  - name: sonos-wohnzimmer
+    v4: 10.151.1.133
+    mac: 94:9f:3e:6a:85:e5
+
+  - name: sonos-wohnzimmer-sl
+    v4: 10.151.1.134
+    mac: 78:28:ca:e9:7d:0e
+
+  - name: sonos-wohnzimmer-sr
+    v4: 10.151.1.135
+    mac: 78:28:ca:e9:37:ca
+
+  - name: dns
+    v4: 10.151.4.7
+    mac: de:1f:ec:ec:02:34
+
+  - name: dione
+    v4: 10.151.4.3
+    mac: 3a:90:17:54:50:de
+
+  - name: titan
+    v4: 10.151.4.4
+    mac: 3e:aa:14:a6:7c:0b
+
+  - name: rhea
+    v4: 10.151.4.5
+    mac: 3a:3a:52:3b:db:5a
+
+  - name: phoebe
+    v4: 10.151.4.11
+    mac: aa:53:96:a0:ee:47
+
+  - name: hyperion
+    v4: 10.151.4.6
+    mac: 92:7d:a7:5d:a2:2e
+
+  - name: iapetus
+    v4: 10.151.4.10
+    mac: 9e:6c:3b:b3:ad:d3
+
+  - name: paul-ext
+    v4: 10.151.4.14
+    mac: c6:a0:97:d3:86:00
+
+  - name: saturn
+    v4: 10.151.4.9
+    mac: 0a:65:39:38:a2:73
+
+  - name: helene
+    v4: 10.151.4.13
+    mac: 9e:f1:cc:ad:6e:31
+
+  - name: tethys
+    v4: 10.151.4.1
+    hostid: 2
+    mac: 3c:d9:cc:ad:6e:31
+
+  - name: encladus
+    v4: 10.151.5.1
+    hostid: 2
+    mac: 00:11:32:69:05:05

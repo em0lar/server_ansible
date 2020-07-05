@@ -1,0 +1,13 @@
+# OpenWRT
+- hosts: openwrt
+  gather_facts: no
+  tasks:
+    - name: install python
+      raw: 'opkg update && opkg install python3-light && opkg install python3-logging && opkg install python3-distutils && opkg install python3-multiprocessing'
+
+# Router
+- hosts: router
+  gather_facts: yes
+  roles:
+    #- gekmihesg.openwrt
+    - router

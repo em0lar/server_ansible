@@ -1,0 +1,24 @@
+- name: Install default set up packages
+  opkg:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - vim
+    - nmap
+    - bind-dig
+    - wireguard
+    - luci
+    - luci-proto-wireguard
+    - 6in4
+    - tcpdump
+    - rsync
+    - curl
+    - ip-full
+  tags: packages
+
+
+- import_tasks: ohmyzsh.yml
+  tags: packages
+
+- import_tasks: config.yml
+  tags: config

@@ -1,5 +1,5 @@
 ---
-- hosts: all,!backuponly
+- hosts: all,!backuponly,!openwrt
   tags: base
   roles:
     - n0emis.base
@@ -260,7 +260,7 @@
       notify: reload sshd service
 
 # Backup
-- hosts: all,!backup_relay
+- hosts: all,!backup_relay,!openwrt
   tags: backup
   pre_tasks:
     - name: Upload private backup ssh keys

@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020061518 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020070515 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -33,13 +33,11 @@ janus.ion.rhr.de 3600 IN A 93.90.205.65
 janus.ion.rhr.de 3600 IN AAAA 2001:8d8:1800:30a::1
 
 ;;;; Home
-home 3600 IN CNAME e4zflsmfb8shzk7c.myfritz.net.
 dione.int.sig.de 60 IN CNAME dione.int.sig.de.dyn
 *.dione.int.sig.de 3600 IN CNAME dione.int.sig.de
-vpn.int.sgb.de 3600 IN CNAME vpn.int.sig.de
-vpn.int.sig.de 3600 IN CNAME home.labcode.party.
 helene.int.sig.de 60 IN CNAME helene.int.sig.de.dyn
 *.helene.int.sig.de 3600 IN CNAME helene.int.sig.de
+nas.home 3600 IN CNAME encladus.int.sig.de
 
 ;; MAIL
 ;;;; MX

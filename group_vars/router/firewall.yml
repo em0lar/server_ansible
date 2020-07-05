@@ -1,0 +1,36 @@
+---
+router_port_redirect:
+  - name: "dione http wan"
+    port: "80"
+    src_network: "wan"
+    dest_network: "lantethys"
+    ip: "10.151.4.3"
+  - name: "dione https wan"
+    port: "443"
+    src_network: "wan"
+    network: "lantethys"
+    ip: "10.151.4.3"
+
+  - name: "helene ssh"
+    port: "1880"
+    src_network: "wan"
+    network: "lantethys"
+    ip: "10.151.4.13"
+
+router_port_allow_ipv6:
+  - name: "dione http ipv6"
+    port: "80"
+    src_network: "wan"
+    network: "lantethys"
+    ip: "2001:470:7285:10:3890:17ff:fe54:50de"
+  - name: "dione https ipv6"
+    port: "443"
+    src_network: "wan"
+    network: "lantethys"
+    ip: "2001:470:7285:10:3890:17ff:fe54:50de"
+
+  - name: "helene ssh ipv6"
+    port: "1880"
+    src_network: "wan"
+    network: "lantethys"
+    ip: "2001:470:7285:10:9cf1:ccff:fead:6e31"

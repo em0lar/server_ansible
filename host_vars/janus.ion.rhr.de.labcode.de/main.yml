@@ -9,4 +9,4 @@ wireguard_wg-clients_interface:
 wireguard_wg-clients_peers:
   mimas:
     public_key: "{{ lookup('passwordstore', 'infra/host/mimas/wireguard-clients subkey=public') }}"
-    allowed_ips: "fd8f:d15b:9f40:0900::2/48, 10.151.9.2/16"
+    allowed_ips: "fd8f:d15b:9f40:0900::2/128, 10.151.9.2/32"
