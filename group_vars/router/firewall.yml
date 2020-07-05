@@ -36,3 +36,7 @@ router_port_allow_ipv6:
     src_network: "wan"
     network: "lantethys"
     ip: "2001:470:7285:10:9cf1:ccff:fead:6e31"
+
+router_wireguard_interfaces:
+  - name: "server_janus"
+    port: "30001"

@@ -37,6 +37,14 @@ config zone
 	list device 'br-lanencladus'
 	option network 'lanencladus'
 
+config zone
+	option name 'wgserver'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'ACCEPT'
+	list device 'wgserver'
+	option network 'wgserver'
+
 config rule
 	option name 'Allow-DHCP-Renew'
 	option src 'wan'
@@ -177,6 +185,18 @@ config forwarding
 	option src 'lanencladus'
 	option dest 'lantethys'
 
+config forwarding
+	option src 'wgserver'
+	option dest 'lan'
+
+config forwarding
+	option src 'wgserver'
+	option dest 'lantethys'
+
+config forwarding
+	option src 'wgserver'
+	option dest 'lanencladus'
+
 
 config include
 	option path '/etc/firewall.user'
@@ -201,7 +221,15 @@ config rule
 	option dest '{{ port.dest_network | default('lantethys') }}'
 	option dest_ip '{{ port.ip }}'
 	option dest_port '{{ port.port }}'
-	option target 'DNAT'
 	option family 'ipv6'
+	option target 'ACCEPT'
+{% endfor %}
+
+{% for wireguard_interface in router_wireguard_interfaces %}
+config rule
+	option name 'Wireguard {{ wireguard_interface.name }}'
+	option src 'wan'
+	option dest_port '{{ wireguard_interface.port }}'
+	option proto 'udp'
 	option target 'ACCEPT'
 {% endfor %}

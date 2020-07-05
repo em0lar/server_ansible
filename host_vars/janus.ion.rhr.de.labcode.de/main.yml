@@ -1,12 +1,22 @@
 ---
 wireguard_networks:
-  - wg-clients
+  - wg_clients
+  - wg_server
 
-wireguard_wg-clients_interface:
+wireguard_wg_clients_interface:
   address: fd8f:d15b:9f40:0900::1/128, 10.151.9.1/32
   private_key: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/wireguard-clients') }}"
   listen_port: 40000
-wireguard_wg-clients_peers:
+wireguard_wg_clients_peers:
   mimas:
-    public_key: "{{ lookup('passwordstore', 'infra/host/mimas/wireguard-clients subkey=public') }}"
+    public_key: "{{ lookup('passwordstore', 'infra/host/mimas.int.sig.de.labcode.de/wireguard-clients subkey=public') }}"
     allowed_ips: "fd8f:d15b:9f40:0900::2/128, 10.151.9.2/32"
+
+wireguard_wg_server_interface:
+  address: fd8f:d15b:9f40:0c00::1/128, 10.151.12.1/32
+  private_key: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/wireguard-server') }}"
+  listen_port: 40001
+wireguard_wg_server_peers:
+  atlas.int.sig.de.labcode.de:
+    public_key: "{{ lookup('passwordstore', 'infra/host/atlas.int.sig.de.labcode.de/wireguard-server subkey=public') }}"
+    allowed_ips: "fd8f:d15b:9f40:0c10::1/128, 10.151.12.128/32, 2001:470:7285:10::/60, 2001:470:7285:20::/60, 10.151.0.0/21"
