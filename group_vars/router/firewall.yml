@@ -5,11 +5,13 @@ router_port_redirect:
     src_network: "wan"
     dest_network: "lantethys"
     ip: "10.151.4.3"
+    reflection_src_external: yes
   - name: "dione https wan"
     port: "443"
     src_network: "wan"
     network: "lantethys"
     ip: "10.151.4.3"
+    reflection_src_external: yes
 
   - name: "helene ssh"
     port: "1880"

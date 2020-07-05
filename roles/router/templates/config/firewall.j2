@@ -189,6 +189,9 @@ config redirect
 	option dest '{{ port.dest_network | default('lantethys') }}'
 	option dest_ip '{{ port.ip }}'
 	option target 'DNAT'
+	{% if port.reflection_src_external is defined %}
+	option reflection_src 'external'
+	{% endif %}
 {% endfor %}
 
 {% for port in router_port_allow_ipv6 %}
