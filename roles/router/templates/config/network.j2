@@ -59,6 +59,7 @@ config interface 'wgserver'
 	option proto 'wireguard'
 	option private_key '{{ lookup('passwordstore', 'infra/host/atlas.int.sig.de.labcode.de/wireguard-server') }}'
 	option listen_port '30001'
+	option nohostroute '1'
 	list addresses '10.151.12.128/22'
 	list addresses 'fd8f:d15b:9f40:0c10::1/54'
 
