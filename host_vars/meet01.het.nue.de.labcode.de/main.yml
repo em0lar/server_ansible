@@ -47,3 +47,5 @@ borg_source_directories:
   - /etc
   - /root
   - /volume
+
+wireguard_server_address: "fd8f:d15b:9f40:0c20::1/128, 10.151.13.1/32"
