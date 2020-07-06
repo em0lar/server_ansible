@@ -52,9 +52,9 @@ appservice:
         shared_secret: generate
 
     # The unique ID of this appservice.
-    id: telegram
+    id: tg
     # Username of the appservice bot.
-    bot_username: telegrambot
+    bot_username: tgbot
     # Display name and avatar for bot. Set to "remove" to remove display name/avatar, leave empty
     # to leave display name/avatar as-is.
     bot_displayname: Telegram Bridge
@@ -88,13 +88,13 @@ manhole:
 bridge:
     # Localpart template of MXIDs for Telegram users.
     # {userid} is replaced with the user ID of the Telegram user.
-    username_template: "telegram_{userid}"
+    username_template: "tg_{userid}"
     # Localpart template of room aliases for Telegram portal rooms.
     # {groupname} is replaced with the name part of the public channel/group invite link ( https://t.me/{} )
-    alias_template: "telegram_{groupname}"
+    alias_template: "tg_{groupname}"
     # Displayname template for Telegram users.
     # {displayname} is replaced with the display name of the Telegram user.
-    displayname_template: "{displayname} (Telegram)"
+    displayname_template: "{displayname} (TG)"
 
     # Set the preferred order of user identifiers which to use in the Matrix puppet display name.
     # In the (hopefully unlikely) scenario that none of the given keys are found, the numeric user

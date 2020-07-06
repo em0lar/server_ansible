@@ -1,13 +1,15 @@
-id: telegram
+id: tg
 as_token: {{ mautrix_telegram_as_token }}
 hs_token: {{ mautrix_telegram_hs_token }}
 namespaces:
     users:
     - exclusive: true
-      regex: '@telegram_.+:labcode.de'
+      regex: '@tg_.+:labcode.de'
+    - exclusive: true
+      regex: '@tgbot:labcode\.de'
     aliases:
     - exclusive: true
-      regex: '#telegram_.+:labcode.de'
+      regex: '#tg_.+:labcode.de'
 url: http://localhost:29317
-sender_localpart: telegrambot
+sender_localpart: bsitvb7bimkym5no5bvqgqb66d5ynt8689wu6nf63xbixtodu4b6ccd81k4tagli
 rate_limited: false
