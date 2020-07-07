@@ -23,6 +23,7 @@ config interface 'henet'
 	option username 'em0lar'
 	option tunnelid '{{ lookup('passwordstore', 'infra/tunnelbroker.net/int.sig.de subkey=id') }}'
 	option password '{{ lookup('passwordstore', 'infra/tunnelbroker.net/int.sig.de') }}'
+	list ip6prefix '2001:470:1f0b:e6f::/64'
 	list ip6prefix '2001:470:7285::/48'
 
 config interface 'lan'
