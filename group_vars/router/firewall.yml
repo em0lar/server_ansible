@@ -12,6 +12,12 @@ router_port_redirect:
     network: "lantethys"
     ip: "10.151.4.3"
     reflection_src_external: yes
+  - name: "dione gitea ssh wan"
+    port: "222"
+    src_network: "wan"
+    network: "lantethys"
+    ip: "10.151.4.3"
+    reflection_src_external: yes
 
   - name: "helene ssh"
     port: "1880"
@@ -24,19 +30,28 @@ router_port_allow_ipv6:
     port: "80"
     src_network: "wan"
     network: "lantethys"
-    ip: "2001:470:7285:10:3890:17ff:fe54:50de"
+    ip: "2001:470:7285:2:3890:17ff:fe54:50de"
   - name: "dione https ipv6"
     port: "443"
     src_network: "wan"
     network: "lantethys"
-    ip: "2001:470:7285:10:3890:17ff:fe54:50de"
+    ip: "2001:470:7285:2:3890:17ff:fe54:50de"
+  - name: "dione gitea ssh ipv6"
+    port: "222"
+    src_network: "wan"
+    network: "lantethys"
+    ip: "2001:470:7285:2:3890:17ff:fe54:50de"
 
   - name: "helene ssh ipv6"
     port: "1880"
     src_network: "wan"
     network: "lantethys"
-    ip: "2001:470:7285:10:9cf1:ccff:fead:6e31"
+    ip: "2001:470:7285:2:9cf1:ccff:fead:6e31"
 
-router_wireguard_interfaces:
-  - name: "server_janus"
-    port: "30001"
+
+router_firewall_forwarding:
+  - lan
+  - lantethys
+  - lanencladus
+  - wgserver
+  - wgfdg

@@ -13,7 +13,7 @@ wireguard_wg_server_peers:
     endpoint: "janus.ion.rhr.de.labcode.de:40001"
     persistent_keepalive: 25
 
-wireguard_server_net: "fd8f:d15b:9f40:0c00::/54, 10.151.12.0/22, 2001:470:7285:10::/60, 2001:470:7285:20::/60, 10.151.0.0/21"
+wireguard_server_net: "fd8f:d15b:9f40:0c00::/54, 10.151.12.0/22, 10.151.0.0/21"
 
 wireguard_server_private_key: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/wireguard-server') }}"
 wireguard_server_public_key: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/wireguard-server subkey=public') }}"
