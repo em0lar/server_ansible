@@ -12,5 +12,13 @@ http:
       service: "nginx@file"
       entryPoints:
         - "https"
+      middlewares:
+        - "nextcloud-redirectregex"
       tls:
         certResolver: "le_tls"
+  middlewares:
+    nextcloud-redirectregex:
+      redirectRegex:
+        permanent: true
+        regex: "https://(.*)/.well-known/(card|cal)dav"
+        replacement: "https://${1}/remote.php/dav/"
