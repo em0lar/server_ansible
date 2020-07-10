@@ -120,7 +120,6 @@
   roles:
     - coredns-dynamicdns
     - traefik
-    - traefik-services
     - traefik-certificate-exporter
 
 # CI

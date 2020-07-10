@@ -22,3 +22,10 @@ traefik_additional_entrypoints: |
   ssh_gitea:
       address: ":222"
 traefik_loglevel: INFO
+traefik_dynamic_config_files_paths:
+  - "../files/traefik/*"
+
+web_nginx_hostname: "titan.int.sig.de.labcode.de"
+web_services_hostname: "hyperion.int.sig.de.labcode.de"
+drone_ci_hostname: "iapetus.int.sig.de.labcode.de"
+iam_hostname: "phoebe.int.sig.de.labcode.de"
