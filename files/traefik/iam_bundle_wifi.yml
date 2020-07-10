@@ -14,6 +14,8 @@ http:
         - "https"
       tls:
         certResolver: "le_tls"
+      middlewares:
+        - "hsts"
   services:
     iam-wifi:
       loadBalancer:

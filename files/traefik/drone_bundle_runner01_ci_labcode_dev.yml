@@ -14,6 +14,8 @@ http:
         - "https"
       tls:
         certResolver: "le_tls"
+      middlewares:
+        - "hsts"
   services:
     drone_ci-runner01:
       loadBalancer:

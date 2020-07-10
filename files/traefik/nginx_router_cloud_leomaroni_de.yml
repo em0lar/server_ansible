@@ -13,6 +13,7 @@ http:
       entryPoints:
         - "https"
       middlewares:
+        - "hsts"
         - "nextcloud-redirectregex"
       tls:
         certResolver: "le_tls"

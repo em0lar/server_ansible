@@ -25,6 +25,13 @@ traefik_loglevel: INFO
 traefik_dynamic_config_files_paths:
   - "../files/traefik/*"
 
+traefik_middlewares_hsts:
+  enable: yes
+  name: "hsts"
+  seconds: "31536000"
+  preload: no
+  include_sub_domains: no
+
 web_nginx_hostname: "titan.int.sig.de.labcode.de"
 web_services_hostname: "hyperion.int.sig.de.labcode.de"
 drone_ci_hostname: "iapetus.int.sig.de.labcode.de"

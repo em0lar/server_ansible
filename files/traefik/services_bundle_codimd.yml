@@ -16,6 +16,7 @@ http:
         certResolver: "le_tls"
       middlewares:
         - "services-codimd-cors"
+        - "hsts"
   services:
     services-codimd:
       loadBalancer:
