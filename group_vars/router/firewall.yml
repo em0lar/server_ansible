@@ -19,7 +19,7 @@ router_port_redirect:
     ip: "10.151.4.3"
     reflection_src_external: yes
 
-  - name: "helene ssh"
+  - name: "helene ssh wan"
     port: "1880"
     src_network: "wan"
     network: "lantethys"

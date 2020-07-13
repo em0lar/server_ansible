@@ -180,6 +180,7 @@ config forwarding
 
 config include
 	option path '/etc/firewall.user'
+	option reload '1'
 
 {% for port in router_port_redirect %}
 
