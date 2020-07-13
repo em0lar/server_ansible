@@ -1,29 +1,35 @@
 ---
 router_port_redirect:
-  - name: "dione http wan"
+  - name: "dione http"
     port: "80"
     src_network: "wan"
     dest_network: "lantethys"
     ip: "10.151.4.3"
-    reflection_src_external: yes
-  - name: "dione https wan"
+    reflection_nets:
+      - lan
+  - name: "dione https"
     port: "443"
     src_network: "wan"
     network: "lantethys"
     ip: "10.151.4.3"
-    reflection_src_external: yes
-  - name: "dione gitea ssh wan"
+    reflection_nets:
+      - lan
+  - name: "dione gitea ssh"
     port: "222"
     src_network: "wan"
     network: "lantethys"
     ip: "10.151.4.3"
-    reflection_src_external: yes
+    reflection_nets:
+      - lan
 
-  - name: "helene ssh wan"
+  - name: "helene ssh"
     port: "1880"
     src_network: "wan"
     network: "lantethys"
     ip: "10.151.4.13"
+    reflection_src_external: yes
+    reflection_nets:
+      - lan
 
 router_port_allow_ipv6:
   - name: "dione http ipv6"
