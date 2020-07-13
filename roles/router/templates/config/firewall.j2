@@ -182,19 +182,22 @@ config include
 	option path '/etc/firewall.user'
 
 {% for port in router_port_redirect %}
+
 config redirect
+	list proto '{{ port.protocol | default('tcp') }}'
 	option name '{{ port.name }}'
 	option src '{{ port.src_network | default('wan') }}'
 	option src_dport '{{ port.port }}'
 	option dest '{{ port.dest_network | default('lantethys') }}'
 	option dest_ip '{{ port.ip }}'
 	option target 'DNAT'
-	{% if port.reflection_src_external is defined %}
+{% if port.reflection_src_external is defined %}
 	option reflection_src 'external'
-	{% endif %}
+{% endif %}
 {% endfor %}
 
 {% for port in router_port_allow_ipv6 %}
+
 config rule
 	option name '{{ port.name }}'
 	option src '{{ port.src_network | default('wan') }}'
