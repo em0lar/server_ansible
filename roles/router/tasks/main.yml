@@ -26,3 +26,11 @@
 
 - import_tasks: ip6neigh.yml
   tags: ip6neigh
+
+- name: Create cronjob for restarting PPPoE
+  cron:
+    name: "restart pppoe"
+    hour: "04"
+    minute: "30"
+    user: "root"
+    job: "ifup wan > /dev/null"
