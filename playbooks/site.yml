@@ -278,6 +278,7 @@
 # Backup
 - hosts: all,!backup_relay,!openwrt
   tags: backup
+  gather_facts: yes
   pre_tasks:
     - name: Upload private backup ssh keys
       copy:
