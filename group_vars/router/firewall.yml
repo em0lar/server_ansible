@@ -53,6 +53,11 @@ router_port_allow_ipv6:
     src_network: "wan"
     network: "lantethys"
     ip: "2001:470:7285:2:9cf1:ccff:fead:6e31"
+  - name: "helene ssh ipv6 (2)"
+    port: "1880"
+    src_network: "wan"
+    network: "lantethys"
+    ip: "2001:470:7285:2::eb0"
 
 
 router_firewall_forwarding:
