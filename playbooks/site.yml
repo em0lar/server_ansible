@@ -162,9 +162,10 @@
   tags: jitsi
   hosts: jitsi
   roles:
-    - docker
-    - docker-traefik-reverseproxy
-    - jitsi
+    - systemli.coturn
+#    - docker
+#    - jitsi
+#    - traefik
 
 # IAM
 - hosts: iam

@@ -1,0 +1,17 @@
+---
+traefik_tls_letsencrypt_challenges_tls:
+  enable: yes
+  email: "webmaster@labcode.de"
+  name: "le_tls"
+  storage: "{{ traefik_base_path }}/acme_tls.json"
+traefik_default_cert_resovler: "le_tls"
+traefik_middlewares_dashboard_authentication:
+  enable: yes
+  name: "dashboard_authentication"
+  realm: "tickets, please"
+  remove_header: yes
+  users:
+    - "em0lar:$apr1$h8hfBKva$F/yHCivbn8V3tIahYaNQE/"
+traefik_loglevel: INFO
+traefik_dynamic_config_files_paths:
+  - "../files/meet01.het.nue.de.labcode.de/traefik/*"

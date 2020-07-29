@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020071421 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020072917 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -82,7 +82,7 @@ _995._tcp.cetus.het.hel.fi 3600 IN TLSA 3 1 1 f6555cd8bc628329d0dfc1c9070bd8df9f
 @ 3600 IN TXT "keybase-site-verification=73L68-5Q8Lcs8SFDUVoaGWCv4wCbOvDvyzd4Ip4-ab0"
 _token._dnswl 3600 IN TXT "gsu43vu129t6z89sn1ohdchk9pspmm94"
 
-;; Pages
+;; Pages/Services
 cdn 3600 IN CNAME dione.int.sig.de
 git 3600 IN CNAME dione.int.sig.de
 kanban 3600 IN CNAME dione.int.sig.de
@@ -90,6 +90,8 @@ kanban 3600 IN CNAME dione.int.sig.de
 matrix 3600 IN CNAME dione.int.sig.de
 md 3600 IN CNAME dione.int.sig.de
 meet 3600 IN CNAME meet01.het.nue.de
+stun 3600 IN CNAME meet01.het.nue.de
+turn 3600 IN CNAME meet01.het.nue.de
 static 3600 IN CNAME dione.int.sig.de
 www 3600 IN CNAME dione.int.sig.de
 auth 3600 IN CNAME dione.int.sig.de

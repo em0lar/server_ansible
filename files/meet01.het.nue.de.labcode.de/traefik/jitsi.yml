@@ -1,0 +1,21 @@
+http:
+  routers:
+    jitsi-http:
+      rule: "Host(`meet.labcode.de`)"
+      service: "jitsi@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    jitsi-https:
+      rule: "Host(`meet.labcode.de`)"
+      service: "jitsi@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
+  services:
+    jitsi:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:50001"
