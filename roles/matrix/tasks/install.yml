@@ -8,11 +8,12 @@
 
 - name: Install synapse pip package
   pip:
-    name: "matrix-synapse==1.17.0"
+    name: "matrix-synapse==1.18.0"
     virtualenv: "/opt/matrix-synapse/.venv"
     virtualenv_command: "/usr/bin/python3 -m venv"
     state: present
   become_user: synapse
+  notify: restart matrix-synapse
 
 - name: Install postgresql-client apt packages
   apt:
