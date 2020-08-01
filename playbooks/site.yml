@@ -163,9 +163,9 @@
   hosts: jitsi
   roles:
     - systemli.coturn
-#    - docker
-#    - jitsi
-#    - traefik
+    - docker
+    - jitsi
+    - traefik
 
 # IAM
 - hosts: iam

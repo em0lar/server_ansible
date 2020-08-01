@@ -27,6 +27,7 @@ gitea_enable_captcha: false
 gitea_disable_registration: false
 gitea_allow_only_external_registration: true
 gitea_show_registration_button: false
+gitea_enable_notify_mail: true
 
 gitea_mailer_enabled: true
 gitea_mailer_host: "mail.labcode.de:465"
