@@ -24,7 +24,7 @@
 
 - name: Set up jitsi jvb_auth user
   shell:
-    cmd: "docker-compose -p jitsi exec -T prosody prosodyctl --config /config/prosody.cfg.lua register {{ item.0 }} meet.labcode.de {{ item.1 }}"
+    cmd: "docker-compose -p jitsi exec -T prosody prosodyctl --config /config/prosody.cfg.lua register {{ item.0 }} meet.jitsi {{ item.1 }}"
   args:
     chdir: /opt/jitsi/repo/
   loop:
