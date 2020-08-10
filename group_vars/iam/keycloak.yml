@@ -1,7 +1,7 @@
 ---
 keycloak_postgresql_host: rhea.int.sig.de.labcode.de
-keycloak_admin_password: "{{ lookup('passwordstore', 'infra/service/keycloak/admin' }}"
+keycloak_admin_password: "{{ lookup('passwordstore', 'infra/service/keycloak/admin') }}"
 keycloak_postgresql_username: "{{ lookup('passwordstore', 'infra/db/keycloak subkey=user') }}"
 keycloak_postgresql_password: "{{ lookup('passwordstore', 'infra/db/keycloak') }}"
 keycloak_configure_firewall: false
-keycloak_version: 10.0.2
+keycloak_version: 11.0.0
