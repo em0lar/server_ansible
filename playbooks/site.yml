@@ -162,10 +162,15 @@
   tags: jitsi
   hosts: jitsi
   roles:
-    - systemli.coturn
     - docker
     - jitsi
     - traefik
+
+- name: coturn
+  tags: coturn
+  hosts: coturn
+  roles:
+    - systemli.coturn
 
 # IAM
 - hosts: iam

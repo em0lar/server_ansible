@@ -1,0 +1,2 @@
+coturn_static_auth_secret: "{{ lookup('passwordstore', 'infra/host/meet01.het.nue.de.labcode.de/coturn') }}"
+coturn_realm: "turn.labcode.de"
