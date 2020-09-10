@@ -67,3 +67,9 @@
 [submodule "roles/systemli.coturn"]
 	path = roles/systemli.coturn
 	url = https://github.com/systemli/ansible-role-coturn
+[submodule "roles/powerdns.pdns"]
+	path = roles/powerdns.pdns
+	url = https://github.com/PowerDNS/pdns-ansible.git
+[submodule "roles/powerdns-dynamicdns"]
+	path = roles/powerdns-dynamicdns
+	url = https://git.labcode.dev/ansible_roles/powerdns-dynamicdns.git

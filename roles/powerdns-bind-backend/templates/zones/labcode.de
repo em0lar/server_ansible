@@ -1,15 +1,17 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020080922 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020091001 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
     3600       ; minimum (1 hour)
     )
 
-@ 3600 IN NS hydrogen.ns.hetzner.com.
-@ 3600 IN NS oxygen.ns.hetzner.com.
-@ 3600 IN NS helium.ns.hetzner.de.
+@ 3600 IN NS ns1.he.net.
+@ 3600 IN NS ns2.he.net.
+@ 3600 IN NS ns3.he.net.
+@ 3600 IN NS ns4.he.net.
+@ 3600 IN NS ns5.he.net.
 ;;@ 3600 IN NS ns
 
 ;;dyn 300 IN NS ns.labcode.de.
@@ -58,7 +60,7 @@ infra 3600 IN TXT "v=spf1 a mx ~all"
 
 ;;;; CNAME
 autoconfig.infra 3600 IN CNAME cetus.het.hel.fi
-autoconfig. 3600 IN CNAME cetus.het.hel.fi
+autoconfig 3600 IN CNAME cetus.het.hel.fi
 autodiscover.infra 3600 IN CNAME cetus.het.hel.fi
 autodiscover 3600 IN CNAME cetus.het.hel.fi
 mail 3600 IN CNAME cetus.het.hel.fi
@@ -86,14 +88,14 @@ _token._dnswl 3600 IN TXT "gsu43vu129t6z89sn1ohdchk9pspmm94"
 cdn 3600 IN CNAME dione.int.sig.de
 git 3600 IN CNAME dione.int.sig.de
 kanban 3600 IN CNAME dione.int.sig.de
-@ 3600 IN CNAME dione.int.sig.de
+@ 60 IN CNAME dione.int.sig.de.labcode.de.
 matrix 3600 IN CNAME dione.int.sig.de
 md 3600 IN CNAME dione.int.sig.de
 meet 3600 IN CNAME meet01.het.nue.de
-stun 3600 IN CNAME meet01.het.nue.de
-turn 3600 IN CNAME meet01.het.nue.de
+stun 3600 IN CNAME cetus.het.hel.fi
+turn 3600 IN CNAME cetus.het.hel.fi
 static 3600 IN CNAME dione.int.sig.de
-www 3600 IN CNAME dione.int.sig.de
+www 3600 IN ALIAS dione.int.sig.de.labcode.de.
 auth 3600 IN CNAME dione.int.sig.de
 keycloak 3600 IN CNAME dione.int.sig.de
 wifi 3600 IN CNAME dione.int.sig.de

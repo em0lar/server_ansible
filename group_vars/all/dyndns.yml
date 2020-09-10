@@ -1,2 +1,14 @@
 ---
-dyndns_host: "ns.labcode.de"
+powerdns_dynamicdns_database_file: "/var/lib/powerdns/sqlite3.db"
+powerdns_dynamicdns_ansible_server: "ns.labcode.de"
+powerdns_dynamicdns_nsupdate_server: "fd8f:d15b:9f40:c21::1"
+powerdns_dynamicdns_zone: "dyn.labcode.de"
+powerdns_dynamicdns_tsig_key_name: "{{ ansible_hostname }}"
+powerdns_dynamicdns_soa_record_mname: "ns.labcode.de"
+powerdns_dynamicdns_soa_record_rname: "noc.labcode.de"
+powerdns_dynamicdns_nameservers:
+  - ns1.he.net
+  - ns2.he.net
+  - ns3.he.net
+  - ns4.he.net
+  - ns5.he.net

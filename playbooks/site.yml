@@ -118,7 +118,7 @@
 - hosts: web_reverseproxy
   tags: web,web_reverseproxy
   roles:
-    - coredns-dynamicdns
+    - powerdns-dynamicdns
     - traefik
     - traefik-certificate-exporter
 
@@ -146,7 +146,9 @@
   hosts: dns
   tags: dns
   roles:
-    - cloudalchemy.coredns
+#    - cloudalchemy.coredns
+    - powerdns-bind-backend
+    - powerdns.pdns
 
 # Pihole
 
@@ -244,7 +246,7 @@
 - hosts: backup_relay
   tags: backup_relay
   roles:
-    - coredns-dynamicdns
+    - powerdns-dynamicdns
     - borg-server
   handlers:
     - name: reload sshd service
