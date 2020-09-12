@@ -12,7 +12,7 @@ pdns_config:
   dnsupdate: yes
   allow-dnsupdate-from: "fd8f:d15b:9f40::/48"
   expand-alias: yes
-  loglevel: 6
+  resolver: "2606:4700:4700::1111,2606:4700:4700::1001,1.1.1.1,8.8.8.8"
 
 powerdns_bind_dnssec_database_file: "{{ powerdns_base_directory }}/bind/dnssec-db.sqlite3"
 
@@ -45,4 +45,9 @@ pdns_bind_tsig_keys:
 pdns_bind_domains_tsig:
   - { domain: lbcd.dev, key: "he.net-powerdns" }
   - { domain: labcode.de, key: "he.net-powerdns" }
+  - { domain: em0lar.de, key: "he.net-powerdns" }
+  - { domain: emolar.de, key: "he.net-powerdns" }
+  - { domain: labcode.dev, key: "he.net-powerdns" }
+  - { domain: leomaroni.de, key: "he.net-powerdns" }
+  - { domain: opendatamap.net, key: "he.net-powerdns" }
 

@@ -146,7 +146,6 @@
   hosts: dns
   tags: dns
   roles:
-#    - cloudalchemy.coredns
     - powerdns-bind-backend
     - powerdns.pdns
 

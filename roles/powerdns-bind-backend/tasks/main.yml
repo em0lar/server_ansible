@@ -13,6 +13,7 @@
     src: "named.conf.j2"
     dest: "{{ powerdns_base_directory }}/bind/named.conf"
     mode: 0644
+  notify: restart powerdns
 
 - name: Copy zone files
   template:
@@ -20,7 +21,7 @@
     dest: "{{ powerdns_base_directory }}/bind/zones"
     owner: pdns
     group: pdns
-    mode: 0644
+    mode: 0755
   with_fileglob: "templates/zones/*"
 
 - name: Check if Bind dnssec db already exists
