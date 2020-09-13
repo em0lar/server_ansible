@@ -8,9 +8,18 @@ wireguard_wg_clients_interface:
   private_key: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/wireguard-clients') }}"
   listen_port: 40000
 wireguard_wg_clients_peers:
-  mimas:
+  em0lar_mimas:
     public_key: "{{ lookup('passwordstore', 'infra/host/mimas.int.sig.de.labcode.de/wireguard-clients subkey=public') }}"
-    allowed_ips: "fd8f:d15b:9f40:0900::2/128, 10.151.9.2/32"
+    allowed_ips: "fd8f:d15b:9f40:0900:1::1/128, 10.151.9.2/32"
+  em0lar_crucis:
+    public_key: "{{ lookup('passwordstore', 'infra/service/wireguard/clients/em0lar_crucis subkey=public') }}"
+    allowed_ips: "fd8f:d15b:9f40:900:1::2, 10.151.9.3/32"
+  dirk_luna:
+    public_key: "{{ lookup('passwordstore', 'infra/service/wireguard/clients/dirk_luna subkey=public') }}"
+    allowed_ips: "fd8f:d15b:9f40:900:2::1, 10.151.9.5/32"
+  dirk_lunaphone:
+    public_key: "{{ lookup('passwordstore', 'infra/service/wireguard/clients/dirk_lunaphone subkey=public') }}"
+    allowed_ips: "fd8f:d15b:9f40:900:2::2, 10.151.9.6/32"
 
 wireguard_server_address: "fd8f:d15b:9f40:0c00::1/128, 10.151.12.1/32"
 
