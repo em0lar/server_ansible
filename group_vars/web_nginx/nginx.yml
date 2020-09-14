@@ -32,7 +32,7 @@ nginx_vhosts:
           deny all;
       }
 
-  - server_name: "cloud.leomaroni.de"
+  - server_name: "cloud.leomaroni.de cloud.em0lar.de"
     root: "/var/www/leomaroni.de/cloud.leomaroni.de/nextcloud"
     index: "index.php index.html index.htm"
     extra_parameters: |

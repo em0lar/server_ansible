@@ -1,12 +1,15 @@
 $ORIGIN leomaroni.de.
 @ 3600 IN SOA ns.leomaroni.de. noc.leomaroni.de. (
-    2020091010 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020091301 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800        ; retry (30 min)
     604800     ; expire (168 day)
     3600       ; minimum (1 hour)
     )
 
+@ 3600 IN NS ns1.he.net.
+@ 3600 IN NS ns2.he.net.
+@ 3600 IN NS ns3.he.net.
 @ 3600 IN NS ns4.he.net.
 @ 3600 IN NS ns5.he.net.
 ;;@ 3600 IN NS ns
