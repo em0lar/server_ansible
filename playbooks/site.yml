@@ -177,6 +177,7 @@
 - hosts: iam
   tags: iam
   roles:
+    - mrlesmithjr.openldap
     - keycloak-postgres
     - freeradius
     - wifi_radius_manager

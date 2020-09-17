@@ -73,3 +73,6 @@
 [submodule "roles/powerdns-dynamicdns"]
 	path = roles/powerdns-dynamicdns
 	url = https://git.labcode.dev/ansible_roles/powerdns-dynamicdns.git
+[submodule "roles/mrlesmithjr.openldap"]
+	path = roles/mrlesmithjr.openldap
+	url = https://github.com/mrlesmithjr/ansible-openldap
