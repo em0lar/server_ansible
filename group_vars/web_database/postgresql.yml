@@ -14,6 +14,8 @@ postgresql_users:
     password: "{{ lookup('passwordstore', 'infra/db/codimd') }}"
   - name: "{{ lookup('passwordstore', 'infra/db/keycloak subkey=user') }}"
     password: "{{ lookup('passwordstore', 'infra/db/keycloak') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/firefly-iii subkey=user') }}"
+    password: "{{ lookup('passwordstore', 'infra/db/firefly-iii') }}"
 postgresql_databases:
   - name: "{{ lookup('passwordstore', 'infra/db/nextcloud subkey=name') }}"
     owner: "{{ lookup('passwordstore', 'infra/db/nextcloud subkey=user') }}"
@@ -29,6 +31,8 @@ postgresql_databases:
     owner: "{{ lookup('passwordstore', 'infra/db/codimd subkey=user') }}"
   - name: "{{ lookup('passwordstore', 'infra/db/keycloak subkey=name') }}"
     owner: "{{ lookup('passwordstore', 'infra/db/keycloak subkey=user') }}"
+  - name: "{{ lookup('passwordstore', 'infra/db/firefly-iii subkey=name') }}"
+    owner: "{{ lookup('passwordstore', 'infra/db/firefly-iii subkey=user') }}"
 
 postgresql_hba_entries:
   - { type: local, database: all, user: postgres, auth_method: peer }

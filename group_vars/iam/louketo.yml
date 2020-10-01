@@ -1,0 +1,13 @@
+---
+louketo_instances:
+  - name: firefly-iii
+    config: |
+      client-id: {{ lookup('passwordstore', 'infra/service/firefly-iii/louketo subkey=id') }}
+      client-secret: {{ lookup('passwordstore', 'infra/service/firefly-iii/louketo') }}
+      discovery-url: https://auth.labcode.de/auth/realms/labcode
+      enable-default-deny: true
+      listen: 0.0.0.0:3000
+      upstream-url: http://titan.int.sig.de.labcode.de
+      headers:
+        Host: finances.em0lar.de
+    state: present

@@ -72,7 +72,7 @@
     - thomas-maurice.gitea
     - matrix
     - geerlingguy.nodejs
-    - codimd
+      #    - codimd
     - wekan
 
 - hosts: web_nginx
@@ -88,11 +88,13 @@
         repo: "deb https://packages.sury.org/php/ {{ ansible_distribution_release }} main"
         state: present
   roles:
-    - geerlingguy.php
+#    - geerlingguy.php
+#    - geerlingguy.composer
     - geerlingguy.nginx
-    - nextcloud
-    - docs.opendatamap.net
-    - matrix-well-known
+#    - nextcloud
+#    - docs.opendatamap.net
+#    - matrix-well-known
+    - em0lar.firefly-iii
   tasks:
     - name: download em0lar.de from GitHub
       git:
@@ -177,10 +179,11 @@
 - hosts: iam
   tags: iam
   roles:
-    - mrlesmithjr.openldap
-    - keycloak-postgres
-    - freeradius
-    - wifi_radius_manager
+#    - mrlesmithjr.openldap
+#    - keycloak-postgres
+#    - freeradius
+#    - wifi_radius_manager
+    - n0emis.louketo
 
 # Wireguard
 - hosts: wireguard_member

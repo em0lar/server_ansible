@@ -76,3 +76,12 @@
 [submodule "roles/mrlesmithjr.openldap"]
 	path = roles/mrlesmithjr.openldap
 	url = https://github.com/mrlesmithjr/ansible-openldap
+[submodule "roles/geerlingguy.composer"]
+	path = roles/geerlingguy.composer
+	url = https://github.com/geerlingguy/ansible-role-composer.git
+[submodule "roles/n0emis.louketo"]
+	path = roles/n0emis.louketo
+	url = https://git.n0emis.eu/ansible_roles/louketo.git
+[submodule "roles/em0lar.firefly-iii"]
+	path = roles/em0lar.firefly-iii
+	url = https://git.labcode.dev/ansible_roles/firefly-iii.git
