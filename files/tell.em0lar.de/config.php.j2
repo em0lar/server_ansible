@@ -12,11 +12,14 @@ return [
         'recipient-choices' => [
             'enabled' => true,
             'choices' => [
-				'tell@em0lar.de', // => ask@domain1
-				'tolles@em0lar.de', // => awesome@domain1
-				'nerviges@em0lar.de', // => awesome@domain1
-				'kaputtmachendes@em0lar.de', // => awesome@domain1
-				'stoerendes@em0lar.de', // => awesome@domain1
+                'em0lar.de' => [
+                    'tell',
+                    'tolles',
+                    'liebenswertes',
+                    'nerviges',
+                    'kaputtmachendes',
+                    'stoerendes',
+                ]
             ]
         ],
         'allow-bad-recipient' => false, // Set to tue if you want to skip PHPMailers E-Mail validation (e.g. name only recipients for local test sendmail setup)
