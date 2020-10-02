@@ -88,12 +88,12 @@
         repo: "deb https://packages.sury.org/php/ {{ ansible_distribution_release }} main"
         state: present
   roles:
-#    - geerlingguy.php
-#    - geerlingguy.composer
+    - geerlingguy.php
+    - geerlingguy.composer
     - geerlingguy.nginx
-#    - nextcloud
-#    - docs.opendatamap.net
-#    - matrix-well-known
+    - nextcloud
+    - docs.opendatamap.net
+    - matrix-well-known
     - em0lar.firefly-iii
   tasks:
     - name: download em0lar.de from GitHub
@@ -116,6 +116,16 @@
       git:
         repo: "https://github.com/em0lar/labcode.de.git"
         dest: "/var/www/labcode.de/labcode.de"
+
+    - name: download ask.e1mo.de repo from GitHub
+      git:
+        repo: "https://github.com/e1mo/ask.e1mo.de.git"
+        dest: "/var/www/em0lar.de/tell.em0lar.de"
+        version: "v2.0.3"
+    - name: Template config for tell.em0lar.de
+      template:
+        src: "../files/tell.em0lar.de/config.php.j2"
+        dest: "/var/www/em0lar.de/tell.em0lar.de/config.php"
 
 - hosts: web_reverseproxy
   tags: web,web_reverseproxy

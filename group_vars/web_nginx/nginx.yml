@@ -1,3 +1,4 @@
+nginx_access_log: "off"
 nginx_vhosts:
   - server_name: "docs.opendatamap.net"
     root: "/var/www/opendatamap.net/docs.opendatamap.net/site"
@@ -158,6 +159,28 @@ nginx_vhosts:
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
       }
+
+  - server_name: "tell.em0lar.de tell.emolar.de"
+    root: "/var/www/em0lar.de/tell.em0lar.de"
+    index: "index.php index.html"
+    extra_parameters: |
+      # index.php fallback
+      location / {
+      	try_files $uri $uri/ $uri/index.php index.php;
+      }
+
+      # handle .php
+      location ~ \.php$ {
+      	fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      	include fastcgi_params;
+      }
+
+      location ~ /config\.php {
+      	deny all;
+      }
+
 
   - server_name: "finances.em0lar.de"
     root: "/var/www/em0lar.de/finances.em0lar.de/current/public"

@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'page' => [
+        'language' => 'en', // two digits as of ISO 639-1
+        'title' => 'Ask or tell me something!',
+        'description' => 'Feel free to ask or tell me anything. Please behave to me the way you want to be treated.',
+    ],
+    'owner' => [
+        'name' => 'em0lar',
+        'e-mail' => 'tell@em0lar.de',
+        'recipient-choices' => [
+            'enabled' => true,
+            'choices' => [
+				'tell@em0lar.de', // => ask@domain1
+				'tolles@em0lar.de', // => awesome@domain1
+				'nerviges@em0lar.de', // => awesome@domain1
+				'kaputtmachendes@em0lar.de', // => awesome@domain1
+				'stoerendes@em0lar.de', // => awesome@domain1
+            ]
+        ],
+        'allow-bad-recipient' => false, // Set to tue if you want to skip PHPMailers E-Mail validation (e.g. name only recipients for local test sendmail setup)
+    ],
+    'message' => [
+        'subject' => '[tell.em0lar.de] Someone wanted to tell you something',
+        'sender' => 'no-reply@labcode.de',
+        'force-sender' => true, // Always set it to sender even if a senders E-Mail is given
+    ],
+    'form' => [
+        'message' => [
+            'label' => 'Your Message to me',
+            'placeholder' => 'I\'ve always wanted to tell you...',
+        ],
+        'submit' => [
+            'label' => 'Send it!',
+        ],
+        'sender' => [
+            'label' => 'This is optional.',
+            'email' => [
+                'label' => 'Your E-Mail (optional)',
+                'palceholder' => 'person@example.com',
+            ],
+            'name' => [
+                'label' => 'Your Name (optional)',
+                'placeholder' => 'Lucky Luke',
+            ]
+        ]
+    ],
+    'email' => [
+        'provider' => 'smtp',
+        'smtp' => [
+            'host' => 'mail.labcode.de',
+            'port' => 465,
+            'crypt' => 'smtps',
+            'user' => 'no-reply@labcode.de',
+            'pass' => '{{ lookup('passwordstore', 'labcode/mails/no-reply@labcode.de') }}'
+        ],
+    ],
+    'modules' => [ // Different modules taht are included at differenc parts of the process. Must be present in modules/<name>/ and provide a main.php
+        'headers' => [] // Must return an array with all custom headers to be added
+    ]
+];

@@ -1,0 +1,18 @@
+http:
+  routers:
+    nginx-tell_em0lar_de-http:
+      rule: "Host(`tell.em0lar.de`) || Host(`tell.emolar.de`)"
+      service: "nginx@file"
+      entryPoints:
+        - "http"
+      middlewares:
+        - "https_redirect"
+    nginx-tell_em0lar_de-https:
+      rule: "Host(`tell.em0lar.de`) || Host(`tell.emolar.de`)"
+      service: "nginx@file"
+      entryPoints:
+        - "https"
+      tls:
+        certResolver: "le_tls"
+      middlewares:
+        - "hsts"
