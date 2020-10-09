@@ -25,3 +25,4 @@ php_opcache_max_accelerated_files: "10000"
 php_opcache_revalidate_freq: "1"
 
 composer_version: "1.10.13"
+php_date_timezone: "Europe/Berlin"
