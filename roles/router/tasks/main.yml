@@ -9,6 +9,7 @@
     - wireguard
     - luci
     - luci-proto-wireguard
+    - luci-proto-ipv6
     - 6in4
     - tcpdump
     - rsync

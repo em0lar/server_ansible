@@ -27,3 +27,6 @@ wireguard_wg_server_peers:
   atlas.int.sig.de.labcode.de:
     public_key: "{{ lookup('passwordstore', 'infra/host/atlas.int.sig.de.labcode.de/wireguard-server subkey=public') }}"
     allowed_ips: "fd8f:d15b:9f40:0c10::1/60, 10.151.12.128/32, 10.151.0.0/21"
+  ap-openwrt-1.travel.labcode.de:
+    public_key: "{{ lookup('passwordstore', 'infra/host/ap-openwrt-1.travel.labcode.de/wireguard-server subkey=public') }}"
+    allowed_ips: "fd8f:d15b:9f40:0c30::1/64, 10.151.12.129/32, 10.151.16.0/24"

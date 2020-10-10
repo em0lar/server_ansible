@@ -17,6 +17,10 @@
         secret = {{ freeradius_client_ap_secret }}
         ipaddr = 10.151.0.128/25
       }
+      client travelap {
+        secret = {{ freeradius_client_travelap_secret }}
+        ipaddr = 10.151.12.129/32
+      }
   notify: restart freeradius systemd service
 
 - name: Add certificate-transfer to freerad group

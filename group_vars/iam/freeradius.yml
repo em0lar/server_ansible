@@ -1,3 +1,4 @@
 ---
-freeradius_client_ap_secret: "{{ lookup('passwordstore', 'infra/service/freeraidus/client_ap_secret') }}"
+freeradius_client_ap_secret: "{{ lookup('passwordstore', 'infra/service/freeradius/client_ap_secret') }}"
+freeradius_client_travelap_secret: "{{ lookup('passwordstore', 'infra/service/freeradius/client_travelap_secret') }}"
 certificate_transfer_user_enable: yes

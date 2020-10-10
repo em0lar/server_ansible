@@ -7,6 +7,10 @@ router_static_hosts:
     v4: 10.151.0.128
     mac: 14:59:c0:c7:02:b9
 
+  - name: ap-openwrt-2
+    v4: 10.151.0.131
+    mac: b0:4e:26:a8:42:38
+
   - name: ap-unifi-1
     v4: 10.151.0.129
     mac: 80:2a:a8:93:df:57

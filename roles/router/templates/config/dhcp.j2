@@ -12,6 +12,10 @@ config dnsmasq
 	option localservice '1'
 	option sequential_ip '1'
 	list server '10.151.4.7'
+	list interface 'wgserver'
+    list interface 'br-lan'
+    list interface 'br-lanencladus'
+    list interface 'br-lantethys'
 
 config dhcp 'wan'
 	option interface 'wan'
