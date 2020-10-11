@@ -7,13 +7,17 @@ router_static_hosts:
     v4: 10.151.0.128
     mac: 14:59:c0:c7:02:b9
 
-  - name: ap-openwrt-2
-    v4: 10.151.0.131
-    mac: b0:4e:26:a8:42:38
-
   - name: ap-unifi-1
     v4: 10.151.0.129
     mac: 80:2a:a8:93:df:57
+
+  - name: fritz
+    v4: 10.151.0.130
+    mac: c0:25:06:5f:df:ae
+
+  - name: ap-openwrt-2
+    v4: 10.151.0.131
+    mac: b0:4e:26:a8:42:38
 
   - name: hue
     v4: 10.151.1.2
