@@ -68,7 +68,7 @@ router_static_hosts:
     mac: 3e:aa:14:a6:7c:0b
 
   - name: rhea
-    v4: 10.151.4.5
+    v4: 10.151.4.5z
     mac: 3a:3a:52:3b:db:5a
 
   - name: phoebe
@@ -82,6 +82,10 @@ router_static_hosts:
   - name: iapetus
     v4: 10.151.4.10
     mac: 9e:6c:3b:b3:ad:d3
+
+  - name: icecast
+    v4: 10.151.4.12
+    mac: d2:49:56:1f:bb:16
 
   - name: paul-ext
     v4: 10.151.4.14
