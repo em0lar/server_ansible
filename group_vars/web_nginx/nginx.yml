@@ -22,6 +22,10 @@ nginx_vhosts:
           deny all;
       }
 
+  - server_name: "element.em0lar.de"
+    root: "{{ element_installation_path }}"
+    index: "index.html"
+
   - server_name: "static.labcode.de cdn.labcode.de"
     root: "/var/www/labcode.de/static.labcode.de"
     extra_parameters: |
