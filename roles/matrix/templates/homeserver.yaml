@@ -219,7 +219,7 @@ listeners:
     x_forwarded: true
 
     resources:
-      - names: [client, federation]
+      - names: [client, federation, metrics]
         compress: false
 
     # example additional_resources:
@@ -1060,7 +1060,7 @@ account_threepid_delegates:
 
 # Enable collection and rendering of performance metrics
 #
-#enable_metrics: false
+enable_metrics: true
 
 # Enable sentry integration
 # NOTE: While attempts are made to ensure that the logs don't contain
