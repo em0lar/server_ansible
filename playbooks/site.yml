@@ -1,4 +1,7 @@
 ---
+- hosts: all
+  gather_facts: yes
+
 - hosts: all,!backuponly,!openwrt
   tags: base
   roles:
@@ -296,3 +299,9 @@
     - name: Initialize repo
       command: "borgmatic init --encryption repokey"
       when: "'FileNotFoundError' in borgmatic_list.stdout"
+
+- hosts: monitored
+  become: yes
+  roles:
+    - fahrplandatengarten.icinga
+  tags: icinga,monitoring

@@ -85,3 +85,6 @@
 [submodule "roles/em0lar.firefly-iii"]
 	path = roles/em0lar.firefly-iii
 	url = https://git.labcode.dev/ansible_roles/firefly-iii.git
+[submodule "roles/fahrplandatengarten.icinga"]
+	path = roles/fahrplandatengarten.icinga
+	url = https://github.com/FahrplanDatenGarten/ansible-role-icinga

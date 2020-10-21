@@ -52,3 +52,7 @@ atlas.int.sig.de.labcode.de
 
 [router]
 atlas.int.sig.de.labcode.de
+
+[monitored]
+cetus.het.hel.fi.labcode.de
+janus.ion.rhr.de.labcode.de
