@@ -54,3 +54,16 @@ dn42_peers:
       pubkey: "qIhJZf6mTruzO4GTCUrJnLqs9ID4TI1GctRhaRilBkg="
       privkey: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/yurachan') }}"
     multiprotocol: yes
+  - name: "e1mo"
+    as: "4242420565"
+    v4: "172.20.229.160"
+    v6: "fe80::43:1"
+    if:
+      v4: "172.20.209.1"
+      v6: "fe80::43:42:1"
+    wg:
+      port: "50565"
+      endpoint: "rout1.nue.het.de.net.srv.dont-break.it:50215"
+      pubkey: "LjXwHWJXz5koYyVsZ0UjSHr/zpxIUz/dPzucJSFSDUg="
+      privkey: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/e1mo') }}"
+    multiprotocol: yes
