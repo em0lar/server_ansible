@@ -56,6 +56,10 @@ router_static_hosts:
     mac: 78:28:ca:e9:37:ca
 
   - name: dns
+    v4: 10.151.0.3
+    mac: 86:63:82:ea:0d:b1
+
+  - name: dns-ubuntu
     v4: 10.151.4.7
     mac: de:1f:ec:ec:02:34
 

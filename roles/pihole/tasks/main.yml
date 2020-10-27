@@ -32,3 +32,5 @@
   file:
     path: "/etc/pihole/pihole-install.sh"
     state: absent
+
+- include_tasks: updatelists.yml
