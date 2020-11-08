@@ -2,7 +2,7 @@
 - hosts: all
   gather_facts: yes
 
-- hosts: all,!backuponly,!openwrt
+- hosts: all,!backuponly,!openwrt,!notbase
   tags: base
   roles:
     - n0emis.base

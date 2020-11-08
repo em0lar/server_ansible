@@ -1,3 +1,6 @@
+[notbase]
+tethys.int.sig.de.labcode.de
+
 [wireguard_member]
 meet01.het.nue.de.labcode.de
 cetus.het.hel.fi.labcode.de
@@ -56,3 +59,4 @@ atlas.int.sig.de.labcode.de
 [monitored]
 cetus.het.hel.fi.labcode.de
 janus.ion.rhr.de.labcode.de
+tethys.int.sig.de.labcode.de
