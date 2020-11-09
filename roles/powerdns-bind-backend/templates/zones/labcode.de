@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020091004 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020110901 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -40,6 +40,7 @@ dione.int.sig.de 60 IN CNAME dione.int.sig.de.dyn
 helene.int.sig.de 60 IN CNAME helene.int.sig.de.dyn
 *.helene.int.sig.de 3600 IN CNAME helene.int.sig.de
 nas.home 3600 IN CNAME encladus.int.sig.de
+tethys.int.sig.de 3600 IN AAAA 2001:470:7285:2::2
 
 ;; MAIL
 ;;;; MX
