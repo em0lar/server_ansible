@@ -4,6 +4,7 @@ traefik_tls_letsencrypt_challenges_tls:
   email: "webmaster@labcode.de"
   name: "le_tls"
   storage: "{{ traefik_base_path }}/acme_tls.json"
+  key_type: "EC256"
 traefik_default_cert_resovler: "le_tls"
 traefik_middlewares_dashboard_authentication:
   enable: yes

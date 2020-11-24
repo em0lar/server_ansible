@@ -1,14 +1,14 @@
 http:
   routers:
     nginx-em0lar_de-http:
-      rule: "Host(`em0lar.de`) || Host(`www.em0lar.de`)"
+      rule: "Host(`em0lar.de`) || Host(`www.em0lar.de`) || Host(`leomaroni.de`)"
       service: "nginx@file"
       entryPoints:
         - "http"
       middlewares:
         - "https_redirect"
     nginx-em0lar_de-https:
-      rule: "Host(`em0lar.de`) || Host(`www.em0lar.de`)"
+      rule: "Host(`em0lar.de`) || Host(`www.em0lar.de`) || Host(`leomaroni.de`)"
       service: "nginx@file"
       entryPoints:
         - "https"
