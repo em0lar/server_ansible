@@ -575,7 +575,7 @@ database:
     user: "synapse"
     password: "{{ synapse_db_password }}"
     database: "synapse"
-    host: "{{ web_db_postgres_host }}"
+    host: "{{ synapse_db_host }}"
     cp_min: 5
     cp_max: 10
 

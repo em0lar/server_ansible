@@ -1,8 +1,4 @@
-[notbase]
-tethys.int.sig.de.labcode.de
-
-[wireguard_member]
-meet01.het.nue.de.labcode.de
+[dns]
 cetus.het.hel.fi.labcode.de
 
 [web_database]
@@ -14,17 +10,17 @@ dione.int.sig.de.labcode.de
 [web_nginx]
 titan.int.sig.de.labcode.de
 
-[web_services]
+[gitea]
 hyperion.int.sig.de.labcode.de
 
-[drone_ci]
-iapetus.int.sig.de.labcode.de
+[matrix]
+hyperion.int.sig.de.labcode.de
+
+[hedgedoc]
+hyperion.int.sig.de.labcode.de
 
 [pihole]
 dns.int.sig.de.labcode.de
-
-[dns]
-cetus.het.hel.fi.labcode.de
 
 [mail]
 cetus.het.hel.fi.labcode.de
@@ -32,17 +28,18 @@ cetus.het.hel.fi.labcode.de
 [coturn]
 cetus.het.hel.fi.labcode.de
 
-[jitsi]
-meet01.het.nue.de.labcode.de
-
 [iam]
 phoebe.int.sig.de.labcode.de
+
+# ---------------------------
 
 [wireguard]
 janus.ion.rhr.de.labcode.de
 
 [dn42]
 janus.ion.rhr.de.labcode.de
+
+# ---------------------------
 
 [backup_relay]
 helene.int.sig.de.labcode.de
@@ -60,3 +57,10 @@ atlas.int.sig.de.labcode.de
 cetus.het.hel.fi.labcode.de
 janus.ion.rhr.de.labcode.de
 tethys.int.sig.de.labcode.de
+
+[notbase]
+tethys.int.sig.de.labcode.de
+
+[wireguard_member]
+meet01.het.nue.de.labcode.de
+cetus.het.hel.fi.labcode.de

@@ -1,4 +1,5 @@
 ---
+synapse_db_host: "rhea.int.sig.de.labcode.de"
 synapse_db_password: "{{ lookup('passwordstore', 'infra/db/synapse') }}"
 synapse_shared_secret: "{{ lookup('passwordstore', 'infra/service/matrix/synapse/shared_secret') }}"
 synapse_macaroon_secret: "{{ lookup('passwordstore', 'infra/service/matrix/synapse/macaroon_secret') }}"

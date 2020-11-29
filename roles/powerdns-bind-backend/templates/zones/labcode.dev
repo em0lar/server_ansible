@@ -1,6 +1,6 @@
 $ORIGIN labcode.dev.
 @ 3600 IN SOA ns.labcode.dev. noc.labcode.dev. (
-    2020091005 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020112909 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -47,3 +47,4 @@ ci 3600 IN CNAME dione.int.sig.de.labcode.de.
 git 3600 IN CNAME dione.int.sig.de.labcode.de.
 kanban 3600 IN CNAME dione.int.sig.de.labcode.de.
 runner01.ci 3600 IN CNAME dione.int.sig.de.labcode.de.
+alpakanews 3600 IN CNAME dione.int.sig.de.labcode.de.

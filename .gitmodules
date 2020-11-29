@@ -16,18 +16,12 @@
 [submodule "roles/jnv.unattended-upgrades"]
 	path = roles/jnv.unattended-upgrades
 	url = https://github.com/jnv/ansible-role-unattended-upgrades
-[submodule "roles/codimd"]
-	path = roles/codimd
-	url = https://git.labcode.dev/ansible_roles/codimd.git
 [submodule "roles/undergreen.mongodb"]
 	path = roles/undergreen.mongodb
 	url = https://github.com/UnderGreen/ansible-role-mongodb.git
 [submodule "roles/postgresql"]
 	path = roles/postgresql
 	url = https://git.labcode.dev/ansible_roles/postgresql.git
-[submodule "roles/wekan"]
-	path = roles/wekan
-	url = https://git.labcode.dev/ansible_roles/wekan.git
 [submodule "roles/traefik"]
 	path = roles/traefik
 	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
@@ -88,3 +82,9 @@
 [submodule "roles/fahrplandatengarten.icinga"]
 	path = roles/fahrplandatengarten.icinga
 	url = https://github.com/FahrplanDatenGarten/ansible-role-icinga
+[submodule "roles/em0lar.hedgedoc"]
+	path = roles/em0lar.hedgedoc
+	url = https://git.labcode.dev/ansible_roles/hedgedoc.git
+[submodule "roles/ocha.yarn"]
+	path = roles/ocha.yarn
+	url = https://github.com/ocha/ansible-role-yarn.git

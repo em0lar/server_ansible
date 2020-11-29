@@ -69,14 +69,31 @@
     - geerlingguy.postgresql
     - undergreen.mongodb
 
-- hosts: web_services
-  tags: web,web_services
+- hosts: matrix
+  tags: matrix
+  roles:
+    - matrix
+
+- hosts: gitea
+  tags: gitea
   roles:
     - thomas-maurice.gitea
-    - matrix
+
+- hosts: hedgedoc
+  roles:
     - geerlingguy.nodejs
-      #    - codimd
-    - wekan
+    - ocha.yarn
+    - em0lar.hedgedoc
+  tasks:
+    - name: Upload saml cert
+      copy:
+        dest: "{{ hedgedoc_base_path + '/idp_cert.pem' }}"
+        content: "{{ hedgedoc_saml_idp_cert }}"
+    - name: Upload saml private key
+      copy:
+        src: "../files/hedgedoc/idp_key.pem"
+        dest: "{{ hedgedoc_base_path + '/idp_key.pem' }}"
+  tags: hedgedoc
 
 - hosts: web_nginx
   tags: web,web_nginx
@@ -138,15 +155,6 @@
     - traefik
     - traefik-certificate-exporter
 
-# CI
-
-- name: drone_ci
-  tags: drone_ci
-  hosts: drone_ci
-  roles:
-    - docker
-    - drone-ci
-
 # Mail
 
 - name: mail
@@ -154,7 +162,6 @@
   hosts: mail
   roles:
     - docker
-#    - mail/hcloud-volume
     - mail/mailcow
 
 # DNS
@@ -166,7 +173,6 @@
     - powerdns.pdns
 
 # Pihole
-
 - name: pihole
   tags: pihole
   hosts: pihole
@@ -174,7 +180,6 @@
     - pihole
 
 # Jitsi
-
 - name: jitsi
   tags: jitsi
   hosts: jitsi
