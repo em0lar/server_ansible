@@ -1,9 +1,6 @@
 [submodule "roles/docker"]
 	path = roles/docker
 	url = https://git.labcode.dev/ansible_roles/docker
-[submodule "roles/oh-my-zsh"]
-	path = roles/oh-my-zsh
-	url = https://git.labcode.dev/ansible_roles/oh-my-zsh.git
 [submodule "roles/geerlingguy.nodejs"]
 	path = roles/geerlingguy.nodejs
 	url = https://github.com/geerlingguy/ansible-role-nodejs.git
@@ -19,9 +16,6 @@
 [submodule "roles/postgresql"]
 	path = roles/postgresql
 	url = https://git.labcode.dev/ansible_roles/postgresql.git
-[submodule "roles/traefik"]
-	path = roles/traefik
-	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
 [submodule "roles/cloudalchemy.coredns"]
 	path = roles/cloudalchemy.coredns
 	url = https://github.com/em0lar/ansible-coredns.git 
@@ -85,3 +79,9 @@
 [submodule "roles/ocha.yarn"]
 	path = roles/ocha.yarn
 	url = https://github.com/ocha/ansible-role-yarn.git
+[submodule "roles/em0lar.oh-my-zsh"]
+	path = roles/em0lar.oh-my-zsh
+	url = https://git.labcode.dev/ansible_roles/oh-my-zsh.git
+[submodule "roles/em0lar.traefik"]
+	path = roles/em0lar.traefik
+	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
