@@ -5,7 +5,7 @@ coredns_zone_files_paths:
 
 powerdns_base_directory: "/var/lib/powerdns"
 
-pdns_install_repo: "{{ pdns_auth_powerdns_repo_43 }}"
+pdns_install_repo: "{{ pdns_auth_powerdns_repo_44 }}"
 pdns_config:
   master: yes
   allow-axfr-ips: "213.239.242.238,213.133.105.6,193.47.99.3,216.218.133.2,2001:470:600::2,127.0.0.1,::1"
