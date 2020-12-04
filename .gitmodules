@@ -85,3 +85,6 @@
 [submodule "roles/em0lar.traefik"]
 	path = roles/em0lar.traefik
 	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
+[submodule "roles/n0emis.synapse"]
+	path = roles/n0emis.synapse
+	url = https://github.com/n0emis/ansible-role-synapse.git

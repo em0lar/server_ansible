@@ -1,0 +1,68 @@
+---
+- name: Create group
+  group:
+    name: "mautrix-telegram"
+    state: present
+
+- name: Create user
+  user:
+    name: "mautrix-telegram"
+    group: "mautrix-telegram"
+    create_home: no
+    system: yes
+
+- name: Create needed directories
+  file:
+    path: "{{ item }}"
+    recurse: yes
+    state: directory
+    owner: "mautrix-telegram"
+    group: "mautrix-telegram"
+  loop:
+    - "{{ mautrix_telegram_config_path }}"
+    - "{{ mautrix_telegram_base_path }}"
+    - "{{ mautrix_telegram_base_path }}/log"
+
+- name: Template mautrix-telegram config to host
+  template:
+    src: "config.yaml"
+    dest: "{{ mautrix_telegram_config_path }}/config.yaml"
+    owner: "mautrix-telegram"
+    group: "mautrix-telegram"
+  notify: restart mautrix-telegram
+
+- name: Add mautrix-telegram registration config to host
+  template:
+    src: "registration.yaml"
+    dest: "{{ mautrix_telegram_config_path }}/registration.yaml"
+    owner: "mautrix-telegram"
+    group: "mautrix-telegram"
+  notify: restart mautrix-telegram
+
+- name: Install mautrix-telegram pip package
+  pip:
+    name: "mautrix-telegram"
+    version: "{{ mautrix_telegram_version }}"
+    virtualenv: "{{ mautrix_telegram_base_path }}/.venv"
+    virtualenv_command: "/usr/bin/python3 -m venv"
+    state: present
+  become_user: "mautrix-telegram"
+
+- name: migrate database
+  command: "bin/alembic -x config={{ mautrix_telegram_config_path }}/config.yaml upgrade head"
+  args:
+    chdir: "{{ mautrix_telegram_base_path }}/.venv"
+  become_user: "mautrix-telegram"
+
+- name: Add systemd service file for mautrix-telegram
+  template:
+    src: "mautrix-telegram.service"
+    dest: "/etc/systemd/system/mautrix-telegram.service"
+
+- name: Ensure mautrix-telegram systemd service is enabled and running
+  systemd:
+    name: "mautrix-telegram"
+    daemon_reload: yes
+    enabled: yes
+    state: started
+

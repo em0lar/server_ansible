@@ -47,7 +47,8 @@
 - hosts: matrix
   tags: matrix
   roles:
-    - matrix
+    - n0emis.synapse
+    - mautrix-telegram
 
 - hosts: gitea
   tags: gitea

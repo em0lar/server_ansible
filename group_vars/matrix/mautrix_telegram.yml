@@ -1,0 +1,10 @@
+---
+mautrix_telegram_api_id: "{{ lookup('passwordstore', 'infra/service/matrix/telegram/api subkey=id') }}"
+mautrix_telegram_api_hash: "{{ lookup('passwordstore', 'infra/service/matrix/telegram/api') }}"
+mautrix_telegram_as_token: "{{ lookup('passwordstore', 'infra/service/matrix/telegram/as_token') }}"
+mautrix_telegram_hs_token:  "{{ lookup('passwordstore', 'infra/service/matrix/telegram/hs_token') }}"
+
+mautrix_telegram_config_path: "/etc/mautrix-telegram"
+mautrix_telegram_base_path: "/var/lib/mautrix-telegram"
+
+mautrix_telegram_version: "0.9.0"
