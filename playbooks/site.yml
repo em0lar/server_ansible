@@ -7,7 +7,7 @@
   roles:
     - n0emis.base
     - jnv.unattended-upgrades
-    - oh-my-zsh
+    - em0lar.oh-my-zsh
   handlers:
     - name: restart systemd-journald
       systemd:
@@ -121,7 +121,7 @@
   tags: web,web_reverseproxy
   roles:
     - powerdns-dynamicdns
-    - traefik
+    - em0lar.traefik
     - traefik-certificate-exporter
 
 # Mail
@@ -155,7 +155,7 @@
   roles:
     - docker
     - jitsi
-    - traefik
+    - em0lar.traefik
 
 - name: coturn
   tags: coturn
