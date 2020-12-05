@@ -46,4 +46,4 @@ synapse_homeserver_config_extra_options: |
   federation_metrics_domains:
     - matrix.org
     - chaos.jetzt
-    - labcode.de
+    - noemis.me
