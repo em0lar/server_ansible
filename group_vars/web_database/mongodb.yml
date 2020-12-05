@@ -23,12 +23,6 @@ mongodb_root_backup_name: "{{ lookup('passwordstore', 'infra/db/mongodb/backup s
 mongodb_root_backup_password: "{{ lookup('passwordstore', 'infra/db/mongodb/backup') }}"
 mongodb_users:
   - {
-    name: "{{ lookup('passwordstore', 'infra/db/wekan subkey=user') }}",
-    password: "{{ lookup('passwordstore', 'infra/db/wekan') }}",
-    roles: "readWrite",
-    database: "kanban_labcode"
-  }
-  - {
     name: "{{ lookup('passwordstore', 'infra/db/kopftausch subkey=user') }}",
     password: "{{ lookup('passwordstore', 'infra/db/kopftausch') }}",
     roles: "readWrite",
