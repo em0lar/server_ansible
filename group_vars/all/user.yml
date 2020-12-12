@@ -12,6 +12,23 @@ users:
     plugins:
       - git
 
+- username: e1mo
+  state: present
+  sudo: yes
+  public_key: |
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID9x/kL2fFqQSEyFvdEgiM2UKYAZyV1oct9alS6mweVa openpgp:0x6D617FD0A85BAADA
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBfbb4m4o89EumFjE8ichX03CC/mWry0JYaz91HKVJPb e1mo
+
+- username: n0emis
+  state: present
+  shell: /bin/zsh
+  sudo: yes
+  public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEcOPtW5FWNIdlMQFoqeyA1vHw+cA8ft8oXSbXPzQNL9 n0emis@n0emis.eu
+  oh_my_zsh:
+    theme: agnoster
+    plugins:
+      - git
+
 - username: root
   state: present
   shell: /bin/zsh
