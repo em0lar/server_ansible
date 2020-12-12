@@ -9,7 +9,7 @@
 - name: Download and unarchive Element Web
   unarchive:
     remote_src: yes
-    src: https://github.com/vector-im/element-web/releases/download/v{{ element_version }}/riot-v{{ element_version }}.tar.gz
+    src: https://github.com/vector-im/element-web/releases/download/v{{ element_version }}/element-v{{ element_version }}.tar.gz
     extra_opts: --strip-components=1
     dest: "{{ element_installation_path }}"
     owner: www-data
