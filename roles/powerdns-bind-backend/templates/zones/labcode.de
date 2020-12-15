@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020110901 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020121501 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -78,8 +78,9 @@ _993._tcp.cetus.het.hel.fi 3600 IN TLSA 3 1 1 f6555cd8bc628329d0dfc1c9070bd8df9f
 _995._tcp.cetus.het.hel.fi 3600 IN TLSA 3 1 1 f6555cd8bc628329d0dfc1c9070bd8df9f612b843d05384971ce3416c1c1a36d
 
 ;; CAA
-*	3600	IN	CAA	0 issue "letsencrypt.org"
-@	3600	IN	CAA	0 issue "letsencrypt.org"
+@	3600 IN CAA 0 issue "letsencrypt.org"
+@ 3600 IN CAA 0 issue "buypass.no"
+@ 3600 IN CAA 0 iodef "mailto:noc@labcode.de"
 
 ;; TXT-Verification
 @ 3600 IN TXT "keybase-site-verification=73L68-5Q8Lcs8SFDUVoaGWCv4wCbOvDvyzd4Ip4-ab0"
