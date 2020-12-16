@@ -1,0 +1,14 @@
+---
+- name: jitsi
+  tags: jitsi
+  hosts: jitsi
+  roles:
+    - docker
+    - jitsi
+    - em0lar.traefik
+
+- name: coturn
+  tags: coturn
+  hosts: coturn
+  roles:
+    - systemli.coturn

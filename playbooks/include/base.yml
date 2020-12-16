@@ -1,0 +1,34 @@
+---
+- hosts: all,!backuponly,!openwrt,!notbase
+  roles:
+    - n0emis.base
+    - jnv.unattended-upgrades
+    - em0lar.oh-my-zsh
+  handlers:
+    - name: restart systemd-journald
+      systemd:
+        name: systemd-journald.service
+        state: restarted
+  tasks:
+    - name: create certificate-transfer user
+      user:
+        name: "certificate-transfer"
+        shell: "/bin/bash"
+        state: present
+      when: certificate_transfer_user_enable
+
+    - name: add authorized key of certificate-transfer user
+      authorized_key:
+        user: "certificate-transfer"
+        manage_dir: yes
+        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOs9IzvFrr/sg4K/Vtr6eZ9RrkWx2ybO5JzSwg6dRzVQ certificate-transfer"
+        state: present
+        exclusive: yes
+      when: certificate_transfer_user_enable
+
+    - name: Change SystemMaxUse in systemd-journald
+      replace:
+        path: "/etc/systemd/journald.conf"
+        regexp: "^#SystemMaxUse="
+        replace: "SystemMaxUse=50M"
+      notify: restart systemd-journald

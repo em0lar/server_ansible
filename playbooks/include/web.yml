@@ -1,0 +1,87 @@
+---
+- hosts: web_database
+  tags: web_database
+  roles:
+    - geerlingguy.postgresql
+    - undergreen.mongodb
+
+- hosts: matrix
+  tags: matrix
+  roles:
+    - n0emis.synapse
+    - mautrix-telegram
+
+- hosts: gitea
+  tags: gitea
+  roles:
+    - thomas-maurice.gitea
+
+- hosts: hedgedoc
+  roles:
+    - geerlingguy.nodejs
+    - ocha.yarn
+    - em0lar.hedgedoc
+  tasks:
+    - name: Upload saml cert
+      copy:
+        dest: "{{ hedgedoc_base_path + '/idp_cert.pem' }}"
+        content: "{{ hedgedoc_saml_idp_cert }}"
+    - name: Upload saml private key
+      copy:
+        src: "../../files/hedgedoc/idp_key.pem"
+        dest: "{{ hedgedoc_base_path + '/idp_key.pem' }}"
+  tags: hedgedoc
+
+- hosts: web_nginx
+  tags: web_nginx
+  pre_tasks:
+    - name: download GPG Key from php repository (sury)
+      apt_key:
+        url: "https://packages.sury.org/php/apt.gpg"
+        state: present
+
+    - name: enable php repository (sury)
+      apt_repository:
+        repo: "deb https://packages.sury.org/php/ {{ ansible_distribution_release }} main"
+        state: present
+  roles:
+    - geerlingguy.php
+    - geerlingguy.composer
+    - geerlingguy.nginx
+    - nextcloud
+    - docs.opendatamap.net
+    - matrix-well-known
+    - em0lar.firefly-iii
+    - element-web
+  tasks:
+    - name: download em0lar.de from GitHub
+      git:
+        repo: "https://github.com/em0lar/em0lar.de.git"
+        dest: "/var/www/em0lar.de/em0lar.de"
+
+    - name: download static.labcode.de from Gitea
+      git:
+        repo: "https://git.labcode.dev/em0lar/static.labcode.de.git"
+        dest: "/var/www/labcode.de/static.labcode.de"
+
+    - name: download labcode.de from GitHub
+      git:
+        repo: "https://github.com/em0lar/labcode.de.git"
+        dest: "/var/www/labcode.de/labcode.de"
+
+    - name: download ask.e1mo.de repo from GitHub
+      git:
+        repo: "https://github.com/e1mo/ask.e1mo.de.git"
+        dest: "/var/www/em0lar.de/tell.em0lar.de"
+        version: "v2.0.3"
+    - name: Template config for tell.em0lar.de
+      template:
+        src: "../../files/tell.em0lar.de/config.php.j2"
+        dest: "/var/www/em0lar.de/tell.em0lar.de/config.php"
+
+- hosts: web_reverseproxy
+  tags: web_reverseproxy
+  roles:
+    - powerdns-dynamicdns
+    - em0lar.traefik
+    - traefik-certificate-exporter

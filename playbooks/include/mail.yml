@@ -1,0 +1,6 @@
+---
+- name: mail
+  hosts: mail
+  roles:
+    - docker
+    - mail/mailcow

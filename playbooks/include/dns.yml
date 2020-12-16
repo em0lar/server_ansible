@@ -1,0 +1,6 @@
+---
+- name: DNS Server
+  hosts: dns
+  roles:
+    - powerdns-bind-backend
+    - powerdns.pdns

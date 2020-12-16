@@ -1,0 +1,40 @@
+---
+- hosts: backup_relay
+  tags: backup_relay
+  roles:
+    - powerdns-dynamicdns
+    - borg-server
+  handlers:
+    - name: reload sshd service
+      systemd:
+        name: sshd.service
+        state: reloaded
+  tasks:
+    - name: Change SSH-Port
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#Port 22'
+        line: 'Port 1880'
+      notify: reload sshd service
+
+# Backup
+- hosts: all,!backup_relay,!openwrt
+  tags: backup
+  gather_facts: yes
+  pre_tasks:
+    - name: Upload private backup ssh keys
+      copy:
+        content: "{{ lookup('passwordstore', 'infra/host/{{ ansible_host }}/backup_ssh_key subkey=private') | b64decode }}\nWm"
+        dest: "/root/.ssh/backup_ssh_key"
+        mode: 0600
+  roles:
+    - borgbase.borgbackup
+  tasks:
+    - name: Check if repo is initialized
+      command: "borgmatic list"
+      register: borgmatic_list
+      ignore_errors: yes
+
+    - name: Initialize repo
+      command: "borgmatic init --encryption repokey"
+      when: "'FileNotFoundError' in borgmatic_list.stdout"
