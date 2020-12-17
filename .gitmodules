@@ -79,12 +79,12 @@
 [submodule "roles/ocha.yarn"]
 	path = roles/ocha.yarn
 	url = https://github.com/ocha/ansible-role-yarn.git
-[submodule "roles/em0lar.oh-my-zsh"]
-	path = roles/em0lar.oh-my-zsh
-	url = https://git.labcode.dev/ansible_roles/oh-my-zsh.git
 [submodule "roles/em0lar.traefik"]
 	path = roles/em0lar.traefik
 	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
 [submodule "roles/n0emis.synapse"]
 	path = roles/n0emis.synapse
 	url = https://github.com/n0emis/ansible-role-synapse.git
+[submodule "roles/gantsign.oh-my-zsh"]
+	path = roles/gantsign.oh-my-zsh
+	url = https://github.com/gantsign/ansible-role-oh-my-zsh
