@@ -3,7 +3,8 @@
   tags: iam
   roles:
     - mrlesmithjr.openldap
-    - keycloak-postgres
+    - geerlingguy.java
+    - em0lar.keycloak-postgres
     - freeradius
     - wifi_radius_manager
     - n0emis.louketo

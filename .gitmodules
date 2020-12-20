@@ -18,10 +18,7 @@
 	url = https://git.labcode.dev/ansible_roles/postgresql.git
 [submodule "roles/cloudalchemy.coredns"]
 	path = roles/cloudalchemy.coredns
-	url = https://github.com/em0lar/ansible-coredns.git 
-[submodule "roles/keycloak-postgres"]
-	path = roles/keycloak-postgres
-	url = https://git.labcode.dev/ansible_roles/keycloak-postgres.git
+	url = https://github.com/em0lar/ansible-coredns.git
 [submodule "roles/geerlingguy.java"]
 	path = roles/geerlingguy.java
 	url = https://github.com/geerlingguy/ansible-role-java.git
@@ -88,3 +85,6 @@
 [submodule "roles/gantsign.oh-my-zsh"]
 	path = roles/gantsign.oh-my-zsh
 	url = https://github.com/gantsign/ansible-role-oh-my-zsh
+[submodule "roles/em0lar.keycloak-postgres"]
+	path = roles/em0lar.keycloak-postgres
+	url = https://github.com/em0lar/ansible-role-keycloak-postgres.git
