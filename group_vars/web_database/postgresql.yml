@@ -2,6 +2,7 @@
 postgresql_python_library: python3-psycopg2
 
 postgresql_users:
+  - name: "nagios"
   - name: "{{ lookup('passwordstore', 'infra/db/nextcloud subkey=user') }}"
     password: "{{ lookup('passwordstore', 'infra/db/nextcloud') }}"
   - name: "{{ lookup('passwordstore', 'infra/db/gitea subkey=user') }}"
@@ -36,5 +37,6 @@ postgresql_databases:
 
 postgresql_hba_entries:
   - { type: local, database: all, user: postgres, auth_method: peer }
+  - { type: local, database: template1, user: nagios, auth_method: peer }
   - { type: host, database: all, user: all, address: '10.151.0.0/16', auth_method: md5 }
   - { type: host, database: all, user: all, address: '::0/0', auth_method: md5 }
