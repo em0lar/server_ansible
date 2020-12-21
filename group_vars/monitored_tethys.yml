@@ -1,0 +1,12 @@
+---
+icinga2_parent_zone: "tethys.int.sig.de.labcode.de"
+icinga2_zone: "{{ ansible_fqdn }}"
+
+icinga2_zones:
+  tethys.int.sig.de.labcode.de:
+    endpoints:
+      - tethys.int.sig.de.labcode.de
+
+icinga2_endpoints:
+  tethys.int.sig.de.labcode.de:
+    host: tethys.int.sig.de.labcode.de

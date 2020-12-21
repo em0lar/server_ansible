@@ -1,3 +1,52 @@
+---
 icinga2_check_packages:
   - fdgmon-group-essential
   - fdgmon-check-zfs
+
+
+icinga2_zones:
+  primary:
+    endpoints:
+      - neso.het.fks.de.fahrplandatengarten.de
+      - nereid.ovh.fra.de.fahrplandatengarten.de
+  dione.int.sig.de.labcode.de:
+    endpoints:
+      - dione.int.sig.de.labcode.de
+    parent: tethys.int.sig.de.labcode.de
+  titan.int.sig.de.labcode.de:
+    endpoints:
+      - titan.int.sig.de.labcode.de
+    parent: tethys.int.sig.de.labcode.de
+  rhea.int.sig.de.labcode.de:
+    endpoints:
+      - rhea.int.sig.de.labcode.de
+    parent: tethys.int.sig.de.labcode.de
+  hyperion.int.sig.de.labcode.de:
+    endpoints:
+      - hyperion.int.sig.de.labcode.de
+    parent: tethys.int.sig.de.labcode.de
+  phoebe.int.sig.de.labcode.de:
+    endpoints:
+      - phoebe.int.sig.de.labcode.de
+    parent: tethys.int.sig.de.labcode.de
+  dns.int.sig.de.labcode.de:
+    endpoints:
+      - dns.int.sig.de.labcode.de
+    parent: tethys.int.sig.de.labcode.de
+  helene.int.sig.de.labcode.de:
+    endpoints:
+      - helene.int.sig.de.labcode.de
+    parent: tethys.int.sig.de.labcode.de
+
+icinga2_endpoints:
+  neso.het.fks.de.fahrplandatengarten.de:
+    host: neso.het.fks.de.fahrplandatengarten.de
+  nereid.ovh.fra.de.fahrplandatengarten.de:
+    host: nereid.ovh.fra.de.fahrplandatengarten.de
+  dione.int.sig.de.labcode.de: {}
+  titan.int.sig.de.labcode.de: {}
+  rhea.int.sig.de.labcode.de: {}
+  hyperion.int.sig.de.labcode.de: {}
+  phoebe.int.sig.de.labcode.de: {}
+  dns.int.sig.de.labcode.de: {}
+  helene.int.sig.de.labcode.de: {}

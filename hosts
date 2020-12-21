@@ -58,6 +58,18 @@ cetus.het.hel.fi.labcode.de
 janus.ion.rhr.de.labcode.de
 tethys.int.sig.de.labcode.de
 
+[monitored:children]
+monitored_tethys
+
+[monitored_tethys]
+dione.int.sig.de.labcode.de
+titan.int.sig.de.labcode.de
+rhea.int.sig.de.labcode.de
+hyperion.int.sig.de.labcode.de
+phoebe.int.sig.de.labcode.de
+dns.int.sig.de.labcode.de
+helene.int.sig.de.labcode.de
+
 [notbase]
 tethys.int.sig.de.labcode.de
 
