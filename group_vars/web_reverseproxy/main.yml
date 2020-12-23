@@ -24,7 +24,7 @@ traefik_additional_entrypoints: |
       address: ":222"
 traefik_loglevel: INFO
 traefik_dynamic_config_files_paths:
-  - "../files/traefik/*"
+  - "../../files/traefik/*"
 
 traefik_middlewares_hsts:
   enable: yes
