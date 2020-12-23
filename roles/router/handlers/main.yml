@@ -18,3 +18,8 @@
   service:
     name: "uhttpd"
     state: restarted
+
+- name: restart prometheus-node-exporter-lua
+  service:
+    name: "prometheus-node-exporter-lua"
+    state: restarted

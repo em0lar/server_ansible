@@ -18,6 +18,15 @@
     - python3
   tags: packages
 
+- name: Install prometheus packages
+  opkg:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - prometheus-node-exporter-lua
+    - prometheus-node-exporter-lua-netstat
+    - prometheus-node-exporter-lua-openwrt
+  tags: packages
 
 - import_tasks: ohmyzsh.yml
   tags: packages

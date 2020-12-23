@@ -1,2 +1,4 @@
 openwrt_install_recommended_packages: no
 ansible_ssh_transfer_method: scp
+oh_my_zsh_plugins:
+  - git

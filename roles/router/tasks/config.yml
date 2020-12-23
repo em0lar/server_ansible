@@ -33,3 +33,9 @@
     dest: "/etc/config/dhcp"
     src:  "config/dhcp.j2"
   notify: restart dnsmasq
+
+- name: Copy Prometheus Node Exporter Config File
+  template:
+    dest: "/etc/config/prometheus-node-exporter-lua"
+    src:  "config/prometheus-node-exporter-lua.j2"
+  notify: restart prometheus-node-exporter-lua
