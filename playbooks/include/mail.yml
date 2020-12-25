@@ -3,4 +3,4 @@
   hosts: mail
   roles:
     - docker
-    - mail/mailcow
+    - mailcow.mailcow

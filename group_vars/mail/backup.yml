@@ -1,0 +1,12 @@
+---
+borg_source_directories:
+  - /home
+  - /var
+  - /opt
+  - /etc
+  - /root
+borgmatic_before_backup_command:
+  - "cd /opt/mailcow-dockerized && MAILCOW_BACKUP_LOCATION=/root/mailcow-backup ./helper-scripts/backup_and_restore.sh backup all"
+
+borgmatic_after_backup_command:
+  - "rm -r /root/mailcow-backup/*"

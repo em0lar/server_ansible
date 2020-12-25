@@ -88,3 +88,6 @@
 [submodule "roles/em0lar.keycloak-postgres"]
 	path = roles/em0lar.keycloak-postgres
 	url = https://github.com/em0lar/ansible-role-keycloak-postgres.git
+[submodule "roles/mailcow.mailcow"]
+	path = roles/mailcow.mailcow
+	url = https://github.com/mailcow/mailcow-ansiblerole
