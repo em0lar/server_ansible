@@ -189,26 +189,5 @@ nginx_vhosts:
       	deny all;
       }
 
-
-  - server_name: "finances.em0lar.de"
-    root: "/var/www/em0lar.de/finances.em0lar.de/current/public"
-    index: "index.php index.html index.htm"
-    extra_parameters: |
-      client_max_body_size 300M;
-
-      location ~ \.php$ {
-        try_files $uri =404;
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index index.php;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include fastcgi_params;
-      }
-
-      location / {
-        try_files $uri $uri/ /index.php?$query_string;
-        autoindex on;
-        sendfile off;
-      }
-
 nginx_remove_default_vhost: yes
 

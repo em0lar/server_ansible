@@ -51,7 +51,6 @@
     - nextcloud
     - docs.opendatamap.net
     - matrix-well-known
-    - em0lar.firefly-iii
     - element-web
   tasks:
     - name: download em0lar.de from GitHub
