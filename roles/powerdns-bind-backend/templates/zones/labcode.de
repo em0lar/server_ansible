@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2020122301 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020122903 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -48,6 +48,8 @@ tethys.int.sig.de 3600 IN AAAA 2001:470:7285:2::2
 infra 3600 IN MX 1 cetus.het.hel.fi
 @ 3600 IN MX 1 cetus.het.hel.fi
 
+@ 3600 IN MX 10 backupmx.dont-break.it.
+
 ;;;; SRV
 _autodiscover.infra._tcp 3600 IN SRV 1 10 443 cetus.het.hel.fi
 _autodiscover._tcp 3600 IN SRV 1 10 443 cetus.het.hel.fi
@@ -66,6 +68,7 @@ autoconfig 3600 IN CNAME cetus.het.hel.fi
 autodiscover.infra 3600 IN CNAME cetus.het.hel.fi
 autodiscover 3600 IN CNAME cetus.het.hel.fi
 mail 3600 IN CNAME cetus.het.hel.fi
+backupmx 3600 IN CNAME cetus.het.hel.fi
 
 ;;;; TLSA
 _110._tcp.cetus.het.hel.fi 3600 IN TLSA 3 1 1 f6555cd8bc628329d0dfc1c9070bd8df9f612b843d05384971ce3416c1c1a36d

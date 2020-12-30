@@ -4,6 +4,7 @@ mailcow__config_additional_san:
   - mail.labcode.de
   - mail.opendatamap.net
   - mail.em0lar.de
+  - backupmx.labcode.de
 mailcow__config_skip_clamd: "y"
 mailcow__config_skip_solr: "y"
 mailcow__config_use_watchdog: "y"
