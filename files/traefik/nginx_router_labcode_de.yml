@@ -16,3 +16,4 @@ http:
         certResolver: "le_tls"
       middlewares:
         - "hsts"
+        - "www_redirect"

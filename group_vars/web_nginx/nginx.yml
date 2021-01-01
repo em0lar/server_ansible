@@ -18,13 +18,9 @@ nginx_vhosts:
     root: "/var/www/lbcd.dev/weihnachten.lbcd.dev"
     index: "index.html"
 
-  - server_name: "labcode.de www.labcode.de"
+  - server_name: "labcode.de"
     root: "/var/www/labcode.de/labcode.de"
     index: "index.html index.json"
-    extra_parameters: |
-      location ~ /.git/ {
-          deny all;
-      }
 
   - server_name: "element.em0lar.de"
     root: "{{ element_installation_path }}"

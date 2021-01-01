@@ -26,6 +26,10 @@ traefik_loglevel: INFO
 traefik_dynamic_config_files_paths:
   - "../../files/traefik/*"
 
+traefik_middlewares_www_to_non_www_redirect:
+  enable: yes
+  name: "www_redirect"
+
 traefik_middlewares_hsts:
   enable: yes
   name: "hsts"
