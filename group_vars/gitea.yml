@@ -44,3 +44,4 @@ gitea_repo_indexer_exclude: "**.gpg,**.svg"
 gitea_oauth2_jwt_secret: "{{ lookup('passwordstore', 'infra/service/gitea/oauth2_jwt_secret') }}"
 gitea_secret_key: "{{ lookup('passwordstore', 'infra/service/gitea/secret_key') }}"
 gitea_internal_token: "{{ lookup('passwordstore', 'infra/service/gitea/internal_token') }}"
+gitea_disable_git_hooks: false
