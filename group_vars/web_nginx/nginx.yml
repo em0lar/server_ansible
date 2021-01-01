@@ -168,6 +168,16 @@ nginx_vhosts:
         fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
       }
 
+  - server_name: "webhooks.titan.int.sig.de.labcode.de"
+    root: "/var/www/labcode.de/webhooks.titan.int.sig.de.labcode.de"
+    extra_parameters: |
+      location ~ \.php$ {
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+      }
+
   - server_name: "tell.em0lar.de tell.emolar.de"
     root: "/var/www/em0lar.de/tell.em0lar.de"
     index: "index.php index.html"

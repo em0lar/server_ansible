@@ -53,6 +53,17 @@
     - matrix-well-known
     - element-web
   tasks:
+    - name: Create directories and apply correct permissions to them
+      file:
+        path: "/var/www/{{ item }}"
+        owner: "www-data"
+        group: "www-data"
+        recurse: yes
+        state: directory
+      loop:
+        - "labcode.de/labcode.de"
+        - "labcode.de/webhooks.titan.int.sig.de.labcode.de"
+
     - name: download em0lar.de from GitHub
       git:
         repo: "https://github.com/em0lar/em0lar.de.git"
@@ -63,10 +74,10 @@
         repo: "https://git.labcode.dev/em0lar/static.labcode.de.git"
         dest: "/var/www/labcode.de/static.labcode.de"
 
-    - name: download labcode.de from GitHub
-      git:
-        repo: "https://github.com/em0lar/labcode.de.git"
-        dest: "/var/www/labcode.de/labcode.de"
+    - name: Add update.php for webhooks.titan
+      template:
+        src: files/webhooks.titan.int.sig.de.labcode.de/update.php.j2
+        dest: "/var/www/labcode.de/webhooks.titan.int.sig.de.labcode.de/update.php"
 
     - name: download ask.e1mo.de repo from GitHub
       git:
