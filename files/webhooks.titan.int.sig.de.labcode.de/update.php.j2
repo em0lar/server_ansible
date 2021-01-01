@@ -3,70 +3,69 @@ $PATHS = [
     "em0lar/labcode.de" => "/var/www/labcode.de/labcode.de"
 ];
 
-if (array_key_exists($_GET["repository"], $PATHS)) {
-    chdir($PATHS[$_GET["repository"]]);
+if (!isset($_GET['repository'])) {
+  echo "Bad request";
+  http_response_code(400);
+  die();
+}
 
-    $repository_name_compatible = str_replace("/", "_", $_GET['repository']);
-
-    $artifact_file_path = "/tmp/{$repository_name_compatible}-{$_GET['artifact_id']}.zip";
-    $artifact_file = fopen($artifact_file_path, "w");
-
-    $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, "https://api.github.com/repos/{$_GET['repository']}/actions/artifacts/{$_GET['artifact_id']}/zip");
-    curl_setopt($curl, CURLOPT_USERAGENT, 'LabCode Webhook Deploy Script');
-    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($curl, CURLOPT_MAXREDIRS, 10);
-    curl_setopt($curl, CURLOPT_USERPWD, "em0lar:" . "{{ lookup('passwordstore', 'infra/host/titan.int.sig.de.labcode.de/webhooks_github_api_token') }}");
-    curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-    curl_setopt($curl, CURLOPT_FILE, $artifact_file);
-    curl_exec($curl);
-    $httpCode = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
-    if ($httpCode == "404") {
-        fclose($artifact_file);
-        unlink($artifact_file_path);
-        echo "GitHub API Request failed with 404";
-        http_response_code(500);
-        die();
-    } elseif ($httpCode == "403") {
-        fclose($artifact_file);
-        unlink($artifact_file_path);
-        echo "GitHub API Request failed with 403";
-        http_response_code(500);
-        die();
-    } elseif (curl_error($curl)) {
-        fclose($artifact_file);
-        unlink($artifact_file_path);
-        echo "GitHub API Request failed";
-        http_response_code(500);
-        die();
-    }
-    curl_close($curl);
-    fclose($artifact_file);
-
-    # Unzip Artifact file
-
-    ## First delete data existing in repository folder
-    exec("rm -r *");
-    exec("rm -r .*");
-
-    ## Extract artifact
-    $zip = new ZipArchive;
-    $res = $zip->open($artifact_file_path);
-    if ($res === true) {
-        $zip->extractTo('.');
-        $zip->close();
-        unlink($artifact_file_path);
-        echo "OK";
-    } else {
-        echo "Unzipping failed";
-        http_response_code(500);
-        die();
-    }
-
-} else {
+if (!array_key_exists($_GET["repository"], $PATHS)) {
     echo "Repository not found";
     http_response_code(401);
     die();
 }
 
-?>
+chdir($PATHS[$_GET["repository"]]);
+
+$repository_name_compatible = str_replace("/", "_", $_GET['repository']);
+
+$artifact_file_path = "/tmp/{$repository_name_compatible}-{$_GET['artifact_id']}.zip";
+$artifact_file = fopen($artifact_file_path, "w");
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, "https://api.github.com/repos/{$_GET['repository']}/actions/artifacts/{$_GET['artifact_id']}/zip");
+curl_setopt($curl, CURLOPT_USERAGENT, 'LabCode Webhook Deploy Script');
+curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($curl, CURLOPT_MAXREDIRS, 10);
+curl_setopt($curl, CURLOPT_USERPWD, "em0lar:" . "{{ lookup('passwordstore', 'infra/host/titan.int.sig.de.labcode.de/webhooks_github_api_token') }}");
+curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+curl_setopt($curl, CURLOPT_FILE, $artifact_file);
+curl_exec($curl);
+$http_code = curl_getinfo($curl, CURLINFO_RESPONSE_CODE);
+
+if ($http_code >= 400 || curl_error($curl)) {
+    fclose($artifact_file);
+    unlink($artifact_file_path);
+    if (curl_error($curl)) {
+      echo 'GitHub API Repository failed.';
+    } else {
+      printf('GitHub API Request failed with http/%d', $http_code);
+    }
+    http_response_code(500);
+    die();
+}
+
+curl_close($curl);
+fclose($artifact_file);
+
+# Unzip Artifact file
+
+## First delete data existing in repository folder
+exec("rm -r *");
+exec("rm -r .*");
+
+## Extract artifact
+$zip = new ZipArchive;
+$res = $zip->open($artifact_file_path);
+
+if ($res !== true) {
+    echo "Unzipping failed";
+    http_response_code(500);
+    die();
+}
+
+$zip->extractTo('.');
+$zip->close();
+unlink($artifact_file_path);
+http_response_code(200);
+echo "OK";
