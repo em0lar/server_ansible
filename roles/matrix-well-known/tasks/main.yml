@@ -1,9 +1,0 @@
-- name: Create .well-known/matrix directory in labcode.de
-  file:
-    path: "/var/www/labcode.de/labcode.de/.well-known/matrix"
-    state: directory
-
-- name: Create .well-known/matrix/server in labcode.de
-  copy:
-    src: "well-known.json"
-    dest: /var/www/labcode.de/labcode.de/.well-known/matrix/server/index.json

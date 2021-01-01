@@ -50,7 +50,6 @@
     - geerlingguy.nginx
     - nextcloud
     - docs.opendatamap.net
-    - matrix-well-known
     - element-web
   tasks:
     - name: Create directories and apply correct permissions to them
