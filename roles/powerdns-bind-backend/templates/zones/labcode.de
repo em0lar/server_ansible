@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2021010102 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020010204 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -35,15 +35,18 @@ janus.ion.rhr.de 3600 IN A 93.90.205.65
 janus.ion.rhr.de 3600 IN AAAA 2001:8d8:1800:30a::1
 
 ;;;; Home
-webhooks.titan.int.sig.de 60 IN CNAME dione.int.sig.de
-atlas.int.sig.de 60 IN CNAME dione.int.sig.de
+atlas.int.sig.de 60 IN CNAME titan.int.sig.de
 
-dione.int.sig.de 60 IN CNAME dione.int.sig.de.dyn
-*.dione.int.sig.de 3600 IN CNAME dione.int.sig.de
+titan.int.sig.de 60 IN CNAME titan.int.sig.de.dyn
+*.titan.int.sig.de 3600 IN CNAME titan.int.sig.de
+
 helene.int.sig.de 60 IN CNAME helene.int.sig.de.dyn
 *.helene.int.sig.de 3600 IN CNAME helene.int.sig.de
 nas.home 3600 IN CNAME encladus.int.sig.de
 tethys.int.sig.de 3600 IN AAAA 2001:470:7285:2::2
+
+; backwards compatibility for external DNS
+dione.int.sig.de 3600 IN CNAME titan.int.sig.de
 
 ;; MAIL
 ;;;; MX
@@ -93,18 +96,16 @@ _995._tcp.cetus.het.hel.fi 3600 IN TLSA 3 1 1 f6555cd8bc628329d0dfc1c9070bd8df9f
 _token._dnswl 3600 IN TXT "gsu43vu129t6z89sn1ohdchk9pspmm94"
 
 ;; Pages/Services
-cdn 3600 IN CNAME dione.int.sig.de
-git 3600 IN CNAME dione.int.sig.de
-kanban 3600 IN CNAME dione.int.sig.de
-@ 300 IN ALIAS dione.int.sig.de.labcode.de.
-matrix 3600 IN CNAME dione.int.sig.de
-md 3600 IN CNAME dione.int.sig.de
-meet 3600 IN CNAME meet01.het.nue.de
+@ 300 IN ALIAS titan.int.sig.de.labcode.de.
+www 3600 IN ALIAS titan.int.sig.de.labcode.de.
+auth 3600 IN CNAME titan.int.sig.de
+cdn 3600 IN CNAME titan.int.sig.de
+git 3600 IN CNAME titan.int.sig.de
+matrix 3600 IN CNAME titan.int.sig.de
+md 3600 IN CNAME titan.int.sig.de
+static 3600 IN CNAME titan.int.sig.de
 stun 3600 IN CNAME cetus.het.hel.fi
 turn 3600 IN CNAME cetus.het.hel.fi
-static 3600 IN CNAME dione.int.sig.de
-www 3600 IN ALIAS dione.int.sig.de.labcode.de.
-auth 3600 IN CNAME dione.int.sig.de
-keycloak 3600 IN CNAME dione.int.sig.de
-wifi 3600 IN CNAME dione.int.sig.de
+wifi 3600 IN CNAME titan.int.sig.de
+
 openpgpkey 3600 IN CNAME wkd.keys.openpgp.org.

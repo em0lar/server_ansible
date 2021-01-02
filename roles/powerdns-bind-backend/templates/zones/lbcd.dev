@@ -1,6 +1,6 @@
 $ORIGIN lbcd.dev.
 @ 3600 IN SOA ns.lbcd.dev. noc.labcode.de. (
-    2020122301 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020010203 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -40,8 +40,5 @@ mail 3600 IN CNAME cetus.het.hel.fi.labcode.de.
 @ 3600 IN CAA 0 iodef "mailto:noc@labcode.de"
 
 ;; Pages
-@ 3600 IN ALIAS dione.int.sig.de.labcode.de.
-www 3600 IN CNAME dione.int.sig.de.labcode.de.
-git 3600 IN CNAME dione.int.sig.de.labcode.de.
-kanban 3600 IN CNAME dione.int.sig.de.labcode.de.
-weihnachten 3600 IN CNAME dione.int.sig.de.labcode.de.
+@ 3600 IN ALIAS titan.int.sig.de.labcode.de.
+www 3600 IN CNAME titan.int.sig.de.labcode.de.

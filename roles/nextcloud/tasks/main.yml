@@ -47,4 +47,4 @@
     name: "Nextcloud background jobs"
     minute: "*/5"
     job: "php -f /var/www/leomaroni.de/cloud.leomaroni.de/nextcloud/cron.php"
-    user: "www-data"
+    user: "caddy"

@@ -1,0 +1,5 @@
+md.em0lar.de, md.emolar.de, md.labcode.de {
+  reverse_proxy http://hyperion.int.sig.de.labcode.de:40001
+
+  import hsts
+}

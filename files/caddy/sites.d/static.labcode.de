@@ -1,0 +1,7 @@
+static.labcode.de, cdn.labcode.de {
+  root * /var/www/labcode.de/static.labcode.de
+  file_server browse
+
+  import hsts
+  import default_404
+}

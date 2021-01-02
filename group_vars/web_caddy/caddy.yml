@@ -1,0 +1,3 @@
+---
+caddy_config_file: "files/caddy/Caddyfile"
+caddy_config_sites_paths: "files/caddy/sites.d/*"

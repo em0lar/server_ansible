@@ -4,10 +4,7 @@ cetus.het.hel.fi.labcode.de
 [web_database]
 rhea.int.sig.de.labcode.de
 
-[web_reverseproxy]
-dione.int.sig.de.labcode.de
-
-[web_nginx]
+[web_caddy]
 titan.int.sig.de.labcode.de
 
 [gitea]

@@ -1,0 +1,8 @@
+atlas.int.sig.de.labcode.de {
+  reverse_proxy /metrics http://atlas.int.sig.de.labcode.de:9100
+
+  basicauth /metrics {
+    metrics {{ lookup('passwordstore', 'infra/host/atlas.int.sig.de.labcode.de/metrics') | password_hash('bcrypt') | b64encode }}
+  }
+
+}

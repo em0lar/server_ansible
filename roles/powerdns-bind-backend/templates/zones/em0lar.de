@@ -1,6 +1,6 @@
 $ORIGIN em0lar.de.
 @ 3600 IN SOA ns.em0lar.de. noc.em0lar.de. (
-    2020122903 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020010203 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -63,16 +63,15 @@ mail 3600 IN CNAME cetus.het.hel.fi.labcode.de.
 @ 3600 IN CAA 0 iodef "mailto:noc@labcode.de"
 
 ;; Pages
-@ 60 IN ALIAS dione.int.sig.de.labcode.de.
-www 3600 IN CNAME dione.int.sig.de.labcode.de.
-md 3600 IN CNAME dione.int.sig.de.labcode.de.
-auth 3600 IN CNAME dione.int.sig.de.labcode.de.
-keycloak 3600 IN CNAME dione.int.sig.de.labcode.de.
-git 3600 IN CNAME dione.int.sig.de.labcode.de.
-wifi 3600 IN CNAME dione.int.sig.de.labcode.de.
-cloud 3600 IN CNAME dione.int.sig.de.labcode.de.
+@ 60 IN ALIAS titan.int.sig.de.labcode.de.
+www 3600 IN CNAME titan.int.sig.de.labcode.de.
+auth 3600 IN CNAME titan.int.sig.de.labcode.de.
+cloud 3600 IN CNAME titan.int.sig.de.labcode.de.
+element 3600 IN CNAME titan.int.sig.de.labcode.de.
+git 3600 IN CNAME titan.int.sig.de.labcode.de.
+md 3600 IN CNAME titan.int.sig.de.labcode.de.
+tell 3600 IN CNAME titan.int.sig.de.labcode.de.
+wifi 3600 IN CNAME titan.int.sig.de.labcode.de.
+
 janus.dn42 3600 IN CNAME janus.ion.rhr.de.labcode.de.
 openpgpkey 3600 IN CNAME wkd.keys.openpgp.org.
-finances 3600 IN CNAME dione.int.sig.de.labcode.de.
-tell 3600 IN CNAME dione.int.sig.de.labcode.de.
-element 3600 IN CNAME dione.int.sig.de.labcode.de.

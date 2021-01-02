@@ -32,8 +32,8 @@
         dest: "{{ hedgedoc_base_path + '/idp_key.pem' }}"
   tags: hedgedoc
 
-- hosts: web_nginx
-  tags: web_nginx
+- hosts: web_caddy
+  tags: web_caddy
   pre_tasks:
     - name: download GPG Key from php repository (sury)
       apt_key:
@@ -46,17 +46,16 @@
         state: present
   roles:
     - geerlingguy.php
-    - geerlingguy.composer
-    - geerlingguy.nginx
+    - powerdns-dynamicdns
     - nextcloud
-    - docs.opendatamap.net
     - element-web
+    - em0lar.caddy
   tasks:
     - name: Create directories and apply correct permissions to them
       file:
         path: "/var/www/{{ item }}"
-        owner: "www-data"
-        group: "www-data"
+        owner: "caddy"
+        group: "caddy"
         recurse: yes
         state: directory
       loop:
@@ -85,12 +84,5 @@
         version: "v2.0.3"
     - name: Template config for tell.em0lar.de
       template:
-        src: "../../files/tell.em0lar.de/config.php.j2"
+        src: "files/tell.em0lar.de/config.php.j2"
         dest: "/var/www/em0lar.de/tell.em0lar.de/config.php"
-
-- hosts: web_reverseproxy
-  tags: web_reverseproxy
-  roles:
-    - powerdns-dynamicdns
-    - em0lar.traefik
-    - traefik-certificate-exporter

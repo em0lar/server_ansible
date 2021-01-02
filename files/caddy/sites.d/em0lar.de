@@ -1,0 +1,10 @@
+www.em0lar.de, www.emolar.de {
+  redir https://em0lar.de
+}
+em0lar.de, emolar.de {
+  root * /var/www/em0lar.de/em0lar.de
+  file_server
+
+  import hsts
+  import default_404
+}

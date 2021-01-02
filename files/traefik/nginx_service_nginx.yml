@@ -1,6 +1,0 @@
-http:
-  services:
-    nginx:
-      loadBalancer:
-        servers:
-          - url: "http://{{ web_nginx_hostname }}:80"

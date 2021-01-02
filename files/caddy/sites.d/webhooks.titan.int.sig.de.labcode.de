@@ -1,0 +1,13 @@
+webhooks.titan.int.sig.de.labcode.de {
+  root * /var/www/labcode.de/webhooks.titan.int.sig.de.labcode.de
+  file_server
+
+  php_fastcgi localhost:9000
+
+  basicauth / {
+    webhooks {{ lookup('passwordstore', 'infra/host/titan.int.sig.de.labcode.de/webhooks_basic_auth') | password_hash('bcrypt') | b64encode }}
+  }
+
+  import hsts
+  import default_404
+}

@@ -9,10 +9,6 @@ icinga2_zones:
     endpoints:
       - neso.het.fks.de.fahrplandatengarten.de
       - nereid.ovh.fra.de.fahrplandatengarten.de
-  dione.int.sig.de.labcode.de:
-    endpoints:
-      - dione.int.sig.de.labcode.de
-    parent: tethys.int.sig.de.labcode.de
   titan.int.sig.de.labcode.de:
     endpoints:
       - titan.int.sig.de.labcode.de
@@ -43,7 +39,6 @@ icinga2_endpoints:
     host: neso.het.fks.de.fahrplandatengarten.de
   nereid.ovh.fra.de.fahrplandatengarten.de:
     host: nereid.ovh.fra.de.fahrplandatengarten.de
-  dione.int.sig.de.labcode.de: {}
   titan.int.sig.de.labcode.de: {}
   rhea.int.sig.de.labcode.de: {}
   hyperion.int.sig.de.labcode.de: {}

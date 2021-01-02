@@ -1,6 +1,6 @@
 $ORIGIN leomaroni.de.
 @ 3600 IN SOA ns.leomaroni.de. noc.leomaroni.de. (
-    2020122903 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2020010203 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800        ; retry (30 min)
     604800     ; expire (168 day)
@@ -63,8 +63,8 @@ mail 3600 IN CNAME cetus.het.hel.fi.labcode.de.
 @ 3600 IN CAA 0 iodef "mailto:noc@labcode.de"
 
 ;; Pages
-@ 3600 IN ALIAS dione.int.sig.de.labcode.de.
-www 3600 IN CNAME dione.int.sig.de.labcode.de.
-cloud 3600 IN CNAME dione.int.sig.de.labcode.de.
-md 3600 IN CNAME dione.int.sig.de.labcode.de.
+@ 3600 IN ALIAS titan.int.sig.de.labcode.de.
+www 3600 IN CNAME titan.int.sig.de.labcode.de.
+cloud 3600 IN CNAME titan.int.sig.de.labcode.de.
+md 3600 IN CNAME titan.int.sig.de.labcode.de.
 openpgpkey 3600 IN CNAME wkd.keys.openpgp.org.

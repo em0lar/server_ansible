@@ -1,0 +1,5 @@
+auth.labcode.de, auth.em0lar.de, auth.emolar.de {
+  reverse_proxy http://phoebe.int.sig.de.labcode.de:8080
+
+  import hsts
+}
