@@ -88,3 +88,6 @@
 [submodule "roles/mailcow.mailcow"]
 	path = roles/mailcow.mailcow
 	url = https://github.com/mailcow/mailcow-ansiblerole
+[submodule "roles/n0emis.pdns_secondary"]
+	path = roles/n0emis.pdns_secondary
+	url = https://git.n0emis.eu/ansible_roles/pdns_secondary

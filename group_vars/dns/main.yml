@@ -8,11 +8,13 @@ powerdns_base_directory: "/var/lib/powerdns"
 pdns_install_repo: "{{ pdns_auth_powerdns_repo_44 }}"
 pdns_config:
   master: yes
-  allow-axfr-ips: "213.239.242.238,213.133.105.6,193.47.99.3,216.218.133.2,2001:470:600::2,127.0.0.1,::1"
+  allow-axfr-ips: "213.239.242.238,213.133.105.6,193.47.99.3,216.218.133.2,2001:470:600::2,127.0.0.1,::1,78.46.251.132,95.217.163.175,212.227.174.29,2a01:4f8:c0c:34bc::1,2a01:4f9:c010:7b6e::1,2001:8d8:1800:30e::1"
   dnsupdate: yes
   allow-dnsupdate-from: "fd8f:d15b:9f40::/48"
   expand-alias: yes
   resolver: "2606:4700:4700::1111,2606:4700:4700::1001,1.1.1.1,8.8.8.8"
+  slave: yes
+  superslave: yes
 
 powerdns_bind_dnssec_database_file: "{{ powerdns_base_directory }}/bind/dnssec-db.sqlite3"
 
@@ -41,13 +43,23 @@ pdns_backends_packages:
 
 pdns_bind_tsig_keys:
   - { name: "he.net-powerdns", secret: "{{ lookup('passwordstore', 'infra/service/dns/tsig/he.net-powerdns') }}", algorithm: "{{ lookup('passwordstore', 'infra/service/dns/tsig/he.net-powerdns subkey=algorithm') }}" }
+  - { name: "dnscluster", secret: "{{ lookup('passwordstore', 'infra/service/dns/tsig/dnscluster') }}", algorithm: "{{ lookup('passwordstore', 'infra/service/dns/tsig/dnscluster subkey=algorithm') }}" }
 
 pdns_bind_domains_tsig:
-  - { domain: lbcd.dev, key: "he.net-powerdns" }
-  - { domain: labcode.de, key: "he.net-powerdns" }
-  - { domain: em0lar.de, key: "he.net-powerdns" }
-  - { domain: emolar.de, key: "he.net-powerdns" }
-  - { domain: labcode.dev, key: "he.net-powerdns" }
-  - { domain: leomaroni.de, key: "he.net-powerdns" }
-  - { domain: opendatamap.net, key: "he.net-powerdns" }
+  - { domain: lbcd.dev, key: "dnscluster" }
+  - { domain: labcode.de, key: "dnscluster" }
+  - { domain: em0lar.de, key: "dnscluster" }
+  - { domain: emolar.de, key: "dnscluster" }
+  - { domain: labcode.dev, key: "dnscluster" }
+  - { domain: leomaroni.de, key: "dnscluster" }
+  - { domain: opendatamap.net, key: "dnscluster" }
 
+powerdns_database_file: /var/lib/powerdns/sqlite3.db
+powerdns_tsig_key_name: "dnscluster"
+powerdns_tsig_key: "{{ lookup('passwordstore', 'infra/service/dns/tsig/dnscluster') }}"
+powerdns_primary_ips:
+  - 78.46.251.132
+  - 2a01:4f8:c0c:34bc::1
+powerdns_secondary_names:
+  - ns.labcode.de
+powerdns_config_directory: "/etc/powerdns"

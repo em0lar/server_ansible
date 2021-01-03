@@ -7,8 +7,13 @@ powerdns_dynamicdns_tsig_key_name: "{{ ansible_hostname }}"
 powerdns_dynamicdns_soa_record_mname: "ns.labcode.de"
 powerdns_dynamicdns_soa_record_rname: "noc.labcode.de"
 powerdns_dynamicdns_nameservers:
-  - ns1.he.net
-  - ns2.he.net
-  - ns3.he.net
-  - ns4.he.net
-  - ns5.he.net
+  - ns.labcode.de
+  - ns1.n0emis.eu
+  - ns2.n0emis.eu
+  - ns3.n0emis.eu
+powerdns_dynamicdns_remote_tsig_key_name: "dnscluster"
+powerdns_dynamicdns_remote_tsig_key_algorithm: "{{ lookup('passwordstore', 'infra/service/dns/tsig/dnscluster subkey=algorithm') }}"
+powerdns_dynamicdns_remote_tsig_key_secret: "{{ lookup('passwordstore', 'infra/service/dns/tsig/dnscluster') }}"
+
+powerdns_dynamicdns_domainmetadata:
+  - { key: "TSIG-ALLOW-AXFR", value: "dnscluster" }
