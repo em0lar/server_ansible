@@ -16,9 +16,11 @@
 }
 
 (hsts) {
-  header {
-    Strict-Transport-Security max-age=31536000;
-  }
+  header Strict-Transport-Security max-age=31536000;
+}
+
+(cors) {
+    header Access-Control-Allow-Origin "{args.0}"
 }
 
 import sites.d/*

@@ -11,3 +11,10 @@ webhooks.titan.int.sig.de.labcode.de {
   import hsts
   import default_404
 }
+
+titan.int.sig.de.labcode.de {
+  basicauth /metrics {
+    metrics {{ lookup('passwordstore', 'infra/host/titan.int.sig.de.labcode.de/metrics_basic_auth') | password_hash('bcrypt') | b64encode }}
+  }
+  metrics /metrics
+}
