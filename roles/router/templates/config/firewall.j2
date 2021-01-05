@@ -185,13 +185,13 @@ config include
 {% for port in router_port_redirect %}
 
 config redirect
-	list proto '{{ port.protocol | default('tcp') }}'
 	option name '{{ port.name }} {{ port.src_network | default('wan') }}'
 	option src '{{ port.src_network | default('wan') }}'
 	option src_dport '{{ port.port }}'
 	option dest '{{ port.dest_network | default('lantethys') }}'
 	option dest_ip '{{ port.ip }}'
 	option target 'DNAT'
+	option proto '{{ port.protocol | default('tcp') }}'
 {% if port.reflection_src_external is defined %}
 	option reflection_src 'external'
 {% endif %}
@@ -207,4 +207,5 @@ config rule
 	option dest_port '{{ port.port }}'
 	option family 'ipv6'
 	option target 'ACCEPT'
+	option proto '{{ port.protocol | default('tcp') }}'
 {% endfor %}

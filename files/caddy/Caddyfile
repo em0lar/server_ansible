@@ -4,6 +4,12 @@
   }
   email noc@labcode.de
   acme_ca https://acme-v02.api.letsencrypt.org/directory
+
+  servers :443 {
+    protocol {
+      experimental_http3
+    }
+  }
 }
 
 (default_404) {

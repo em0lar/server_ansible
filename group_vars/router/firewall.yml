@@ -5,6 +5,7 @@ router_port_redirect:
     src_network: "wan"
     dest_network: "lantethys"
     ip: "10.151.4.4"
+    protocol: "all"
     reflection_nets:
       - lan
   - name: "titan https"
@@ -12,6 +13,7 @@ router_port_redirect:
     src_network: "wan"
     network: "lantethys"
     ip: "10.151.4.4"
+    protocol: "all"
     reflection_nets:
       - lan
   - name: "hyperion gitea ssh"
@@ -32,32 +34,23 @@ router_port_redirect:
       - lan
 
 router_port_allow_ipv6:
-  - name: "dione http ipv6"
-    port: "80"
-    src_network: "wan"
-    network: "lantethys"
-    ip: "2001:470:7285:2:3890:17ff:fe54:50de"
-  - name: "dione https ipv6"
-    port: "443"
-    src_network: "wan"
-    network: "lantethys"
-    ip: "2001:470:7285:2:3890:17ff:fe54:50de"
-  - name: "dione gitea ssh ipv6"
+  - name: "titan gitea ssh ipv6"
     port: "222"
     src_network: "wan"
     network: "lantethys"
-    ip: "2001:470:7285:2:3890:17ff:fe54:50de"
-
+    ip: "2001:470:7285:2:3caa:14ff:fea6:7c0b"
   - name: "titan http ipv6"
     port: "80"
     src_network: "wan"
     network: "lantethys"
     ip: "2001:470:7285:2:3caa:14ff:fea6:7c0b"
+    protocol: "all"
   - name: "titan https ipv6"
     port: "443"
     src_network: "wan"
     network: "lantethys"
     ip: "2001:470:7285:2:3caa:14ff:fea6:7c0b"
+    protocol: "all"
 
   - name: "helene ssh ipv6"
     port: "1880"
