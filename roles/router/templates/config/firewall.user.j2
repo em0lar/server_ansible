@@ -16,3 +16,5 @@ iptables -t nat -A zone_{{ port_reflection_net }}_prerouting -d $wan/32 -p tcp -
 {% endfor %}
 {% endif %}
 {% endfor %}
+
+ip6tables -t nat -A PREROUTING -d 2001:470:7285:2:3caa:14ff:fea6:7c0b/128 -p tcp -m tcp --dport 222 -j DNAT --to-destination 2001:470:7285:2:907d:a7ff:fe5d:a22e -m comment --comment "fw3_firewall_user: Port Forward 80 lan kallisto->sinope"

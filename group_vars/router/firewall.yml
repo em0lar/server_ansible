@@ -14,11 +14,11 @@ router_port_redirect:
     ip: "10.151.4.4"
     reflection_nets:
       - lan
-  - name: "dione gitea ssh"
+  - name: "hyperion gitea ssh"
     port: "222"
     src_network: "wan"
     network: "lantethys"
-    ip: "10.151.4.3"
+    ip: "10.151.4.6"
     reflection_nets:
       - lan
 

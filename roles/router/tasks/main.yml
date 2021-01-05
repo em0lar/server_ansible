@@ -16,6 +16,7 @@
     - curl
     - ip-full
     - python3
+    - kmod-ipt-nat6
   tags: packages
 
 - name: Install prometheus packages
