@@ -4,6 +4,7 @@
   roles:
     - powerdns-dynamicdns
     - borg-server
+    - b2-sync
   handlers:
     - name: reload sshd service
       systemd:

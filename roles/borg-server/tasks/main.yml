@@ -37,5 +37,5 @@
   authorized_key:
     user: "{{ backup_user.name }}"
     key: "{{ item.key }}"
-    key_options: 'command="cd {{ backup_pool_path }}/{{ item.host }};borg serve --restrict-to-path {{ backup_pool_path }}/{{ item.host }}",restrict'
+    key_options: 'command="cd {{ item.pool_path | default(backup_pool_path) }}/{{ item.host }};borg serve --restrict-to-path {{ item.pool_path | default(backup_pool_path) }}/{{ item.host }}",restrict'
   with_items: "{{ backup_auth_users }}"

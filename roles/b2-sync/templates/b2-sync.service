@@ -1,0 +1,8 @@
+[Unit]
+Description=B2 Sync {{ b2_sync_path }}
+Wants={{ b2_sync_service_name }}.timer
+
+[Service]
+Type=oneshot
+ExecStart={{ b2_sync_script_path }} -l {{ b2_sync_path }} -b {{ b2_sync_bucket_name }}
+

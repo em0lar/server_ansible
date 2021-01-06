@@ -1,0 +1,8 @@
+[Unit]
+Description=B2 Sync
+
+[Timer]
+OnCalendar=Sat *-*-* 05:00:00
+
+[Install]
+WantedBy=timers.target

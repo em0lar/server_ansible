@@ -1,0 +1,5 @@
+---
+b2_sync_configuration_path: "/root/.config/rclone/rclone.conf"
+b2_sync_last_run_date_file_path: "/tmp/last_b2_sync_{{ b2_sync_bucket_name }}"
+b2_sync_script_path: "/usr/local/bin/b2_sync.sh"
+b2_sync_service_name: "b2-sync"

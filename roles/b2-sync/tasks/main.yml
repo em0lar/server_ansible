@@ -1,0 +1,38 @@
+---
+- name: "Install rclone"
+  apt:
+    name: "rclone"
+    state: present
+
+- name: "Create directory for configuration"
+  file:
+    path: "{{ b2_sync_configuration_path | dirname }}"
+    state: directory
+    recurse: true
+
+- name: "Template configuration"
+  template:
+    src: "rclone.conf.j2"
+    dest: "{{ b2_sync_configuration_path }}"
+
+- name: "Template sync script"
+  template:
+    src: "sync.sh"
+    dest: "{{ b2_sync_script_path }}"
+    mode: "+x"
+
+- name: "Template systemd service"
+  template:
+    src: "b2-sync.service"
+    dest: "/etc/systemd/system/{{ b2_sync_service_name }}.service"
+
+- name: "Template systemd timer"
+  template:
+    src: "b2-sync.timer"
+    dest: "/etc/systemd/system/{{ b2_sync_service_name }}.timer"
+
+- name: Enable systemd timer
+  systemd:
+    name: "{{ b2_sync_service_name }}.timer"
+    enabled: true
+    state: started

@@ -1,6 +1,6 @@
 ---
 borg_encryption_passphrase: "{{ lookup('passwordstore', 'infra/host/{{ ansible_host }}/backup_encryption') }}"
-borg_repository: "backup@helene.int.sig.de.labcode.de:/mnt/backup/repos/{{ ansible_host }}"
+borg_repository: "backup@helene.int.sig.de.labcode.de:/mnt/backup/repos/synced/{{ ansible_host }}"
 borg_ssh_command: "ssh -o StrictHostKeyChecking=no -p 1880 -i /root/.ssh/backup_ssh_key "
 borgmatic_large_repo: false
 borg_source_directories:
