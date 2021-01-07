@@ -191,7 +191,9 @@ config redirect
 	option dest '{{ port.dest_network | default('lantethys') }}'
 	option dest_ip '{{ port.ip }}'
 	option target 'DNAT'
-	option proto '{{ port.protocol | default('tcp') }}'
+{% for protocol in (port.protocol | default('tcp')).split(' ') %}
+	list proto '{{ protocol }}'
+{% endfor %}
 {% if port.reflection_src_external is defined %}
 	option reflection_src 'external'
 {% endif %}

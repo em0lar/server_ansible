@@ -5,7 +5,7 @@ router_port_redirect:
     src_network: "wan"
     dest_network: "lantethys"
     ip: "10.151.4.4"
-    protocol: "all"
+    protocol: "tcp udp"
     reflection_nets:
       - lan
   - name: "titan https"
@@ -13,7 +13,7 @@ router_port_redirect:
     src_network: "wan"
     network: "lantethys"
     ip: "10.151.4.4"
-    protocol: "all"
+    protocol: "tcp udp"
     reflection_nets:
       - lan
   - name: "hyperion gitea ssh"
