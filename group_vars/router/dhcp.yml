@@ -72,7 +72,7 @@ router_static_hosts:
     mac: 3e:aa:14:a6:7c:0b
 
   - name: rhea
-    v4: 10.151.4.5z
+    v4: 10.151.4.5
     mac: 3a:3a:52:3b:db:5a
 
   - name: phoebe
