@@ -58,13 +58,9 @@
         recurse: yes
         state: directory
       loop:
+        - "em0lar.de/em0lar.de"
         - "labcode.de/labcode.de"
         - "labcode.de/webhooks.titan.int.sig.de.labcode.de"
-
-    - name: download em0lar.de from GitHub
-      git:
-        repo: "https://github.com/em0lar/em0lar.de.git"
-        dest: "/var/www/em0lar.de/em0lar.de"
 
     - name: download static.labcode.de from Gitea
       git:
