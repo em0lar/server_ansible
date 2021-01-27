@@ -12,7 +12,7 @@ pdns_config:
   dnsupdate: yes
   allow-dnsupdate-from: "fd8f:d15b:9f40::/48"
   expand-alias: yes
-  resolver: "2606:4700:4700::1111,2606:4700:4700::1001,1.1.1.1,8.8.8.8"
+  resolver: "::1"
   slave: yes
   superslave: yes
 
@@ -23,8 +23,9 @@ pdns_backends:
     config: "{{ powerdns_base_directory }}/bind/named.conf"
     check-interval: 60
     dnssec-db: "{{ powerdns_bind_dnssec_database_file }}"
-  'gsqlite3:dyndns':
+  gsqlite3:
     database: "{{ powerdns_base_directory }}/sqlite3.db"
+    dnssec: true
 
 pdns_backends_packages:
   bind: pdns-backend-bind

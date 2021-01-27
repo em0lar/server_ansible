@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2021010302 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2021012701 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -100,5 +100,6 @@ static 3600 IN CNAME titan.int.sig.de
 stun 3600 IN CNAME cetus.het.hel.fi
 turn 3600 IN CNAME cetus.het.hel.fi
 wifi 3600 IN CNAME titan.int.sig.de
+webmail 3600 IN CNAME titan.int.sig.de
 
 openpgpkey 3600 IN CNAME wkd.keys.openpgp.org.

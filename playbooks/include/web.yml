@@ -61,6 +61,7 @@
         - "em0lar.de/em0lar.de"
         - "labcode.de/labcode.de"
         - "labcode.de/webhooks.titan.int.sig.de.labcode.de"
+        - "labcode.de/webmail.labcode.de"
 
     - name: download static.labcode.de from Gitea
       git:
@@ -81,6 +82,14 @@
       template:
         src: "files/tell.em0lar.de/config.php.j2"
         dest: "/var/www/em0lar.de/tell.em0lar.de/config.php"
+
+    - name: extract rainloop release archive
+      unarchive:
+        src: "https://github.com/RainLoop/rainloop-webmail/releases/download/v{{ rainloop_version }}/rainloop-community-{{ rainloop_version }}.zip"
+        remote_src: yes
+        dest: "/var/www/labcode.de/webmail.labcode.de"
+        owner: "caddy"
+        group: "caddy"
 
 - hosts: web_caddy
   tags: web_caddy

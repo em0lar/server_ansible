@@ -8,6 +8,7 @@ mailcow__config_additional_san:
 mailcow__config_skip_clamd: "y"
 mailcow__config_skip_solr: "y"
 mailcow__config_use_watchdog: "y"
+mailcow__config_skip_sogo: y
 mailcow__config_watchdog_notify_email: "webmaster@labcode.de"
 mailcow__docker_compose_project_name: "mailcow"
 mailcow__redirect_http_to_https: true
