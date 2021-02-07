@@ -1,4 +1,4 @@
-webmail.labcode.de {
+webmail.labcode.de, webmail.em0lar.dev {
   root * /var/www/labcode.de/webmail.labcode.de
   file_server
 

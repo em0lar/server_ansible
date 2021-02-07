@@ -1,4 +1,8 @@
 auth.labcode.de, auth.em0lar.de, auth.emolar.de {
+  redir https://auth.em0lar.dev
+}
+
+auth.em0lar.dev {
   reverse_proxy http://phoebe.int.sig.de.labcode.de:8080
 
   import hsts

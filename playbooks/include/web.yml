@@ -65,7 +65,7 @@
 
     - name: download static.labcode.de from Gitea
       git:
-        repo: "https://git.labcode.dev/em0lar/static.labcode.de.git"
+        repo: "https://git.em0lar.dev/em0lar/static.labcode.de.git"
         dest: "/var/www/labcode.de/static.labcode.de"
 
     - name: Add update.php for webhooks.titan

@@ -1,4 +1,4 @@
-wifi.labcode.de, wifi.em0lar.de, wifi.emolar.de {
+wifi.labcode.de, wifi.em0lar.de, wifi.emolar.de, wifi.em0lar.dev {
   reverse_proxy http://phoebe.int.sig.de.labcode.de:40000
 
   import hsts

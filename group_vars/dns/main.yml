@@ -50,6 +50,7 @@ pdns_bind_domains_tsig:
   - { domain: lbcd.dev, key: "dnscluster" }
   - { domain: labcode.de, key: "dnscluster" }
   - { domain: em0lar.de, key: "dnscluster" }
+  - { domain: em0lar.dev, key: "dnscluster" }
   - { domain: emolar.de, key: "dnscluster" }
   - { domain: labcode.dev, key: "dnscluster" }
   - { domain: leomaroni.de, key: "dnscluster" }

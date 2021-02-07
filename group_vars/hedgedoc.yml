@@ -18,7 +18,8 @@ hedgedoc_allowed_origins: [
   "md.labcode.de",
   "md.leomaroni.de",
   "md.em0lar.de",
-  "md.emolar.de"
+  "md.emolar.de",
+  "md.em0lar.dev"
 ]
 hedgedoc_allow_email_login: false
 hedgedoc_allow_email_register: false
@@ -29,7 +30,7 @@ hedgedoc_additional_config: |
   "saml": {
     "issuer": "hedgedoc",
     "identifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-    "idpSsoUrl": "https://auth.labcode.de/auth/realms/labcode/protocol/saml",
+    "idpSsoUrl": "https://auth.em0lar.dev/auth/realms/em0lar/protocol/saml",
     "idpCert": "{{ hedgedoc_base_path + '/idp_cert.pem' }}",
     "attribute": {
       "email": "email",

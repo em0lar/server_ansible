@@ -9,7 +9,7 @@
 
 - name: Clone repository from GitHub
   git:
-    repo: "https://git.labcode.dev/em0lar/wifi_radius_manager.git"
+    repo: "https://git.em0lar.dev/em0lar/wifi_radius_manager.git"
     dest: "/opt/wifi_radius_manager"
     force: yes
     recursive: yes

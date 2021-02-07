@@ -1,4 +1,4 @@
-cloud.leomaroni.de, cloud.em0lar.de {
+cloud.leomaroni.de, cloud.em0lar.de, cloud.em0lar.dev {
 
   root * /var/www/leomaroni.de/cloud.leomaroni.de/nextcloud
   file_server

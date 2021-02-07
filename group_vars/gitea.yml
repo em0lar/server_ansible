@@ -13,9 +13,9 @@ gitea_db_name: "gitea"
 gitea_db_user: "{{ lookup('passwordstore', 'infra/db/gitea subkey=user') }}"
 gitea_db_password: "{{ lookup('passwordstore', 'infra/db/gitea') }}"
 
-gitea_http_domain: "git.labcode.dev"
+gitea_http_domain: "git.em0lar.dev"
 gitea_ssh_domain: "{{ gitea_http_domain }}"
-gitea_root_url: "https://git.labcode.dev/"
+gitea_root_url: "https://git.em0lar.dev/"
 
 gitea_http_listen: "0.0.0.0"
 gitea_http_port: 40000

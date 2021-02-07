@@ -1,5 +1,0 @@
-git.em0lar.de, git.emolar.de, git.labcode.de, git.labcode.dev {
-  reverse_proxy http://hyperion.int.sig.de.labcode.de:40000
-
-  import hsts
-}
