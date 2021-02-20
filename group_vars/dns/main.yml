@@ -55,6 +55,7 @@ pdns_bind_domains_tsig:
   - { domain: labcode.dev, key: "dnscluster" }
   - { domain: leomaroni.de, key: "dnscluster" }
   - { domain: opendatamap.net, key: "dnscluster" }
+  - { domain: lovelycuti.es, key: "dnscluster" }
 
 powerdns_database_file: /var/lib/powerdns/sqlite3.db
 powerdns_tsig_key_name: "dnscluster"
