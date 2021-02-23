@@ -39,7 +39,7 @@ janus.ion.rhr.de.labcode.de
 # ---------------------------
 
 [backup_relay]
-helene.int.sig.de.labcode.de
+helene.int.sig.de.labcode.de ansible_port=1880
 
 [backuponly]
 mars.het.nue.de.fahrplandatengarten.de
