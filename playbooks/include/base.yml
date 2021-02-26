@@ -50,3 +50,17 @@
       copy:
         content: ""
         dest: "/etc/motd"
+
+    - name: "Download terminfo file for alacritty"
+      get_url:
+        url: "https://raw.githubusercontent.com/alacritty/alacritty/master/extra/alacritty.info"
+        dest: "/tmp/alacritty.info"
+        mode: 0644
+
+    - name: "Install terminfo file for alacritty"
+      command: "tic -xe alacritty,alacritty-direct /tmp/alacritty.info"
+
+    - name: "Delete terminfo file for alacritty"
+      file:
+        path: "/tmp/alacritty.info"
+        state: absent
