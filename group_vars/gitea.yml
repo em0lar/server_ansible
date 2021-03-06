@@ -8,7 +8,7 @@ gitea_systemd_cap_net_bind_service: true
 gitea_theme_default: "arc-green"
 
 gitea_db_type: "postgres"
-gitea_db_host: "rhea.int.sig.de.labcode.de:5432"
+gitea_db_host: "rhea.lan.int.sig.de.em0lar.dev:5432"
 gitea_db_name: "gitea"
 gitea_db_user: "{{ lookup('passwordstore', 'infra/db/gitea subkey=user') }}"
 gitea_db_password: "{{ lookup('passwordstore', 'infra/db/gitea') }}"

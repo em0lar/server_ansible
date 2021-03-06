@@ -1,6 +1,6 @@
 $ORIGIN emolar.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2021010205 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2021030501 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -59,8 +59,8 @@ mail 3600 IN CNAME cetus.het.hel.fi.labcode.de.
 ;; Pages
 @ 3600 IN ALIAS dione.int.sig.de.labcode.de.
 www 3600 IN CNAME dione.int.sig.de.labcode.de.
-auth 3600 IN CNAME titan.int.sig.de.labcode.de.
-git 3600 IN CNAME titan.int.sig.de.labcode.de.
-md 3600 IN CNAME titan.int.sig.de.labcode.de.
+auth 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+git 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+md 3600 IN CNAME foros.int.sig.de.em0lar.dev.
 tell 3600 IN CNAME titan.int.sig.de.labcode.de.
 wifi 3600 IN CNAME titan.int.sig.de.labcode.de.

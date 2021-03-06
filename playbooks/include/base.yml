@@ -9,6 +9,10 @@
       systemd:
         name: systemd-journald.service
         state: restarted
+    - name: restart sshd
+      systemd:
+        name: sshd.service
+        state: restarted
   tasks:
     - name: create certificate-transfer user
       user:
@@ -64,3 +68,9 @@
       file:
         path: "/tmp/alacritty.info"
         state: absent
+    - name: Setup alternate SSH port
+      lineinfile:
+        dest: "/etc/ssh/sshd_config"
+        regexp: "^Port"
+        line: "Port 61337"
+      notify: "restart sshd"

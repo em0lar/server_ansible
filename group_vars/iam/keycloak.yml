@@ -1,5 +1,5 @@
 ---
-keycloak_postgresql_host: rhea.int.sig.de.labcode.de
+keycloak_postgresql_host: rhea.lan.int.sig.de.em0lar.dev
 keycloak_admin_password: "{{ lookup('passwordstore', 'infra/service/keycloak/admin') }}"
 keycloak_postgresql_username: "{{ lookup('passwordstore', 'infra/db/keycloak subkey=user') }}"
 keycloak_postgresql_password: "{{ lookup('passwordstore', 'infra/db/keycloak') }}"

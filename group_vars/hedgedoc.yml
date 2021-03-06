@@ -1,6 +1,6 @@
 ---
 nodejs_version: "12.x"
-hedgedoc_db_host: rhea.int.sig.de.labcode.de
+hedgedoc_db_host: rhea.lan.int.sig.de.em0lar.dev
 hedgedoc_db_password: "{{ lookup('passwordstore', 'infra/db/codimd') }}"
 hedgedoc_db_database: codimd
 hedgedoc_db_username: codimd

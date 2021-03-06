@@ -45,8 +45,8 @@
         repo: "deb https://packages.sury.org/php/ {{ ansible_distribution_release }} main"
         state: present
   roles:
-    - geerlingguy.php
-    - powerdns-dynamicdns
+          #    - geerlingguy.php
+          #    - powerdns-dynamicdns
     - nextcloud
     - element-web
   tasks:

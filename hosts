@@ -1,73 +1,75 @@
 [dns]
-cetus.het.hel.fi.labcode.de
+cetus.het.hel.fi.em0lar.dev
 
 [web_database]
-rhea.int.sig.de.labcode.de
+rhea.lan.int.sig.de.em0lar.dev
 
 [web_caddy]
-titan.int.sig.de.labcode.de
+titan.lan.int.sig.de.em0lar.dev
 
 [gitea]
-hyperion.int.sig.de.labcode.de
+hyperion.lan.int.sig.de.em0lar.dev
 
 [matrix]
-hyperion.int.sig.de.labcode.de
+hyperion.lan.int.sig.de.em0lar.dev
 
 [hedgedoc]
-hyperion.int.sig.de.labcode.de
+hyperion.lan.int.sig.de.em0lar.dev
 
 [pihole]
-dns.int.sig.de.labcode.de
+dns.lan.int.sig.de.em0lar.dev
 
 [mail]
-cetus.het.hel.fi.labcode.de
+cetus.het.hel.fi.em0lar.dev
 
 [coturn]
-cetus.het.hel.fi.labcode.de
+cetus.het.hel.fi.em0lar.dev
 
 [iam]
-phoebe.int.sig.de.labcode.de
+phoebe.lan.int.sig.de.em0lar.dev
 
 # ---------------------------
 
 [wireguard]
-janus.ion.rhr.de.labcode.de
+janus.ion.rhr.de.em0lar.dev
 
 [dn42]
-janus.ion.rhr.de.labcode.de
+janus.ion.rhr.de.em0lar.dev
 
 # ---------------------------
 
 [backup_relay]
-helene.int.sig.de.labcode.de ansible_port=1880
+helene.lan.int.sig.de.em0lar.dev ansible_port=1880
 
 [backuponly]
 mars.het.nue.de.fahrplandatengarten.de
 
 [openwrt]
-atlas.int.sig.de.labcode.de
+#atlas.lan.int.sig.de.em0lar.dev ansible_port=22
+10.151.0.1 ansible_port=22
 
 [router]
-atlas.int.sig.de.labcode.de
+#atlas.lan.int.sig.de.em0lar.dev ansible_port=22
+10.151.0.1 ansible_port=22
 
 [monitored]
-cetus.het.hel.fi.labcode.de
-janus.ion.rhr.de.labcode.de
-tethys.int.sig.de.labcode.de
+cetus.het.hel.fi.em0lar.dev
+janus.ion.rhr.de.em0lar.dev
+tethys.lan.int.sig.de.em0lar.dev
 
 [monitored:children]
 monitored_tethys
 
 [monitored_tethys]
-titan.int.sig.de.labcode.de
-rhea.int.sig.de.labcode.de
-hyperion.int.sig.de.labcode.de
-phoebe.int.sig.de.labcode.de
-dns.int.sig.de.labcode.de
-helene.int.sig.de.labcode.de
+titan.lan.int.sig.de.em0lar.dev
+rhea.lan.int.sig.de.em0lar.dev
+hyperion.lan.int.sig.de.em0lar.dev
+phoebe.lan.int.sig.de.em0lar.dev
+dns.lan.int.sig.de.em0lar.dev
+helene.lan.int.sig.de.em0lar.dev
 
 [notbase]
-tethys.int.sig.de.labcode.de
+tethys.lan.int.sig.de.em0lar.dev
 
 [wireguard_member]
-cetus.het.hel.fi.labcode.de
+cetus.het.hel.fi.em0lar.dev

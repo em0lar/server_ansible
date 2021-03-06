@@ -67,3 +67,16 @@ dn42_peers:
       pubkey: "LjXwHWJXz5koYyVsZ0UjSHr/zpxIUz/dPzucJSFSDUg="
       privkey: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/e1mo') }}"
     multiprotocol: yes
+  - name: "moecast"
+    as: "4242420604"
+    v4: "172.23.89.3"
+    v6: "fe80::604:3"
+    if:
+      v4: "172.20.209.1"
+      v6: "fe80::42:1"
+    wg:
+      port: "50604"
+      endpoint: "de1.dn42.cas7.moe:20215"
+      pubkey: "1dJpFLegKHKButkXqbv1KLLMTmS6KtFkWBz6GRo2uxE="
+      privkey: "{{ lookup('passwordstore', 'infra/host/' + ansible_fqdn + '/dn42/moecast') }}"
+    multiprotocol: yes

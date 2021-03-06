@@ -18,7 +18,7 @@ synapse_http_listener_enabled: false
 synapse_federation_listener_enabled: false
 synapse_metrics_enabled: true
 
-synapse_database_host: "rhea.int.sig.de.labcode.de"
+synapse_database_host: "rhea.lan.int.sig.de.em0lar.dev"
 synapse_database_user: "{{ lookup('passwordstore', 'infra/db/synapse subkey=user') }}"
 synapse_database_password: "{{ lookup('passwordstore', 'infra/db/synapse') }}"
 synapse_database_database: "synapse"

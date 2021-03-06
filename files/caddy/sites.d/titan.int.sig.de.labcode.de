@@ -5,7 +5,7 @@ webhooks.titan.int.sig.de.labcode.de {
   php_fastcgi localhost:9000
 
   basicauth / {
-    webhooks {{ lookup('passwordstore', 'infra/host/titan.int.sig.de.labcode.de/webhooks_basic_auth') | password_hash('bcrypt') | b64encode }}
+    webhooks JDJ5JDEyJElDSE9ua3c5TnguamJjMHVZMnBibC5WU3RoZmQyd1hWV2suTktGZTRtZC80WWFpbzIwNzJT
   }
 
   import hsts
@@ -14,7 +14,7 @@ webhooks.titan.int.sig.de.labcode.de {
 
 titan.int.sig.de.labcode.de {
   basicauth /metrics {
-    metrics {{ lookup('passwordstore', 'infra/host/titan.int.sig.de.labcode.de/metrics_basic_auth') | password_hash('bcrypt') | b64encode }}
+    metrics JDJ5JDEwJGR1V2NzMkdGVWFiSXU5SnQ2RnV1OU9iTFVrZS4vSHdjaDQxTEhSTzZOTlV6RWUzYk5FMDNL
   }
   metrics /metrics
 }

@@ -39,7 +39,6 @@ traefik_middlewares_hsts:
 
 traefik_metrics_prometheus:
   manualRouting: true
-web_nginx_hostname: "titan.int.sig.de.labcode.de"
-iam_hostname: "phoebe.int.sig.de.labcode.de"
-web_services_hostname: "hyperion.int.sig.de.labcode.de"
-drone_ci_hostname: "iapetus.int.sig.de.labcode.de"
+web_nginx_hostname: "titan.lan.int.sig.de.em0lar.dev"
+iam_hostname: "phoebe.lan.int.sig.de.em0lar.dev"
+web_services_hostname: "hyperion.lan.int.sig.de.em0lar.dev"

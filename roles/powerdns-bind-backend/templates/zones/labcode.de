@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2021012801 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2021030501 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -80,11 +80,11 @@ _token._dnswl 3600 IN TXT "gsu43vu129t6z89sn1ohdchk9pspmm94"
 ;; Pages/Services
 @ 300 IN ALIAS titan.int.sig.de.labcode.de.
 www 3600 IN ALIAS titan.int.sig.de.labcode.de.
-auth 3600 IN CNAME titan.int.sig.de
+auth 3600 IN CNAME foros.int.sig.de.em0lar.dev.
 cdn 3600 IN CNAME titan.int.sig.de
-git 3600 IN CNAME titan.int.sig.de
-matrix 3600 IN CNAME titan.int.sig.de
-md 3600 IN CNAME titan.int.sig.de
+git 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+matrix 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+md 3600 IN CNAME foros.int.sig.de.em0lar.dev.
 static 3600 IN CNAME titan.int.sig.de
 stun 3600 IN CNAME cetus.het.hel.fi
 turn 3600 IN CNAME cetus.het.hel.fi

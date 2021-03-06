@@ -23,3 +23,8 @@
   service:
     name: "prometheus-node-exporter-lua"
     state: restarted
+
+- name: restart bind
+  service:
+    name: "named"
+    state: restarted

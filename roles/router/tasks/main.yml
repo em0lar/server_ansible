@@ -17,6 +17,9 @@
     - ip-full
     - python3
     - kmod-ipt-nat6
+    - dnsmasq-full
+    - bind-server
+    - bind-libs
   tags: packages
 
 - name: Install prometheus packages

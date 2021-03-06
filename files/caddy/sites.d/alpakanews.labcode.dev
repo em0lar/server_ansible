@@ -1,5 +1,5 @@
 alpakanews.labcode.dev {
-  reverse_proxy http://alpakanews.int.sig.de.labcode.de:8000
+  reverse_proxy http://alpakanews.lan.int.sig.de.em0lar.dev:8000
 
   import hsts
 }

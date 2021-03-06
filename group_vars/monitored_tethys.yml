@@ -9,4 +9,4 @@ icinga2_zones:
 
 icinga2_endpoints:
   tethys.int.sig.de.labcode.de:
-    host: tethys.int.sig.de.labcode.de
+    host: 10.151.4.1

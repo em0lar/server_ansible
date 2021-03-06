@@ -1,5 +1,0 @@
-matrix.labcode.de {
-  reverse_proxy http://hyperion.int.sig.de.labcode.de:8008
-
-  import hsts
-}
