@@ -1,6 +1,6 @@
 $ORIGIN labcode.de.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2021030501 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2021031603 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     3600       ; refresh (1 hour)
     1800       ; retry (30 min)
     604800     ; expire (168 day)
@@ -28,8 +28,6 @@ janus.ion.rhr.de 3600 IN A 93.90.205.65
 janus.ion.rhr.de 3600 IN AAAA 2001:8d8:1800:30a::1
 
 ;;;; Home
-atlas.int.sig.de 60 IN CNAME titan.int.sig.de
-
 titan.int.sig.de 60 IN CNAME titan.int.sig.de.dyn
 *.titan.int.sig.de 3600 IN CNAME titan.int.sig.de
 
@@ -39,7 +37,7 @@ nas.home 3600 IN CNAME encladus.int.sig.de
 tethys.int.sig.de 3600 IN AAAA 2001:470:7285:2::2
 
 ; backwards compatibility for external DNS
-dione.int.sig.de 3600 IN CNAME titan.int.sig.de
+dione.int.sig.de 3600 IN CNAME foros.int.sig.de.em0lar.dev.
 
 ;; MAIL
 ;;;; MX
@@ -78,17 +76,17 @@ backupmx 3600 IN CNAME cetus.het.hel.fi
 _token._dnswl 3600 IN TXT "gsu43vu129t6z89sn1ohdchk9pspmm94"
 
 ;; Pages/Services
-@ 300 IN ALIAS titan.int.sig.de.labcode.de.
-www 3600 IN ALIAS titan.int.sig.de.labcode.de.
+@ 3600 IN ALIAS foros.int.sig.de.em0lar.dev.
+www 3600 IN ALIAS foros.int.sig.de.em0lar.dev.
 auth 3600 IN CNAME foros.int.sig.de.em0lar.dev.
-cdn 3600 IN CNAME titan.int.sig.de
-git 3600 IN CNAME foros.int.sig.de.em0lar.dev.
-matrix 3600 IN CNAME foros.int.sig.de.em0lar.dev.
-md 3600 IN CNAME foros.int.sig.de.em0lar.dev.
-static 3600 IN CNAME titan.int.sig.de
+cdn 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+git 3600 IN CNAME beryl.int.sig.de.em0lar.dev.
+matrix 3600 IN ALIAS beryl.int.sig.de.em0lar.dev.
+mautrix-telegram 3600 IN CNAME beryl.int.sig.de.em0lar.dev.
+md 3600 IN CNAME beryl.int.sig.de.em0lar.dev.
+static 3600 IN CNAME foros.int.sig.de.em0lar.dev.
 stun 3600 IN CNAME cetus.het.hel.fi
 turn 3600 IN CNAME cetus.het.hel.fi
-wifi 3600 IN CNAME titan.int.sig.de
-webmail 3600 IN CNAME titan.int.sig.de
+wifi 3600 IN CNAME foros.int.sig.de.em0lar.dev.
 
 openpgpkey 3600 IN CNAME wkd.keys.openpgp.org.

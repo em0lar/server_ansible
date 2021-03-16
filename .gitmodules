@@ -22,12 +22,6 @@
 [submodule "roles/geerlingguy.java"]
 	path = roles/geerlingguy.java
 	url = https://github.com/geerlingguy/ansible-role-java.git
-[submodule "roles/coredns-dynamicdns"]
-	path = roles/coredns-dynamicdns
-	url = https://git.labcode.dev/ansible_roles/coredns-dynamicdns.git
-[submodule "roles/thomas-maurice.gitea"]
-	path = roles/thomas-maurice.gitea
-	url = https://github.com/thomas-maurice/ansible-role-gitea
 [submodule "roles/borgbase.borgbackup"]
 	path = roles/borgbase.borgbackup
 	url = https://github.com/em0lar/ansible-role-borgbackup.git
@@ -58,33 +52,18 @@
 [submodule "roles/mrlesmithjr.openldap"]
 	path = roles/mrlesmithjr.openldap
 	url = https://github.com/mrlesmithjr/ansible-openldap
-[submodule "roles/geerlingguy.composer"]
-	path = roles/geerlingguy.composer
-	url = https://github.com/geerlingguy/ansible-role-composer.git
 [submodule "roles/n0emis.louketo"]
 	path = roles/n0emis.louketo
 	url = https://git.n0emis.eu/ansible_roles/louketo.git
 [submodule "roles/fahrplandatengarten.icinga"]
 	path = roles/fahrplandatengarten.icinga
 	url = https://github.com/FahrplanDatenGarten/ansible-role-icinga
-[submodule "roles/em0lar.hedgedoc"]
-	path = roles/em0lar.hedgedoc
-	url = https://git.labcode.dev/ansible_roles/hedgedoc.git
 [submodule "roles/ocha.yarn"]
 	path = roles/ocha.yarn
 	url = https://github.com/ocha/ansible-role-yarn.git
-[submodule "roles/em0lar.traefik"]
-	path = roles/em0lar.traefik
-	url = https://git.labcode.dev/ansible_roles/traefik-standalone.git
-[submodule "roles/n0emis.synapse"]
-	path = roles/n0emis.synapse
-	url = https://github.com/n0emis/ansible-role-synapse.git
 [submodule "roles/gantsign.oh-my-zsh"]
 	path = roles/gantsign.oh-my-zsh
 	url = https://github.com/gantsign/ansible-role-oh-my-zsh
-[submodule "roles/em0lar.keycloak-postgres"]
-	path = roles/em0lar.keycloak-postgres
-	url = https://github.com/em0lar/ansible-role-keycloak-postgres.git
 [submodule "roles/mailcow.mailcow"]
 	path = roles/mailcow.mailcow
 	url = https://github.com/mailcow/mailcow-ansiblerole

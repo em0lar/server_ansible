@@ -1,9 +1,0 @@
-webmail.labcode.de, webmail.em0lar.dev {
-  root * /var/www/labcode.de/webmail.labcode.de
-  file_server
-
-  php_fastcgi localhost:9000
-
-  import hsts
-  respond /data/* 403
-}

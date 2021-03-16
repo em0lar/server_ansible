@@ -1,7 +1,0 @@
-element.em0lar.de {
-  root * /var/www/em0lar.de/element.em0lar.de
-  file_server
-
-  import hsts
-  import default_404
-}

@@ -1,21 +1,6 @@
 [dns]
 cetus.het.hel.fi.em0lar.dev
 
-[web_database]
-rhea.lan.int.sig.de.em0lar.dev
-
-[web_caddy]
-titan.lan.int.sig.de.em0lar.dev
-
-[gitea]
-hyperion.lan.int.sig.de.em0lar.dev
-
-[matrix]
-hyperion.lan.int.sig.de.em0lar.dev
-
-[hedgedoc]
-hyperion.lan.int.sig.de.em0lar.dev
-
 [pihole]
 dns.lan.int.sig.de.em0lar.dev
 
@@ -61,7 +46,6 @@ tethys.lan.int.sig.de.em0lar.dev
 monitored_tethys
 
 [monitored_tethys]
-titan.lan.int.sig.de.em0lar.dev
 rhea.lan.int.sig.de.em0lar.dev
 hyperion.lan.int.sig.de.em0lar.dev
 phoebe.lan.int.sig.de.em0lar.dev

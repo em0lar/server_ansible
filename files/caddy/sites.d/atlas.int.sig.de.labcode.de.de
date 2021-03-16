@@ -1,8 +1,0 @@
-atlas.int.sig.de.labcode.de {
-  reverse_proxy /metrics http://atlas.lan.int.sig.de.em0lar.dev:9100
-
-  basicauth /metrics {
-    metrics JDJ5JDEwJDhZekhXNTVVLjluQi9pSnBvR25uMnVtY0FOR2JLZlBNRnBmRlNOdDBBVHRUR1NPMEp4dDg2
-  }
-
-}

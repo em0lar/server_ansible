@@ -1,9 +1,0 @@
-www.paulreisenberg.de {
-  redir https://paulreisenberg.de
-}
-paulreisenberg.de {
-  reverse_proxy http://10.151.4.14:80
-}
-kopftausch.paulchenpanther.de {
-  reverse_proxy http://10.151.4.14:8000
-}

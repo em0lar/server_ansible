@@ -1,9 +1,0 @@
-tell.em0lar.de, tell.emolar.de {
-  root * /var/www/em0lar.de/tell.em0lar.de
-  file_server
-
-  php_fastcgi localhost:9000
-
-  import hsts
-  import default_404
-}
