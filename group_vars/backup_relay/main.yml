@@ -2,14 +2,6 @@
 backup_cifs_mount_password: "{{ lookup('passwordstore', 'infra/host/encladus.int.sig.de/backup_user') }}"
 backup_pool_path: "/mnt/backup/repos/synced"
 backup_auth_users:
-  - host: rhea.int.sig.de.labcode.de
-    key: "{{ lookup('passwordstore', 'infra/host/rhea.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
-  - host: titan.int.sig.de.labcode.de
-    key: "{{ lookup('passwordstore', 'infra/host/titan.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
-  - host: hyperion.int.sig.de.labcode.de
-    key: "{{ lookup('passwordstore', 'infra/host/hyperion.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
-  - host: dns.int.sig.de.labcode.de
-    key: "{{ lookup('passwordstore', 'infra/host/dns.int.sig.de.labcode.de/backup_ssh_key subkey=public') }}"
   - host: cetus.het.hel.fi.labcode.de
     key: "{{ lookup('passwordstore', 'infra/host/cetus.het.hel.fi.labcode.de/backup_ssh_key subkey=public') }}"
   - host: phoebe.int.sig.de.labcode.de
@@ -22,6 +14,14 @@ backup_auth_users:
   - host: mimas.int.sig.de.em0lar.dev
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIhL7xVXxcTN6qX/trg6IoH4dftCnkZ/RRIii/5KNpIV em0lar@mimas"
     pool_path: "/mnt/backup/repos/unsynced"
+  - host: beryl.int.sig.de.em0lar.dev
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICa5+iHHAzn+5k/u3Y8frtoTTK1tYKo8YTRJzOVxaMdj backup@beryl"
+  - host: foros.int.sig.de.em0lar.dev
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAJburzi+OgeUAZ5EHcW0vU+Cuj7nSm6sLn/CWeLuhJv backup@foros"
+  - host: haku.pbb.wob.de.em0lar.dev
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDXunkOUc3sHoqk9nF9itU8YTz1D+ruvzxndDMdrKDia backup@haku"
+  - host: ladon.int.sig.de.em0lar.dev
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINkp8EVZ43eeenJlOGVciMkulk5LByQQ9gK3alZdQbeY backup@ladon"
   - host: mars.het.nue.de.fahrplandatengarten.de
     key: "{{ lookup('passwordstore', 'infra/host/mars.het.nue.de.fahrplandatengarten.de/backup_ssh_key subkey=public') }}"
 
