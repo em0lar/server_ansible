@@ -1,6 +1,0 @@
----
-- hosts: web_database
-  tags: web_database
-  roles:
-    - geerlingguy.postgresql
-    - undergreen.mongodb

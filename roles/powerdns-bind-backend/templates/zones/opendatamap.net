@@ -1,6 +1,6 @@
 $ORIGIN opendatamap.net.
 @ 3600 IN SOA ns.labcode.de. noc.labcode.de. (
-    2021010301 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
+    2021031601 ; serial ;;; UPDATE THIS AFTER EACH EDIT!
     1800       ; refresh (30 min)
     1800       ; retry (30 min)
     86400      ; expire (1 day)
@@ -39,9 +39,9 @@ mail 3600 IN CNAME cetus.het.hel.fi.labcode.de.
 @ 3600 IN CAA 0 iodef "mailto:noc@labcode.de"
 
 ;; Pages
-@ 3600 IN ALIAS titan.int.sig.de.labcode.de.
-www 3600 IN CNAME titan.int.sig.de.labcode.de.
-grafana 3600 IN CNAME titan.int.sig.de.labcode.de.
-kanban 3600 IN CNAME titan.int.sig.de.labcode.de.
-node-red 3600 IN CNAME titan.int.sig.de.labcode.de.
-rhein-sieg 3600 IN CNAME titan.int.sig.de.labcode.de.
+@ 3600 IN ALIAS foros.int.sig.de.em0lar.dev.
+www 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+grafana 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+kanban 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+node-red 3600 IN CNAME foros.int.sig.de.em0lar.dev.
+rhein-sieg 3600 IN CNAME foros.int.sig.de.em0lar.dev.

@@ -1,5 +1,0 @@
----
-- name: restart mautrix-telegram
-  systemd:
-    name: "mautrix-telegram"
-    state: restarted

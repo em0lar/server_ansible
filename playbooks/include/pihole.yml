@@ -1,6 +1,0 @@
----
-- name: pihole
-  tags: pihole
-  hosts: pihole
-  roles:
-    - pihole

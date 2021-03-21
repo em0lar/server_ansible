@@ -1,8 +1,0 @@
----
-- name: download opendatamap.net from GitHub
-  git:
-    repo: "https://github.com/OpenDataMap/opendatamap.net.git"
-    dest: "/var/www/opendatamap.net/opendatamap.net"
-    force: yes
-
-# TODO: Build OpenDataMap

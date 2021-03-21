@@ -11,7 +11,7 @@ config zone
 	option forward 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
-	option network 'wan henet'
+	option network 'wan'
 
 config zone
 	option name 'lan'
@@ -44,14 +44,6 @@ config zone
 	option forward 'ACCEPT'
 	list device 'wgserver'
 	option network 'wgserver'
-
-config zone
-	option name 'wgfdg'
-	option input 'ACCEPT'
-	option output 'ACCEPT'
-	option forward 'ACCEPT'
-	list device 'wgfdg'
-	option network 'wgfdg'
 
 config rule
 	option name 'Allow-DHCP-Renew'

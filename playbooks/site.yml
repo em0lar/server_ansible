@@ -14,11 +14,7 @@
 - import_playbook: include/mail.yml
   tags: mail
 
-- import_playbook: include/web.yml
-
 - import_playbook: include/iam.yml
-
-- import_playbook: include/pihole.yml
 
 - import_playbook: include/videoconferencing.yml
 

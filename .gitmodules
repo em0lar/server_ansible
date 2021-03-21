@@ -1,45 +1,27 @@
 [submodule "roles/docker"]
 	path = roles/docker
 	url = https://git.labcode.dev/ansible_roles/docker
-[submodule "roles/geerlingguy.nodejs"]
-	path = roles/geerlingguy.nodejs
-	url = https://github.com/geerlingguy/ansible-role-nodejs.git
 [submodule "roles/n0emis.base"]
 	path = roles/n0emis.base
 	url = https://github.com/n0emis/ansible-role-base.git
 [submodule "roles/jnv.unattended-upgrades"]
 	path = roles/jnv.unattended-upgrades
 	url = https://github.com/jnv/ansible-role-unattended-upgrades
-[submodule "roles/undergreen.mongodb"]
-	path = roles/undergreen.mongodb
-	url = https://github.com/UnderGreen/ansible-role-mongodb.git
 [submodule "roles/postgresql"]
 	path = roles/postgresql
 	url = https://git.labcode.dev/ansible_roles/postgresql.git
 [submodule "roles/cloudalchemy.coredns"]
 	path = roles/cloudalchemy.coredns
 	url = https://github.com/em0lar/ansible-coredns.git
-[submodule "roles/geerlingguy.java"]
-	path = roles/geerlingguy.java
-	url = https://github.com/geerlingguy/ansible-role-java.git
 [submodule "roles/borgbase.borgbackup"]
 	path = roles/borgbase.borgbackup
 	url = https://github.com/em0lar/ansible-role-borgbackup.git
-[submodule "roles/geerlingguy.postgresql"]
-	path = roles/geerlingguy.postgresql
-	url = https://github.com/geerlingguy/ansible-role-postgresql.git
 [submodule "roles/adamruzicka.wireguard"]
 	path = roles/adamruzicka.wireguard
 	url = https://github.com/n0emis/ansible-wireguard
 [submodule "roles/n0emis.dn42"]
 	path = roles/n0emis.dn42
 	url = https://git.n0emis.eu/ansible_roles/dn42.git
-[submodule "roles/geerlingguy.nginx"]
-	path = roles/geerlingguy.nginx
-	url = https://github.com/geerlingguy/ansible-role-nginx.git
-[submodule "roles/geerlingguy.php"]
-	path = roles/geerlingguy.php
-	url = https://github.com/geerlingguy/ansible-role-php.git
 [submodule "roles/systemli.coturn"]
 	path = roles/systemli.coturn
 	url = https://github.com/systemli/ansible-role-coturn
@@ -49,12 +31,6 @@
 [submodule "roles/powerdns-dynamicdns"]
 	path = roles/powerdns-dynamicdns
 	url = https://git.labcode.dev/ansible_roles/powerdns-dynamicdns.git
-[submodule "roles/mrlesmithjr.openldap"]
-	path = roles/mrlesmithjr.openldap
-	url = https://github.com/mrlesmithjr/ansible-openldap
-[submodule "roles/n0emis.louketo"]
-	path = roles/n0emis.louketo
-	url = https://git.n0emis.eu/ansible_roles/louketo.git
 [submodule "roles/fahrplandatengarten.icinga"]
 	path = roles/fahrplandatengarten.icinga
 	url = https://github.com/FahrplanDatenGarten/ansible-role-icinga

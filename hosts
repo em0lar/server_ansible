@@ -1,9 +1,6 @@
 [dns]
 cetus.het.hel.fi.em0lar.dev
 
-[pihole]
-dns.lan.int.sig.de.em0lar.dev
-
 [mail]
 cetus.het.hel.fi.em0lar.dev
 
@@ -46,10 +43,7 @@ tethys.lan.int.sig.de.em0lar.dev
 monitored_tethys
 
 [monitored_tethys]
-rhea.lan.int.sig.de.em0lar.dev
-hyperion.lan.int.sig.de.em0lar.dev
 phoebe.lan.int.sig.de.em0lar.dev
-dns.lan.int.sig.de.em0lar.dev
 helene.lan.int.sig.de.em0lar.dev
 
 [notbase]
