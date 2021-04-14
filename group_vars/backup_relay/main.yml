@@ -22,6 +22,10 @@ backup_auth_users:
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDXunkOUc3sHoqk9nF9itU8YTz1D+ruvzxndDMdrKDia backup@haku"
   - host: ladon.int.sig.de.em0lar.dev
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINkp8EVZ43eeenJlOGVciMkulk5LByQQ9gK3alZdQbeY backup@ladon"
+  - host: naiad.ncp.nue.de.em0lar.dev
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL8lo78J22v9FIAMJKad+6KpCTqrYmHrjiWoZYlYN7fP backup@naiad"
+  - host: myron.het.hel.fi.em0lar.dev
+    key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFe4lTjlL/nDxdjHGtYwNOSswLi6G6ndmjo4lOMCDzP8 backup@myron"
   - host: mars.het.nue.de.fahrplandatengarten.de
     key: "{{ lookup('passwordstore', 'infra/host/mars.het.nue.de.fahrplandatengarten.de/backup_ssh_key subkey=public') }}"
 
