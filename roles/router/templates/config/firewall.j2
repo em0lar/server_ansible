@@ -38,6 +38,14 @@ config zone
 	option network 'lanencladus'
 
 config zone
+	option name 'dmz'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'ACCEPT'
+	list device 'br-dmz'
+	option network 'dmz'
+
+config zone
 	option name 'wgserver'
 	option input 'ACCEPT'
 	option output 'ACCEPT'
@@ -157,6 +165,10 @@ config forwarding
 
 config forwarding
 	option src 'lanencladus'
+	option dest 'wan'
+
+config forwarding
+	option src 'dmz'
 	option dest 'wan'
 
 {% for src in router_firewall_forwarding %}
