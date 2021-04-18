@@ -1,6 +1,3 @@
-[dns]
-cetus.het.hel.fi.em0lar.dev
-
 [mail]
 cetus.het.hel.fi.em0lar.dev
 
@@ -21,7 +18,7 @@ janus.ion.rhr.de.em0lar.dev
 # ---------------------------
 
 [backup_relay]
-helene.lan.int.sig.de.em0lar.dev ansible_port=1880
+helene.lan.int.sig.de.em0lar.dev
 
 [backuponly]
 mars.het.nue.de.fahrplandatengarten.de

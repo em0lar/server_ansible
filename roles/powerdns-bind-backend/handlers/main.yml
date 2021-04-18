@@ -1,4 +1,0 @@
-- name: restart powerdns
-  systemd:
-    name: "pdns.service"
-    state: restarted

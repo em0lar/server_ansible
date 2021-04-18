@@ -1,7 +1,0 @@
----
-powerdns_dynamicdns_record_name: "helene.int.sig.de.dyn.labcode.de"
-
-icinga2_check_packages:
-  - fdgmon-group-essential
-  - fdgmon-check-last-run
-  - fdgmon-check-dyndns-record

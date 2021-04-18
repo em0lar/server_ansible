@@ -5,12 +5,6 @@
 - import_playbook: include/base.yml
   tags: base
 
-- import_playbook: include/dns.yml
-  tags: dns
-
-- import_playbook: include/wireguard.yml
-  tags: dns
-
 - import_playbook: include/mail.yml
   tags: mail
 

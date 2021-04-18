@@ -11,9 +11,9 @@ router_static_hosts:
     v4: 10.151.0.129
     mac: 80:2a:a8:93:df:57
 
-  - name: fritz
+  - name: ap-unifi-2
     v4: 10.151.0.130
-    mac: c0:25:06:5f:df:ae
+    mac: fc:ec:da:3a:24:67
 
   - name: ap-openwrt-2
     v4: 10.151.0.131
@@ -22,6 +22,10 @@ router_static_hosts:
   - name: hue
     v4: 10.151.1.2
     mac: 00:17:88:21:71:71
+
+  - name: printer
+    v4: 10.151.1.3
+    mac: 30:cd:a7:b4:dc:3f
 
   - name: sonos-kueche-l
     v4: 10.151.1.64

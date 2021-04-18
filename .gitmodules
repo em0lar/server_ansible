@@ -10,9 +10,6 @@
 [submodule "roles/postgresql"]
 	path = roles/postgresql
 	url = https://git.labcode.dev/ansible_roles/postgresql.git
-[submodule "roles/cloudalchemy.coredns"]
-	path = roles/cloudalchemy.coredns
-	url = https://github.com/em0lar/ansible-coredns.git
 [submodule "roles/borgbase.borgbackup"]
 	path = roles/borgbase.borgbackup
 	url = https://github.com/em0lar/ansible-role-borgbackup.git
@@ -25,12 +22,6 @@
 [submodule "roles/systemli.coturn"]
 	path = roles/systemli.coturn
 	url = https://github.com/systemli/ansible-role-coturn
-[submodule "roles/powerdns.pdns"]
-	path = roles/powerdns.pdns
-	url = https://github.com/PowerDNS/pdns-ansible.git
-[submodule "roles/powerdns-dynamicdns"]
-	path = roles/powerdns-dynamicdns
-	url = https://git.labcode.dev/ansible_roles/powerdns-dynamicdns.git
 [submodule "roles/fahrplandatengarten.icinga"]
 	path = roles/fahrplandatengarten.icinga
 	url = https://github.com/FahrplanDatenGarten/ansible-role-icinga
@@ -43,6 +34,3 @@
 [submodule "roles/mailcow.mailcow"]
 	path = roles/mailcow.mailcow
 	url = https://github.com/mailcow/mailcow-ansiblerole
-[submodule "roles/n0emis.pdns_secondary"]
-	path = roles/n0emis.pdns_secondary
-	url = https://git.n0emis.eu/ansible_roles/pdns_secondary
